@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18740A9B26F1E1EE004A5658 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18740A9A26F1E1EE004A5658 /* Login.storyboard */; };
 		C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */; };
 		C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */; };
 		C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5293026F1DFE200C4EB9F /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18740A9A26F1E1EE004A5658 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharePastExam.entitlements; sourceTree = "<group>"; };
 		C3E5292926F1DFE200C4EB9F /* SharePastExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePastExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,10 +59,12 @@
 		C3E5292B26F1DFE200C4EB9F /* SharePastExam */ = {
 			isa = PBXGroup;
 			children = (
+				18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */,
 				C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */,
 				C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */,
 				C3E5293026F1DFE200C4EB9F /* ViewController.swift */,
 				C3E5293226F1DFE200C4EB9F /* Main.storyboard */,
+				18740A9A26F1E1EE004A5658 /* Login.storyboard */,
 				C3E5293526F1DFE300C4EB9F /* Assets.xcassets */,
 				C3E5293726F1DFE300C4EB9F /* LaunchScreen.storyboard */,
 				C3E5293A26F1DFE300C4EB9F /* Info.plist */,
@@ -124,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18740A9B26F1E1EE004A5658 /* Login.storyboard in Resources */,
 				C3E5293926F1DFE300C4EB9F /* LaunchScreen.storyboard in Resources */,
 				C3E5293626F1DFE300C4EB9F /* Assets.xcassets in Resources */,
 				C3E5293426F1DFE200C4EB9F /* Main.storyboard in Resources */,
@@ -286,6 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SharePastExam/SharePastExam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN6MK267W8;
 				INFOPLIST_FILE = SharePastExam/Info.plist;
@@ -295,6 +302,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.takashi.SharePastExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SharePastExam/SharePastExam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN6MK267W8;
 				INFOPLIST_FILE = SharePastExam/Info.plist;
@@ -314,6 +323,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.takashi.SharePastExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
