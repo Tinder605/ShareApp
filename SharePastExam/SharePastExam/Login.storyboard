@@ -30,6 +30,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B75-Go-xGw">
                                                 <rect key="frame" x="0.0" y="37" width="280" height="55"/>
+                                                <color key="backgroundColor" red="0.95697256791580698" green="1" blue="0.91582913262814869" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="nyF-F9-uB7"/>
                                                 </constraints>
@@ -49,6 +50,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vw4-BM-jDa">
                                                 <rect key="frame" x="0.0" y="36.5" width="280" height="55"/>
+                                                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="ZZ1-Rb-CoZ"/>
                                                 </constraints>
@@ -68,6 +70,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ユーザー名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ksi-af-bbG">
                                                 <rect key="frame" x="0.0" y="37" width="280" height="55"/>
+                                                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="uUO-pm-tDy"/>
                                                 </constraints>
@@ -87,6 +90,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="学科" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Han-cw-bxo">
                                                 <rect key="frame" x="0.0" y="36.5" width="280" height="55"/>
+                                                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="x93-0C-wex"/>
                                                 </constraints>
@@ -159,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVp-4q-McF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-627.536231884058" y="-322.09821428571428"/>
+            <point key="canvasLocation" x="-1033" y="-322"/>
         </scene>
     </scenes>
     <resources>
