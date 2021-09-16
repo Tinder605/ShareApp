@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18740A9B26F1E1EE004A5658 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18740A9A26F1E1EE004A5658 /* Login.storyboard */; };
+		189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E465F26F3B500008DF27B /* UIColorExtension.swift */; };
 		C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */; };
 		C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */; };
 		C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5293026F1DFE200C4EB9F /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		18740A9A26F1E1EE004A5658 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharePastExam.entitlements; sourceTree = "<group>"; };
+		189E465F26F3B500008DF27B /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		C3E5292926F1DFE200C4EB9F /* SharePastExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharePastExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */,
 				C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */,
 				C3E5293026F1DFE200C4EB9F /* ViewController.swift */,
+				189E465F26F3B500008DF27B /* UIColorExtension.swift */,
 				C3E5293226F1DFE200C4EB9F /* Main.storyboard */,
 				18740A9A26F1E1EE004A5658 /* Login.storyboard */,
 				C3E5293526F1DFE300C4EB9F /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */,
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,
 				C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */,
+				189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
