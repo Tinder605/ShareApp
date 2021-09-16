@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="RIJ-Xm-gEG">
             <objects>
-                <viewController id="ick-SF-ifp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ick-SF-ifp" customClass="LoginViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="73X-zP-qXb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,6 +160,14 @@
                             <constraint firstItem="pHm-3d-HFi" firstAttribute="top" secondItem="wLV-GW-xSq" secondAttribute="bottom" constant="30" id="oIK-yh-dW5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="departmentTextField" destination="Han-cw-bxo" id="ceN-Ub-0BS"/>
+                        <outlet property="donthaveaccountButton" destination="zAC-hE-1Jc" id="d7J-S0-hSg"/>
+                        <outlet property="emailTextField" destination="B75-Go-xGw" id="Mcq-gT-jd8"/>
+                        <outlet property="loginButton" destination="3Bz-IM-LzC" id="zKh-bB-cat"/>
+                        <outlet property="passwordTextField" destination="Vw4-BM-jDa" id="aYd-iE-wGc"/>
+                        <outlet property="usernameTextField" destination="Ksi-af-bbG" id="7oM-y4-0GR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVp-4q-McF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
