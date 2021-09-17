@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
+class LoginViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,12 +24,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate,UIPickerViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loginButton.isEnabled = false
         loginButton.layer.cornerRadius = 10
         loginButton.isEnabled = false
         loginButton.backgroundColor = UIColor.rgb(red: 255, green: 242, blue: 255)
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        usernameTextField.delegate = self
+        departmentTextField.delegate = self
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -80,4 +83,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate,UIPickerViewDel
                // Dispose of any resources that can be recreated.
            }
     }
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        print("textField.text", textField.text)
+        let emailIsEmpty = emailTextField.text?.isEmpty ?? true
+        let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
+        let usernameIsEmpty = usernameTextField.text?.isEmpty ?? true
+        let departmentIsEmpty = departmentTextField.text?.isEmpty ?? true
+        
+        if emailIsEmpty || passwordIsEmpty || usernameIsEmpty || departmentIsEmpty {
+            loginButton.isEnabled = false
+        }else {
+            loginButton.isEnabled = true
+        }
+    }
+    
+}
+
 
