@@ -86,6 +86,15 @@ extension SelectionSubjectController{
         cell.textLabel?.text = "indexPath:row \(indexPath.row)"
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let window = SubTimesViewController()
+        window.subtitle = "indexPath:row \(indexPath.row)"
+        
+        let storyboard:UIStoryboard = UIStoryboard(name: "SubTimes", bundle: nil)
+        let nextView = storyboard.instantiateViewController(identifier: "secondMain")
+        print(window.subtitle!)
+        self.navigationController?.pushViewController(nextView, animated: true)
+    }
     
     
 }
