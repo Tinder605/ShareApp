@@ -30,6 +30,7 @@
                 <tabBarController id="JaK-Bv-YT1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wNS-FF-5pD">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -124,7 +125,7 @@
         <scene sceneID="tgY-vs-u2L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fY0-Jm-UYG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="lVL-hy-mbB"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="lVL-hy-mbB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bVM-kv-qve">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -143,7 +144,7 @@
         <scene sceneID="wQl-wa-KAh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCo-xA-gLW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="ibA-Fd-PfD"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="ibA-Fd-PfD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W80-I1-fBv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -162,7 +163,7 @@
         <scene sceneID="Gm9-vY-fQe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f1i-1l-EFA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Good" id="FAv-gJ-uej"/>
+                    <tabBarItem key="tabBarItem" title="Good" image="hand.thumbsup.fill" catalog="system" id="FAv-gJ-uej"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d1d-8p-x0j">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -181,7 +182,7 @@
         <scene sceneID="8aT-or-KVV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OKh-1j-hMH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" id="MCd-YK-UOY"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="MCd-YK-UOY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nyv-Np-dBh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -198,6 +199,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
