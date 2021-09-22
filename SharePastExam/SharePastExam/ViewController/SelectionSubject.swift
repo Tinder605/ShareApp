@@ -87,12 +87,11 @@ extension SelectionSubjectController{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let window = SubTimesViewController()
-        window.subtitle = "indexPath:row \(indexPath.row)"
+
         
         let storyboard:UIStoryboard = UIStoryboard(name: "SubTimes", bundle: nil)
-        let nextView = storyboard.instantiateViewController(identifier: "secondMain")
-        print(window.subtitle!)
+        let nextView = storyboard.instantiateViewController(identifier: "secondMain") as! SubTimesViewController
+        nextView.subtitle = "indexPath:row \(indexPath.row)"
         self.navigationController?.pushViewController(nextView, animated: true)
     }
     
