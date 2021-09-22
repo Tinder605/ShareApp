@@ -7,5 +7,7 @@ target 'SharePastExam' do
 
   # Pods for SharePastExam
 pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
 
 end

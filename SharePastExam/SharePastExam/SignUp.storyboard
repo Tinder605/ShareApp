@@ -122,6 +122,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedRegisterButton:" destination="YYH-uL-vz6" eventType="touchUpInside" id="VpO-we-xVq"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-xe-fiF">
                                 <rect key="frame" x="40.5" y="732" width="333" height="30"/>

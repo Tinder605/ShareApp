@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -15,6 +16,41 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var departmentTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var donthaveaccountButton: UIButton!
+    @IBAction func tappedRegisterButton(_ sender: Any) {
+        handleAuthToFirebase()
+        print("tappedRegisterButton")
+    }
+    
+    private func handleAuthToFirebase(){
+        guard let email = emailTextField.text else {return}
+        guard let password = passwordTextField.text else {return}
+        
+        Auth.auth().createUser(withEmail: email, password: password) {(res,err) in
+            if let err = err{
+                print("認証情報の保存に失敗しました。\(err)")
+                return
+            }
+           
+           
+        }
+    }
+    
+    private func addUserInfoFirestore(email: String){
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        guard let name = self.usernameTextField.text else {return}
+        
+        let docData = ["email": email, "name": name, "createdAt": Timestamp()] as [String : Any]
+        Firestore.firestore().collection("users").document(uid).setData(docData){(err) in
+            if let err = err {
+                print("Firestoreへの保存に失敗しました。\(err)")
+                return
+            }
+            
+            print("Firestoreへの保存に成功しました。")
+        }
+        
+    }
     
     var pickerView: UIPickerView = UIPickerView()
         let list = ["エネルギー循環化学科", "機械システム工学科", "情報システム工学科", "建築デザイン学科", "環境生命工学科", "英米学科", "中国学科", "国際関係学科", "経済学科", "経営情報学科", "比較文化学科","人間関係学科","法律学科","政策科学科","地域創生学群地域創生学類"]
