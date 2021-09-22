@@ -57,7 +57,10 @@ extension SubTimesViewController{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard:UIStoryboard = UIStoryboard(name: "ShareDocuments", bundle: nil)
+        let nextView = storyboard.instantiateViewController(identifier: "thirdMain") as! ShareDocumentsController
+        nextView.timestitile = subtimes[indexPath.row]
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
 }
