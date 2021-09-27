@@ -79,6 +79,10 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")
                 
+                let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                self.present(homeViewController, animated: true, completion: nil)
+                
             }
         }
     }
