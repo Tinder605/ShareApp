@@ -80,11 +80,6 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
                let toolbar = UIToolbar(frame: CGRectMake(0, 0, 0, 35))
         
-               let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(LoginViewController.done))
-               let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(LoginViewController.cancel))
-        
-               toolbar.setItems([cancelItem, doneItem], animated: true)
-
                self.departmentTextField.inputView = pickerView
                self.departmentTextField.inputAccessoryView = toolbar
            }

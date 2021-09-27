@@ -474,12 +474,14 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - PKHUD (5.3.0)
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
+  - PKHUD (~> 5.0)
 
 SPEC REPOS:
   trunk:
@@ -500,6 +502,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PKHUD
     - PromisesObjC
 
 SPEC CHECKSUMS:
@@ -520,8 +523,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: e73a8ae0471741adb1e1d19e2aa9aa6b306b5453
+PODFILE CHECKSUM: 9e048f8c63c52e39c72b58cd670d900a0528f429
 
 COCOAPODS: 1.11.0
