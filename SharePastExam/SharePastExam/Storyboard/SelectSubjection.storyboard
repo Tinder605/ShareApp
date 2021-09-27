@@ -12,7 +12,7 @@
         <!--講義名-->
         <scene sceneID="kK4-O2-vit">
             <objects>
-                <viewController id="2Zh-fq-yfc" customClass="ViewController" customModule="PracticeTableFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Zh-fq-yfc" customClass="SelectionSubjectionController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="CqY-mn-59d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yu-El-gcz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3187" y="-467"/>
+            <point key="canvasLocation" x="3186.9565217391305" y="-467.41071428571428"/>
         </scene>
         <!--Home-->
         <scene sceneID="qxW-3G-GWx">
@@ -113,7 +113,7 @@
         <!--Home-->
         <scene sceneID="yQm-Mq-xLj">
             <objects>
-                <viewController id="AYe-ti-ibw" customClass="HomeViewController" customModule="PracticeTableFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AYe-ti-ibw" customClass="HomeViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="2" contentMode="scaleToFill" id="vEC-9f-H80">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
