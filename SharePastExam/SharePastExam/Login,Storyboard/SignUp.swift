@@ -7,6 +7,21 @@
 
 import UIKit
 import Firebase
+import PKHUD
+
+struct User {
+    let name: String
+    let createdAt: Timestamp
+    let email: String
+    let department: String
+    
+    init(dic:[String: Any]) {
+        self.name = dic["name"] as! String
+        self.email = dic["email"] as! String
+        self.department = dic["department"] as! String
+        self.createdAt = dic["createdAt"] as! Timestamp
+    }
+}
 
 class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -20,6 +35,9 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         handleAuthToFirebase()
         print("tappedRegisterButton")
     }
+    @IBAction func tappedDontHaveAccountButton(_ sender: Any) {
+        print("tappedDontHaveAccountButton")
+    }
     
     private func handleAuthToFirebase(){
         guard let email = emailTextField.text else {return}
@@ -30,7 +48,7 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
                 print("認証情報の保存に失敗しました。\(err)")
                 return
             }
-           
+            self.addUserInfoFirestore(email: email)
            
         }
     }
@@ -39,17 +57,34 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         guard let name = self.usernameTextField.text else {return}
+        guard let department = self.departmentTextField.text else {return}
+            
         
-        let docData = ["email": email, "name": name, "createdAt": Timestamp()] as [String : Any]
-        Firestore.firestore().collection("users").document(uid).setData(docData){(err) in
+        
+        let docData = ["email": email, "name": name, "department":department, "createdAt": Timestamp()] as [String : Any]
+        let userRef = Firestore.firestore().collection("users").document(uid)
+        userRef.setData(docData){(err) in
             if let err = err {
                 print("Firestoreへの保存に失敗しました。\(err)")
                 return
             }
-            
             print("Firestoreへの保存に成功しました。")
+            
+            userRef.getDocument{(snapshot,err) in
+                if let err = err {
+                    print("ユーザー情報の取得に失敗しました。\(err)")
+                    return
+                }
+                guard let data = snapshot?.data() else {return}
+                let user = User.init(dic: data)
+                print("ユーザー情報の取得ができました。\(user.name)")
+                
+                let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+                let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                self.present(homeViewController, animated: true, completion: nil)
+                
+            }
         }
-        
     }
     
     var pickerView: UIPickerView = UIPickerView()
