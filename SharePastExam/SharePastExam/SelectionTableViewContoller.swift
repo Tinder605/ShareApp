@@ -7,34 +7,36 @@
 
 import UIKit
 
-class SelectionTableViewController: UIViewController {
+class SelectionTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var SelectSubjectionTable: UITableView!
     @IBOutlet weak var SubjectionTableHeight: NSLayoutConstraint!
     @IBOutlet weak var SubjectionTableWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var SelectSubjectionTableTop: NSLayoutConstraint!
     
-    
+    let cellID = "cellID"
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     
     override func viewWillLayoutSubviews() {
         SubjectionTableWidth.constant = width
-        
+        SubjectionTableHeight.constant = height
+        SelectSubjectionTableTop.constant = 0
     
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemGreen
         
-        SelectSubjectionTable.backgroundColor = .red
+        //SelectSubjectionTable.backgroundColor = .red
         
         SelectSubjectionTable.delegate = self
         SelectSubjectionTable.dataSource = self
-        
     }
+    
 }
 extension SelectionTableViewController{
 
@@ -78,8 +80,8 @@ extension SelectionTableViewController{
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SelectionSubjectCell
-            cell.textLabel?.text = "indexPath:row \(indexPath.row)"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "selectsubcell", for: indexPath)
+
             return cell
         }
         

@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="128" id="e8F-FY-Ytn"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F5A-q9-uyw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectsubcell" id="F5A-q9-uyw">
                                         <rect key="frame" x="0.0" y="44.5" width="240" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F5A-q9-uyw" id="Cje-aJ-ewO">
@@ -62,8 +62,9 @@
                     <navigationItem key="navigationItem" title="講義名" id="JO9-g8-83b"/>
                     <connections>
                         <outlet property="SelectSubjectionTable" destination="ZTX-cz-ti2" id="L5J-34-Nzm"/>
+                        <outlet property="SelectSubjectionTableTop" destination="IlH-IK-57n" id="XJh-3k-IrO"/>
                         <outlet property="SubjectionTableHeight" destination="e8F-FY-Ytn" id="zyo-gs-bQF"/>
-                        <outlet property="SubjectionTableWidth" destination="GaD-Ux-Y5N" id="pbM-za-xAC"/>
+                        <outlet property="SubjectionTableWidth" destination="GaD-Ux-Y5N" id="SUM-ns-qd5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIY-Gt-2Pb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -86,7 +87,7 @@
             </objects>
             <point key="canvasLocation" x="1360.8695652173915" y="987.72321428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--アカウント-->
         <scene sceneID="W7M-OB-4eu">
             <objects>
                 <viewController id="jAU-IG-LSh" sceneMemberID="viewController">
@@ -96,7 +97,7 @@
                         <viewLayoutGuide key="safeArea" id="faZ-qS-DfK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="M5k-b4-Y6F"/>
+                    <navigationItem key="navigationItem" title="アカウント" id="M5k-b4-Y6F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7P-cL-i0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,17 +124,18 @@
             </objects>
             <point key="canvasLocation" x="-478.26086956521743" y="309.375"/>
         </scene>
-        <!--Item-->
+        <!--HOME-->
         <scene sceneID="Plq-WF-PIl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qCH-gG-Cgw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="house.fill" catalog="system" id="L0h-1r-jX9">
+                    <tabBarItem key="tabBarItem" title="HOME" image="house.fill" catalog="system" selectedImage="house.fill" id="L0h-1r-jX9">
                         <color key="badgeColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yk3-j1-qNK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -144,11 +146,11 @@
             </objects>
             <point key="canvasLocation" x="450.72463768115944" y="-406.47321428571428"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="WE8-DI-atT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TpM-BV-ygD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="magnifyingglass" catalog="system" id="8pF-FJ-NHj">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="8pF-FJ-NHj">
                         <color key="badgeColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -165,11 +167,11 @@
             </objects>
             <point key="canvasLocation" x="450.72463768115944" y="308.70535714285711"/>
         </scene>
-        <!--Item-->
+        <!--Good-->
         <scene sceneID="0lL-TD-1i5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v6K-Bq-Tmf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="heart.fill" catalog="system" id="O6F-7i-H3S">
+                    <tabBarItem key="tabBarItem" title="Good" image="heart.fill" catalog="system" selectedImage="heart.fill" id="O6F-7i-H3S">
                         <color key="badgeColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -186,12 +188,12 @@
             </objects>
             <point key="canvasLocation" x="450.72463768115944" y="987.72321428571422"/>
         </scene>
-        <!--Item-->
+        <!--Account-->
         <scene sceneID="1BA-Re-JCm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YOA-nQ-uOT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="person.fill" catalog="system" id="dDp-EO-6gp">
-                        <color key="badgeColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" selectedImage="person.fill" id="dDp-EO-6gp">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ehQ-wO-fr5">

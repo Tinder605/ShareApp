@@ -62,15 +62,12 @@ class LoginViewController: UIViewController {
                 
             }
         }
-        
-        
     }
     
     private func presentToHomeViewController(user: User) {
         let storyBoard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         
-        loginViewController.user = user
         loginViewController.modalPresentationStyle = .fullScreen
         
         self.present(loginViewController, animated: true, completion: nil)
