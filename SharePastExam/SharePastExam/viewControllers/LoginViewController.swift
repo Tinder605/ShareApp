@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     @IBAction func tappedLoginButton(_ sender: Any) {
         HUD.show(.progress, onView: self.view)
         print("tapped Login Button")
-        HUD.show(.progress, onView: self.view)
+        
         guard let email = emailTextField.text else {return}
         print(email)
         guard  let password = passwordTextField.text else {return}
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
             }
             print("ログインに成功しました。")
             
-        guard let uid = Auth.auth().currentUser?.uid else {return}
+            guard let uid = res?.user.uid else {return}
             print(uid)
             
             let userRef = Firestore.firestore().collection("users").document(uid)
@@ -58,16 +58,19 @@ class LoginViewController: UIViewController {
                     self.presentToHomeViewController(user: user)
                     }
                 }
+                
+                
             }
         }
     }
     
     private func presentToHomeViewController(user: User) {
-        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-        homeViewController.modalPresentationStyle = .fullScreen
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         
-        self.present(homeViewController, animated: true, completion: nil)
+        loginViewController.modalPresentationStyle = .fullScreen
+        
+        self.present(loginViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -75,7 +78,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 10
         loginButton.isEnabled = false
-        loginButton.backgroundColor = UIColor.rgb(red: 223, green: 255, blue: 203)
+        loginButton.backgroundColor = UIColor.rgb(red: 255, green: 242, blue: 255)
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -93,13 +96,15 @@ extension LoginViewController: UITextFieldDelegate {
         if emailIsEmpty || passwordIsEmpty {
             
             loginButton.isEnabled = false
-            loginButton.backgroundColor = UIColor.rgb(red: 223, green: 255, blue: 203)
+            loginButton.backgroundColor = UIColor.rgb(red: 255, green: 237, blue: 250)
         }else {
             loginButton.isEnabled = true
-            loginButton.backgroundColor = UIColor.rgb(red: 0, green: 255, blue: 0)
+            loginButton.backgroundColor = UIColor.rgb(red: 255, green: 174, blue: 168)
         }
         
         print("textField.text:",textField.text)
     }
     
 }
+
+
