@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YYH-uL-vz6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -123,7 +123,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="tappedRegisterButton:" destination="YYH-uL-vz6" eventType="touchUpInside" id="VpO-we-xVq"/>
+                                    <action selector="tappedRegisterButton:" destination="YYH-uL-vz6" eventType="touchUpInside" id="Ckq-p8-0ah"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-xe-fiF">
@@ -141,7 +141,7 @@
                                             <color key="titleColor" red="0.65249910310000003" green="1" blue="0.52123542960000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedDontHaveAccountButton:" destination="YYH-uL-vz6" eventType="touchUpInside" id="zGw-65-iUd"/>
+                                            <action selector="tappedHaveAcountButton:" destination="YYH-uL-vz6" eventType="touchUpInside" id="DKZ-r5-1hp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -164,8 +164,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="HaveAcountButton" destination="4Gb-hZ-JaL" id="6kX-7A-ynM"/>
                         <outlet property="departmentTextField" destination="UKy-Lr-XXv" id="vjf-bF-son"/>
-                        <outlet property="donthaveaccountButton" destination="4Gb-hZ-JaL" id="qBE-sj-ogd"/>
                         <outlet property="emailTextField" destination="rlH-xJ-K1n" id="vux-Az-R4v"/>
                         <outlet property="passwordTextField" destination="zRB-qm-FhO" id="bEv-Nb-suX"/>
                         <outlet property="registerButton" destination="B3o-FN-GiG" id="EjX-fR-2jk"/>
