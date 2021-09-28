@@ -54,6 +54,11 @@ extension SelectionTableViewController{
         func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 50
         }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNonzeroMagnitude
+    }
+    
+        
         //ヘッダーの内容について
        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let label = UILabel()
