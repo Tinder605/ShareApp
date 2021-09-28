@@ -30,22 +30,30 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var departmentTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var donthaveaccountButton: UIButton!
+    @IBOutlet weak var HaveAcountButton: UIButton!
     @IBAction func tappedRegisterButton(_ sender: Any) {
         handleAuthToFirebase()
         print("tappedRegisterButton")
     }
-    @IBAction func tappedDontHaveAccountButton(_ sender: Any) {
-        print("tappedDontHaveAccountButton")
+    @IBAction func tappedHaveAcountButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController(homeViewController, animated: true)
+    //    self.present(homeViewController, animated: true, completion: nil)
     }
     
+    
     private func handleAuthToFirebase(){
+        HUD.show(.progress,onView: view)
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         
         Auth.auth().createUser(withEmail: email, password: password) {(res,err) in
             if let err = err{
                 print("認証情報の保存に失敗しました。\(err)")
+                HUD.hide { (_) in
+                    HUD.flash(.error,delay: 1)
+                }
                 return
             }
             self.addUserInfoFirestore(email: email)
@@ -66,6 +74,9 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         userRef.setData(docData){(err) in
             if let err = err {
                 print("Firestoreへの保存に失敗しました。\(err)")
+                HUD.hide { (_) in
+                    HUD.flash(.error,delay: 1)
+                }
                 return
             }
             print("Firestoreへの保存に成功しました。")
@@ -73,24 +84,37 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
             userRef.getDocument{(snapshot,err) in
                 if let err = err {
                     print("ユーザー情報の取得に失敗しました。\(err)")
+                    HUD.hide { (_) in
+                        HUD.flash(.error,delay: 1)
+                    }
                     return
                 }
                 guard let data = snapshot?.data() else {return}
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")
-                
-                let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-                let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
-                self.present(homeViewController, animated: true, completion: nil)
-                
+                HUD.hide { (_) in
+                    HUD.flash(.success, onView: self.view, delay: 1) { (_) in
+                        self.presentToHomeViewController()
+                    }
+                }
             }
         }
+    }
+    private func presentToHomeViewController(){
+        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        homeViewController.modalPresentationStyle = .fullScreen
+        
+        self.present(homeViewController, animated: true, completion: nil)
     }
     
     var pickerView: UIPickerView = UIPickerView()
         let list = ["エネルギー循環化学科", "機械システム工学科", "情報システム工学科", "建築デザイン学科", "環境生命工学科", "英米学科", "中国学科", "国際関係学科", "経済学科", "経営情報学科", "比較文化学科","人間関係学科","法律学科","政策科学科","地域創生学群地域創生学類"]
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +132,8 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector (showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
         
         pickerView.delegate = self
         pickerView.dataSource = self

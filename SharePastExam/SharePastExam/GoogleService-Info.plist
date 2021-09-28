@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>382074592860-v70g8dv5nq9nnnps33b9gguf61c4uujl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.382074592860-v70g8dv5nq9nnnps33b9gguf61c4uujl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCSWHV8cpLyffVhR0R49E3_NACRx6jlqGU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>382074592860</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.takashi.SharePastExam</string>
+	<key>PROJECT_ID</key>
+	<string>sharepastexamapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sharepastexamapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:382074592860:ios:7fb9909adc0e3f155b1099</string>
+</dict>
+</plist>
