@@ -60,6 +60,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="講義名" id="JO9-g8-83b"/>
+                    <connections>
+                        <outlet property="SelectSubjectionTable" destination="ZTX-cz-ti2" id="L5J-34-Nzm"/>
+                        <outlet property="SubjectionTableHeight" destination="e8F-FY-Ytn" id="zyo-gs-bQF"/>
+                        <outlet property="SubjectionTableWidth" destination="GaD-Ux-Y5N" id="pbM-za-xAC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIY-Gt-2Pb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
