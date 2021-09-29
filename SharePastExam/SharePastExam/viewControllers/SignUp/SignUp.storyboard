@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YYH-uL-vz6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dYM-Xf-1CW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="YQO-Eb-owe">
-                                <rect key="frame" x="67" y="167" width="280" height="430"/>
+                                <rect key="frame" x="67" y="211" width="280" height="430"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Oky-XK-DD1">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="92"/>
@@ -55,7 +55,7 @@
                                                     <constraint firstAttribute="height" constant="55" id="aDn-xU-E0b"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -106,13 +106,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBA-mL-aTz">
-                                <rect key="frame" x="135" y="89" width="144.5" height="48"/>
+                                <rect key="frame" x="135" y="133" width="144.5" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3o-FN-GiG">
-                                <rect key="frame" x="117" y="637" width="180" height="50"/>
+                                <rect key="frame" x="117" y="681" width="180" height="50"/>
                                 <color key="backgroundColor" red="0.65249910310000003" green="1" blue="0.52123542960000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="YWM-la-Pqe"/>
@@ -127,7 +127,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-xe-fiF">
-                                <rect key="frame" x="40.5" y="732" width="333" height="30"/>
+                                <rect key="frame" x="40.5" y="776" width="333" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="既にアカウントをお持ちの方は" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx6-xu-Uek">
                                         <rect key="frame" x="0.0" y="0.0" width="243" height="30"/>
@@ -163,6 +163,7 @@
                             <constraint firstItem="dcs-xe-fiF" firstAttribute="top" secondItem="B3o-FN-GiG" secondAttribute="bottom" constant="45" id="xxs-YT-xB6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NsP-Ov-E2C"/>
                     <connections>
                         <outlet property="HaveAcountButton" destination="4Gb-hZ-JaL" id="6kX-7A-ynM"/>
                         <outlet property="departmentTextField" destination="UKy-Lr-XXv" id="vjf-bF-son"/>
@@ -174,7 +175,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cm-wL-pMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1033" y="-322"/>
+            <point key="canvasLocation" x="-123.18840579710145" y="-322.09821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wjx-3k-gw6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dYM-Xf-1CW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M2O-zs-Czx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YYH-uL-vz6" kind="relationship" relationship="rootViewController" id="aH6-7S-FLd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBV-sd-oq4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1033.3333333333335" y="-322.09821428571428"/>
         </scene>
     </scenes>
     <resources>

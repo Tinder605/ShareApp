@@ -38,9 +38,10 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     @IBAction func tappedHaveAcountButton(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Login", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        homeViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(homeViewController, animated: true)
         print("tappedHaveAcountButton")
-    //    self.present(homeViewController, animated: true, completion: nil)
+       //self.present(homeViewController, animated: true, completion: nil)
     }
     
     private func next(_ sender: Any) {

@@ -66,8 +66,8 @@ class LoginViewController: UIViewController {
     }
     
     private func presentToHomeViewController(user: User) {
-        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
-        let loginViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
         
         loginViewController.modalPresentationStyle = .fullScreen
         
@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 10
         loginButton.isEnabled = false
-        loginButton.backgroundColor = UIColor.rgb(red: 255, green: 242, blue: 255)
+        loginButton.backgroundColor = UIColor.rgb(red: 223, green: 255, blue: 203)
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -97,10 +97,10 @@ extension LoginViewController: UITextFieldDelegate {
         if emailIsEmpty || passwordIsEmpty {
             
             loginButton.isEnabled = false
-            loginButton.backgroundColor = UIColor.rgb(red: 255, green: 237, blue: 250)
+            loginButton.backgroundColor = UIColor.rgb(red: 223, green: 255, blue: 203)
         }else {
             loginButton.isEnabled = true
-            loginButton.backgroundColor = UIColor.rgb(red: 255, green: 174, blue: 168)
+            loginButton.backgroundColor = UIColor.rgb(red: 0, green: 255, blue: 0)
         }
         
         print("textField.text:",textField.text)
