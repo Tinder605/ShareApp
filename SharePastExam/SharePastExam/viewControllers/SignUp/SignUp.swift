@@ -39,7 +39,15 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         let storyBoard = UIStoryboard(name: "Login", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         navigationController?.pushViewController(homeViewController, animated: true)
+        print("tappedHaveAcountButton")
     //    self.present(homeViewController, animated: true, completion: nil)
+    }
+    
+    private func next(_ sender: Any) {
+        
+        var tabbarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! UITabBarController
+        //tabbarController = 1
+        self.navigationController?.pushViewController(tabbarController, animated: true)
     }
     
     
@@ -91,7 +99,7 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
                 }
                 guard let data = snapshot?.data() else {return}
                 let user = User.init(dic: data)
-                print("ユーザー情報の取得ができました。\(user.name)")
+                print("ユーザー情報の取得ができました。\(user.department)")
                 HUD.hide { (_) in
                     HUD.flash(.success, onView: self.view, delay: 1) { (_) in
                         self.presentToHomeViewController()
@@ -101,8 +109,8 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     private func presentToHomeViewController(){
-        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
-        let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
         homeViewController.modalPresentationStyle = .fullScreen
         
         self.present(homeViewController, animated: true, completion: nil)

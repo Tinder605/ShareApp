@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var dontHaveAcountButton: UIButton!
+    
     @IBAction func tappedDontHaveAcountButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

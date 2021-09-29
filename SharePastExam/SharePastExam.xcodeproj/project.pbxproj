@@ -11,9 +11,11 @@
 		189E466426F53776008DF27B /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189E466326F53776008DF27B /* SignUp.storyboard */; };
 		189E466A26F53A73008DF27B /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E466926F53A73008DF27B /* SignUp.swift */; };
 		189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E468B2701ADA0008DF27B /* LoginViewController.swift */; };
+		189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 189E469E27040535008DF27B /* GoogleService-Info.plist */; };
+		189E46A1270405CF008DF27B /* GradeSubj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A0270405CF008DF27B /* GradeSubj.swift */; };
+		189E46A32704368C008DF27B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A22704368C008DF27B /* TabController.swift */; };
 		860F4C5F1D333D138C367DDD /* Pods_SharePastExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */; };
 		C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E6082701C4C4009D732A /* HomeViewController.swift */; };
-		C303E60B2701CA7A009D732A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C303E60A2701CA7A009D732A /* GoogleService-Info.plist */; };
 		C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */; };
 		C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3985FF427034E9D005CFAEC /* Login.storyboard */; };
 		C3985FF9270353B3005CFAEC /* SubTimes in Resources */ = {isa = PBXBuildFile; fileRef = C3985FF8270353B3005CFAEC /* SubTimes */; };
@@ -31,10 +33,12 @@
 		189E466326F53776008DF27B /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		189E466926F53A73008DF27B /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		189E468B2701ADA0008DF27B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		189E469E27040535008DF27B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		189E46A0270405CF008DF27B /* GradeSubj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSubj.swift; sourceTree = "<group>"; };
+		189E46A22704368C008DF27B /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePastExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		876ADFC8E7EEB707FB6F8403 /* Pods-SharePastExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.release.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.release.xcconfig"; sourceTree = "<group>"; };
 		C303E6082701C4C4009D732A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C303E60A2701CA7A009D732A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewContoller.swift; sourceTree = "<group>"; };
 		C3985FF427034E9D005CFAEC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C3985FF8270353B3005CFAEC /* SubTimes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SubTimes; sourceTree = "<group>"; };
@@ -137,9 +141,11 @@
 				C3E5293226F1DFE200C4EB9F /* Main.storyboard */,
 				C3E5293526F1DFE300C4EB9F /* Assets.xcassets */,
 				C3E5293A26F1DFE300C4EB9F /* Info.plist */,
-				C303E60A2701CA7A009D732A /* GoogleService-Info.plist */,
+				189E469E27040535008DF27B /* GoogleService-Info.plist */,
 				C303E6082701C4C4009D732A /* HomeViewController.swift */,
 				C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */,
+				189E46A0270405CF008DF27B /* GradeSubj.swift */,
+				189E46A22704368C008DF27B /* TabController.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -209,7 +215,7 @@
 				C3E5293426F1DFE200C4EB9F /* Main.storyboard in Resources */,
 				C3985FF9270353B3005CFAEC /* SubTimes in Resources */,
 				189E466426F53776008DF27B /* SignUp.storyboard in Resources */,
-				C303E60B2701CA7A009D732A /* GoogleService-Info.plist in Resources */,
+				189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +270,10 @@
 			files = (
 				189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */,
 				C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */,
+				189E46A1270405CF008DF27B /* GradeSubj.swift in Sources */,
 				189E466A26F53A73008DF27B /* SignUp.swift in Sources */,
 				C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */,
+				189E46A32704368C008DF27B /* TabController.swift in Sources */,
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,
 				C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */,
 				C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */,

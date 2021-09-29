@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l08-wu-RSa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l08-wu-RSa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         <scene sceneID="YpW-CX-dPL">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RnC-gX-d4S" customClass="HomeViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Cd-xW-MyQ">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="5Cd-xW-MyQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="CiL-SE-07W"/>
@@ -29,7 +28,7 @@
         <scene sceneID="wp6-BN-v1a">
             <objects>
                 <viewController id="O3f-Wo-Nl0" customClass="SelectionTableViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Uo-0Z-yDh">
+                    <view key="view" tag="2" contentMode="scaleToFill" id="2Uo-0Z-yDh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -42,7 +41,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectsubcell" id="F5A-q9-uyw">
-                                        <rect key="frame" x="0.0" y="44.5" width="240" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="240" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F5A-q9-uyw" id="Cje-aJ-ewO">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
@@ -75,7 +74,7 @@
         <scene sceneID="q3x-C9-DDG">
             <objects>
                 <viewController id="FjK-3p-099" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mya-fK-iBg">
+                    <view key="view" tag="3" contentMode="scaleToFill" id="mya-fK-iBg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="LJ2-pc-e8a"/>
@@ -91,7 +90,7 @@
         <scene sceneID="W7M-OB-4eu">
             <objects>
                 <viewController id="jAU-IG-LSh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="liQ-Yd-9tb">
+                    <view key="view" tag="4" contentMode="scaleToFill" id="liQ-Yd-9tb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="faZ-qS-DfK"/>
@@ -103,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="1360.8695652173915" y="1694.8660714285713"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="ZrU-5Z-4vp">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="l08-wu-RSa" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l08-wu-RSa" customClass="TabViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b8j-fP-Z20">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
