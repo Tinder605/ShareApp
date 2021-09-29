@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
                 return
                 }
                 guard let data = snapshot?.data() else {return}
-                print(data)
+                print(data["name"].debugDescription)
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")
                 HUD.hide{ (_) in
@@ -59,8 +59,6 @@ class LoginViewController: UIViewController {
                     self.presentToHomeViewController(user: user)
                     }
                 }
-                
-                
             }
         }
     }

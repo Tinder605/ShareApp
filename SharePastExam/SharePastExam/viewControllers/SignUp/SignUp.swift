@@ -114,6 +114,8 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         let homeViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
         homeViewController.modalPresentationStyle = .fullScreen
         
+        let nextViewController = storyboard?.instantiateViewController(identifier: "TabViewController") as! TabViewController
+        
         self.present(homeViewController, animated: true, completion: nil)
     }
     
