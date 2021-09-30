@@ -13,7 +13,7 @@ import Firebase
 
 
 class HomeViewController: UIViewController {
-    var department:String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
