@@ -13,6 +13,7 @@
 		189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E468B2701ADA0008DF27B /* LoginViewController.swift */; };
 		189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 189E469E27040535008DF27B /* GoogleService-Info.plist */; };
 		189E46A32704368C008DF27B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A22704368C008DF27B /* TabController.swift */; };
+		189E46A72706CC86008DF27B /* SubList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A62706CC86008DF27B /* SubList.swift */; };
 		860F4C5F1D333D138C367DDD /* Pods_SharePastExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */; };
 		C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E6082701C4C4009D732A /* HomeViewController.swift */; };
 		C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */; };
@@ -35,6 +36,7 @@
 		189E468B2701ADA0008DF27B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		189E469E27040535008DF27B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		189E46A22704368C008DF27B /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		189E46A62706CC86008DF27B /* SubList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubList.swift; sourceTree = "<group>"; };
 		6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePastExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		876ADFC8E7EEB707FB6F8403 /* Pods-SharePastExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.release.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.release.xcconfig"; sourceTree = "<group>"; };
 		C303E6082701C4C4009D732A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				189E469E27040535008DF27B /* GoogleService-Info.plist */,
 				C303E6082701C4C4009D732A /* HomeViewController.swift */,
 				189E46A22704368C008DF27B /* TabController.swift */,
+				189E46A62706CC86008DF27B /* SubList.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */,
 				C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */,
+				189E46A72706CC86008DF27B /* SubList.swift in Sources */,
 				189E466A26F53A73008DF27B /* SignUp.swift in Sources */,
 				C3F23BF92705ABA300899173 /* SelectSubjectionTableViewCell.swift in Sources */,
 				C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */,
