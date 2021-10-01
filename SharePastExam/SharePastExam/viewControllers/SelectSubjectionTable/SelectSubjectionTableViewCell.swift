@@ -7,10 +7,13 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class SelectTableViewCell: UITableViewCell {
     
-    var department:String = ""
+    
+    
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
