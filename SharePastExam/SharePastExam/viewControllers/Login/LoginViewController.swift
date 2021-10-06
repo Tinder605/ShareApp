@@ -68,8 +68,8 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func getSubjeciton(department:String) ->[[String]]{
-        var list:[[String]] = []
+    private func getSubjeciton(department:String) ->[String:[String]]{
+        var list:[String:[String]] = [:]
         switch department {
         case "情報システム工学科":
             list = Subjecsion.init().list_jouhou
@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
         case "環境生命工学科":
             list = Subjecsion.init().list_seimei
         default:
-            list = []
+            list = [:]
         }
         return list
     }

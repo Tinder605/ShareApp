@@ -20,9 +20,8 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     let cellID = "cellID"
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
-    
-    var subjection:[[String]] = []/////強化を入れるための変数
-
+    let subjection = UserDefaults.standard.dictionary(forKey: "sub") as! [String:[String]]///強化を入れるための変数
+    let department = UserDefaults.standard.string(forKey: "dep") as! String
     
     override func viewWillLayoutSubviews() {
         SubjectionTableWidth.constant = width
@@ -37,8 +36,6 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         view.backgroundColor = .systemGreen
         
         //SelectSubjectionTable.backgroundColor = .red
-        subjection = UserDefaults.standard.stringArray(forKey: "sub") as! [[String]]
-        let department = UserDefaults.standard.string(forKey: "dep")
         print(subjection)
         print(department)
         
@@ -104,7 +101,8 @@ extension SelectionTableViewController{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! SelectTableViewCell
             
-            cell.textLabel?.text = subjection[indexPath.section][indexPath.row]
+            cell.textLabel?.text = "\(indexPath.row)"
+            //subjection[indexPath.section][indexPath.row]
             
             
         
