@@ -65,7 +65,13 @@ class LoginViewController: UIViewController {
     
     private func presentToHomeViewController(user: User) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        profileViewController.user = user
+        
         let loginViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
+        
+        
         
         loginViewController.modalPresentationStyle = .fullScreen
         

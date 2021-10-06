@@ -103,16 +103,19 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
                 print("ユーザー情報の取得ができました。\(user.department)")
                 HUD.hide { (_) in
                     HUD.flash(.success, onView: self.view, delay: 1) { (_) in
-                        self.presentToHomeViewController()
+                        self.presentToHomeViewController(user: user)
                     }
                 }
             }
         }
     }
-    private func presentToHomeViewController(){
+    private func presentToHomeViewController(user: User){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
         homeViewController.modalPresentationStyle = .fullScreen
+        
+        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        profileViewController.user = user
         
         let nextViewController = storyboard?.instantiateViewController(identifier: "TabViewController") as! TabViewController
         
