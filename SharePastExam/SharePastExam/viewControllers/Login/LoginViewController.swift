@@ -52,6 +52,11 @@ class LoginViewController: UIViewController {
                 }
                 guard let data = snapshot?.data() else {return}
                 print(data["name"].debugDescription)
+                let userdep = data["department"] as! String
+                UserDefaults.standard.set(userdep, forKey: "dep")
+                let usersub = self.getSubjeciton(department: userdep)
+                UserDefaults.standard.set(usersub, forKey: "sub")
+                
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")
                 HUD.hide{ (_) in
@@ -61,6 +66,25 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func getSubjeciton(department:String) ->[[String]]{
+        var list:[[String]] = []
+        switch department {
+        case "情報システム工学科":
+            list = Subjecsion.init().list_jouhou
+        case "エネルギー循環化学科":
+            list = Subjecsion.init().list_ene
+        case "機械システム工学科":
+            list = Subjecsion.init().list_kikai
+        case "建築デザイン学科":
+            list = Subjecsion.init().list_kennchiku
+        case "環境生命工学科":
+            list = Subjecsion.init().list_seimei
+        default:
+            list = []
+        }
+        return list
     }
     
     private func presentToHomeViewController(user: User) {

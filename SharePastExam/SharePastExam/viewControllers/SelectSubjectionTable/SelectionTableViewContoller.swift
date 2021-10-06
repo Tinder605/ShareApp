@@ -21,8 +21,7 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     
-    var department :String  = ""
-    var departments:[[String]] = []/////強化を入れるための変数
+    var subjection:[[String]] = []/////強化を入れるための変数
 
     
     override func viewWillLayoutSubviews() {
@@ -38,7 +37,11 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         view.backgroundColor = .systemGreen
         
         //SelectSubjectionTable.backgroundColor = .red
-        self.getDepartment()
+        subjection = UserDefaults.standard.stringArray(forKey: "sub") as! [[String]]
+        let department = UserDefaults.standard.string(forKey: "dep")
+        print(subjection)
+        print(department)
+        
         SelectSubjectionTable.isScrollEnabled = true
         SelectSubjectionTable.register(SelectTableViewCell.self, forCellReuseIdentifier: cellID)
         
@@ -47,89 +50,15 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         SelectSubjectionTable.dataSource = self
     }
     
-    private func getDepartment(){
-        let uid = Auth.auth().currentUser!.uid
-        
-        let docRef = Firestore.firestore().collection("users").document(uid)
-        docRef.getDocument { (snapshot, error) in
-            if let err = error {
-                return
-            } else {
-                guard let data = snapshot?.data() else {return}
-                self.department = data["department"] as! String
-                print(self.department.description)
-                ///分類のメソッド(引数：self.department)///
-                self.GetSubjection(specilization:self.department.description)
-            }
-        }
-    }
-    
-    private func GetSubjection(specilization:String) ->Array<[String]>{
-        
-    let department = specilization
-        var list:[[String]] = []
-    
-        switch department {
-        case "エネルギー循環化学科":
-            let list = Subjecsion()
-            list.list_ene
-        case "機械システム工学科":
-            let list = Subjecsion()
-            list.list_kikai
-        case "情報システム工学科":
-            let list = Subjecsion()
-            list.list_jouhou
-        case "建築デザイン学科":
-            let list = Subjecsion()
-            list.list_kennchiku
-            
-        case "環境生命工学科":
-            let list = Subjecsion()
-            list.list_seimei
-        case "英米学科":
-            let list = Subjecsion()
-            list.list_eibei
-        case "中国学科":
-            let list = Subjecsion()
-            list.list_cyugoku
-        case "国際関係学科":
-            let list = Subjecsion()
-            list.list_kokkan
-        case "経済学科":
-            let list = Subjecsion()
-            list.list_keizai
-        case "経営情報学科":
-            let list = Subjecsion()
-            list.list_eijou
-        case "比較文化学科":
-            let list = Subjecsion()
-            list.list_hibun
-        case "人間関係学科":
-            let list = Subjecsion()
-            list.list_jinkan
-        case "法律学科":
-            let list = Subjecsion()
-            list.list_houritu
-        case "政策科学科":
-            let list = Subjecsion()
-            list.list_seisaku
-        default:
-            let list = Subjecsion()
-            list.list_chiikisousei
-    }
-        print(list.count)
-        departments = list
-        print(departments)
-    
-    return list
-  }
+
+
     
 }
 
 extension SelectionTableViewController{
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return departments.count
+            return 3
         }
         func numberOfSections(in tableView: UITableView) -> Int {
             return 1
@@ -174,8 +103,8 @@ extension SelectionTableViewController{
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! SelectTableViewCell
-            print(departments[1])
-            cell.textLabel?.text = "\(departments[indexPath.row])"
+            
+            cell.textLabel?.text = subjection[indexPath.section][indexPath.row]
             
             
         
