@@ -20,23 +20,35 @@ class ProfileViewController: UIViewController {
     
     
     
+    
     @IBOutlet weak var usernameTextField: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var goodCount: UILabel!
-    @IBOutlet weak var profileMassage: UILabel!
+    @IBOutlet weak var profileMessage: UILabel!
     @IBOutlet weak var changeProfile: UIButton!
-    @IBOutlet weak var tappedChangeProfile: UIButton!
+    @IBAction func tappedChangeAcountButton(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "RenewProfile", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier: "changeProfileViewController") as! changeProfileViewController
+        homeViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(homeViewController, animated: true)
+        print("tappedHaveAcountButton")
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let user = user{
-            usernameTextField.text = user.name
-        }
         
-        changeProfile.layer.cornerRadius = 10
+        let username = UserDefaults.standard.string(forKey: "name") as! String
+        usernameTextField.text = username
+        
+        let useremail = UserDefaults.standard.string(forKey: "email") as! String
+        navigationItem.title = useremail
+        
+        changeProfile.layer.cornerRadius = 5
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 123, height: 123)
         collectionView.collectionViewLayout = layout

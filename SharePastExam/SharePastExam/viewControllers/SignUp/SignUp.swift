@@ -104,6 +104,7 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
                 HUD.hide { (_) in
                     HUD.flash(.success, onView: self.view, delay: 1) { (_) in
                         self.presentToHomeViewController(user: user)
+                        self.presentToProfileViewController(user: user)
                     }
                 }
             }
@@ -113,13 +114,20 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
         homeViewController.modalPresentationStyle = .fullScreen
-        
-        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
-        profileViewController.user = user
-        
+    
         let nextViewController = storyboard?.instantiateViewController(identifier: "TabViewController") as! TabViewController
         
         self.present(homeViewController, animated: true, completion: nil)
+    }
+    
+    private func presentToProfileViewController(user: User){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        
+        profileViewController.user = user
+        
+        self.present(profileViewController, animated: true, completion: nil)
     }
     
     var pickerView: UIPickerView = UIPickerView()
