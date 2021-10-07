@@ -22,6 +22,7 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     let height = UIScreen.main.bounds.height
     let subjection = UserDefaults.standard.dictionary(forKey: "sub") as! [String:[String]]///強化を入れるための変数
     let department = UserDefaults.standard.string(forKey: "dep") as! String
+    var selectionsub:String = ""
     
     override func viewWillLayoutSubviews() {
         SubjectionTableWidth.constant = width
@@ -36,7 +37,9 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         view.backgroundColor = .systemGreen
         
         //SelectSubjectionTable.backgroundColor = .red
-        print(subjection)
+        print(subjection["一年生"] as! [String])
+        let eachsub = subjection["一年生"] as! [String]
+        print(subjection.keys)
         print(department)
         
         SelectSubjectionTable.isScrollEnabled = true
@@ -55,10 +58,24 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
 extension SelectionTableViewController{
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 3
+            var eachsub:[String] = []
+            //var subcount :Int = 0
+            switch section {
+            case 0:
+                eachsub = subjection["一年生"] as! [String]
+            case 1:
+                eachsub = subjection["二年生"] as! [String]
+            case 2:
+                eachsub = subjection["三年生"] as! [String]
+            default:
+                eachsub = []
+            }
+            
+            return eachsub.count
         }
+    
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
+            return subjection.count
         }
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 50
@@ -101,14 +118,33 @@ extension SelectionTableViewController{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! SelectTableViewCell
             
-            cell.textLabel?.text = "\(indexPath.row)"
-            //subjection[indexPath.section][indexPath.row]
-            
-            
         
+            var allsub :[String] = []
+            switch indexPath.section {
+            case 0:
+                allsub = subjection["一年生"] as! [String]
+                cell.textLabel?.text = allsub[indexPath.row]
+                selectionsub = allsub[indexPath.row]
+            case 1:
+                allsub = subjection["二年生"] as! [String]
+                cell.textLabel?.text = allsub[indexPath.row]
+                selectionsub = allsub[indexPath.row]
+            case 2:
+                allsub = subjection["三年生"] as! [String]
+                cell.textLabel?.text = allsub[indexPath.row]
+                selectionsub = allsub[indexPath.row]
+            default:
+                cell.textLabel?.text = ""
+            }
+            
 
             return cell
         }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(selectionsub)
+        
+    }
+    
         
         
 }
