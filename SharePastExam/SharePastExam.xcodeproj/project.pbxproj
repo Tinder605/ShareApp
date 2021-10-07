@@ -10,6 +10,8 @@
 		18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333C9E270A966500A889B3 /* ProfileViewController.swift */; };
 		18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */; };
 		18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */; };
+		18333CA5270EC6E800A889B3 /* changeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333CA4270EC6E800A889B3 /* changeProfileViewController.swift */; };
+		18333CA7270EDF0500A889B3 /* RenewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18333CA6270EDF0500A889B3 /* RenewProfile.storyboard */; };
 		189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E465F26F3B500008DF27B /* UIColorExtension.swift */; };
 		189E466426F53776008DF27B /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189E466326F53776008DF27B /* SignUp.storyboard */; };
 		189E466A26F53A73008DF27B /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E466926F53A73008DF27B /* SignUp.swift */; };
@@ -35,6 +37,8 @@
 		18333C9E270A966500A889B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		18333CA4270EC6E800A889B3 /* changeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeProfileViewController.swift; sourceTree = "<group>"; };
+		18333CA6270EDF0500A889B3 /* RenewProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RenewProfile.storyboard; sourceTree = "<group>"; };
 		18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharePastExam.entitlements; sourceTree = "<group>"; };
 		189E465F26F3B500008DF27B /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		189E466326F53776008DF27B /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				189E46A62706CC86008DF27B /* SubList.swift */,
 				18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */,
 				18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */,
+				18333CA4270EC6E800A889B3 /* changeProfileViewController.swift */,
+				18333CA6270EDF0500A889B3 /* RenewProfile.storyboard */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 				189E466426F53776008DF27B /* SignUp.storyboard in Resources */,
 				18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */,
 				189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */,
+				18333CA7270EDF0500A889B3 /* RenewProfile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +302,7 @@
 				189E466A26F53A73008DF27B /* SignUp.swift in Sources */,
 				C3F23BF92705ABA300899173 /* SelectSubjectionTableViewCell.swift in Sources */,
 				C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */,
+				18333CA5270EC6E800A889B3 /* changeProfileViewController.swift in Sources */,
 				18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */,
 				189E46A32704368C008DF27B /* TabController.swift in Sources */,
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,

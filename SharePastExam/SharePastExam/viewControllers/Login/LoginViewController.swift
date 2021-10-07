@@ -56,12 +56,17 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(userdep, forKey: "dep")
                 let usersub = self.getSubjeciton(department: userdep)
                 UserDefaults.standard.set(usersub, forKey: "sub")
+                let username = data["name"] as! String
+                UserDefaults.standard.set(username, forKey: "name")
+                let useremail = data["email"] as! String
+                UserDefaults.standard.set(useremail, forKey: "email")
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")
                 HUD.hide{ (_) in
                     HUD.flash(.success , onView: self.view, delay: 1){(_) in
                     self.presentToHomeViewController(user: user)
+                    self.presentToProfileViewController(user: user)
                     }
                 }
             }
@@ -95,11 +100,20 @@ class LoginViewController: UIViewController {
         
         let loginViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
         
-        
-        
         loginViewController.modalPresentationStyle = .fullScreen
         
         self.present(loginViewController, animated: true, completion: nil)
+        
+    }
+    
+    private func presentToProfileViewController(user: User){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        
+        profileViewController.user = user
+        
+        self.present(profileViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
