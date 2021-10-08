@@ -31,6 +31,8 @@
 		C3F23BF92705ABA300899173 /* SelectSubjectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23BF82705ABA300899173 /* SelectSubjectionTableViewCell.swift */; };
 		C3F23C3D270D9FDD00899173 /* SubTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C3C270D9FDD00899173 /* SubTimesViewController.swift */; };
 		C3F23C3F270DA00D00899173 /* Subtimes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F23C3E270DA00D00899173 /* Subtimes.storyboard */; };
+		C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C46270FF5F600899173 /* changeProfileViewController.swift */; };
+		C3F23C49270FF61A00899173 /* RenewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F23C48270FF61A00899173 /* RenewProfile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		C3F23BF82705ABA300899173 /* SelectSubjectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubjectionTableViewCell.swift; sourceTree = "<group>"; };
 		C3F23C3C270D9FDD00899173 /* SubTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTimesViewController.swift; sourceTree = "<group>"; };
 		C3F23C3E270DA00D00899173 /* Subtimes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subtimes.storyboard; sourceTree = "<group>"; };
+		C3F23C46270FF5F600899173 /* changeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeProfileViewController.swift; sourceTree = "<group>"; };
+		C3F23C48270FF61A00899173 /* RenewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RenewProfile.storyboard; sourceTree = "<group>"; };
 		E4A6F3321F0D51238A84664C /* Pods-SharePastExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.debug.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,8 +152,10 @@
 				18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */,
 				C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */,
 				C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */,
+				C3F23C48270FF61A00899173 /* RenewProfile.storyboard */,
 				C3E5293726F1DFE300C4EB9F /* LaunchScreen.storyboard */,
 				189E465F26F3B500008DF27B /* UIColorExtension.swift */,
+				C3F23C46270FF5F600899173 /* changeProfileViewController.swift */,
 				C3E5293026F1DFE200C4EB9F /* ViewController.swift */,
 				C3E5293226F1DFE200C4EB9F /* Main.storyboard */,
 				18333C9E270A966500A889B3 /* ProfileViewController.swift */,
@@ -237,6 +243,7 @@
 			files = (
 				C3E5293926F1DFE300C4EB9F /* LaunchScreen.storyboard in Resources */,
 				C3E5293626F1DFE300C4EB9F /* Assets.xcassets in Resources */,
+				C3F23C49270FF61A00899173 /* RenewProfile.storyboard in Resources */,
 				C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */,
 				C3E5293426F1DFE200C4EB9F /* Main.storyboard in Resources */,
 				C3985FF9270353B3005CFAEC /* SubTimes in Resources */,
@@ -307,6 +314,7 @@
 				189E46A32704368C008DF27B /* TabController.swift in Sources */,
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,
 				C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */,
+				C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */,
 				C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */,
 				18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */,
 				189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */,

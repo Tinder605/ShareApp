@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import UIKit
+
+class SubTimesViewController: UIViewController {
+    
+    var subTitle: String = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = subTitle
+    }
+}

@@ -22,7 +22,7 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     let height = UIScreen.main.bounds.height
     let subjection = UserDefaults.standard.dictionary(forKey: "sub") as! [String:[String]]///強化を入れるための変数
     let department = UserDefaults.standard.string(forKey: "dep") as! String
-    var selectionsub:String = ""
+    var allsub :[String] = []
     
     override func viewWillLayoutSubviews() {
         SubjectionTableWidth.constant = width
@@ -119,20 +119,17 @@ extension SelectionTableViewController{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! SelectTableViewCell
             
         
-            var allsub :[String] = []
+            
             switch indexPath.section {
             case 0:
                 allsub = subjection["一年生"] as! [String]
                 cell.textLabel?.text = allsub[indexPath.row]
-                selectionsub = allsub[indexPath.row]
             case 1:
                 allsub = subjection["二年生"] as! [String]
                 cell.textLabel?.text = allsub[indexPath.row]
-                selectionsub = allsub[indexPath.row]
             case 2:
                 allsub = subjection["三年生"] as! [String]
                 cell.textLabel?.text = allsub[indexPath.row]
-                selectionsub = allsub[indexPath.row]
             default:
                 cell.textLabel?.text = ""
             }
@@ -141,7 +138,11 @@ extension SelectionTableViewController{
             return cell
         }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(selectionsub)
+        let usersub = allsub[indexPath.row]
+        let storyboard = UIStoryboard(name: "Subtimes", bundle: nil)
+        let nextview = storyboard.instantiateViewController(withIdentifier: "Subtimes") as! SubTimesViewController
+        nextview.subTitle = usersub
+        self.navigationController?.pushViewController(nextview, animated: true)
         
     }
     
