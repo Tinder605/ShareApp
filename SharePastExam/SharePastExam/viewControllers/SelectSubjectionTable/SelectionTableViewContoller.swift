@@ -35,6 +35,8 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
+        UITabBar.appearance().backgroundImage = UIImage()
+        tabBarController?.tabBar.barTintColor = .red
         
         //SelectSubjectionTable.backgroundColor = .red
         print(subjection["一年生"] as! [String])

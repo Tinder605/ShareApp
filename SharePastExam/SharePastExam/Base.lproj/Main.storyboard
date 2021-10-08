@@ -96,8 +96,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b8j-fP-Z20">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <tabBarAppearance key="scrollEdgeAppearance"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="qCH-gG-Cgw" kind="relationship" relationship="viewControllers" id="wD9-4k-ZoZ"/>
@@ -135,9 +134,9 @@
         <!--Search-->
         <scene sceneID="WE8-DI-atT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TpM-BV-ygD" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TpM-BV-ygD" customClass="Navigations" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="8pF-FJ-NHj">
-                        <color key="badgeColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="badgeColor" systemColor="systemGreenColor"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="syX-gx-jlq">
