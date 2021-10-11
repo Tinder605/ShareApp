@@ -47,7 +47,6 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     private func next(_ sender: Any) {
         
         var tabbarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! UITabBarController
-        //tabbarController = 1
         self.navigationController?.pushViewController(tabbarController, animated: true)
     }
     

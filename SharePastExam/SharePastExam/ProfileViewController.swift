@@ -17,29 +17,27 @@ class ProfileViewController: UIViewController {
     }
     
     @IBOutlet weak var voteCount: UILabel!
-    
-    
-    
-    
     @IBOutlet weak var usernameTextField: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileImage:UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var goodCount: UILabel!
     @IBOutlet weak var profileMessage: UILabel!
     @IBOutlet weak var changeProfile: UIButton!
     @IBAction func tappedChangeAcountButton(_ sender: Any) {
-        
         let storyBoard = UIStoryboard(name: "RenewProfile", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "changeProfileViewController") as! changeProfileViewController
-        homeViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(homeViewController, animated: true)
-        print("tappedHaveAcountButton")
+        self.present(homeViewController, animated: true, completion: nil)
+        //navigationController?.pushViewController(homeViewController, animated: true)
         
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        profileImage.image = UIImage(named: "IMG_6906")
+        profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
+        profileImage.clipsToBounds = true
+        
         
         
         let username = UserDefaults.standard.string(forKey: "name") as! String
@@ -55,11 +53,8 @@ class ProfileViewController: UIViewController {
         collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        
     }
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         confirmLoggedInUser()
@@ -73,15 +68,17 @@ class ProfileViewController: UIViewController {
     }
     
     private func presentToMainViewController() {
-        let storyBoard = UIStoryboard(name: "SignUp", bundle: nil)
-        let SignUp = storyBoard.instantiateViewController(identifier: "SignUp") as! SignUp
+        let storyBoard = UIStoryboard(name: "RenewProfile", bundle: nil)
+        let ChangeProfileViewController = storyBoard.instantiateViewController(identifier: "changeProfileViewController") as! changeProfileViewController
         
-        let navController = UINavigationController(rootViewController: SignUp)
+        let navController = UINavigationController(rootViewController: ChangeProfileViewController)
         
         navController.modalPresentationStyle = .fullScreen
         
         self.present(navController, animated: true, completion: nil)
     }
+    
+    
     
 }
 
