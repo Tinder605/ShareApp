@@ -68,6 +68,11 @@ extension SubTimesViewController{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectsubtimes = subtimes[indexPath.row] as! String
         print(selectsubtimes)
+        
+        let storyboard = UIStoryboard(name: "ShareRoom", bundle: nil)
+        let nextview = storyboard.instantiateViewController(withIdentifier: "ShareRoom") as! ShareRoomViewController
+        nextview.timestile = subtimes[indexPath.row] as! String
+        navigationController?.pushViewController(nextview, animated: true)
     }
 
 }

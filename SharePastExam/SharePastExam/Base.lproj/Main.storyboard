@@ -142,6 +142,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="syX-gx-jlq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <navigationBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                         </navigationBarAppearance>
