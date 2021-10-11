@@ -25,10 +25,12 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     var allsub :[String] = []
     
     override func viewWillLayoutSubviews() {
+        
         SubjectionTableWidth.constant = width
-        SubjectionTableHeight.constant = height
+        let substract = tabBarController?.tabBar.frame.height as! CGFloat
+        SubjectionTableHeight.constant = height - substract - 5
         SelectSubjectionTableTop.constant = 0
-    
+        
     }
     
     override func viewDidLoad() {
@@ -36,7 +38,7 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
         UITabBar.appearance().backgroundImage = UIImage()
-        tabBarController?.tabBar.barTintColor = .red
+        tabBarController?.tabBar.barTintColor = .systemGreen
         
         //SelectSubjectionTable.backgroundColor = .red
         print(subjection["一年生"] as! [String])
@@ -57,6 +59,7 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     
 }
 
+//section cellの設定
 extension SelectionTableViewController{
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +82,7 @@ extension SelectionTableViewController{
         func numberOfSections(in tableView: UITableView) -> Int {
             return subjection.count
         }
+        //cellの高さ
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 50
         }
@@ -87,9 +91,10 @@ extension SelectionTableViewController{
         func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 50
         }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return .leastNonzeroMagnitude
-    }
+        //sectionごとのfooter
+        func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+            return .leastNonzeroMagnitude
+        }
     
         
         //ヘッダーの内容について
