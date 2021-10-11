@@ -36,7 +36,7 @@ class SubTimesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         SubTimesTableView.backgroundColor = .white
-        print(tabBarController?.tabBar.frame.height)
+        //print(tabBarController?.tabBar.frame.height)
         SubTimesTableView.register(SubTImesViewCell.self, forCellReuseIdentifier: cellID)
         SubTimesTableView.isScrollEnabled = true
         SubTimesTableView.dataSource = self
@@ -72,6 +72,7 @@ extension SubTimesViewController{
         let storyboard = UIStoryboard(name: "ShareRoom", bundle: nil)
         let nextview = storyboard.instantiateViewController(withIdentifier: "ShareRoom") as! ShareRoomViewController
         nextview.timestile = subtimes[indexPath.row] as! String
+
         navigationController?.pushViewController(nextview, animated: true)
     }
 
