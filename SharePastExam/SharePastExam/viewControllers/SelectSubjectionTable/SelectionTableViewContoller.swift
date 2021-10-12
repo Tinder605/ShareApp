@@ -149,6 +149,17 @@ extension SelectionTableViewController{
         let storyboard = UIStoryboard(name: "Subtimes", bundle: nil)
         let nextview = storyboard.instantiateViewController(withIdentifier: "Subtimes") as! SubTimesViewController
         nextview.subTitle = usersub
+        
+        var defaults :[String] = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+        defaults.append(usersub)
+        
+        if defaults.count > 15 {
+            defaults.removeLast()
+        }
+        let orderset = NSOrderedSet(array: defaults)
+        let uniqueValues = orderset.array as! [String]
+        UserDefaults.standard.set(uniqueValues, forKey: "RecentlySub")
+        print(UserDefaults.standard.array(forKey: "RecentlySub"))
         self.navigationController?.pushViewController(nextview, animated: true)
         
     }

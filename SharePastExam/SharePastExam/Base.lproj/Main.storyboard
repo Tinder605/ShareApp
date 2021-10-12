@@ -17,8 +17,26 @@
                     <view key="view" tag="1" contentMode="scaleToFill" id="5Cd-xW-MyQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4x8-yQ-c3q">
+                                <rect key="frame" x="57" y="118" width="300" height="200"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="FFv-ys-EFe"/>
+                                    <constraint firstAttribute="height" constant="200" id="ayD-gE-1y6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                    <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CiL-SE-07W"/>
                         <color key="backgroundColor" red="0.82352941180000006" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4x8-yQ-c3q" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="ekU-Gc-Rgx"/>
+                            <constraint firstItem="4x8-yQ-c3q" firstAttribute="top" secondItem="CiL-SE-07W" secondAttribute="top" constant="30" id="pUr-e6-KMa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HOME" id="0cX-ra-UnC"/>
                 </viewController>
@@ -350,6 +368,12 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
