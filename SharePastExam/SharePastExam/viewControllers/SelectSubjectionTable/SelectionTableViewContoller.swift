@@ -75,11 +75,12 @@ extension SelectionTableViewController{
             default:
                 eachsub = []
             }
-            
+            //print(eachsub.count)
             return eachsub.count
         }
     
         func numberOfSections(in tableView: UITableView) -> Int {
+            //print(subjection.count)
             return subjection.count
         }
         //cellの高さ
@@ -130,6 +131,7 @@ extension SelectionTableViewController{
             switch indexPath.section {
             case 0:
                 allsub = subjection["一年生"] as! [String]
+                //print(indexPath.row)
                 cell.textLabel?.text = allsub[indexPath.row]
             case 1:
                 allsub = subjection["二年生"] as! [String]
@@ -144,14 +146,34 @@ extension SelectionTableViewController{
 
             return cell
         }
+    
+    ///選択したセルのindexの調整
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let usersub = allsub[indexPath.row]
+         print(allsub)
+        print(allsub.count)
+        print(indexPath.section)
+        
+        var usersub :String = ""
+        switch indexPath.section {
+        case 0:
+            allsub =  subjection["一年生"] as! [String]
+            usersub = allsub[indexPath.row]
+        case 1:
+            allsub = subjection["二年生"] as! [String]
+            usersub = allsub[indexPath.row]
+        case 2:
+            allsub = subjection["三年生"] as! [String]
+            usersub = allsub[indexPath.row]
+        default:
+            allsub = []
+            usersub = ""
+        }
         let storyboard = UIStoryboard(name: "Subtimes", bundle: nil)
         let nextview = storyboard.instantiateViewController(withIdentifier: "Subtimes") as! SubTimesViewController
         nextview.subTitle = usersub
         
         var defaults :[String] = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-        defaults.append(usersub)
+        defaults.insert(usersub, at: 0)
         
         if defaults.count > 15 {
             defaults.removeLast()
@@ -159,6 +181,7 @@ extension SelectionTableViewController{
         let orderset = NSOrderedSet(array: defaults)
         let uniqueValues = orderset.array as! [String]
         UserDefaults.standard.set(uniqueValues, forKey: "RecentlySub")
+        
         print(UserDefaults.standard.array(forKey: "RecentlySub"))
         self.navigationController?.pushViewController(nextview, animated: true)
         

@@ -36,6 +36,7 @@ class SubTimesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         SubTimesTableView.backgroundColor = .white
+        navigationItem.title = subTitle
         //print(tabBarController?.tabBar.frame.height)
         SubTimesTableView.register(SubTImesViewCell.self, forCellReuseIdentifier: cellID)
         SubTimesTableView.isScrollEnabled = true
