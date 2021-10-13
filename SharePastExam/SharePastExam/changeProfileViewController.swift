@@ -4,17 +4,21 @@
 //
 //  Created by 馬場大夢 on 2021/10/07.
 //
-
+import Foundation
 import UIKit
-import Firebase
 import FirebaseStorage
+import Firebase
+import PKHUD
 
 class changeProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var renewButton: UIButton!
     @IBAction func tappedRenewButton(_ sender: Any) {
+        
+        
         dismiss(animated: true, completion: nil)
     }
+    
     
     @IBAction func UploadImage(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -44,18 +48,41 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         renewButton.layer.cornerRadius = 10
     }
     
-    
-    private func presentToHomeViewController(user: User) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
-        
-        profileViewController.modalPresentationStyle = .fullScreen
-        
-        self.present(profileViewController, animated: true, completion: nil)
+    // 写真を選んだ後に呼ばれる処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択した写真を取得する
+        let image = info[.originalImage] as! UIImage
+        // ビューに表示する
+        circularImageView.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
         
     }
     
+    @objc func showKeyboard(notification: Notification) {
+        let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        
+        guard let keyboardMinY = keyboardFrame?.minY else {return}
+        let registerBottonMaxY = renewButton.frame.maxY
+        let distance = registerBottonMaxY - keyboardMinY + 20
+        
+        let transform = CGAffineTransform(translationX: 0, y: -distance)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
+            self.view.transform = transform
+        })
+        
+        //print("keyboardFrame : ", keyboardFrame)
+    }
+    @objc func hideKeyboard() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
+            self.view.transform = .identity
+        })
+    }
+}
+    
+    
+    
     
 
-}
+
