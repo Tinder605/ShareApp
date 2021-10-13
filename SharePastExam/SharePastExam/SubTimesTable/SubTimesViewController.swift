@@ -26,6 +26,8 @@ class SubTimesViewController: UIViewController, UITableViewDataSource, UITableVi
     var subTitle:String = ""
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        UITabBar.appearance().backgroundImage = UIImage()
+        tabBarController?.tabBar.barTintColor = .systemGreen
         SubTimesTableWidth.constant = width
         let substract = tabBarController?.tabBar.frame.height as! CGFloat
         SubTimesTableHeight.constant = height - substract - 5

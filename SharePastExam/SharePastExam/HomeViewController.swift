@@ -46,7 +46,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         RecentlyTable.delegate = self
         RecentlyTable.dataSource = self
         RecentlyTable.register(RecentlyTableViewCell.self, forCellReuseIdentifier: "cellID")
-        RecentlyTable.backgroundColor = .systemGreen
+        RecentlyTable.backgroundColor = .clear
         RecentlyTable.isScrollEnabled = true
 
 
