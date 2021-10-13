@@ -20,6 +20,7 @@
 		860F4C5F1D333D138C367DDD /* Pods_SharePastExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */; };
 		C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E6082701C4C4009D732A /* HomeViewController.swift */; };
 		C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */; };
+		C31A459527153CD00059B289 /* HomeViewRecentlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31A459427153CD00059B289 /* HomeViewRecentlyTableViewCell.swift */; };
 		C38D1E5F2713D52300E677E0 /* ShareRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */; };
 		C38D1E612713D53A00E677E0 /* ShareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */; };
 		C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3985FF427034E9D005CFAEC /* Login.storyboard */; };
@@ -54,6 +55,7 @@
 		876ADFC8E7EEB707FB6F8403 /* Pods-SharePastExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.release.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.release.xcconfig"; sourceTree = "<group>"; };
 		C303E6082701C4C4009D732A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewContoller.swift; sourceTree = "<group>"; };
+		C31A459427153CD00059B289 /* HomeViewRecentlyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRecentlyTableViewCell.swift; sourceTree = "<group>"; };
 		C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareRoom.storyboard; sourceTree = "<group>"; };
 		C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRoomViewController.swift; sourceTree = "<group>"; };
 		C3985FF427034E9D005CFAEC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,16 @@
 			path = viewControllers;
 			sourceTree = "<group>";
 		};
+		C31A459327153AD20059B289 /* SubTimesTable */ = {
+			isa = PBXGroup;
+			children = (
+				C3F23C5227102A3A00899173 /* Subtimes.storyboard */,
+				C3F23C5427102A8200899173 /* SubTimesViewController.swift */,
+				C3F23C5727103EC600899173 /* SubTimesTableViewCell.swift */,
+			);
+			path = SubTimesTable;
+			sourceTree = "<group>";
+		};
 		C3985FF627034F43005CFAEC /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,12 +165,11 @@
 		C3E5292B26F1DFE200C4EB9F /* SharePastExam */ = {
 			isa = PBXGroup;
 			children = (
+				C31A459327153AD20059B289 /* SubTimesTable */,
 				C313F9FC26FB1A260012B08E /* viewControllers */,
 				18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */,
-				C3F23C5627103BA500899173 /* SubtimesTable */,
 				C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */,
-				C3F23C5227102A3A00899173 /* Subtimes.storyboard */,
-				C3F23C5427102A8200899173 /* SubTimesViewController.swift */,
+				C3F23C4A271002F700899173 /* Navigations.swift */,
 				C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */,
 				C3F23C48270FF61A00899173 /* RenewProfile.storyboard */,
 				C3E5293726F1DFE300C4EB9F /* LaunchScreen.storyboard */,
@@ -175,10 +186,9 @@
 				189E46A62706CC86008DF27B /* SubList.swift */,
 				18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */,
 				18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */,
-				C3F23C4A271002F700899173 /* Navigations.swift */,
-				C3F23C5727103EC600899173 /* SubTimesTableViewCell.swift */,
 				C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */,
 				C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */,
+				C31A459427153CD00059B289 /* HomeViewRecentlyTableViewCell.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -190,13 +200,6 @@
 				C3F23BF82705ABA300899173 /* SelectSubjectionTableViewCell.swift */,
 			);
 			path = SelectSubjectionTable;
-			sourceTree = "<group>";
-		};
-		C3F23C5627103BA500899173 /* SubtimesTable */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SubtimesTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +336,7 @@
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,
 				C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */,
 				C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */,
+				C31A459527153CD00059B289 /* HomeViewRecentlyTableViewCell.swift in Sources */,
 				C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */,
 				18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */,
 				189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */,
