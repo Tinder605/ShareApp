@@ -18,7 +18,7 @@ class goodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 120)
+        layout.itemSize = CGSize(width: 123, height: 123)
         goodCollectionView.collectionViewLayout = layout
         goodCollectionView.register(goodCollectionViewCell.nib(), forCellWithReuseIdentifier: goodCollectionViewCell.identifier)
         goodCollectionView.delegate = self
@@ -52,6 +52,6 @@ extension goodViewController:UICollectionViewDataSource{
 
 extension goodViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
+        return CGSize(width: 123, height: 123)
     }
 }
