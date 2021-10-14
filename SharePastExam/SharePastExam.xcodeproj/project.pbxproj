@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18288AB92716CB47007F04D6 /* goodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288AB82716CB47007F04D6 /* goodViewController.swift */; };
+		18288ABE2716CDC1007F04D6 /* goodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288ABC2716CDC1007F04D6 /* goodCollectionViewCell.swift */; };
+		18288ABF2716CDC1007F04D6 /* goodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18288ABD2716CDC1007F04D6 /* goodCollectionViewCell.xib */; };
 		18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333C9E270A966500A889B3 /* ProfileViewController.swift */; };
 		18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */; };
 		18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18288AB82716CB47007F04D6 /* goodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodViewController.swift; sourceTree = "<group>"; };
+		18288ABC2716CDC1007F04D6 /* goodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodCollectionViewCell.swift; sourceTree = "<group>"; };
+		18288ABD2716CDC1007F04D6 /* goodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = goodCollectionViewCell.xib; sourceTree = "<group>"; };
 		18333C9E270A966500A889B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -179,6 +185,9 @@
 				C3F23C5727103EC600899173 /* SubTimesTableViewCell.swift */,
 				C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */,
 				C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */,
+				18288AB82716CB47007F04D6 /* goodViewController.swift */,
+				18288ABC2716CDC1007F04D6 /* goodCollectionViewCell.swift */,
+				18288ABD2716CDC1007F04D6 /* goodCollectionViewCell.xib */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -265,6 +274,7 @@
 				C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */,
 				C3E5293426F1DFE200C4EB9F /* Main.storyboard in Resources */,
 				189E466426F53776008DF27B /* SignUp.storyboard in Resources */,
+				18288ABF2716CDC1007F04D6 /* goodCollectionViewCell.xib in Resources */,
 				18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */,
 				C3F23C5327102A3A00899173 /* Subtimes.storyboard in Resources */,
 				189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */,
@@ -323,6 +333,7 @@
 				189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */,
 				C3F23C5827103EC600899173 /* SubTimesTableViewCell.swift in Sources */,
 				C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */,
+				18288ABE2716CDC1007F04D6 /* goodCollectionViewCell.swift in Sources */,
 				C3F23C5527102A8200899173 /* SubTimesViewController.swift in Sources */,
 				189E46A72706CC86008DF27B /* SubList.swift in Sources */,
 				189E466A26F53A73008DF27B /* SignUp.swift in Sources */,
@@ -330,6 +341,7 @@
 				C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */,
 				18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */,
 				189E46A32704368C008DF27B /* TabController.swift in Sources */,
+				18288AB92716CB47007F04D6 /* goodViewController.swift in Sources */,
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,
 				C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */,
 				C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */,

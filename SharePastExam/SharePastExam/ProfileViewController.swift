@@ -47,6 +47,7 @@ class ProfileViewController: UIViewController {
         navigationItem.title = useremail
         
         changeProfile.layer.cornerRadius = 5
+        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 123, height: 123)
         collectionView.collectionViewLayout = layout
