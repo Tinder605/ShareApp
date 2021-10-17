@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Create Exam View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CreatePastExam" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CreateExamViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oXT-oO-Vma">
+                                <rect key="frame" x="157" y="144" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="HOc-Ep-k15"/>
+                                    <constraint firstAttribute="width" constant="100" id="MPO-si-XrO"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgh-kd-tC5">
+                                <rect key="frame" x="157" y="294" width="100" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="f9t-G2-3kX"/>
+                                    <constraint firstAttribute="height" constant="60" id="lHm-GW-uJP"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="写真の追加"/>
+                                <connections>
+                                    <action selector="AddPickerImage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eDh-Ch-9WA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqp-Xe-JtE">
+                                <rect key="frame" x="107" y="574" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4JO-Cn-ADS"/>
+                                    <constraint firstAttribute="width" constant="200" id="VXS-pV-sL3"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="投稿"/>
+                                <connections>
+                                    <action selector="PostPastExam:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Hy-zG-jci"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトルを入れてくだいさい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U19-7T-uVp">
+                                <rect key="frame" x="107" y="404" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Rq-o4-3dy"/>
+                                    <constraint firstAttribute="width" constant="200" id="CfX-W1-5zJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oXT-oO-Vma" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="3Ry-8O-QuN"/>
+                            <constraint firstItem="oXT-oO-Vma" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="BQO-31-TYC"/>
+                            <constraint firstItem="Wqp-Xe-JtE" firstAttribute="top" secondItem="U19-7T-uVp" secondAttribute="bottom" constant="70" id="Iqb-mc-PhN"/>
+                            <constraint firstItem="U19-7T-uVp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cc0-gJ-Tac"/>
+                            <constraint firstItem="Wqp-Xe-JtE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dTW-z8-XKD"/>
+                            <constraint firstItem="U19-7T-uVp" firstAttribute="top" secondItem="xgh-kd-tC5" secondAttribute="bottom" constant="50" id="e6a-cn-P6e"/>
+                            <constraint firstItem="xgh-kd-tC5" firstAttribute="top" secondItem="oXT-oO-Vma" secondAttribute="bottom" constant="50" id="eQE-Bu-p1A"/>
+                            <constraint firstItem="xgh-kd-tC5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gnI-08-NKG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="PostPastExamButton" destination="Wqp-Xe-JtE" id="8sd-2c-zsA"/>
+                        <outlet property="PostTitleTextField" destination="U19-7T-uVp" id="usR-oM-J7K"/>
+                        <outlet property="SelectPickerImage" destination="oXT-oO-Vma" id="b9L-ab-J1Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="78"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
