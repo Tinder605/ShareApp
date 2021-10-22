@@ -183,6 +183,7 @@ extension SelectionTableViewController{
         UserDefaults.standard.set(uniqueValues, forKey: "RecentlySub")
         
         print(UserDefaults.standard.array(forKey: "RecentlySub"))
+        
         self.navigationController?.pushViewController(nextview, animated: true)
         
     }
