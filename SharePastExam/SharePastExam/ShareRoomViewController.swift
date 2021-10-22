@@ -30,8 +30,11 @@ class ShareRoomViewController: UIViewController {
         PostButton.layer.cornerRadius = 40
         PostButton.setTitle("", for: .normal)
         navigationItem.title = timestile
+        UserDefaults.standard.set(timestile, forKey: "RecentlyTimes")
     }
     
-
+    
+    
+    
 }
 
