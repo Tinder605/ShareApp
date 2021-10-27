@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,16 +36,45 @@
                                     <action selector="PostButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0PO-yJ-dW7"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="If9-kL-lDq">
+                                <rect key="frame" x="82" y="54" width="250" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Q1U-if-PiX"/>
+                                    <constraint firstAttribute="height" constant="400" id="gSu-gm-nE7"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D5C-0I-WIp">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9nT-c0-1YJ">
+                                        <rect key="frame" x="61" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="H8p-Vj-uyS">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TlZ-Ls-euC" secondAttribute="bottom" constant="40" id="1ZN-A7-WGA"/>
+                            <constraint firstItem="If9-kL-lDq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="Ehe-S9-gnT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TlZ-Ls-euC" secondAttribute="trailing" constant="40" id="LFz-uD-DAm"/>
+                            <constraint firstItem="If9-kL-lDq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="j7P-fz-40e"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="PostButton" destination="TlZ-Ls-euC" id="hVv-ED-HGH"/>
+                        <outlet property="ShareRoomCollectionView" destination="If9-kL-lDq" id="wiU-D8-wGQ"/>
+                        <outlet property="ShareRoomCollectionViewWidth" destination="Q1U-if-PiX" id="eDK-re-r0t"/>
+                        <outlet property="ShareRoomViewHeight" destination="gSu-gm-nE7" id="Wly-ow-WJJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

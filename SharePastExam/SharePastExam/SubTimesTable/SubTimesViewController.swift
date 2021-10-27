@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class SubTimesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -69,6 +70,7 @@ extension SubTimesViewController{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //let reference = Firestore.firestore().
         let selectsubtimes = subtimes[indexPath.row] as! String
         print(selectsubtimes)
         

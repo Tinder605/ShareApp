@@ -54,8 +54,9 @@ class CreateExamViewController: UIViewController {
         if let user = user{
             let userdep = UserDefaults.standard.string(forKey: "dep") as! String
             let usersub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+            let usertimes = UserDefaults.standard.string(forKey: "RecentlyTimes")!
             let countRef = Firestore.firestore().collection("imagescount").document(usersub[0])
-
+           
             countRef.getDocument{ (shapshot,err) in
                 if let err = err{
                     //ローディングして、中断 or ここで生成してもらうか
@@ -69,7 +70,7 @@ class CreateExamViewController: UIViewController {
                 }else{
                     number = number + 1
                     //Firestore上のcountを更新
-                    self.CreateImagesCountDocuments(sub: usersub[0])
+                    self.CreateImagesCountDocuments(sub: usersub[0],times: usertimes)
                     dicData = ["count":"0"]
                     print("合計は \(number)")
                     
@@ -77,17 +78,17 @@ class CreateExamViewController: UIViewController {
                 print(type(of: dicData))
                 let count = dicData["count"] as! String
                 //Firestorageに画像を保存
-                self.PostToFireStore(count:count, department: userdep,subjection: usersub[0])
+                self.PostToFireStore(count:count, department: userdep,subjection: usersub[0],subtimes: usertimes)
                 ///Firestorageに画像の投函
-                self.UpdateImagesCount(count: count, sub: usersub[0])
+                self.UpdateImagesCount(count: count, sub: usersub[0],times: usertimes)
             }
         }
         self.dismiss(animated: true, completion: nil)
         
     }
     ///Imagescountの生成
-    private func CreateImagesCountDocuments(sub:String){
-        let countRef = Firestore.firestore().collection("imagescount").document(sub)
+    private func CreateImagesCountDocuments(sub:String,times:String){
+        let countRef = Firestore.firestore().collection("imagescount").document(sub).collection("times").document(times)
         let dic = ["subjection":sub,"count":"0"]
         countRef.setData(dic){ (err) in
             if let err = err{
@@ -99,12 +100,12 @@ class CreateExamViewController: UIViewController {
   
     }
     ///imagescountの更新
-    private func UpdateImagesCount(count:String, sub:String){
-        let data = Firestore.firestore().collection("imagescount").document(sub)
+    private func UpdateImagesCount(count:String, sub:String,times:String){
+        let data = Firestore.firestore().collection("imagescount").document(sub).collection("times").document(times)
         let countInt = Int(count)!
         print(countInt)
         let counstr = "\(countInt + 1)"
-        let doc = ["subjection":sub,"count":counstr] as! [String:String]
+        let doc = ["subtimes":times,"count":counstr] as! [String:String]
         data.setData(doc){ (err) in
             if let err = err {
                 print("ImageCountの更新に失敗しました。")
@@ -115,11 +116,11 @@ class CreateExamViewController: UIViewController {
         
     }
     
-    private func PostToFireStore(count:String,department:String,subjection:String){
+    private func PostToFireStore(count:String,department:String,subjection:String,subtimes:String){
         let StorageRef = Storage.storage().reference()
         
         if let data = SelectPickerImage.image?.pngData() {
-                let reference = StorageRef.child("images/" + subjection + "/" + "\(count)" + ".jpeg")
+                let reference = StorageRef.child("images/" + subjection + "/" + "\(subtimes)" + "/" + "\(count)" + ".jpeg")
                 let meta = StorageMetadata()
                 meta.contentType = "image/jpeg"
                 reference.putData(data as Data, metadata: meta, completion: {(metaData,err) in
@@ -131,7 +132,7 @@ class CreateExamViewController: UIViewController {
                      reference.downloadURL{ (url,err) in
                         if let url = url{
                             let dowloadURL = url.absoluteString
-                            self.CreateImagesDocumente(sub: subjection, url: dowloadURL,count: count)
+                            self.CreateImagesDocumente(sub: subjection, url: dowloadURL,count: count,times: subtimes)
                         }
                 }
             })
@@ -143,8 +144,8 @@ class CreateExamViewController: UIViewController {
     }
     
     ///imagesの生成(count
-    private func CreateImagesDocumente(sub:String,url:String,count:String){
-        let imageRef = Firestore.firestore().collection("images").document(sub)
+    private func CreateImagesDocumente(sub:String,url:String,count:String,times:String){
+        let imageRef = Firestore.firestore().collection("images").document(sub).collection("times").document(times)
         let uid = Firebase.Auth.auth().currentUser?.uid
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes")!
         let doc = ["postuser":uid,"subtimes":times,"good":0,"viewcount":0 ,"imageurl":url,"count":count] as! [String : Any]

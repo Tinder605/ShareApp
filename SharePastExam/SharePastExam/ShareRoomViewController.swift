@@ -13,6 +13,10 @@ import FirebaseStorage
 class ShareRoomViewController: UIViewController {
     
     @IBOutlet weak var PostButton: UIButton!
+    @IBOutlet weak var ShareRoomCollectionView: UICollectionView!
+    @IBOutlet weak var ShareRoomViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var ShareRoomCollectionViewWidth: NSLayoutConstraint!
     
     @IBAction func PostButtonAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "CreatePastExam", bundle: nil)
@@ -23,6 +27,15 @@ class ShareRoomViewController: UIViewController {
     var timestile :String = ""
     var count:String!
     
+    let width = UIScreen.main.bounds.width
+    let height  = UIScreen.main.bounds.height
+    
+    
+    override func viewDidLayoutSubviews() {
+        ShareRoomCollectionViewWidth.constant = width
+        ShareRoomViewHeight.constant = height
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +44,10 @@ class ShareRoomViewController: UIViewController {
         PostButton.setTitle("", for: .normal)
         navigationItem.title = timestile
         UserDefaults.standard.set(timestile, forKey: "RecentlyTimes")
+        
+        
+        //ShareRoomCollectionView.delegate = self
+        //ShareRoomCollectionView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: <#T##String#>)
     }
     
     
