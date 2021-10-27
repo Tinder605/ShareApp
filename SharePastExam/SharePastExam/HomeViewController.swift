@@ -10,21 +10,23 @@ import UIKit
 import Firebase
 
 
-
-
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
+    @IBOutlet weak var histryCollectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
 
     @IBOutlet weak var RecentlyTable: UITableView!
     @IBOutlet weak var RecentlyTableHeight: NSLayoutConstraint!
     @IBOutlet weak var RecentlyTableWidth: NSLayoutConstraint!
     
+    private var images = UIImage(named: "IMG_6906")
     
     let cellID = "cellID"
     let width = UIScreen.main.bounds.width
     var RecentlySub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+    let SliderCellId = "SliderCellId"
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,6 +45,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 330, height: 200)
+        histryCollectionView.collectionViewLayout = layout
+        setupViews()
+        
+        
+        
         RecentlyTable.delegate = self
         RecentlyTable.dataSource = self
         RecentlyTable.register(RecentlyTableViewCell.self, forCellReuseIdentifier: "cellID")
@@ -51,7 +60,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 
     }
-
+    private func setupViews(){
+        histryCollectionView.delegate = self
+        histryCollectionView.dataSource = self
+        histryCollectionView.register(SliderCell.self, forCellWithReuseIdentifier: SliderCellId)
+        
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -79,6 +93,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
    
 }
 
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+  
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) ->CGSize {
+        let width = self.view.frame.width
+        
+            return.init(width: 330, height: 200)
+        }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = histryCollectionView.dequeueReusableCell(withReuseIdentifier:SliderCellId, for: indexPath) as! SliderCell
+        cell.images = self.images
+            return cell
+        }
+    }
+
+
 extension HomeViewController{
     
     
@@ -92,7 +127,7 @@ extension HomeViewController{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
+        return 50
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Subtimes", bundle: nil)
@@ -103,3 +138,5 @@ extension HomeViewController{
     }
     
 }
+
+

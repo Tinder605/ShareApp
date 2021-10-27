@@ -18,33 +18,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4x8-yQ-c3q">
-                                <rect key="frame" x="57" y="118" width="300" height="200"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="FFv-ys-EFe"/>
-                                    <constraint firstAttribute="height" constant="200" id="ayD-gE-1y6"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button">
-                                    <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
-                                </buttonConfiguration>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bjY-g6-NTi">
-                                <rect key="frame" x="87" y="388" width="240" height="128"/>
+                                <rect key="frame" x="87" y="328" width="240" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="5jO-AA-aHk"/>
                                     <constraint firstAttribute="width" constant="240" id="8CJ-7S-yEb"/>
                                 </constraints>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cbM-12-ucZ">
+                                <rect key="frame" x="0.0" y="108" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="6Yd-LP-91U"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="f9s-tv-8Lx">
+                                    <size key="itemSize" width="413" height="196"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SliderCell" id="Tj7-6S-q9Q" customClass="SliderCell" customModule="SharePastExam" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="2" width="413" height="196"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ej6-GZ-tht">
+                                            <rect key="frame" x="0.0" y="0.0" width="413" height="196"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.82352941180000006" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <size key="customSize" width="413" height="196"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="RnC-gX-d4S" id="SEu-KM-9B6"/>
+                                    <outlet property="delegate" destination="RnC-gX-d4S" id="wgs-wa-CeH"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CiL-SE-07W"/>
                         <color key="backgroundColor" red="0.82352941180000006" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bjY-g6-NTi" firstAttribute="top" secondItem="4x8-yQ-c3q" secondAttribute="bottom" constant="70" id="8Xv-5U-XYZ"/>
-                            <constraint firstItem="4x8-yQ-c3q" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="ekU-Gc-Rgx"/>
-                            <constraint firstItem="4x8-yQ-c3q" firstAttribute="top" secondItem="CiL-SE-07W" secondAttribute="top" constant="30" id="pUr-e6-KMa"/>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="leading" secondItem="CiL-SE-07W" secondAttribute="leading" id="Vnz-R1-2Qk"/>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="b2j-m5-O1i"/>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="top" secondItem="CiL-SE-07W" secondAttribute="top" constant="20" id="bwe-jy-Kxk"/>
+                            <constraint firstItem="CiL-SE-07W" firstAttribute="trailing" secondItem="cbM-12-ucZ" secondAttribute="trailing" id="kVB-HP-s0B"/>
+                            <constraint firstItem="bjY-g6-NTi" firstAttribute="top" secondItem="cbM-12-ucZ" secondAttribute="bottom" constant="20" id="p5T-8Y-uPR"/>
                             <constraint firstItem="bjY-g6-NTi" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="vwE-oj-pl6"/>
                         </constraints>
                     </view>
@@ -53,6 +72,7 @@
                         <outlet property="RecentlyTable" destination="bjY-g6-NTi" id="Z1M-wo-ILj"/>
                         <outlet property="RecentlyTableHeight" destination="5jO-AA-aHk" id="owT-qb-D2F"/>
                         <outlet property="RecentlyTableWidth" destination="8CJ-7S-yEb" id="Z7o-Eu-50F"/>
+                        <outlet property="histryCollectionView" destination="cbM-12-ucZ" id="bhH-gM-rbj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emR-HC-mek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -420,12 +440,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
