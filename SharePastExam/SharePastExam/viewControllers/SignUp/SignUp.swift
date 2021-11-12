@@ -14,17 +14,20 @@ struct User {
     let createdAt: Timestamp
     let email: String
     let department: String
+    let message: String
     
     init(dic:[String: Any]) {
         self.name = dic["name"] as! String
         self.email = dic["email"] as! String
         self.department = dic["department"] as! String
         self.createdAt = dic["createdAt"] as! Timestamp
+        self.message = dic["message"] as! String
     }
 }
 
 class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -74,10 +77,10 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         guard let name = self.usernameTextField.text else {return}
         guard let department = self.departmentTextField.text else {return}
-            
+        guard let message = self.messageTextField.text else {return}
         
         
-        let docData = ["email": email, "name": name, "department":department, "createdAt": Timestamp()] as [String : Any]
+        let docData = ["email": email, "name": name, "department":department,"message": message, "createdAt": Timestamp()] as [String : Any]
         let userRef = Firestore.firestore().collection("users").document(uid)
         userRef.setData(docData){(err) in
             if let err = err {

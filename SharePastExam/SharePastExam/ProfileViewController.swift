@@ -7,6 +7,8 @@
 import Foundation
 import UIKit
 import Firebase
+import PKHUD
+import FirebaseFirestore
  
 class ProfileViewController: UIViewController {
     
@@ -24,10 +26,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileMessage: UILabel!
     @IBOutlet weak var changeProfile: UIButton!
     @IBAction func tappedChangeAcountButton(_ sender: Any) {
+        
         let storyBoard = UIStoryboard(name: "RenewProfile", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "changeProfileViewController") as! changeProfileViewController
+        homeViewController.modalPresentationStyle = .fullScreen
+        
         self.present(homeViewController, animated: true, completion: nil)
-        //navigationController?.pushViewController(homeViewController, animated: true)
         
     }
 
@@ -39,11 +43,8 @@ class ProfileViewController: UIViewController {
         profileImage.clipsToBounds = true
         
         
-        
-        let username = UserDefaults.standard.string(forKey: "name") as! String
-        usernameTextField.text = username
-        
         let useremail = UserDefaults.standard.string(forKey: "email") as! String
+        
         navigationItem.title = useremail
         
         changeProfile.layer.cornerRadius = 5
@@ -55,10 +56,21 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let username = UserDefaults.standard.string(forKey: "name") as! String
+        usernameTextField.text = username
+        let message = UserDefaults.standard.string(forKey: "message") as! String
+        profileMessage.text = message
+        
         confirmLoggedInUser()
+        
+    }
+    override func viewWillAppear(_ animated:Bool ) {
+        self.presentedViewController
     }
     
     private func confirmLoggedInUser() {
@@ -69,7 +81,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func presentToMainViewController() {
-        let storyBoard = UIStoryboard(name: "RenewProfile", bundle: nil)
+    let storyBoard = UIStoryboard(name: "RenewProfile", bundle: nil)
         let ChangeProfileViewController = storyBoard.instantiateViewController(identifier: "changeProfileViewController") as! changeProfileViewController
         
         let navController = UINavigationController(rootViewController: ChangeProfileViewController)

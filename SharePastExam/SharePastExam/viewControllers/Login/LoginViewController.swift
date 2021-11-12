@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
             let userRef = Firestore.firestore().collection("users").document(uid)
             
             
-            userRef.getDocument{(snapshot, err) in
+            userRef.addSnapshotListener{(snapshot, err) in
                 if let err = err {
                 print("ユーザー情報の取得に失敗しました。\(err)")
                 HUD.hide{(_) in
@@ -62,7 +62,8 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(useremail, forKey: "email")
                 var array:[String] = []
                 UserDefaults.standard.set(array, forKey: "RecentlySub")
-                
+                let message = data["message"] as! String
+                UserDefaults.standard.set(message, forKey: "message")
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")

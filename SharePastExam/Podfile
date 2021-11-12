@@ -12,5 +12,7 @@ pod 'Firebase/Firestore'
 pod 'PKHUD', '~> 5.0'
 pod 'Firebase/Storage'
 pod 'FirebaseUI/Storage'
+pod 'RxSwift'
+pod 'RxCocoa'
 
 end

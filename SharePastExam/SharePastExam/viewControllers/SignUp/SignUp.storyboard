@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dYM-Xf-1CW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dYM-Xf-1CW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -150,6 +150,18 @@
                                     <constraint firstAttribute="width" constant="333" id="907-7s-yiv"/>
                                 </constraints>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipY-7a-SaV">
+                                <rect key="frame" x="394" y="140" width="0.0" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hX-wn-agu">
+                                <rect key="frame" x="394" y="133" width="0.0" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nEh-xc-K0s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -164,11 +176,23 @@
                             <constraint firstItem="dcs-xe-fiF" firstAttribute="top" secondItem="B3o-FN-GiG" secondAttribute="bottom" constant="45" id="xxs-YT-xB6"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="X29-IF-p2H">
+                            <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="OHq-mQ-Z4r">
+                                <rect key="frame" x="20" y="10" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="NsP-Ov-E2C"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="HaveAcountButton" destination="4Gb-hZ-JaL" id="6kX-7A-ynM"/>
                         <outlet property="departmentTextField" destination="UKy-Lr-XXv" id="vjf-bF-son"/>
                         <outlet property="emailTextField" destination="rlH-xJ-K1n" id="vux-Az-R4v"/>
+                        <outlet property="messageTextField" destination="4hX-wn-agu" id="vDL-ph-e6H"/>
                         <outlet property="passwordTextField" destination="zRB-qm-FhO" id="bEv-Nb-suX"/>
                         <outlet property="registerButton" destination="B3o-FN-GiG" id="EjX-fR-2jk"/>
                         <outlet property="usernameTextField" destination="E0Q-vF-OU3" id="gbz-kf-gVC"/>
