@@ -18,6 +18,8 @@
 		189E46A32704368C008DF27B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A22704368C008DF27B /* TabController.swift */; };
 		189E46A72706CC86008DF27B /* SubList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A62706CC86008DF27B /* SubList.swift */; };
 		860F4C5F1D333D138C367DDD /* Pods_SharePastExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */; };
+		C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */; };
+		C30093FA274DEDFE003B3556 /* SelectDocExtesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */; };
 		C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E6082701C4C4009D732A /* HomeViewController.swift */; };
 		C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */; };
 		C31A4599271818A70059B289 /* CreatePastExam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31A4598271818A70059B289 /* CreatePastExam.storyboard */; };
@@ -60,6 +62,8 @@
 		189E46A62706CC86008DF27B /* SubList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubList.swift; sourceTree = "<group>"; };
 		6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePastExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		876ADFC8E7EEB707FB6F8403 /* Pods-SharePastExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.release.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.release.xcconfig"; sourceTree = "<group>"; };
+		C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectDocExtesion.storyboard; sourceTree = "<group>"; };
+		C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDocExtesionViewController.swift; sourceTree = "<group>"; };
 		C303E6082701C4C4009D732A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewContoller.swift; sourceTree = "<group>"; };
 		C31A4598271818A70059B289 /* CreatePastExam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePastExam.storyboard; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */,
 				C3265E94272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib */,
 				C3265E972722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift */,
+				C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */,
+				C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 				C3E5293626F1DFE300C4EB9F /* Assets.xcassets in Resources */,
 				C3F23C49270FF61A00899173 /* RenewProfile.storyboard in Resources */,
 				C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */,
+				C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */,
 				C3E5293426F1DFE200C4EB9F /* Main.storyboard in Resources */,
 				C31A4599271818A70059B289 /* CreatePastExam.storyboard in Resources */,
 				C3265E9C2729005200C8E9C5 /* goodCollectionViewCell.xib in Resources */,
@@ -367,6 +374,7 @@
 				C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */,
 				C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */,
 				18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */,
+				C30093FA274DEDFE003B3556 /* SelectDocExtesionViewController.swift in Sources */,
 				189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */,
 				C3F23C4B271002F700899173 /* Navigations.swift in Sources */,
 				C38D1E612713D53A00E677E0 /* ShareRoomViewController.swift in Sources */,

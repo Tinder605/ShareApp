@@ -130,6 +130,7 @@ class CreateExamViewController: UIViewController {
                     print("投稿に失敗しました。")
                     return
                 }
+                    print("画像のデータ情報の取得")
                     print(metaData!)
                      reference.downloadURL{ (url,err) in
                         if let url = url{
@@ -151,7 +152,8 @@ class CreateExamViewController: UIViewController {
         let imgRef = imageRef.collection("count").document("\(count)")
         let uid = Firebase.Auth.auth().currentUser?.uid
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes")!
-        let doc = ["postuser":uid,"subtimes":times,"good":0,"viewcount":0 ,"imageurl":url,"count":count] as! [String : Any]
+        let doctitle = PostTitleTextField.text as! String
+        let doc = ["postuser":uid,"subtimes":times,"good":0,"viewcount":0 ,"imageurl":url,"count":count,"title":doctitle] as! [String : Any]
         
         imgRef.setData(doc){(err) in
             if let err = err{

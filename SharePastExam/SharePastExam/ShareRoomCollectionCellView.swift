@@ -31,6 +31,9 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     @IBOutlet weak var ReviewButton: UIButton!
     
     @IBAction func ActionGoodButton(_ sender: Any) {
+        let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+        let times = UserDefaults.standard.string(forKey: "RecentlyTimes") as! String
+        let ref = Firestore.firestore().collection()
         if ReviewButton.imageView?.image == UIImage(systemName: "heart"){
             let image = UIImage(systemName: "heart.fill")
             ReviewButton.setImage(image, for: .normal)
@@ -57,8 +60,8 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
             }
             else{
                 for document in querySnapshots!.documents{
-                    print("\(document.documentID) =>\(document.data())")
-                    print(type(of: document.documentID))
+//                    print("\(document.documentID) =>\(document.data())")
+//                    print(type(of: document.documentID))
                     let nowuid = Int(document.documentID)
                     if imgminuid>nowuid!{
                         imgminuid = nowuid!
