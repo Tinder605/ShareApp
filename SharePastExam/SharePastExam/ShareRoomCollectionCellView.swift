@@ -31,9 +31,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     @IBOutlet weak var ReviewButton: UIButton!
     
     @IBAction func ActionGoodButton(_ sender: Any) {
-        let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-        let times = UserDefaults.standard.string(forKey: "RecentlyTimes") as! String
-        let ref = Firestore.firestore().collection()
+        
         if ReviewButton.imageView?.image == UIImage(systemName: "heart"){
             let image = UIImage(systemName: "heart.fill")
             ReviewButton.setImage(image, for: .normal)
