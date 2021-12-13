@@ -11,15 +11,18 @@ import PKHUD
 import RxSwift
 import FirebaseFirestore
 import RxCocoa
+import FirebaseStorage
+import SwiftUI
+import SDWebImage
 
 class changeProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
-    var childCallBack: ((String) -> Void)?
+    //var childCallBack: ((String) -> Void)?
     
     private let disposeBag = DisposeBag()
     private var name = ""
     private var message = ""
-    
+    private var profileImageUrl = ""
     var user: User? {
         didSet {
             usernameTextField.text = user?.name
@@ -44,14 +47,13 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
     
     
     
-    @IBOutlet weak var circularImageView:UIImageView!
-    
+    @IBOutlet weak var circularImageView:UIImageView?
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var profileTextField: UITextField!
     @IBOutlet weak var renewButton: UIButton!
     @IBAction func tappedRenewButton(_ sender: UIButton) {
-        updadeProfileName()
-        updadeProfileMessage()
+        HUD.show(.progress, onView: self.view)
+        
         guard let changename = usernameTextField.text else{return}
         let username = changename as! String
         UserDefaults.standard.set(username, forKey: "name")
@@ -62,34 +64,78 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         UserDefaults.standard.set(message, forKey: "message")
         print(message)
         
-        dismiss(animated: true, completion: nil)
+        //UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
+        self.updateProfileImage()
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        circularImageView.image = UIImage(named: "IMG_6906")
-        circularImageView.layer.cornerRadius = circularImageView.frame.size.height / 2
-        circularImageView.clipsToBounds = true
+        circularImageView?.contentMode = .scaleAspectFill
+        circularImageView?.layer.cornerRadius = (circularImageView?.frame.size.height)! / 2
+        circularImageView?.clipsToBounds = true
         
         renewButton.layer.cornerRadius = 10
+    
+        let username = UserDefaults.standard.string(forKey: "name") as! String
+        usernameTextField.text = username
         
+        let message = UserDefaults.standard.string(forKey: "message") as! String
+        profileTextField.text = message
         
-        //let username = usernameTextField.text as! String
-        UserDefaults.standard.set(name, forKey: "name")
-        usernameTextField.placeholder = name
-        
-        //let message = profileTextField.text as! String
-        UserDefaults.standard.set(message, forKey: "message")
-        profileTextField.placeholder = message
-        
+        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") as! String
+        do{
+            let url = URL(string: profileImageUrl)
+            let data = try Data(contentsOf: url!)
+            circularImageView?.image = UIImage(data: data)!
+        }catch let error{
+            print("errr")
+        }
+        print(profileImageUrl)
         
         changingProfile()
-        
-        
-        
     }
     
-    private func updadeProfileName() {
+    private func updateProfileImage() {
+        HUD.show(.progress, onView: self.view)
+        guard let image = circularImageView?.image else {return}
+        guard let uploadImage = image.jpegData(compressionQuality: 0.3) else {return}
+        
+        let fileName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("Prefile_image").child(fileName)
+        
+        storageRef.putData(uploadImage,metadata: nil) {(matadata,err) in
+            if let err = err {
+                print("Firestorageへの情報の保存に失敗しました。\(err)")
+                return
+            }
+            print("Firestorageへの情報の保存に成功しました。")
+            storageRef.downloadURL { [self] (url, err) in
+                if let err = err {
+                    print("Firestorageからのダウンロードに失敗しました。\(err)")
+                    return
+                }
+                guard let userId = Auth.auth().currentUser?.uid else{fatalError()}
+                let ref = Firestore.firestore().collection("users").document(userId)
+                guard let urlString = url?.absoluteString else {return}
+                guard let data = image.pngData() else {
+                    return
+                }
+                ref.updateData(["profileImageUrl":urlString])
+                    { err in
+                    if let err = err {
+                        HUD.hide { (_) in
+                            HUD.flash(.error,delay: 1)}
+                        print("Error updating document:\(err)")
+                    }else{
+                        print("Document successfully updated image")
+                    }
+                }
+                print("urlString: ",urlString)
+                UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
+            }
+        }
+        
         guard let userId = Auth.auth().currentUser?.uid else{fatalError()}
         let ref = Firestore.firestore().collection("users").document(userId)
         guard let changename = usernameTextField.text else{return}
@@ -101,15 +147,13 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                     HUD.flash(.error,delay: 1)}
                 print("Error updating document:\(err)")
             }else{
-                print("Document successfully updated")
+                print("Document successfully updated name")
                 
             }
         }
-    }
-    
-    private func updadeProfileMessage() {
+        
         guard let userId = Auth.auth().currentUser?.uid else{fatalError()}
-        let ref = Firestore.firestore().collection("users").document(userId)
+//        let ref = Firestore.firestore().collection("users").document(userId)
         guard let changemessage = profileTextField.text else{return}
         ref.updateData(["message":changemessage ])
             { err in
@@ -118,10 +162,53 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                 HUD.hide { (_) in
                     HUD.flash(.error,delay: 1)}
             }else{
-                print("Document successfully updated")
+                print("Document successfully updated message")
             }
         }
+        HUD.hide { (_) in
+            HUD.flash(.success, onView: self.view, delay: 1) { (_) in
+                print("cucces update")
+            }
+        }
+        
+        
     }
+    
+    
+    
+//    private func updateProfileName() {
+//        guard let userId = Auth.auth().currentUser?.uid else{fatalError()}
+//        let ref = Firestore.firestore().collection("users").document(userId)
+//        guard let changename = usernameTextField.text else{return}
+//
+//        ref.updateData(["name":changename])
+//            { err in
+//            if let err = err {
+//                HUD.hide { (_) in
+//                    HUD.flash(.error,delay: 1)}
+//                print("Error updating document:\(err)")
+//            }else{
+//                print("Document successfully updated name")
+//
+//            }
+//        }
+//    }
+    
+//    private func updateProfileMessage() {
+//        guard let userId = Auth.auth().currentUser?.uid else{fatalError()}
+//        let ref = Firestore.firestore().collection("users").document(userId)
+//        guard let changemessage = profileTextField.text else{return}
+//        ref.updateData(["message":changemessage ])
+//            { err in
+//            if let err = err {
+//                print("Error updating document:\(err)")
+//            HUD.hide { (_) in
+//                    HUD.flash(.error,delay: 1)}
+//            }else{
+//                print("Document successfully updated message")
+//            }
+//        }
+//    }
     
     
     private func changingProfile() {
@@ -148,10 +235,9 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         // 選択した写真を取得する
         let image = info[.originalImage] as! UIImage
         // ビューに表示する
-        circularImageView.image = image
+        circularImageView?.image = image
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)
-        
     }
     
     @objc func showKeyboard(notification: Notification) {
@@ -175,8 +261,6 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         })
     }
 }
-
-
     
  
     

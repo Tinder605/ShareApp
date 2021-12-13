@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
                 print("ログイン情報の取得に失敗しました。", err)
                 return
             }
+           
             print("ログインに成功しました。")
             
             guard let uid = res?.user.uid else {return}
@@ -45,9 +46,6 @@ class LoginViewController: UIViewController {
             userRef.addSnapshotListener{(snapshot, err) in
                 if let err = err {
                 print("ユーザー情報の取得に失敗しました。\(err)")
-                HUD.hide{(_) in
-                    HUD.flash(.error, delay: 1)
-                }
                 return
                 }
                 guard let data = snapshot?.data() else {return}
@@ -64,6 +62,9 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(array, forKey: "RecentlySub")
                 let message = data["message"] as! String
                 UserDefaults.standard.set(message, forKey: "message")
+                let profileImageUrl = data["profileImageUrl"] as Optional<Any>
+                UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
+                print(profileImageUrl)
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")

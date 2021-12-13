@@ -9,6 +9,9 @@ import UIKit
 import Firebase
 import PKHUD
 import FirebaseFirestore
+import Nuke
+import FirebaseStorage
+import SDWebImage
  
 class ProfileViewController: UIViewController {
     
@@ -37,15 +40,29 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        profileImage.image = UIImage(named: "IMG_6906")
+        
+        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") as! String
+        do{
+            let url = URL(string: profileImageUrl)
+            let data = try Data(contentsOf: url!)
+            profileImage?.image = UIImage(data: data)!
+        }catch let error{
+            print("errr")
+        }
+    
+        profileImage.contentMode = .scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
         
         
         let useremail = UserDefaults.standard.string(forKey: "email") as! String
-        
         navigationItem.title = useremail
+        
+        let username = UserDefaults.standard.string(forKey: "name") as! String
+        usernameTextField.text = username
+        
+        let message = UserDefaults.standard.string(forKey: "message") as! String
+        profileMessage.text = message
         
         changeProfile.layer.cornerRadius = 5
         
@@ -63,12 +80,21 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         let username = UserDefaults.standard.string(forKey: "name") as! String
         usernameTextField.text = username
+        
         let message = UserDefaults.standard.string(forKey: "message") as! String
         profileMessage.text = message
         
-        confirmLoggedInUser()
+        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") as! String
         
+        do{
+            let url = URL(string: profileImageUrl as! String)
+            let data = try Data(contentsOf: url!)
+            profileImage.image = UIImage(data: data)!
+        }catch let error{
+            print("errr")
+        }
     }
+    
     override func viewWillAppear(_ animated:Bool ) {
         self.presentedViewController
     }
@@ -123,3 +149,4 @@ extension ProfileViewController:UICollectionViewDelegateFlowLayout{
         return CGSize(width: 123, height: 123)
     }
 }
+

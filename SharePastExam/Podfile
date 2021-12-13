@@ -14,5 +14,7 @@ pod 'Firebase/Storage'
 pod 'FirebaseUI/Storage'
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'Nuke'
+pod 'SDWebImageSwiftUI'
 
 end
