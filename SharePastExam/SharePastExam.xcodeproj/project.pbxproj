@@ -7,18 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18288AB92716CB47007F04D6 /* goodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288AB82716CB47007F04D6 /* goodViewController.swift */; };
-		18288ABE2716CDC1007F04D6 /* goodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288ABC2716CDC1007F04D6 /* goodCollectionViewCell.swift */; };
-		18288ABF2716CDC1007F04D6 /* goodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18288ABD2716CDC1007F04D6 /* goodCollectionViewCell.xib */; };
-		18288AC1271805AB007F04D6 /* Subtimes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18288AC0271805AB007F04D6 /* Subtimes.storyboard */; };
-		18288AC3271805B2007F04D6 /* SubTimesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288AC2271805B2007F04D6 /* SubTimesTableViewCell.swift */; };
-		18288AC5271805B7007F04D6 /* SubTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288AC4271805B7007F04D6 /* SubTimesViewController.swift */; };
-		18288AC82718084B007F04D6 /* HomeViewRecentlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288AC72718084B007F04D6 /* HomeViewRecentlyTableViewCell.swift */; };
-		18288AD0271A3E83007F04D6 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288ACF271A3E83007F04D6 /* SliderCell.swift */; };
-		18288AD427214A97007F04D6 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288AD327214A97007F04D6 /* SliderCollectionViewCell.swift */; };
-		18288AD627214B81007F04D6 /* SliderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18288AD527214B81007F04D6 /* SliderCollectionViewCell.xib */; };
-		18288AD827292F3F007F04D6 /* CreateExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18288AD727292F3F007F04D6 /* CreateExamViewController.swift */; };
-		18288ADA27292F4B007F04D6 /* CreatePastExam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18288AD927292F4B007F04D6 /* CreatePastExam.storyboard */; };
 		18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333C9E270A966500A889B3 /* ProfileViewController.swift */; };
 		18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */; };
 		18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */; };
@@ -30,8 +18,18 @@
 		189E46A32704368C008DF27B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A22704368C008DF27B /* TabController.swift */; };
 		189E46A72706CC86008DF27B /* SubList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E46A62706CC86008DF27B /* SubList.swift */; };
 		860F4C5F1D333D138C367DDD /* Pods_SharePastExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */; };
+		C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */; };
+		C30093FA274DEDFE003B3556 /* SelectDocExtesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */; };
 		C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E6082701C4C4009D732A /* HomeViewController.swift */; };
 		C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */; };
+		C31A4599271818A70059B289 /* CreatePastExam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31A4598271818A70059B289 /* CreatePastExam.storyboard */; };
+		C31A459B27181CEE0059B289 /* CreateExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31A459A27181CEE0059B289 /* CreateExamViewController.swift */; };
+		C3265E90272281B400C8E9C5 /* HomeViewRecentlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E8F272281B400C8E9C5 /* HomeViewRecentlyCell.swift */; };
+		C3265E96272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3265E94272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib */; };
+		C3265E982722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E972722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift */; };
+		C3265E9C2729005200C8E9C5 /* goodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3265E992729005200C8E9C5 /* goodCollectionViewCell.xib */; };
+		C3265E9D2729005200C8E9C5 /* goodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E9A2729005200C8E9C5 /* goodCollectionViewCell.swift */; };
+		C3265E9E2729005200C8E9C5 /* goodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E9B2729005200C8E9C5 /* goodViewController.swift */; };
 		C38D1E5F2713D52300E677E0 /* ShareRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */; };
 		C38D1E612713D53A00E677E0 /* ShareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */; };
 		C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3985FF427034E9D005CFAEC /* Login.storyboard */; };
@@ -45,21 +43,12 @@
 		C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C46270FF5F600899173 /* changeProfileViewController.swift */; };
 		C3F23C49270FF61A00899173 /* RenewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F23C48270FF61A00899173 /* RenewProfile.storyboard */; };
 		C3F23C4B271002F700899173 /* Navigations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C4A271002F700899173 /* Navigations.swift */; };
+		C3F23C5327102A3A00899173 /* Subtimes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F23C5227102A3A00899173 /* Subtimes.storyboard */; };
+		C3F23C5527102A8200899173 /* SubTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C5427102A8200899173 /* SubTimesViewController.swift */; };
+		C3F23C5827103EC600899173 /* SubTimesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C5727103EC600899173 /* SubTimesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18288AB82716CB47007F04D6 /* goodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodViewController.swift; sourceTree = "<group>"; };
-		18288ABC2716CDC1007F04D6 /* goodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goodCollectionViewCell.swift; sourceTree = "<group>"; };
-		18288ABD2716CDC1007F04D6 /* goodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = goodCollectionViewCell.xib; sourceTree = "<group>"; };
-		18288AC0271805AB007F04D6 /* Subtimes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Subtimes.storyboard; path = SharePastExam/SubTimesTable/Subtimes.storyboard; sourceTree = SOURCE_ROOT; };
-		18288AC2271805B2007F04D6 /* SubTimesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubTimesTableViewCell.swift; path = SharePastExam/SubTimesTable/SubTimesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		18288AC4271805B7007F04D6 /* SubTimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubTimesViewController.swift; path = SharePastExam/SubTimesTable/SubTimesViewController.swift; sourceTree = SOURCE_ROOT; };
-		18288AC72718084B007F04D6 /* HomeViewRecentlyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewRecentlyTableViewCell.swift; sourceTree = "<group>"; };
-		18288ACF271A3E83007F04D6 /* SliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
-		18288AD327214A97007F04D6 /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
-		18288AD527214B81007F04D6 /* SliderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCollectionViewCell.xib; sourceTree = "<group>"; };
-		18288AD727292F3F007F04D6 /* CreateExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExamViewController.swift; sourceTree = "<group>"; };
-		18288AD927292F4B007F04D6 /* CreatePastExam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePastExam.storyboard; sourceTree = "<group>"; };
 		18333C9E270A966500A889B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -73,8 +62,18 @@
 		189E46A62706CC86008DF27B /* SubList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubList.swift; sourceTree = "<group>"; };
 		6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharePastExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		876ADFC8E7EEB707FB6F8403 /* Pods-SharePastExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.release.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.release.xcconfig"; sourceTree = "<group>"; };
+		C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectDocExtesion.storyboard; sourceTree = "<group>"; };
+		C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDocExtesionViewController.swift; sourceTree = "<group>"; };
 		C303E6082701C4C4009D732A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewContoller.swift; sourceTree = "<group>"; };
+		C31A4598271818A70059B289 /* CreatePastExam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePastExam.storyboard; sourceTree = "<group>"; };
+		C31A459A27181CEE0059B289 /* CreateExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExamViewController.swift; sourceTree = "<group>"; };
+		C3265E8F272281B400C8E9C5 /* HomeViewRecentlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRecentlyCell.swift; sourceTree = "<group>"; };
+		C3265E94272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareRoomCollectionViewCell.xib; sourceTree = "<group>"; };
+		C3265E972722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRoomCollectionCellView.swift; sourceTree = "<group>"; };
+		C3265E992729005200C8E9C5 /* goodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = goodCollectionViewCell.xib; sourceTree = "<group>"; };
+		C3265E9A2729005200C8E9C5 /* goodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3265E9B2729005200C8E9C5 /* goodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodViewController.swift; sourceTree = "<group>"; };
 		C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareRoom.storyboard; sourceTree = "<group>"; };
 		C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRoomViewController.swift; sourceTree = "<group>"; };
 		C3985FF427034E9D005CFAEC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -90,6 +89,9 @@
 		C3F23C46270FF5F600899173 /* changeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeProfileViewController.swift; sourceTree = "<group>"; };
 		C3F23C48270FF61A00899173 /* RenewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RenewProfile.storyboard; sourceTree = "<group>"; };
 		C3F23C4A271002F700899173 /* Navigations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigations.swift; sourceTree = "<group>"; };
+		C3F23C5227102A3A00899173 /* Subtimes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Subtimes.storyboard; sourceTree = "<group>"; };
+		C3F23C5427102A8200899173 /* SubTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTimesViewController.swift; sourceTree = "<group>"; };
+		C3F23C5727103EC600899173 /* SubTimesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTimesTableViewCell.swift; sourceTree = "<group>"; };
 		E4A6F3321F0D51238A84664C /* Pods-SharePastExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.debug.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,17 +107,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18288AC627180654007F04D6 /* SubTimesTable */ = {
-			isa = PBXGroup;
-			children = (
-				18288AC2271805B2007F04D6 /* SubTimesTableViewCell.swift */,
-				18288AC0271805AB007F04D6 /* Subtimes.storyboard */,
-				18288AC4271805B7007F04D6 /* SubTimesViewController.swift */,
-				18288AC72718084B007F04D6 /* HomeViewRecentlyTableViewCell.swift */,
-			);
-			path = SubTimesTable;
-			sourceTree = "<group>";
-		};
 		4A117F866866119CE9CFD2E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +132,16 @@
 				C3985FF627034F43005CFAEC /* Login */,
 			);
 			path = viewControllers;
+			sourceTree = "<group>";
+		};
+		C31A459327153AD20059B289 /* SubTimesTable */ = {
+			isa = PBXGroup;
+			children = (
+				C3F23C5227102A3A00899173 /* Subtimes.storyboard */,
+				C3F23C5427102A8200899173 /* SubTimesViewController.swift */,
+				C3F23C5727103EC600899173 /* SubTimesTableViewCell.swift */,
+			);
+			path = SubTimesTable;
 			sourceTree = "<group>";
 		};
 		C3985FF627034F43005CFAEC /* Login */ = {
@@ -182,17 +183,19 @@
 		C3E5292B26F1DFE200C4EB9F /* SharePastExam */ = {
 			isa = PBXGroup;
 			children = (
-				18288AC627180654007F04D6 /* SubTimesTable */,
+				C31A459327153AD20059B289 /* SubTimesTable */,
 				C313F9FC26FB1A260012B08E /* viewControllers */,
 				18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */,
 				C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */,
+				C3F23C4A271002F700899173 /* Navigations.swift */,
 				C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */,
-				18288AD727292F3F007F04D6 /* CreateExamViewController.swift */,
-				18288AD927292F4B007F04D6 /* CreatePastExam.storyboard */,
 				C3F23C48270FF61A00899173 /* RenewProfile.storyboard */,
+				C3F23C46270FF5F600899173 /* changeProfileViewController.swift */,
 				C3E5293726F1DFE300C4EB9F /* LaunchScreen.storyboard */,
 				189E465F26F3B500008DF27B /* UIColorExtension.swift */,
-				C3F23C46270FF5F600899173 /* changeProfileViewController.swift */,
+				C3265E9A2729005200C8E9C5 /* goodCollectionViewCell.swift */,
+				C3265E992729005200C8E9C5 /* goodCollectionViewCell.xib */,
+				C3265E9B2729005200C8E9C5 /* goodViewController.swift */,
 				C3E5293026F1DFE200C4EB9F /* ViewController.swift */,
 				C3E5293226F1DFE200C4EB9F /* Main.storyboard */,
 				18333C9E270A966500A889B3 /* ProfileViewController.swift */,
@@ -204,15 +207,15 @@
 				189E46A62706CC86008DF27B /* SubList.swift */,
 				18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */,
 				18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */,
-				C3F23C4A271002F700899173 /* Navigations.swift */,
+				C3265E8F272281B400C8E9C5 /* HomeViewRecentlyCell.swift */,
+				C31A4598271818A70059B289 /* CreatePastExam.storyboard */,
+				C31A459A27181CEE0059B289 /* CreateExamViewController.swift */,
 				C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */,
 				C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */,
-				18288AB82716CB47007F04D6 /* goodViewController.swift */,
-				18288ABC2716CDC1007F04D6 /* goodCollectionViewCell.swift */,
-				18288ABD2716CDC1007F04D6 /* goodCollectionViewCell.xib */,
-				18288ACF271A3E83007F04D6 /* SliderCell.swift */,
-				18288AD327214A97007F04D6 /* SliderCollectionViewCell.swift */,
-				18288AD527214B81007F04D6 /* SliderCollectionViewCell.xib */,
+				C3265E94272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib */,
+				C3265E972722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift */,
+				C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */,
+				C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -286,18 +289,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3E5293926F1DFE300C4EB9F /* LaunchScreen.storyboard in Resources */,
+				C3265E96272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib in Resources */,
 				C38D1E5F2713D52300E677E0 /* ShareRoom.storyboard in Resources */,
 				C3E5293626F1DFE300C4EB9F /* Assets.xcassets in Resources */,
-				18288ADA27292F4B007F04D6 /* CreatePastExam.storyboard in Resources */,
 				C3F23C49270FF61A00899173 /* RenewProfile.storyboard in Resources */,
-				18288AC1271805AB007F04D6 /* Subtimes.storyboard in Resources */,
 				C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */,
+				C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */,
 				C3E5293426F1DFE200C4EB9F /* Main.storyboard in Resources */,
+				C31A4599271818A70059B289 /* CreatePastExam.storyboard in Resources */,
+				C3265E9C2729005200C8E9C5 /* goodCollectionViewCell.xib in Resources */,
 				189E466426F53776008DF27B /* SignUp.storyboard in Resources */,
-				18288ABF2716CDC1007F04D6 /* goodCollectionViewCell.xib in Resources */,
 				18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */,
+				C3F23C5327102A3A00899173 /* Subtimes.storyboard in Resources */,
 				189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */,
-				18288AD627214B81007F04D6 /* SliderCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,27 +354,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18288AD0271A3E83007F04D6 /* SliderCell.swift in Sources */,
 				189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */,
-				18288AD427214A97007F04D6 /* SliderCollectionViewCell.swift in Sources */,
+				C3265E9D2729005200C8E9C5 /* goodCollectionViewCell.swift in Sources */,
+				C3F23C5827103EC600899173 /* SubTimesTableViewCell.swift in Sources */,
 				C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */,
-				18288ABE2716CDC1007F04D6 /* goodCollectionViewCell.swift in Sources */,
+				C31A459B27181CEE0059B289 /* CreateExamViewController.swift in Sources */,
+				C3F23C5527102A8200899173 /* SubTimesViewController.swift in Sources */,
 				189E46A72706CC86008DF27B /* SubList.swift in Sources */,
 				189E466A26F53A73008DF27B /* SignUp.swift in Sources */,
-				18288AD827292F3F007F04D6 /* CreateExamViewController.swift in Sources */,
+				C3265E9E2729005200C8E9C5 /* goodViewController.swift in Sources */,
+				C3265E90272281B400C8E9C5 /* HomeViewRecentlyCell.swift in Sources */,
 				C3F23BF92705ABA300899173 /* SelectSubjectionTableViewCell.swift in Sources */,
+				C3265E982722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift in Sources */,
 				C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */,
-				18288AC3271805B2007F04D6 /* SubTimesTableViewCell.swift in Sources */,
 				18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */,
 				189E46A32704368C008DF27B /* TabController.swift in Sources */,
-				18288AB92716CB47007F04D6 /* goodViewController.swift in Sources */,
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,
 				C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */,
 				C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */,
-				18288AC5271805B7007F04D6 /* SubTimesViewController.swift in Sources */,
-				18288AC82718084B007F04D6 /* HomeViewRecentlyTableViewCell.swift in Sources */,
 				C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */,
 				18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */,
+				C30093FA274DEDFE003B3556 /* SelectDocExtesionViewController.swift in Sources */,
 				189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */,
 				C3F23C4B271002F700899173 /* Navigations.swift in Sources */,
 				C38D1E612713D53A00E677E0 /* ShareRoomViewController.swift in Sources */,

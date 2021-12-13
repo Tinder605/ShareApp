@@ -24,9 +24,7 @@ class goodViewController: UIViewController {
         goodCollectionView.delegate = self
         goodCollectionView.dataSource = self
     }
-    
-    
-    
+
 }
 
 extension goodViewController:UICollectionViewDelegate{

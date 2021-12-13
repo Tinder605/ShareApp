@@ -54,8 +54,8 @@ class CreateExamViewController: UIViewController {
         if let user = user{
             let userdep = UserDefaults.standard.string(forKey: "dep") as! String
             let usersub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-            let usertimes = UserDefaults.standard.string(forKey: "RecentlyTimes")!
-            let countRef = Firestore.firestore().collection("imagescount").document(usersub[0])
+            let usertimes = UserDefaults.standard.string(forKey: "RecentlyTimes") as! String
+            let countRef = Firestore.firestore().collection("imagescount").document(usersub[0]).collection("times").document(usertimes)//投稿されている数を取得
            
             countRef.getDocument{ (shapshot,err) in
                 if let err = err{
@@ -76,6 +76,7 @@ class CreateExamViewController: UIViewController {
                     
                 }
                 print(type(of: dicData))
+                //imagescountの講義名＆第○講義の何個めか
                 let count = dicData["count"] as! String
                 //Firestorageに画像を保存
                 self.PostToFireStore(count:count, department: userdep,subjection: usersub[0],subtimes: usertimes)
@@ -89,8 +90,9 @@ class CreateExamViewController: UIViewController {
     ///Imagescountの生成
     private func CreateImagesCountDocuments(sub:String,times:String){
         let countRef = Firestore.firestore().collection("imagescount").document(sub).collection("times").document(times)
+        let imgRef = countRef.collection("count").document("0")
         let dic = ["subjection":sub,"count":"0"]
-        countRef.setData(dic){ (err) in
+        imgRef.setData(dic){ (err) in
             if let err = err{
                 print("セットするデータがありません。")
                 return
@@ -128,6 +130,7 @@ class CreateExamViewController: UIViewController {
                     print("投稿に失敗しました。")
                     return
                 }
+                    print("画像のデータ情報の取得")
                     print(metaData!)
                      reference.downloadURL{ (url,err) in
                         if let url = url{
@@ -146,11 +149,13 @@ class CreateExamViewController: UIViewController {
     ///imagesの生成(count
     private func CreateImagesDocumente(sub:String,url:String,count:String,times:String){
         let imageRef = Firestore.firestore().collection("images").document(sub).collection("times").document(times)
+        let imgRef = imageRef.collection("count").document("\(count)")
         let uid = Firebase.Auth.auth().currentUser?.uid
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes")!
-        let doc = ["postuser":uid,"subtimes":times,"good":0,"viewcount":0 ,"imageurl":url,"count":count] as! [String : Any]
+        let doctitle = PostTitleTextField.text as! String
+        let doc = ["postuser":uid,"subtimes":times,"good":0,"viewcount":0 ,"imageurl":url,"count":count,"title":doctitle] as! [String : Any]
         
-        imageRef.setData(doc){(err) in
+        imgRef.setData(doc){(err) in
             if let err = err{
                 print("imagesの更新に失敗しました。")
                 return

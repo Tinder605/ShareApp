@@ -77,6 +77,7 @@ extension SubTimesViewController{
         let storyboard = UIStoryboard(name: "ShareRoom", bundle: nil)
         let nextview = storyboard.instantiateViewController(withIdentifier: "ShareRoom") as! ShareRoomViewController
         nextview.timestile = subtimes[indexPath.row] as! String
+        UserDefaults.standard.set(subtimes[indexPath.row] as! String, forKey: "RecentlyTimes")
         navigationController?.pushViewController(nextview, animated: true)
     }
 

@@ -32,7 +32,7 @@
             <connections>
                 <outlet property="goodCollectionViewCell" destination="WCO-eq-GDh" id="8Zo-AS-KAO"/>
             </connections>
-            <point key="canvasLocation" x="94" y="27"/>
+            <point key="canvasLocation" x="92.753623188405811" y="26.785714285714285"/>
         </collectionViewCell>
     </objects>
 </document>
