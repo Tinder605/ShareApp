@@ -41,18 +41,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") as! String
-        do{
-            let url = URL(string: profileImageUrl)
-            let data = try Data(contentsOf: url!)
-            profileImage?.image = UIImage(data: data)!
-        }catch let error{
-            print("errr")
-        }
-    
+        profileImage.image = UIImage(named: "noimage.jpeg")!
         profileImage.contentMode = .scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
+        
         
         
         let useremail = UserDefaults.standard.string(forKey: "email") as! String

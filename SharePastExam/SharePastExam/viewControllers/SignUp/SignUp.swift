@@ -80,7 +80,9 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         guard let department = self.departmentTextField.text else {return}
         guard let message = self.messageTextField.text else {return}
         
-        let profileImageUrl = ""
+        
+        let profileImageUrl = "noimage"
+        UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
         
         let docData = ["email": email, "name": name, "department":department,"message": message, "createdAt": Timestamp(),"profileImageUrl":profileImageUrl] as [String : Any]
         let userRef = Firestore.firestore().collection("users").document(uid)

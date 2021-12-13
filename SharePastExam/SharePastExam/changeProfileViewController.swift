@@ -66,7 +66,7 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         
         //UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
         self.updateProfileImage()
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -130,6 +130,12 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                     }else{
                         print("Document successfully updated image")
                     }
+                        HUD.hide { (_) in
+                            HUD.flash(.success, onView: self.view, delay: 1) { (_) in
+                                print("cucces update")
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        }
                 }
                 print("urlString: ",urlString)
                 UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
@@ -165,13 +171,6 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                 print("Document successfully updated message")
             }
         }
-        HUD.hide { (_) in
-            HUD.flash(.success, onView: self.view, delay: 1) { (_) in
-                print("cucces update")
-            }
-        }
-        
-        
     }
     
     
