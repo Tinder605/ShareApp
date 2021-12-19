@@ -167,14 +167,20 @@ extension ShareRoomViewController {
             cell.PostTitle.text = "No Title"
         }
         
+        //いいね表示
         let docgood = testDataArray[indexPath.row].goodList ?? [""]
         
         let yourgood = docgood.filter({$0 == String(uid!)})
+        var image = UIImage(systemName: "heart")
         print("aiu",yourgood)
         if !(yourgood.isEmpty){
             cell.Goodvalue = 1
-            let image = UIImage(systemName: "heart.fill")
-            cell.ReviewButton.setImage(image, for: .normal)
+            image = UIImage(systemName: "heart.fill")
+            cell.ReviewButton.setImage(image!, for: .normal)
+        }else{
+            cell.Goodvalue = 0
+            cell.ReviewButton.setImage(image!, for: .normal)
+            
         }
         
         //viewのimageの取得

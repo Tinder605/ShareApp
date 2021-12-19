@@ -55,8 +55,9 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     doc = snapshot?.data() as! [String:Any]
                     //デバックのため一応です(Godのリストがなかったら)
                     if doc["GoodList"] == nil{
-                        //goodlistを作る関数
                         GoodList = ["\(uid!)"]
+                        GoodCount = GoodCount + 1
+                        image = UIImage(systemName: "heart.fill") ?? UIImage()
                     }
                     //ある場合とで
                     else{
@@ -85,12 +86,8 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                 }
             }
         }
-        if Goodvalue == 0{
-           
-
-        }
         else{
-            
+            print("こっちに来ております")
         }
 //
 //        if ReviewButton.imageView?.image == UIImage(systemName: "heart"){
@@ -149,9 +146,10 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
         self.fittoView(size: (width-30)/3)
+//        let image = UIImage(systemName: "heart")
+//        ReviewButton.setImage(image, for: .normal)
+        
         
     }
     override func layoutSubviews() {
