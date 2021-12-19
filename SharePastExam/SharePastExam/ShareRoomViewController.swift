@@ -19,6 +19,7 @@ class PastData:NSObject{
     var ViewCount:Int?
     var Title:String?
     var url :String?
+    var goodList:[String]?
     
     init(document:QueryDocumentSnapshot) {
         let doc = document.data()
@@ -28,6 +29,7 @@ class PastData:NSObject{
         self.GoodCount = doc["good"] as? Int
         self.Title = doc["title"] as? String
         self.url = doc["imageurl"] as? String
+        self.goodList = doc["GoodList"] as? [String]
     }
     
 }
@@ -57,13 +59,9 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     var imagearray :[UIImage] = []
     let width = UIScreen.main.bounds.width
     let height  = UIScreen.main.bounds.height
-    //並列できない
-    let dispatchGroup = DispatchGroup()
-            // 並列で実行できるよ〜
-    let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)
-    let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-    let times = UserDefaults.standard.string(forKey: "RecentlyTimes") as! String
     
+    let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+    let uid = Auth.auth().currentUser?.uid//念の為再定義(userdefaultにあれば削除）
     
     override func viewDidLayoutSubviews() {
         ShareRoomCollectionViewWidth.constant = width
@@ -113,17 +111,6 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
                     print(data)
                     return data
                 }
-//                for document in querySnapshots!.documents{
-//                    print("\(document.documentID) =>\(document.data())")
-//                    print(type(of: document.documentID))
-//
-//                    let nowuid = Int(document.documentID)
-//                    if imgminuid>nowuid!{
-//                        imgminuid = nowuid!
-//                    }
-//                }
-//                print(imgminuid)
-//
             }
             HUD.hide{ (_) in
                 HUD.flash(.success, onView: self.view)
@@ -165,7 +152,7 @@ extension ShareRoomViewController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! ShareRoomCollectionCellView
         //cell.fittoview(width: (width-30)/3, height: (width-30)/3)
-        
+        cell.number = indexPath.row
         //viewcountの取得
         if let viewcount = testDataArray[indexPath.row].ViewCount{
             cell.ViewCount.text = "\(viewcount)"
@@ -180,6 +167,15 @@ extension ShareRoomViewController {
             cell.PostTitle.text = "No Title"
         }
         
+        let docgood = testDataArray[indexPath.row].goodList ?? [""]
+        
+        let yourgood = docgood.filter({$0 == String(uid!)})
+        print("aiu",yourgood)
+        if !(yourgood.isEmpty){
+            cell.Goodvalue = 1
+            let image = UIImage(systemName: "heart.fill")
+            cell.ReviewButton.setImage(image, for: .normal)
+        }
         
         //viewのimageの取得
         if let urlstr = testDataArray[indexPath.row].url{

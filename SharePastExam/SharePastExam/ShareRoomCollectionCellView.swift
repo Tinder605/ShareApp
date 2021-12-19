@@ -14,6 +14,12 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     static let identifier = "cellid"
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
+    
+    var Goodvalue = 0
+
+    var number = 0
+    
+    
     @IBOutlet weak var PostImages: UIImageView!
     @IBOutlet weak var PostImageHeight: NSLayoutConstraint!
     @IBOutlet weak var PostImageWidth: NSLayoutConstraint!
@@ -30,18 +36,87 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     @IBOutlet weak var ViewCount: UILabel!
     @IBOutlet weak var ReviewButton: UIButton!
     
+    let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? "a"
+    let sub = (UserDefaults.standard.array(forKey: "RecentlySub") ?? ["a"])
+    
     @IBAction func ActionGoodButton(_ sender: Any) {
-        
-        if ReviewButton.imageView?.image == UIImage(systemName: "heart"){
-            let image = UIImage(systemName: "heart.fill")
-            ReviewButton.setImage(image, for: .normal)
-            ReviewButton.imageView?.tintColor = .systemGreen
+        //nilの場合を避ける
+        var GoodCount = 0
+        var GoodList:[String] = []
+        let uid = Auth.auth().currentUser?.uid
+        var dicData:Dictionary<String,Any>
+        print(uid)
+        if (times != "a") && (sub[0] as! String != "a" ){
+            let ref = Firestore.firestore().collection("images").document("\(sub[0])").collection("times").document("\(times)").collection("count").document("\(self.number)")
+            ref.getDocument(){ (snapshot,err) in
+                if snapshot != nil{
+                    var image = UIImage()
+                    var doc:Dictionary<String,Any>
+                    doc = snapshot?.data() as! [String:Any]
+                    //デバックのため一応です(Godのリストがなかったら)
+                    if doc["GoodList"] == nil{
+                        //goodlistを作る関数
+                        GoodList = ["\(uid!)"]
+                    }
+                    //ある場合とで
+                    else{
+                        GoodCount = doc["good"] as! Int
+                        GoodList = doc["GoodList"] as! [String]
+                        if self.Goodvalue == 0{
+                            GoodList.append(uid!)
+                            GoodCount = GoodCount + 1
+                            image = UIImage(systemName: "heart.fill") ?? UIImage()
+                            self.Goodvalue = 1
+                        }
+                        else{
+                            print(type(of: uid!))
+                            GoodList.removeAll(where: {$0 == String(uid!)})
+                            GoodCount = GoodCount - 1
+                            image = UIImage(systemName: "heart") ?? UIImage()
+                            self.Goodvalue = 0
+                        }
+                    }
+                    self.updateGoodRef(goodlist: GoodList, goodcount: GoodCount)
+                    self.ReviewButton.setImage(image, for: .normal)
+                }
+                else{
+                    print("データの取得に失敗しました。")
+                    return
+                }
+            }
+        }
+        if Goodvalue == 0{
+           
+
         }
         else{
-            let image = UIImage(systemName: "heart")
-            ReviewButton.setImage(image, for: .normal)
+            
         }
+//
+//        if ReviewButton.imageView?.image == UIImage(systemName: "heart"){
+//            let image = UIImage(systemName: "heart.fill")
+//            ReviewButton.setImage(image, for: .normal)
+//            ReviewButton.imageView?.tintColor = .systemGreen
+//        }
+//        else{
+//            let image = UIImage(systemName: "heart")
+//            ReviewButton.setImage(image, for: .normal)
+//        }
         print("ボタンが押されました")
+    }
+    //imagesのGOOD
+    private func updateGoodRef(goodlist:[String],goodcount:Int){
+        let ref = Firestore.firestore().collection("images").document("\(sub[0])").collection("times").document("\(times)").collection("count").document("\(self.number)")
+        print(goodlist)
+        ref.updateData(["good":goodcount,"GoodList":goodlist]){ err in
+            if let err = err{
+                print("いいねの更新に失敗しました。")
+            }
+            else{
+                print("いいねの更新に成功しました。")
+            }
+            
+        }
     }
     
     private func getPostTestData(){
@@ -74,9 +149,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        HUD.show(.progress, onView: self.superview)
-        self.getPostTestData()
-        HUD.flash(.success, onView: self.superview,delay: 1)
+        
         
         self.fittoView(size: (width-30)/3)
         
