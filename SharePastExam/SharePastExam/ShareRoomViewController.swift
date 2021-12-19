@@ -19,6 +19,7 @@ class PastData:NSObject{
     var ViewCount:Int?
     var Title:String?
     var url :String?
+    var goodList:[String]?
     
     init(document:QueryDocumentSnapshot) {
         let doc = document.data()
@@ -28,6 +29,7 @@ class PastData:NSObject{
         self.GoodCount = doc["good"] as? Int
         self.Title = doc["title"] as? String
         self.url = doc["imageurl"] as? String
+        self.goodList = doc["GoodList"] as? [String]
     }
     
 }
@@ -59,7 +61,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     let height  = UIScreen.main.bounds.height
     
     let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-    
+    let uid = Auth.auth().currentUser?.uid//念の為再定義(userdefaultにあれば削除）
     
     override func viewDidLayoutSubviews() {
         ShareRoomCollectionViewWidth.constant = width
@@ -165,6 +167,15 @@ extension ShareRoomViewController {
             cell.PostTitle.text = "No Title"
         }
         
+        let docgood = testDataArray[indexPath.row].goodList ?? [""]
+        
+        let yourgood = docgood.filter({$0 == String(uid!)})
+        print("aiu",yourgood)
+        if !(yourgood.isEmpty){
+            cell.Goodvalue = 1
+            let image = UIImage(systemName: "heart.fill")
+            cell.ReviewButton.setImage(image, for: .normal)
+        }
         
         //viewのimageの取得
         if let urlstr = testDataArray[indexPath.row].url{
