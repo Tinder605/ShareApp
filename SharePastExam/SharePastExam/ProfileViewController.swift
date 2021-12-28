@@ -61,6 +61,8 @@ class ProfileViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
         
+        changeProfile.layer.borderColor = UIColor.yellow.cgColor  // 枠線の色
+        changeProfile.layer.borderWidth = 0.1
         
         
         let useremail = UserDefaults.standard.string(forKey: "email") as! String
