@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RnC-gX-d4S" customClass="HomeViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="5Cd-xW-MyQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bjY-g6-NTi">
@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="width" constant="240" id="8CJ-7S-yEb"/>
                                 </constraints>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cbM-12-ucZ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cbM-12-ucZ">
                                 <rect key="frame" x="0.0" y="108" width="414" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -42,11 +42,11 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SliderCell" id="Tj7-6S-q9Q" customClass="SliderCell" customModule="SharePastExam" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="2" width="413" height="196"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ej6-GZ-tht">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" id="Ej6-GZ-tht">
                                             <rect key="frame" x="0.0" y="0.0" width="413" height="196"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.82352941180000006" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <size key="customSize" width="413" height="196"/>
                                     </collectionViewCell>
                                 </cells>
@@ -57,13 +57,19 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CiL-SE-07W"/>
-                        <color key="backgroundColor" red="0.82352941180000006" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="2vg-ht-1Gu"/>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="4Q7-bR-dQE"/>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="top" secondItem="5Cd-xW-MyQ" secondAttribute="top" constant="108" id="EjG-25-wgK"/>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="Gdz-4g-G7W"/>
+                            <constraint firstItem="cbM-12-ucZ" firstAttribute="leading" secondItem="CiL-SE-07W" secondAttribute="leading" id="VHu-Kr-JIE"/>
                             <constraint firstItem="cbM-12-ucZ" firstAttribute="leading" secondItem="CiL-SE-07W" secondAttribute="leading" id="Vnz-R1-2Qk"/>
                             <constraint firstItem="cbM-12-ucZ" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="b2j-m5-O1i"/>
                             <constraint firstItem="cbM-12-ucZ" firstAttribute="top" secondItem="CiL-SE-07W" secondAttribute="top" constant="20" id="bwe-jy-Kxk"/>
                             <constraint firstItem="CiL-SE-07W" firstAttribute="trailing" secondItem="cbM-12-ucZ" secondAttribute="trailing" id="kVB-HP-s0B"/>
                             <constraint firstItem="bjY-g6-NTi" firstAttribute="top" secondItem="cbM-12-ucZ" secondAttribute="bottom" constant="20" id="p5T-8Y-uPR"/>
+                            <constraint firstAttribute="trailing" secondItem="cbM-12-ucZ" secondAttribute="trailing" id="qhn-Lj-8qZ"/>
                             <constraint firstItem="bjY-g6-NTi" firstAttribute="centerX" secondItem="5Cd-xW-MyQ" secondAttribute="centerX" id="vwE-oj-pl6"/>
                         </constraints>
                     </view>
@@ -77,14 +83,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emR-HC-mek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360.8695652173915" y="-406.47321428571428"/>
+            <point key="canvasLocation" x="1387" y="-406"/>
         </scene>
         <!--講義名-->
         <scene sceneID="wp6-BN-v1a">
             <objects>
                 <viewController id="O3f-Wo-Nl0" customClass="SelectionTableViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="2" contentMode="scaleToFill" id="2Uo-0Z-yDh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZTX-cz-ti2">
@@ -107,7 +113,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BNN-11-pD1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ZTX-cz-ti2" firstAttribute="centerX" secondItem="2Uo-0Z-yDh" secondAttribute="centerX" id="7yM-n1-zZK"/>
                             <constraint firstItem="ZTX-cz-ti2" firstAttribute="top" secondItem="BNN-11-pD1" secondAttribute="top" id="IlH-IK-57n"/>
@@ -130,11 +136,11 @@
             <objects>
                 <viewController storyboardIdentifier="goodViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FjK-3p-099" customClass="goodViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="3" contentMode="scaleToFill" id="mya-fK-iBg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-u9-mho">
-                                <rect key="frame" x="0.0" y="88" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HM1-5W-zK4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -159,7 +165,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LJ2-pc-e8a"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="wPF-u9-mho" firstAttribute="top" secondItem="LJ2-pc-e8a" secondAttribute="top" id="1xY-rM-idP"/>
                             <constraint firstItem="wPF-u9-mho" firstAttribute="trailing" secondItem="LJ2-pc-e8a" secondAttribute="trailing" id="46H-Bt-pNn"/>
@@ -181,10 +187,18 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l08-wu-RSa" customClass="TabViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b8j-fP-Z20">
+                    <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="b8j-fP-Z20">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <tabBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="selectionIndicatorTintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </tabBarAppearance>
                     </tabBar>
                     <connections>
                         <segue destination="qCH-gG-Cgw" kind="relationship" relationship="viewControllers" id="wD9-4k-ZoZ"/>
@@ -197,19 +211,31 @@
             </objects>
             <point key="canvasLocation" x="-478.26086956521743" y="309.375"/>
         </scene>
-        <!--HOME-->
+        <!--ホーム-->
         <scene sceneID="Plq-WF-PIl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qCH-gG-Cgw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HOME" image="house.fill" catalog="system" selectedImage="house.fill" id="L0h-1r-jX9">
-                        <color key="badgeColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" selectedImage="house.fill" id="L0h-1r-jX9">
+                        <color key="badgeColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yk3-j1-qNK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                         <navigationBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -221,20 +247,31 @@
             </objects>
             <point key="canvasLocation" x="450.72463768115944" y="-406.47321428571428"/>
         </scene>
-        <!--Search-->
+        <!--検索-->
         <scene sceneID="WE8-DI-atT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TpM-BV-ygD" customClass="Navigations" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="8pF-FJ-NHj">
-                        <color key="badgeColor" systemColor="systemGreenColor"/>
+                    <tabBarItem key="tabBarItem" title="検索" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="8pF-FJ-NHj">
+                        <color key="badgeColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="syX-gx-jlq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                         <navigationBarAppearance key="scrollEdgeAppearance">
-                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -246,17 +283,32 @@
             </objects>
             <point key="canvasLocation" x="450.72463768115944" y="308.70535714285711"/>
         </scene>
-        <!--Good-->
+        <!--いいね-->
         <scene sceneID="0lL-TD-1i5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v6K-Bq-Tmf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Good" image="heart.fill" catalog="system" selectedImage="heart.fill" id="O6F-7i-H3S">
-                        <color key="badgeColor" red="0.82408216779999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <tabBarItem key="tabBarItem" title="いいね" image="heart.fill" catalog="system" selectedImage="heart.fill" id="O6F-7i-H3S">
+                        <color key="badgeColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r8e-RC-2M6">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -267,17 +319,32 @@
             </objects>
             <point key="canvasLocation" x="450.72463768115944" y="987.72321428571422"/>
         </scene>
-        <!--Account-->
+        <!--アカウント-->
         <scene sceneID="1BA-Re-JCm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YOA-nQ-uOT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" selectedImage="person.fill" id="dDp-EO-6gp">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <tabBarItem key="tabBarItem" title="アカウント" image="person.fill" catalog="system" selectedImage="person.fill" id="dDp-EO-6gp">
+                        <color key="badgeColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ehQ-wO-fr5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textShadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" red="0.64943939449999999" green="0.98976546529999998" blue="0.51754999160000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -293,7 +360,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uQM-Ts-1QK" customClass="ProfileViewController" customModule="SharePastExam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EnE-KB-lmS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TZe-WQ-MXG">
@@ -348,15 +415,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIL-BV-3G6">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIL-BV-3G6">
                                 <rect key="frame" x="57" y="304" width="300" height="30"/>
-                                <color key="backgroundColor" red="0.65249910310000003" green="1" blue="0.52123542960000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9Cx-dR-vMB"/>
                                     <constraint firstAttribute="width" constant="300" id="KAz-Bw-VDE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.64218597401019573" green="0.44446987350178696" blue="0.11907253952794164" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="プロフィール編集">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -387,7 +454,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="763-N5-Fc1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PHb-vB-jZg" firstAttribute="leading" secondItem="763-N5-Fc1" secondAttribute="leading" constant="42" id="0PF-9W-ETb"/>
                             <constraint firstItem="KIL-BV-3G6" firstAttribute="centerX" secondItem="EnE-KB-lmS" secondAttribute="centerX" id="8zr-AZ-tBQ"/>
@@ -427,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3p-5Q-bav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360.8695652173915" y="1694.8660714285713"/>
+            <point key="canvasLocation" x="1361" y="1695"/>
         </scene>
     </scenes>
     <resources>
@@ -437,9 +504,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

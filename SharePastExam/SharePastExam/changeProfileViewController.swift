@@ -99,7 +99,7 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
     private func updateProfileImage() {
         HUD.show(.progress, onView: self.view)
         guard let image = circularImageView?.image else {return}
-        guard let uploadImage = image.jpegData(compressionQuality: 0.3) else {return}
+        guard let uploadImage = image.jpegData(compressionQuality: 0.1) else {return}
         
         let fileName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("Prefile_image").child(fileName)

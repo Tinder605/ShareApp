@@ -14,8 +14,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var histryCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var SlideWidth: NSLayoutConstraint!
     
-
     @IBOutlet weak var RecentlyTable: UITableView!
     @IBOutlet weak var RecentlyTableHeight: NSLayoutConstraint!
     @IBOutlet weak var RecentlyTableWidth: NSLayoutConstraint!
@@ -44,20 +44,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        histryCollectionView.backgroundColor = .red
+        //self.navigationController!.navigationBar.titleTextAttributes = [
+                    //.foregroundColor: UIColor.white
+               // ]
+        //下のバー
+        //tabBarController?.tabBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        guard let tabBarController = tabBarController else { return }
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        tabBarController.tabBar.standardAppearance = tabBarAppearance
+
+        if #available(iOS 15.0, *) { // 新たに追加
+            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+        }
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 330, height: 200)
+        layout.itemSize = CGSize(width: width, height: 200)
         histryCollectionView.collectionViewLayout = layout
         setupViews()
         
-        
+        histryCollectionView
         
         RecentlyTable.delegate = self
         RecentlyTable.dataSource = self
         RecentlyTable.register(RecentlyTableViewCell.self, forCellReuseIdentifier: "cellID")
-        RecentlyTable.backgroundColor = .clear
         RecentlyTable.isScrollEnabled = true
-
 
     }
     private func setupViews(){
@@ -98,7 +110,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) ->CGSize {
         let width = self.view.frame.width
         
-            return.init(width: 330, height: 200)
+            return.init(width: width, height: 200)
         }
     
     
@@ -127,7 +139,7 @@ extension HomeViewController{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 55
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Subtimes", bundle: nil)
