@@ -14,8 +14,8 @@ class SliderCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.cornerRadius = 10
         
+        layer.cornerRadius = 15
         backgroundColor = .purple
     }
     public func configure(with image: UIImage) {

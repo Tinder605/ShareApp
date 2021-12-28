@@ -19,9 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="248" height="261"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XxD-e7-17j">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XxD-e7-17j">
                         <rect key="frame" x="4" y="0.0" width="240" height="50"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="0fV-YD-yOd"/>
                             <constraint firstAttribute="width" constant="240" id="TzY-cq-N5n"/>
@@ -29,6 +29,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vp-qe-76m">
                         <rect key="frame" x="74" y="50" width="100" height="39"/>
+                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="39" id="BGR-wm-pbL"/>
                             <constraint firstAttribute="width" constant="100" id="bIW-AG-FTB"/>
@@ -45,12 +46,14 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VT-FE-2jf">
                                         <rect key="frame" x="0.0" y="0.0" width="97.5" height="55"/>
+                                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qq-XB-Fsk">
                                         <rect key="frame" x="0.0" y="55" width="97.5" height="55"/>
+                                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -63,7 +66,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
-                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                    <color key="baseForegroundColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="ActionGoodButton:" destination="9RA-Hn-YNm" eventType="touchUpInside" id="598-kS-5fV"/>
@@ -76,6 +79,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstItem="dKU-fK-RGJ" firstAttribute="top" secondItem="1vp-qe-76m" secondAttribute="bottom" constant="20" id="2Ru-MH-RMi"/>
                     <constraint firstItem="XxD-e7-17j" firstAttribute="top" secondItem="JS6-Tg-nuf" secondAttribute="top" id="6cn-AN-ivt"/>
@@ -85,7 +89,7 @@
                     <constraint firstItem="1vp-qe-76m" firstAttribute="top" secondItem="XxD-e7-17j" secondAttribute="bottom" priority="250" id="yz9-hC-I8i"/>
                 </constraints>
             </collectionViewCellContentView>
-            <color key="backgroundColor" systemColor="systemBrownColor"/>
+            <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <size key="customSize" width="248" height="261"/>
             <connections>
                 <outlet property="PostImageHeight" destination="0fV-YD-yOd" id="uHz-DE-72h"/>
@@ -107,14 +111,8 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
