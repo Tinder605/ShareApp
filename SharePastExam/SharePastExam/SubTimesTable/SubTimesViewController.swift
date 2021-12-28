@@ -28,9 +28,17 @@ class SubTimesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         UITabBar.appearance().backgroundImage = UIImage()
-        tabBarController?.tabBar.barTintColor = .systemGreen
+        tabBarController?.tabBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        guard let tabBarController = tabBarController else { return }
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        tabBarController.tabBar.standardAppearance = tabBarAppearance
+
+        if #available(iOS 15.0, *) { // 新たに追加
+            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+        }
         SubTimesTableWidth.constant = width
-        let substract = tabBarController?.tabBar.frame.height as! CGFloat
+        let substract = tabBarController.tabBar.frame.height as! CGFloat
         SubTimesTableHeight.constant = height - substract - 5
         
         
