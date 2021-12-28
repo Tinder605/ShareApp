@@ -35,7 +35,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         if ReviewButton.imageView?.image == UIImage(systemName: "heart"){
             let image = UIImage(systemName: "heart.fill")
             ReviewButton.setImage(image, for: .normal)
-            ReviewButton.imageView?.tintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+            ReviewButton.imageView?.tintColor = .systemGreen
         }
         else{
             let image = UIImage(systemName: "heart")
@@ -93,7 +93,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         PostImageWidth.constant = size
         PostTitleHeight.constant = size/4
         
-        //PostTitle.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        PostTitle.backgroundColor = .orange
         PostTitleTop.constant = 0
         PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
         PostTitleWidth.constant = size

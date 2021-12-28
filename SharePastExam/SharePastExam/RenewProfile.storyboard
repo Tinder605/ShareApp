@@ -27,9 +27,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVA-Y4-Wz7">
                                 <rect key="frame" x="122.5" y="254" width="169" height="30"/>
-                                <state key="normal" title="プロフィール写真を変更">
-                                    <color key="titleColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
+                                <state key="normal" title="プロフィール写真を変更"/>
                                 <connections>
                                     <action selector="UploadImage:" destination="rQG-gl-3DV" eventType="touchUpInside" id="hgc-HI-poA"/>
                                 </connections>

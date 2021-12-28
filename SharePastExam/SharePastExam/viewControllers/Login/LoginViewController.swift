@@ -32,9 +32,6 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password){
             (res, err) in if let err = err {
                 print("ログイン情報の取得に失敗しました。", err)
-                HUD.hide { (_) in
-                    HUD.flash(.error,delay: 1)
-                }
                 return
             }
            
@@ -49,10 +46,7 @@ class LoginViewController: UIViewController {
             userRef.addSnapshotListener{(snapshot, err) in
                 if let err = err {
                 print("ユーザー情報の取得に失敗しました。\(err)")
-                    HUD.hide { (_) in
-                        HUD.flash(.error,delay: 1)
-                    }
-                    return
+                return
                 }
                 guard let data = snapshot?.data() else {return}
                 print(data["name"].debugDescription)

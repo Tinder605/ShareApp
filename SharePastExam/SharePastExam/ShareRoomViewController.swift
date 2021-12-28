@@ -75,8 +75,8 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         super.viewDidLoad()
         
         
-        view.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
-        ShareRoomCollectionView.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        view.backgroundColor = .systemGreen
+        ShareRoomCollectionView.backgroundColor = UIColor.rgb(red: 144, green: 238, blue: 144)
         PostButton.layer.cornerRadius = 40
         PostButton.setTitle("", for: .normal)
         navigationItem.title = timestile

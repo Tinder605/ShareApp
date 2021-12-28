@@ -20,7 +20,7 @@ class SliderCell: UICollectionViewCell {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        
         
         return collectionView
     }()
@@ -39,7 +39,8 @@ class SliderCell: UICollectionViewCell {
         ].forEach{ $0.isActive = true}
         
         
-        SliderCollectionView.contentInset = .init(top: 0, left: 15, bottom: 0, right: 15)
+        SliderCollectionView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+        
         SliderCollectionView.register(UINib(nibName: "SliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: sliderId)
     }
     
@@ -52,12 +53,12 @@ class SliderCell: UICollectionViewCell {
 extension SliderCell: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = self.frame.height
-        return.init(width: 280, height: height)
+        return.init(width: 330, height: height)
     }
     
 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

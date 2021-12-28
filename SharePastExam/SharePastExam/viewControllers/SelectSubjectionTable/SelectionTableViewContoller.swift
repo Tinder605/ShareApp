@@ -36,16 +36,9 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //下の背景の色
-        tabBarController?.tabBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
-        //上の文字の色
-        UINavigationBar.appearance().tintColor = UIColor.brown
-        //tabBarController?.tabBar.barTintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes = [
-                    .foregroundColor: UIColor.brown
-                ]
+        view.backgroundColor = .systemGreen
         UITabBar.appearance().backgroundImage = UIImage()
-        
+        tabBarController?.tabBar.barTintColor = .systemGreen
         
         //SelectSubjectionTable.backgroundColor = .red
         print(subjection["一年生"] as! [String])
