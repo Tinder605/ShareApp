@@ -27,6 +27,7 @@ struct User {
     }
 }
 
+
 class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var messageTextField: UITextField!
@@ -105,17 +106,55 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
                     return
                 }
                 guard let data = snapshot?.data() else {return}
+                print(data["name"].debugDescription)
+                let userdep = data["department"] as! String
+                UserDefaults.standard.set(userdep, forKey: "dep")
+                let usersub = self.getSubjeciton(department: userdep)
+                UserDefaults.standard.set(usersub, forKey: "sub")
+                let username = data["name"] as! String
+                UserDefaults.standard.set(username, forKey: "name")
+                let useremail = data["email"] as! String
+                UserDefaults.standard.set(useremail, forKey: "email")
+                var array:[String] = []
+                UserDefaults.standard.set(array, forKey: "RecentlySub")
+                let message = data["message"] as! String
+                UserDefaults.standard.set(message, forKey: "message")
+                let profileImageUrl = data["profileImageUrl"] as Optional<Any>
+                UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
+                print(profileImageUrl)
+                
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.department)")
                 HUD.hide { (_) in
                     HUD.flash(.success, onView: self.view, delay: 1) { (_) in
                         self.presentToHomeViewController(user: user)
-                        self.presentToProfileViewController(user: user)
+                        //self.presentToProfileViewController(user: user)
+                        print(uid)
                     }
                 }
             }
         }
     }
+    
+    private func getSubjeciton(department:String) ->[String:[String]]{
+        var list:[String:[String]] = [:]
+        switch department {
+        case "情報システム工学科":
+            list = Subjecsion.init().list_jouhou
+        case "エネルギー循環化学科":
+            list = Subjecsion.init().list_ene
+        case "機械システム工学科":
+            list = Subjecsion.init().list_kikai
+        case "建築デザイン学科":
+            list = Subjecsion.init().list_kennchiku
+        case "環境生命工学科":
+            list = Subjecsion.init().list_seimei
+        default:
+            list = [:]
+        }
+        return list
+    }
+    
     private func presentToHomeViewController(user: User){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
@@ -126,15 +165,14 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         self.present(homeViewController, animated: true, completion: nil)
     }
     
-    private func presentToProfileViewController(user: User){
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    //private func presentToProfileViewController(user: User){
+        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
-        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        //let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        //profileViewController.user = user
         
-        profileViewController.user = user
-        
-        self.present(profileViewController, animated: true, completion: nil)
-    }
+        //self.present(profileViewController, animated: true, completion: nil)
+    //}
     
     var pickerView: UIPickerView = UIPickerView()
         let list = ["エネルギー循環化学科", "機械システム工学科", "情報システム工学科", "建築デザイン学科", "環境生命工学科", "英米学科", "中国学科", "国際関係学科", "経済学科", "経営情報学科", "比較文化学科","人間関係学科","法律学科","政策科学科","地域創生学群地域創生学類"]

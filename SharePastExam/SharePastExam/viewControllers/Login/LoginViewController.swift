@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
                 HUD.hide{ (_) in
                     HUD.flash(.success , onView: self.view, delay: 1){(_) in
                     self.presentToHomeViewController(user: user)
-                    self.presentToProfileViewController(user: user)
+                    //self.presentToProfileViewController(user: user)
                     }
                 }
             }
@@ -117,15 +117,15 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func presentToProfileViewController(user: User){
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        //private func presentToProfileViewController(user: User){
+        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
-        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        //let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
         
-        profileViewController.user = user
+        //profileViewController.user = user
         
-        self.present(profileViewController, animated: true, completion: nil)
-    }
+        //self.present(profileViewController, animated: true, completion: nil)
+    //}
     
     override func viewDidLoad() {
         
