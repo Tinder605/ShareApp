@@ -166,7 +166,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         PostImageWidth.constant = size
         PostTitleHeight.constant = size/4
         
-        PostTitle.backgroundColor = .orange
+        //PostTitle.backgroundColor = .orange
         PostTitleTop.constant = 0
         PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
         PostTitleWidth.constant = size

@@ -40,16 +40,34 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //下のバー
+        tabBarController?.tabBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        guard let tabBarController = tabBarController else { return }
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        tabBarController.tabBar.standardAppearance = tabBarAppearance
+
+        if #available(iOS 15.0, *) { // 新たに追加
+            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+        }
+
+        //self.navigationController!.navigationBar.titleTextAttributes = [
+                    //.foregroundColor: UIColor.white
+                //]
+        //UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         
         profileImage.image = UIImage(named: "noimage.jpeg")!
         profileImage.contentMode = .scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
         
+        changeProfile.layer.borderColor = UIColor.yellow.cgColor  // 枠線の色
+        changeProfile.layer.borderWidth = 0.1
         
         
         let useremail = UserDefaults.standard.string(forKey: "email") as! String
         navigationItem.title = useremail
+        
         
         let username = UserDefaults.standard.string(forKey: "name") as! String
         usernameTextField.text = username
@@ -58,6 +76,8 @@ class ProfileViewController: UIViewController {
         profileMessage.text = message
         
         changeProfile.layer.cornerRadius = 5
+        changeProfile.layer.borderColor = UIColor.black.cgColor
+        changeProfile.layer.borderWidth = 0.1
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 123, height: 123)
@@ -139,7 +159,9 @@ extension ProfileViewController:UICollectionViewDataSource{
 
 extension ProfileViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 123, height: 123)
+        let width = self.view.frame.width
+        let wid = (width-30)/3
+        return CGSize(width: wid, height: wid)
     }
 }
 

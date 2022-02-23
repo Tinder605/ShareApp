@@ -32,6 +32,9 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password){
             (res, err) in if let err = err {
                 print("ログイン情報の取得に失敗しました。", err)
+                HUD.hide { (_) in
+                    HUD.flash(.error,delay: 1)
+                }
                 return
             }
            
@@ -46,7 +49,10 @@ class LoginViewController: UIViewController {
             userRef.addSnapshotListener{(snapshot, err) in
                 if let err = err {
                 print("ユーザー情報の取得に失敗しました。\(err)")
-                return
+                    HUD.hide { (_) in
+                        HUD.flash(.error,delay: 1)
+                    }
+                    return
                 }
                 guard let data = snapshot?.data() else {return}
                 print(data["name"].debugDescription)
@@ -58,8 +64,6 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(username, forKey: "name")
                 let useremail = data["email"] as! String
                 UserDefaults.standard.set(useremail, forKey: "email")
-//                var array:[String] = []
-//                UserDefaults.standard.set(array, forKey: "RecentlySub")
                 let message = data["message"] as! String
                 UserDefaults.standard.set(message, forKey: "message")
                 let profileImageUrl = data["profileImageUrl"] as Optional<Any>
@@ -72,7 +76,7 @@ class LoginViewController: UIViewController {
                 HUD.hide{ (_) in
                     HUD.flash(.success , onView: self.view, delay: 1){(_) in
                     self.presentToHomeViewController(user: user)
-                    self.presentToProfileViewController(user: user)
+                    //self.presentToProfileViewController(user: user)
                     }
                 }
             }
@@ -112,15 +116,15 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func presentToProfileViewController(user: User){
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        //private func presentToProfileViewController(user: User){
+        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
-        let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        //let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
         
-        profileViewController.user = user
+        //profileViewController.user = user
         
-        self.present(profileViewController, animated: true, completion: nil)
-    }
+        //self.present(profileViewController, animated: true, completion: nil)
+    //}
     
     override func viewDidLoad() {
         

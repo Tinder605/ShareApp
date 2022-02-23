@@ -35,8 +35,6 @@ class CreateExamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-            PostPastExamButton.backgroundColor = .red
             PostPastExamButton.isEnabled = false
         
         PostTitleTextField.delegate = self

@@ -17,6 +17,16 @@ class goodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarController?.tabBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        guard let tabBarController = tabBarController else { return }
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        tabBarController.tabBar.standardAppearance = tabBarAppearance
+
+        if #available(iOS 15.0, *) { // 新たに追加
+            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+        }
+        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 123, height: 123)
         goodCollectionView.collectionViewLayout = layout
@@ -50,6 +60,8 @@ extension goodViewController:UICollectionViewDataSource{
 
 extension goodViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 123, height: 123)
+        let width = self.view.frame.width
+        let wid = (width-30)/3
+        return CGSize(width: wid, height: wid)
     }
 }
