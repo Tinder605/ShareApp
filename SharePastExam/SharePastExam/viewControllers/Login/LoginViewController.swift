@@ -58,8 +58,8 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(username, forKey: "name")
                 let useremail = data["email"] as! String
                 UserDefaults.standard.set(useremail, forKey: "email")
-                var array:[String] = []
-                UserDefaults.standard.set(array, forKey: "RecentlySub")
+//                var array:[String] = []
+//                UserDefaults.standard.set(array, forKey: "RecentlySub")
                 let message = data["message"] as! String
                 UserDefaults.standard.set(message, forKey: "message")
                 let profileImageUrl = data["profileImageUrl"] as Optional<Any>
@@ -68,6 +68,7 @@ class LoginViewController: UIViewController {
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")
+                print()
                 HUD.hide{ (_) in
                     HUD.flash(.success , onView: self.view, delay: 1){(_) in
                     self.presentToHomeViewController(user: user)

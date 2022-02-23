@@ -46,6 +46,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         let uid = Auth.auth().currentUser?.uid
         var dicData:Dictionary<String,Any>
         print(uid)
+//        最近の講義の回数と講義がからでなければ
         if (times != "a") && (sub[0] as! String != "a" ){
             let ref = Firestore.firestore().collection("images").document("\(sub[0])").collection("times").document("\(times)").collection("count").document("\(self.number)")
             ref.getDocument(){ (snapshot,err) in
@@ -58,6 +59,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                         GoodList = ["\(uid!)"]
                         GoodCount = GoodCount + 1
                         image = UIImage(systemName: "heart.fill") ?? UIImage()
+                        self.Goodvalue = 1
                     }
                     //ある場合とで
                     else{
@@ -101,7 +103,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
 //        }
         print("ボタンが押されました")
     }
-    //imagesのGOOD
+    //imagesのGOODの更新(誰がいいねしたかがわかる)
     private func updateGoodRef(goodlist:[String],goodcount:Int){
         let ref = Firestore.firestore().collection("images").document("\(sub[0])").collection("times").document("\(times)").collection("count").document("\(self.number)")
         print(goodlist)
@@ -115,7 +117,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
             
         }
     }
-    
+    //
     private func getPostTestData(){
         let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes")!

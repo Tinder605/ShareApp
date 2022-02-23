@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseStorage
+import SwiftUI
 
 
 class CreateExamViewController: UIViewController {
@@ -52,10 +53,10 @@ class CreateExamViewController: UIViewController {
 //        let storageRef = storage.reference()
         let user = Auth.auth().currentUser
         if let user = user{
-            let userdep = UserDefaults.standard.string(forKey: "dep") as! String
-            let usersub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-            let usertimes = UserDefaults.standard.string(forKey: "RecentlyTimes") as! String
-            let countRef = Firestore.firestore().collection("imagescount").document(usersub[0]).collection("times").document(usertimes)//投稿されている数を取得
+            let userdep = UserDefaults.standard.string(forKey: "dep") ?? " "
+            let usersub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
+            let usertimes = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? " "
+            let countRef = Firestore.firestore().collection("imagescount").document("\(usersub[0])").collection("times").document("\(usertimes)")//投稿されている数を取得
            
             countRef.getDocument{ (shapshot,err) in
                 if let err = err{
@@ -70,23 +71,25 @@ class CreateExamViewController: UIViewController {
                 }else{
                     number = number + 1
                     //Firestore上のcountを更新
-                    self.CreateImagesCountDocuments(sub: usersub[0],times: usertimes)
+                    self.CreateImagesCountDocuments(sub: "\(usersub[0])",times: "\(usertimes)")
                     dicData = ["count":"0"]
                     print("合計は \(number)")
                     
                 }
                 print(type(of: dicData))
-                //imagescountの講義名＆第○講義の何個めか
+                //imagescountの講義名＆第○講義の何個目か
                 let count = dicData["count"] as! String
                 //Firestorageに画像を保存
-                self.PostToFireStore(count:count, department: userdep,subjection: usersub[0],subtimes: usertimes)
+                self.PostToFireStore(count:count, department: userdep,subjection: "\(usersub[0])",subtimes: "\(usertimes)")
                 ///Firestorageに画像の投函
-                self.UpdateImagesCount(count: count, sub: usersub[0],times: usertimes)
+                self.UpdateImagesCount(count: count, sub: "\(usersub[0])",times: "\(usertimes)")
+                self.dismiss(animated: true, completion: nil)
             }
         }
-        self.dismiss(animated: true, completion: nil)
         
     }
+
+    
     ///Imagescountの生成
     private func CreateImagesCountDocuments(sub:String,times:String){
         let countRef = Firestore.firestore().collection("imagescount").document(sub).collection("times").document(times)
@@ -115,6 +118,7 @@ class CreateExamViewController: UIViewController {
             }
         }
         print("ImageCountの更新に成功しました。")
+        
         
     }
     
@@ -146,7 +150,7 @@ class CreateExamViewController: UIViewController {
         }
     }
     
-    ///imagesの生成(count
+    ///imagesのドキュメント生成
     private func CreateImagesDocumente(sub:String,url:String,count:String,times:String){
         let imageRef = Firestore.firestore().collection("images").document(sub).collection("times").document(times)
         let imgRef = imageRef.collection("count").document("\(count)")
@@ -160,10 +164,46 @@ class CreateExamViewController: UIViewController {
                 print("imagesの更新に失敗しました。")
                 return
             }
+            //ここで自身のfirestoreに投稿した画像のurlを掲載する（関数)引数として、
+            self.selfPostData(sub: sub, count: count, times: times, uid: uid!)
             print("imagesの更新に成功しました。")
             
         }
         
+    }
+    //自分のポストしたデータについて
+    private func selfPostData(sub:String,count:String,times:String,uid:String){
+        let ref = Firestore.firestore().collection("users").document(uid)
+        ref.getDocument(){ (snapshot,err) in
+            if let err = err{
+                print("再度ログインしてください")
+            }
+            else{
+                let data = snapshot?.data() as [String:Any]
+                var userpostdata = [""]
+                let newdata = "\(sub)"+"/"+"\(times)"+"/"+"\(count)"
+                let PostDataBox = data["PostData"]
+                print(PostDataBox)
+                
+                if PostDataBox==nil{
+                    print("こっちに来ています")
+                    
+                    
+                    userpostdata = [newdata]
+                }else{
+                    
+                    userpostdata = (PostDataBox as! [String])
+                    print(userpostdata)
+                    userpostdata.append(newdata)
+                }
+                ref.updateData(["PostData":userpostdata]){ (err) in
+                    if let err = err{
+                        print("アップデートに失敗しました")
+                    }
+                    
+                }
+            }
+        }
     }
     
     @objc func showKeyboard(notification: Notification) {

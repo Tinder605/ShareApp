@@ -25,7 +25,6 @@ class PastData:NSObject{
         let doc = document.data()
         self.count = doc["count"] as? String
         self.ViewCount = doc["viewcount"] as? Int
-        print("ここに\(self.ViewCount)")
         self.GoodCount = doc["good"] as? Int
         self.Title = doc["title"] as? String
         self.url = doc["imageurl"] as? String
@@ -47,6 +46,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     @IBAction func PostButtonAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "CreatePastExam", bundle: nil)
         let nextwindow = storyboard.instantiateViewController(withIdentifier: "CreatePastExam") as! CreateExamViewController
+        
         self.present(nextwindow, animated: true, completion: nil)
     }
     
@@ -60,25 +60,30 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     let width = UIScreen.main.bounds.width
     let height  = UIScreen.main.bounds.height
     
-    let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+    
     let uid = Auth.auth().currentUser?.uid//念の為再定義(userdefaultにあれば削除）
     
     override func viewDidLayoutSubviews() {
         ShareRoomCollectionViewWidth.constant = width
         ShareRoomViewHeight.constant = height
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.array(forKey: "RecentlySub") != nil{
+            let subjection = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+            print("subjectionの表示\(subjection)")
+        }
+        self.ShareRoomCollectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         view.backgroundColor = .systemGreen
         ShareRoomCollectionView.backgroundColor = UIColor.rgb(red: 144, green: 238, blue: 144)
         PostButton.layer.cornerRadius = 40
         PostButton.setTitle("", for: .normal)
         navigationItem.title = timestile
-        UserDefaults.standard.set(timestile, forKey: "RecentlyTimes")
+        //UserDefaults.standard.set(timestile, forKey: "RecentlyTimes")
         
         self.getStartDocuments()
         
@@ -92,10 +97,12 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     }
     //imageの情報の取得
     private func getStartDocuments(){
-        let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+        let subjection = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes") as! String
-        
-        let ref = Firestore.firestore().collection("images").document(sub[0])
+        let sub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
+        let department = UserDefaults.standard.string(forKey: "dep") ?? "a"
+        print(sub)
+        let ref = Firestore.firestore().collection("images").document("\(sub[0])")
         let imginforef = ref.collection("times").document(times).collection("count")
         HUD.show(.progress, onView: self.view)
 
@@ -118,8 +125,6 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
             }
         }
     }
-
-
 }
 
 extension ShareRoomViewController {
@@ -182,7 +187,6 @@ extension ShareRoomViewController {
             cell.ReviewButton.setImage(image!, for: .normal)
             
         }
-        
         //viewのimageの取得
         if let urlstr = testDataArray[indexPath.row].url{
             let url = URL(string: "\(urlstr)")

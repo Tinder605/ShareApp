@@ -56,12 +56,12 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         
         guard let changename = usernameTextField.text else{return}
         let username = changename as! String
-        UserDefaults.standard.set(username, forKey: "name")
+        //UserDefaults.standard.set(username, forKey: "name")
         print(username)
         
         guard let changemessage = profileTextField.text else{return}
         let message = changemessage as! String
-        UserDefaults.standard.set(message, forKey: "message")
+        //UserDefaults.standard.set(message, forKey: "message")
         print(message)
         
         //UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")

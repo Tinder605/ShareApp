@@ -182,7 +182,6 @@ extension SelectionTableViewController{
         let uniqueValues = orderset.array as! [String]
         UserDefaults.standard.set(uniqueValues, forKey: "RecentlySub")
         
-        print(UserDefaults.standard.array(forKey: "RecentlySub"))
         
         self.navigationController?.pushViewController(nextview, animated: true)
         
