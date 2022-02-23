@@ -64,8 +64,6 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(username, forKey: "name")
                 let useremail = data["email"] as! String
                 UserDefaults.standard.set(useremail, forKey: "email")
-                var array:[String] = []
-                UserDefaults.standard.set(array, forKey: "RecentlySub")
                 let message = data["message"] as! String
                 UserDefaults.standard.set(message, forKey: "message")
                 let profileImageUrl = data["profileImageUrl"] as Optional<Any>
