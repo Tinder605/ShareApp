@@ -179,7 +179,9 @@ extension SelectionTableViewController{
         let nextview = storyboard.instantiateViewController(withIdentifier: "Subtimes") as! SubTimesViewController
         nextview.subTitle = usersub
         
-        var defaults :[String] = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+        var defaults :[String] = UserDefaults.standard.array(forKey: "RecentlySub") as? [String] ?? []
+            print("デフォルト型確認")
+            
         defaults.insert(usersub, at: 0)
         
         if defaults.count > 15 {

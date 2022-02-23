@@ -24,13 +24,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let cellID = "cellID"
     let width = UIScreen.main.bounds.width
-    var RecentlySub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+    var RecentlySub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
     let SliderCellId = "SliderCellId"
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        RecentlySub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+        RecentlySub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
         print(RecentlySub)
         RecentlyTable.reloadData()
     }
@@ -135,7 +135,14 @@ extension HomeViewController{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
-        cell.textLabel?.text  = RecentlySub[indexPath.row]
+        cell.textLabel?.text  = RecentlySub[indexPath.row] as! String
+        tableView.separatorColor = UIColor.rgb(red: 140, green: 97, blue: 32) //線を茶色にする
+        tableView.separatorInset.left = 0
+        tableView.separatorInset.right = 0
+        tableView.tableFooterView = UIView()//空のセルの区切りをなくす
+        cell.contentView.backgroundColor = UIColor.rgb(red: 241, green: 251, blue: 231)
+        cell.contentView.tintColor = UIColor.rgb(red: 140, green: 97, blue: 32)
+
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
