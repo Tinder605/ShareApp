@@ -47,6 +47,7 @@ class ProfileViewController: UIViewController {
         tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         tabBarController.tabBar.standardAppearance = tabBarAppearance
 
+            //ここのif文いるのか
         if #available(iOS 15.0, *) { // 新たに追加
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         }
@@ -75,16 +76,22 @@ class ProfileViewController: UIViewController {
         let message = UserDefaults.standard.string(forKey: "message") as! String
         profileMessage.text = message
         
+        //プロフィール編集ボタンのviewの設定
         changeProfile.layer.cornerRadius = 5
         changeProfile.layer.borderColor = UIColor.black.cgColor
         changeProfile.layer.borderWidth = 0.1
         
+        //collectionviewのセルの設定
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 123, height: 123)
         collectionView.collectionViewLayout = layout
         collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
+        //投稿数といいね数、そのデータを取得
+        self.getSelfDocuments()
     }
     
     
@@ -129,7 +136,33 @@ class ProfileViewController: UIViewController {
         
         self.present(navController, animated: true, completion: nil)
     }
-    
+    private func getSelfDocuments(){
+        let uid = Auth.auth().currentUser?.uid
+        let selfRef = Firestore.firestore().collection("user").document(uid!)
+        selfRef.getDocument(){(snapshot,err) in
+            if let err = err{
+                print("アカウント情報の取得に失敗しました")
+                //ログイン画面に移動という手もあり
+                return
+            }
+            let userData = snapshot?.data() as? [String:Any] ?? [:]
+            //投稿している資料の数を取得して挿入する
+            let PostDocumentsPath = userData["PostData"] as? [String] ?? []
+            self.voteCount.text = "\(PostDocumentsPath.count)"
+            print("ここに投稿数を表示します")
+            print(PostDocumentsPath.count)
+            //投稿機能の資料の取得
+            //self.getPostDocuments(PostDataPath: PostDocumentsPath)
+            
+        
+        }
+        
+    }
+        //渡されたpathを参照して、documentsを取得する
+    private func getPostDocuments(PostDataPath:[String]){
+        
+    }
+
     
     
 }

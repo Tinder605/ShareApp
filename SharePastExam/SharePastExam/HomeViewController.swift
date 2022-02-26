@@ -64,7 +64,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         histryCollectionView.collectionViewLayout = layout
         setupViews()
         
-        histryCollectionView
         
         RecentlyTable.delegate = self
         RecentlyTable.dataSource = self
