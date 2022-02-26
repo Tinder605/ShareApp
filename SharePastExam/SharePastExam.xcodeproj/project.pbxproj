@@ -249,7 +249,7 @@
 				C3E5292526F1DFE200C4EB9F /* Sources */,
 				C3E5292626F1DFE200C4EB9F /* Frameworks */,
 				C3E5292726F1DFE200C4EB9F /* Resources */,
-				6E56A0181DB468E32FBA31C6 /* [CP] Embed Pods Frameworks */,
+				6DB3DC0851F728E8CC156420 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,7 +318,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6E56A0181DB468E32FBA31C6 /* [CP] Embed Pods Frameworks */ = {
+		6DB3DC0851F728E8CC156420 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -539,7 +539,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SharePastExam/SharePastExam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = USJ27UXZ36;
+				DEVELOPMENT_TEAM = PN6MK267W8;
 				INFOPLIST_FILE = SharePastExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -561,7 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SharePastExam/SharePastExam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = USJ27UXZ36;
+				DEVELOPMENT_TEAM = PN6MK267W8;
 				INFOPLIST_FILE = SharePastExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

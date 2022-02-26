@@ -6,15 +6,16 @@ target 'SharePastExam' do
   use_frameworks!
 
   # Pods for SharePastExam
-pod 'Firebase/Analytics'
-pod 'Firebase/Auth'
-pod 'Firebase/Firestore'
-pod 'PKHUD', '~> 5.0'
-pod 'Firebase/Storage'
-pod 'FirebaseUI/Storage'
-pod 'RxSwift'
-pod 'RxCocoa'
-pod 'Nuke'
-pod 'SDWebImageSwiftUI'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'PKHUD', '~> 5.0'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Nuke'
+  pod 'SDWebImageSwiftUI'
+
 
 end
