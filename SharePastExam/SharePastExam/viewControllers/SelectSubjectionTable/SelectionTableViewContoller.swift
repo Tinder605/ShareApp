@@ -72,6 +72,9 @@ extension SelectionTableViewController{
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             var eachsub:[String] = []
             //var subcount :Int = 0
+            tableView.separatorColor = UIColor.rgb(red: 140, green: 97, blue: 32) //線を茶色にする
+            tableView.separatorInset.left = 0
+            tableView.separatorInset.right = 0
             switch section {
             case 0:
                 eachsub = subjection["一年生"] as! [String]
@@ -109,10 +112,11 @@ extension SelectionTableViewController{
        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let label = UILabel()
             label.text = "一年次"
-            label.backgroundColor = .gray
+            label.backgroundColor = UIColor.rgb(red: 186, green: 249, blue: 146)
+           
             label.textAlignment = .center
             
-            label.textColor = .white
+            label.textColor = UIColor.rgb(red: 140, green: 97, blue: 32)
         
         switch section {
         case 0:
@@ -136,6 +140,7 @@ extension SelectionTableViewController{
         
             
             switch indexPath.section {
+                
             case 0:
                 allsub = subjection["一年生"] as! [String]
                 //print(indexPath.row)
@@ -146,10 +151,11 @@ extension SelectionTableViewController{
             case 2:
                 allsub = subjection["三年生"] as! [String]
                 cell.textLabel?.text = allsub[indexPath.row]
+                
             default:
                 cell.textLabel?.text = ""
             }
-            
+            cell.contentView.backgroundColor = UIColor.rgb(red: 241, green: 251, blue: 231)//セルのバックグラウンド変更
 
             return cell
         }

@@ -74,6 +74,12 @@ extension SubTimesViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
         cell.textLabel?.text = subtimes[indexPath.row]
         
+        tableView.separatorColor = UIColor.rgb(red: 140, green: 97, blue: 32) //線を茶色にする
+        tableView.separatorInset.left = 0
+        tableView.separatorInset.right = 0
+        tableView.tableFooterView = UIView()//空のセルの区切りをなくす
+        cell.contentView.backgroundColor = UIColor.rgb(red: 241, green: 251, blue: 231)//セルのバックグラウンド変更
+        
         return cell
     }
     
@@ -85,6 +91,13 @@ extension SubTimesViewController{
         let storyboard = UIStoryboard(name: "ShareRoom", bundle: nil)
         let nextview = storyboard.instantiateViewController(withIdentifier: "ShareRoom") as! ShareRoomViewController
         nextview.timestile = subtimes[indexPath.row] as! String
+        
+        tableView.separatorColor = UIColor.rgb(red: 140, green: 97, blue: 32) //線を茶色にする
+        tableView.separatorInset.left = 0
+        tableView.separatorInset.right = 0
+        tableView.tableFooterView = UIView()//空のセルの区切りをなくす
+            //cell.contentView.backgroundColor = UIColor.rgb(red: 241, green: 251, blue: 231)//セルのバックグラウンド変更
+        
         UserDefaults.standard.set(subtimes[indexPath.row] as! String, forKey: "RecentlyTimes")
         navigationController?.pushViewController(nextview, animated: true)
     }
