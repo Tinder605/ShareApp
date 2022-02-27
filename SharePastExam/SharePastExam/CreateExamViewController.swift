@@ -129,7 +129,8 @@ class CreateExamViewController: UIViewController {
                 let reference = StorageRef.child("images/" + subjection + "/" + "\(subtimes)" + "/" + "\(count)" + ".jpeg")
                 let meta = StorageMetadata()
                 meta.contentType = "image/jpeg"
-                reference.putData(data as Data, metadata: meta, completion: {(metaData,err) in
+                
+            reference.putData(data as Data, metadata: meta, completion: {(metaData,err) in
                 if let err = err{
                     print("投稿に失敗しました。")
                     return
@@ -267,7 +268,8 @@ extension CreateExamViewController :UIImagePickerControllerDelegate{
             
             
             SelectPickerImage.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            postImageData = (SelectPickerImage.image as! UIImage).pngData() as! NSData
+            //圧縮したが実際にはしていない
+            postImageData = (SelectPickerImage.image?.resizeImage(withPercentage: 0.1) as! UIImage).pngData() as! NSData
             
         }
         if let vaildImage = SelectPickerImage.image{
@@ -281,5 +283,17 @@ extension CreateExamViewController :UIImagePickerControllerDelegate{
             }
         }
         dismiss(animated: true)
+    }
+}
+//画像の圧縮の拡張
+extension UIImage{
+    // percentage:圧縮率
+    func resizeImage(withPercentage percentage: CGFloat) -> UIImage? {
+        // 圧縮後のサイズ情報
+        let canvas = CGSize(width: size.width * percentage, height: size.height * percentage)
+        // 圧縮画像を返す
+        return UIGraphicsImageRenderer(size: canvas, format: imageRendererFormat).image {
+            _ in draw(in: CGRect(origin: .zero, size: canvas))
+        }
     }
 }

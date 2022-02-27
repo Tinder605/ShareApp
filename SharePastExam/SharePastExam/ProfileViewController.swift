@@ -138,7 +138,7 @@ class ProfileViewController: UIViewController {
     }
     private func getSelfDocuments(){
         let uid = Auth.auth().currentUser?.uid
-        let selfRef = Firestore.firestore().collection("user").document(uid!)
+        let selfRef = Firestore.firestore().collection("users").document(uid!)
         selfRef.getDocument(){(snapshot,err) in
             if let err = err{
                 print("アカウント情報の取得に失敗しました")
@@ -148,19 +148,18 @@ class ProfileViewController: UIViewController {
             let userData = snapshot?.data() as? [String:Any] ?? [:]
             //投稿している資料の数を取得して挿入する
             let PostDocumentsPath = userData["PostData"] as? [String] ?? []
+            print(PostDocumentsPath)
             self.voteCount.text = "\(PostDocumentsPath.count)"
             print("ここに投稿数を表示します")
             print(PostDocumentsPath.count)
             //投稿機能の資料の取得
-            //self.getPostDocuments(PostDataPath: PostDocumentsPath)
-            
-        
+            self.getPostDocuments(PostDataPath: PostDocumentsPath)
         }
         
     }
         //渡されたpathを参照して、documentsを取得する
     private func getPostDocuments(PostDataPath:[String]){
-        
+        print(PostDataPath)
     }
 
     
