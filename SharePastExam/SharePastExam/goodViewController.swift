@@ -33,6 +33,8 @@ class goodViewController: UIViewController {
         goodCollectionView.register(goodCollectionViewCell.nib(), forCellWithReuseIdentifier: goodCollectionViewCell.identifier)
         goodCollectionView.delegate = self
         goodCollectionView.dataSource = self
+        
+        
     }
 
 }

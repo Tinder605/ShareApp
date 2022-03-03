@@ -46,7 +46,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         let uid = Auth.auth().currentUser?.uid
         var dicData:Dictionary<String,Any>
         print(uid)
-//        最近の講義の回数と講義がからでなければ
+//        最近の講義の回数と講義がからでなければ(この処理は関数でまとめるべきかもしれない)
         if (times != "a") && (sub[0] as! String != "a" ){
             let ref = Firestore.firestore().collection("images").document("\(sub[0])").collection("times").document("\(times)").collection("count").document("\(self.number)")
             ref.getDocument(){ (snapshot,err) in
@@ -80,6 +80,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                         }
                     }
                     self.updateGoodRef(goodlist: GoodList, goodcount: GoodCount)
+                    self.updateUserGoodList()
                     self.ReviewButton.setImage(image, for: .normal)
                 }
                 else{
@@ -118,28 +119,42 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         }
     }
     //
-    private func getPostTestData(){
-        let sub = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-        let times = UserDefaults.standard.string(forKey: "RecentlyTimes")!
+    private func updateUserGoodList(){
+        guard let uid = Auth.auth().currentUser?.uid else{return}
+        let ref = Firestore.firestore().collection("users").document(uid)
         
-        let ref = Firestore.firestore().collection("images").document(sub[0])
-        let imginforef = ref.collection("times").document(times).collection("count")
-        var imgminuid:Int = 10000
-        imginforef.getDocuments(){(querySnapshots,err) in
+        ref.getDocument(){ (snapshot,err) in
             if let err = err{
-                print("データ取得失敗")
+                print("エラーとなりました")
                 return
             }
-            else{
-                for document in querySnapshots!.documents{
-//                    print("\(document.documentID) =>\(document.data())")
-//                    print(type(of: document.documentID))
-                    let nowuid = Int(document.documentID)
-                    if imgminuid>nowuid!{
-                        imgminuid = nowuid!
-                    }
+            let data = snapshot?.data() as? [String:Any] ?? [:]
+            print("newelemntの表示")
+            print(data)
+            let newelement = "\(self.sub[0])" + "/" + "\(self.times)" + "/" + "\(self.number)"
+            var GoodList:[String] = []
+            print("ここにGoodValueを表示")
+            print(self.Goodvalue)
+            if let goodlist = data["GoodList"]{
+                GoodList = goodlist as! [String]
+                if self.Goodvalue == 0{
+                    GoodList.removeAll(where: {$0 == String(newelement)})
                 }
-                print(imgminuid)
+                else{
+                    GoodList.append(newelement)
+                }
+            }
+            else{
+                GoodList = [newelement]
+            }
+            print(GoodList)
+            ref.updateData(["GoodList":GoodList]){(err) in
+                if let err = err{
+                    print("GoodListの更新に失敗しました。")
+                }
+                else{
+                    print("GoodListの更新に成功しました")
+                }
             }
         }
         
