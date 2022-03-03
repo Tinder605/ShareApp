@@ -13,6 +13,7 @@ class goodViewController: UIViewController {
     
     @IBOutlet weak var goodCollectionView: UICollectionView!
     
+    var GoodDocumentsList:[String] = []
     
     
     override func viewDidLoad() {
@@ -34,8 +35,29 @@ class goodViewController: UIViewController {
         goodCollectionView.delegate = self
         goodCollectionView.dataSource = self
         
+        //self.GetGoodDocuments()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.GetGoodDocuments()
+    }
+    private func GetGoodDocuments(){
+        
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Firestore.firestore().collection("users").document(uid!)
+        
+        ref.getDocument(){ (snapshot,err) in
+            if let err = err{
+                
+            }
+            let data = snapshot?.data() as? [String:Any] ?? [:]
+            self.GoodDocumentsList = data["GoodList"] as? [String] ?? []
+            self.goodCollectionView.reloadData()
+        }
         
     }
+    
 
 }
 
@@ -49,11 +71,20 @@ extension goodViewController:UICollectionViewDelegate{
 extension goodViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 22
+        return self.GoodDocumentsList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:goodCollectionViewCell.identifier, for: indexPath) as! goodCollectionViewCell
         
+        let goodpath = self.GoodDocumentsList[indexPath.row]
+        let goosep = goodpath.components(separatedBy: "/")
+        cell.subjection = goosep[0]
+        cell.times = goosep[1]
+        cell.count = goosep[2]
+        print("わかり魔ぺん")
+        print(goosep)
+        
+        cell.awakeFromNib()
         cell.configure(with: UIImage(named: "IMG_6906")!)
         
         return cell

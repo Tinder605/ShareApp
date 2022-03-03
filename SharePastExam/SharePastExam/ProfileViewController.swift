@@ -269,7 +269,7 @@ extension ProfileViewController:UICollectionViewDataSource{
         cell.count = IndexCount[indexPath.row]
         cell.subject = IndexSub[indexPath.row]
         cell.times = IndexTimes[indexPath.row]
-        cell.url = PostDataArray[indexPath.row].url as? String ?? ""
+        cell.url = PostDataArray[indexPath.row].url ?? ""
         let path = URL(string: cell.url)
         print("pathの中身を表示")
         print(path)
