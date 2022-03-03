@@ -20,7 +20,7 @@ class PastData:NSObject{
     var Title:String?
     var url :String?
     var goodList:[String]?
-    
+    //辞書型の要素を確認
     init(document:QueryDocumentSnapshot) {
         let doc = document.data()
         self.count = doc["count"] as? String

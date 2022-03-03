@@ -12,7 +12,29 @@ import FirebaseFirestore
 import Nuke
 import FirebaseStorage
 import SDWebImage
- 
+
+class PostData:NSObject{
+    
+    var count:String?
+    var GoodCount:Int?
+    var ViewCount:Int?
+    var Title:String?
+    var url :String?
+    var goodList:[String]?
+    //辞書型の要素を確認
+    init(document:DocumentSnapshot) {
+        let doc = document.data()
+        self.count = doc!["count"] as? String ?? "0"
+        self.ViewCount = doc!["viewcount"] as? Int ?? 0
+        self.GoodCount = doc!["good"] as? Int ?? 0
+        self.Title = doc!["title"] as? String ?? "notitle"
+        self.url = doc!["imageurl"] as? String ?? "nourl"
+        self.goodList = doc!["GoodList"] as? [String] ?? [" "]
+    }
+    
+}
+
+
 class ProfileViewController: UIViewController {
     
     var user: User? {
@@ -20,6 +42,12 @@ class ProfileViewController: UIViewController {
             print("user?.name: ",user!.name)
         }
     }
+    
+    var PostDataArray:[PostData] = []
+    //インデックスごとの情報を補完する
+    var IndexSub:[String] = []
+    var IndexTimes:[String] = []
+    var IndexCount:[String] = []
     
     @IBOutlet weak var voteCount: UILabel!
     @IBOutlet weak var usernameTextField: UILabel!
@@ -37,6 +65,7 @@ class ProfileViewController: UIViewController {
         self.present(homeViewController, animated: true, completion: nil)
         
     }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,9 +118,10 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
+        HUD.show(.progress, onView: self.view)
         //投稿数といいね数、そのデータを取得
         self.getSelfDocuments()
+        
     }
     
     
@@ -146,6 +176,8 @@ class ProfileViewController: UIViewController {
                 return
             }
             let userData = snapshot?.data() as? [String:Any] ?? [:]
+            
+            
             //投稿している資料の数を取得して挿入する
             let PostDocumentsPath = userData["PostData"] as? [String] ?? []
             print(PostDocumentsPath)
@@ -160,6 +192,58 @@ class ProfileViewController: UIViewController {
         //渡されたpathを参照して、documentsを取得する
     private func getPostDocuments(PostDataPath:[String]){
         print(PostDataPath)
+        
+        var Goodcount :Int = 0
+        var roopCount:Int = 0
+        HUD.hide{ (_) in
+         for i in PostDataPath{
+            print(i)
+            let arr :[String] = i.components(separatedBy: "/")
+            self.IndexSub.append(arr[0])
+            self.IndexTimes.append(arr[1])
+            self.IndexCount.append(arr[2])
+             
+            let DocRef = Firestore.firestore().collection("images").document(arr[0]).collection("times").document(arr[1]).collection("count").document(arr[2])
+            print(DocRef)
+            DocRef.getDocument{(snapshot,err) in
+                if let err = err{
+                    print("ドキュメントの情報が間違っています")
+                    return
+                }
+                let data = snapshot?.data()
+                //危ない気もする
+                let part_data = PostData(document: snapshot!)
+                self.PostDataArray.append(part_data)
+                
+                print("辞書型の内容の提示")
+                
+                //必要なデータの取得
+                print("辞書型に変更")
+               
+                
+                print("ここからいいね数")
+                let count = data?["good"] as? Int ?? 0
+                print(data?["good"] as? Int ?? 0)
+                print(data?["imageurl"] as? String ?? "")
+                Goodcount = Goodcount + count
+                self.goodCount.text = "\(Goodcount)"
+                
+                ///画像の取得(おそらく間に合わない)
+                
+                
+                ///ここから再度画像の取得(if-forは遅い)
+                roopCount = roopCount + 1
+                if roopCount >= PostDataPath.count{
+                    HUD.flash(.success, onView: self.view)
+                    self.collectionView.reloadData()
+                    print(self.PostDataArray[0].url!)
+                    print("hideします")
+                    print(self.PostDataArray.count)
+                }
+            }
+         }
+       }
+        
     }
 
     
@@ -178,12 +262,33 @@ extension ProfileViewController:UICollectionViewDelegate{
 extension ProfileViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return self.PostDataArray.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
+        cell.count = IndexCount[indexPath.row]
+        cell.subject = IndexSub[indexPath.row]
+        cell.times = IndexTimes[indexPath.row]
+        cell.url = PostDataArray[indexPath.row].url as? String ?? ""
+        let path = URL(string: cell.url)
+        print("pathの中身を表示")
+        print(path)
+        if (path != nil) {
+            do{
+                let data = try Data(contentsOf: path!)
+                print("こっちにはきています")
+                cell.imageView.image = UIImage(data: data)!
+            }catch let error{
+                cell.configure(with: UIImage(named: "IMG_6906")!)
+                print("errr")
+            }
+        }
+        else{
+            cell.configure(with: UIImage(named: "IMG_6906")!)
+        }
+        print("ここにcell情報の表示")
+        print(cell.subject)
         
-        cell.configure(with: UIImage(named: "IMG_6906")!)
         
         return cell
     }

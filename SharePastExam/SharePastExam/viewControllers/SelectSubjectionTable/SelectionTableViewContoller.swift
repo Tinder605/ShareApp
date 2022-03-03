@@ -59,6 +59,8 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         ///delegateの登録
         SelectSubjectionTable.delegate = self
         SelectSubjectionTable.dataSource = self
+        
+        print(SelectSubjectionTable.tableHeaderView?.heightAnchor)
     }
     
 
@@ -97,15 +99,20 @@ extension SelectionTableViewController{
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 50
         }
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
         
         //ヘッダーの高さ
         func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 50
         }
+       
         //sectionごとのfooter
         func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
             return .leastNonzeroMagnitude
         }
+       
     
         
         //ヘッダーの内容について
