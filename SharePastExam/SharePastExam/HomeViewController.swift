@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import Firebase
-Z
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
