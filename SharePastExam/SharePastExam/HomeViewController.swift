@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import Firebase
-
+Z
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -32,8 +32,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(animated)
         RecentlySub = UserDefaults.standard.array(forKey: "RecentlySub") ?? ["現在閲覧履歴はありません"]
         print(RecentlySub)
-        RecentlyTable.reloadData()
+        self.RecentlyTable.reloadData()
+        self.histryCollectionView.reloadData()
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -62,7 +64,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: width, height: 200)
         histryCollectionView.collectionViewLayout = layout
-        setupViews()
+        self.setupViews()
         
         
         RecentlyTable.delegate = self
@@ -72,6 +74,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     private func setupViews(){
+        print("cell設定変更")
         histryCollectionView.delegate = self
         histryCollectionView.dataSource = self
         histryCollectionView.register(SliderCell.self, forCellWithReuseIdentifier: SliderCellId)
@@ -81,6 +84,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         confirmLoggedInUser()
+        
     }
     
     private func confirmLoggedInUser() {
@@ -89,6 +93,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print(Auth.auth().currentUser?.uid)
         }
     }
+    
     
     private func presentToMainViewController() {
         let storyBoard = UIStoryboard(name: "SignUp", bundle: nil)
@@ -114,13 +119,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let getpath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
+        print("cellの更新は行われています。")
         let cell = histryCollectionView.dequeueReusableCell(withReuseIdentifier:SliderCellId, for: indexPath) as! SliderCell
-        cell.images = self.images
-            return cell
+        cell.number = indexPath.row
+        
+        let cell_view = histryCollectionView.dequeueReusableCell(withReuseIdentifier: SliderCellId, for: indexPath) as! SliderCollectionViewCell
+        
+        cell_view.awakeFromNib()
+        
+        cell.awakeFromNib()
+        return cell
         }
     }
 

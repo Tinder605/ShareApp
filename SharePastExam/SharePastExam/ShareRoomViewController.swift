@@ -100,10 +100,10 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     }
     //imageの情報の取得
     private func getStartDocuments(){
-        let subjection = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-        let times = UserDefaults.standard.string(forKey: "RecentlyTimes") as! String
+//        let subjection = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
+        let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? " "
         let sub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
-        let department = UserDefaults.standard.string(forKey: "dep") ?? "a"
+//        let department = UserDefaults.standard.string(forKey: "dep") ?? "a"
         print(sub)
         let ref = Firestore.firestore().collection("images").document("\(sub[0])")
         let imginforef = ref.collection("times").document(times).collection("count")
@@ -148,6 +148,20 @@ extension ShareRoomViewController {
         let nextscreen = window.instantiateViewController(withIdentifier: "SelectDocExtesion") as! SelectDocExtesionViewController
         if let nexttitle = testDataArray[indexPath.row].Title{
             nextscreen.doctitle = testDataArray[indexPath.row].Title!
+            let sub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
+            let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? ""
+            let path = "\(sub[0])" + "/" + "\(times)" + "/" + "\(indexPath.row)"
+            var getPath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
+            if getPath.count != 0{
+                getPath.insert(path, at: 0)
+                if getPath.count>4{
+                    getPath.removeLast()
+                }
+                let orderset = NSOrderedSet(array: getPath)
+                getPath = orderset.array as! [String]
+                print("getPath:" + "\(getPath)")
+            }
+            UserDefaults.standard.set(getPath, forKey: "RecentlyPath")
             print(nexttitle)
         }
         if let nextimage = testDataArray[indexPath.row].url{

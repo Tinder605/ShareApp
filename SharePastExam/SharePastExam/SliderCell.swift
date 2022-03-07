@@ -6,10 +6,20 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class SliderCell: UICollectionViewCell {
     
     var images = UIImage(named: "IMG_6906")
+    var number = 0
+//    var path:String  = ""{
+//        didSet{
+//            print("パスの変更を表示")
+//            print(self.path)
+//        }
+//    }
+    
+    let getpath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
     private let sliderId = "sliderId"
     static let identifier = "SliderCell"
     
@@ -25,10 +35,14 @@ class SliderCell: UICollectionViewCell {
         return collectionView
     }()
     
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addSubview(SliderCollectionView)
         
         [
@@ -42,14 +56,31 @@ class SliderCell: UICollectionViewCell {
         SliderCollectionView.contentInset = .init(top: 0, left: 15, bottom: 0, right: 15)
         SliderCollectionView.register(UINib(nibName: "SliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: sliderId)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    private func getPastDocuments(){
+        if self.path != ""{
+            //アクセス方法が多いのですが、
+            let path_dep = self.path.components(separatedBy: "/")
+            let FireStorage_Path = Storage.storage().reference(withPath: "gs://sharepastexamapp.appspot.com").child("images").child("\(path_dep[0])").child("\(path_dep[1])").child("\(path_dep[2]).jpeg")
+            FireStorage_Path.getData(maxSize: 1024*1024*10){ (data,err) in
+                if data != nil{
+                     
+                }
+                else{
+                    print("失敗しています。")
+                }
+            }
+            
+            
+        }
     }
     
 }
 
 extension SliderCell: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 15
@@ -61,13 +92,19 @@ extension SliderCell: UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     }
     
 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 5
-}
+    var count = 3
+    if self.getpath.count<3{
+        count = self.getpath.count
+    }
+    return count
+ }
 
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = SliderCollectionView.dequeueReusableCell(withReuseIdentifier: sliderId.self, for: indexPath) as! SliderCollectionViewCell
-    
+    cell.path = self.getpath[indexPath.row] as! String
+
+    cell.awakeFromNib()
     return cell
-}
+ }
 
 }
