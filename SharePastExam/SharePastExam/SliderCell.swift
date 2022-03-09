@@ -19,7 +19,7 @@ class SliderCell: UICollectionViewCell {
 //        }
 //    }
     
-    let getpath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
+    var getpath = UserDefaults.standard.array(forKey: "RecentlyPath") as? [String] ?? []
     private let sliderId = "sliderId"
     static let identifier = "SliderCell"
     
@@ -34,11 +34,10 @@ class SliderCell: UICollectionViewCell {
         
         return collectionView
     }()
-    
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
+    //collectionviewの中のcollectionviewをリロードする関数
+    public func WakeupCell(){
+        self.getpath = UserDefaults.standard.array(forKey: "RecentlyPath") as? [String] ?? []
+        self.SliderCollectionView.reloadData()
     }
     
     override init(frame: CGRect) {
@@ -59,23 +58,23 @@ class SliderCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    private func getPastDocuments(){
-        if self.path != ""{
-            //アクセス方法が多いのですが、
-            let path_dep = self.path.components(separatedBy: "/")
-            let FireStorage_Path = Storage.storage().reference(withPath: "gs://sharepastexamapp.appspot.com").child("images").child("\(path_dep[0])").child("\(path_dep[1])").child("\(path_dep[2]).jpeg")
-            FireStorage_Path.getData(maxSize: 1024*1024*10){ (data,err) in
-                if data != nil{
-                     
-                }
-                else{
-                    print("失敗しています。")
-                }
-            }
-            
-            
-        }
-    }
+//    private func getPastDocuments(){
+//        if self.path != ""{
+//            //アクセス方法が多いのですが、
+//            let path_dep = self.path.components(separatedBy: "/")
+//            let FireStorage_Path = Storage.storage().reference(withPath: "gs://sharepastexamapp.appspot.com").child("images").child("\(path_dep[0])").child("\(path_dep[1])").child("\(path_dep[2]).jpeg")
+//            FireStorage_Path.getData(maxSize: 1024*1024*10){ (data,err) in
+//                if data != nil{
+//
+//                }
+//                else{
+//                    print("失敗しています。")
+//                }
+//            }
+//
+//
+//        }
+//    }
     
 }
 
@@ -96,13 +95,18 @@ func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection s
     if self.getpath.count<3{
         count = self.getpath.count
     }
+    else{
+        count = 3
+    }
     return count
  }
 
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    print(self.getpath)
     let cell = SliderCollectionView.dequeueReusableCell(withReuseIdentifier: sliderId.self, for: indexPath) as! SliderCollectionViewCell
-    cell.path = self.getpath[indexPath.row] as! String
-
+    if indexPath.row < self.getpath.count{
+        cell.path = self.getpath[indexPath.row] as! String
+    }
     cell.awakeFromNib()
     return cell
  }

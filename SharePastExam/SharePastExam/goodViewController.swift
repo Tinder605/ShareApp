@@ -81,8 +81,6 @@ extension goodViewController:UICollectionViewDataSource{
         cell.subjection = goosep[0]
         cell.times = goosep[1]
         cell.count = goosep[2]
-        print("わかり魔ぺん")
-        print(goosep)
         
         cell.awakeFromNib()
         cell.configure(with: UIImage(named: "IMG_6906")!)

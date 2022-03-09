@@ -154,12 +154,18 @@ extension ShareRoomViewController {
             var getPath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
             if getPath.count != 0{
                 getPath.insert(path, at: 0)
-                if getPath.count>4{
-                    getPath.removeLast()
+                if getPath.count>3{
+                    while getPath.count>3{
+                        getPath.removeLast()
+                    }
+                    
                 }
                 let orderset = NSOrderedSet(array: getPath)
                 getPath = orderset.array as! [String]
                 print("getPath:" + "\(getPath)")
+            }
+            else{
+                getPath = [path]
             }
             UserDefaults.standard.set(getPath, forKey: "RecentlyPath")
             print(nexttitle)

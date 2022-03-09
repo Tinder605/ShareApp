@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
     }
     
     var PostDataArray:[PostData] = []
+    var PostDataPath :[String] = []
     //インデックスごとの情報を補完する
     var IndexSub:[String] = []
     var IndexTimes:[String] = []
@@ -118,7 +119,7 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        HUD.show(.progress, onView: self.view)
+         HUD.show(.progress, onView: self.view)
         //投稿数といいね数、そのデータを取得
         self.getSelfDocuments()
         
@@ -134,19 +135,26 @@ class ProfileViewController: UIViewController {
         let message = UserDefaults.standard.string(forKey: "message") as! String
         profileMessage.text = message
         
-        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") as! String
+        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") ?? "noimage"
         
-        do{
-            let url = URL(string: profileImageUrl as! String)
-            let data = try Data(contentsOf: url!)
-            profileImage.image = UIImage(data: data)!
-        }catch let error{
-            print("errr")
+        if profileImageUrl == "noimage"{
+            profileImage.image = UIImage(named: "IMG_6906")!
         }
+        else{
+            do{
+                let url = URL(string: profileImageUrl as! String)
+                let data = try Data(contentsOf: url!)
+                profileImage.image = UIImage(data: data)!
+            }catch let error{
+                print("catchされています。")
+                print("errr")
+            }
+            
+        }
+        print("ここに表示するで\(profileImageUrl)")
     }
     
     override func viewWillAppear(_ animated:Bool ) {
-        self.presentedViewController
     }
     
     private func confirmLoggedInUser() {
@@ -169,6 +177,7 @@ class ProfileViewController: UIViewController {
     private func getSelfDocuments(){
         let uid = Auth.auth().currentUser?.uid
         let selfRef = Firestore.firestore().collection("users").document(uid!)
+        HUD.hide{ (_) in
         selfRef.getDocument(){(snapshot,err) in
             if let err = err{
                 print("アカウント情報の取得に失敗しました")
@@ -177,15 +186,19 @@ class ProfileViewController: UIViewController {
             }
             let userData = snapshot?.data() as? [String:Any] ?? [:]
             
-            
+            self.goodCount.text = "\(userData["AllGoodCount"] ?? 0)"
             //投稿している資料の数を取得して挿入する
             let PostDocumentsPath = userData["PostData"] as? [String] ?? []
+            self.PostDataPath = userData["PostData"] as? [String] ?? []
             print(PostDocumentsPath)
             self.voteCount.text = "\(PostDocumentsPath.count)"
             print("ここに投稿数を表示します")
             print(PostDocumentsPath.count)
+            self.collectionView.reloadData()
+            HUD.flash(.success, onView: self.view)
             //投稿機能の資料の取得
-            self.getPostDocuments(PostDataPath: PostDocumentsPath)
+            //self.getPostDocuments(PostDataPath: PostDocumentsPath)
+          }
         }
         
     }
@@ -262,34 +275,18 @@ extension ProfileViewController:UICollectionViewDelegate{
 extension ProfileViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.PostDataArray.count
+        return self.PostDataPath.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
-        cell.count = IndexCount[indexPath.row]
-        cell.subject = IndexSub[indexPath.row]
-        cell.times = IndexTimes[indexPath.row]
-        cell.url = PostDataArray[indexPath.row].url ?? ""
-        let path = URL(string: cell.url)
-        print("pathの中身を表示")
-        print(path)
-        if (path != nil) {
-            do{
-                let data = try Data(contentsOf: path!)
-                print("こっちにはきています")
-                cell.imageView.image = UIImage(data: data)!
-            }catch let error{
-                cell.configure(with: UIImage(named: "IMG_6906")!)
-                print("errr")
-            }
-        }
-        else{
+        if self.PostDataPath.count == 0{
             cell.configure(with: UIImage(named: "IMG_6906")!)
         }
-        print("ここにcell情報の表示")
-        print(cell.subject)
-        
-        
+        else{
+            cell.cellpath = self.PostDataPath[indexPath.row]
+            print(self.PostDataPath[indexPath.row])
+            cell.awakeFromNib()
+        }
         return cell
     }
 }

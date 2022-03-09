@@ -55,6 +55,7 @@ class goodCollectionViewCell: UICollectionViewCell {
                         self.goodCollectionViewCell.image = UIImage(data: data)!
                     }catch{
                         self.goodCollectionViewCell.image = UIImage()
+                        self.goodCollectionViewCell.backgroundColor = .red
                     }
                 }
                 else{

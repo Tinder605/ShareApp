@@ -130,25 +130,31 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
             }
             let data = snapshot?.data() as? [String:Any] ?? [:]
             print("newelemntの表示")
-            print(data)
             let newelement = "\(self.sub[0])" + "/" + "\(self.times)" + "/" + "\(self.number)"
             var GoodList:[String] = []
+            var AllGoodCount = data["AllGoodCount"] as? Int ?? 0
             print("ここにGoodValueを表示")
             print(self.Goodvalue)
             if let goodlist = data["GoodList"]{
                 GoodList = goodlist as! [String]
                 if self.Goodvalue == 0{
                     GoodList.removeAll(where: {$0 == String(newelement)})
+                    AllGoodCount = AllGoodCount - 1
                 }
                 else{
                     GoodList.append(newelement)
+                    AllGoodCount = AllGoodCount + 1
                 }
             }
             else{
                 GoodList = [newelement]
+                AllGoodCount = AllGoodCount + 1
+            }
+            if AllGoodCount < 0{
+                AllGoodCount = 0
             }
             print(GoodList)
-            ref.updateData(["GoodList":GoodList]){(err) in
+            ref.updateData(["GoodList":GoodList,"AllGoodCount":AllGoodCount]){(err) in
                 if let err = err{
                     print("GoodListの更新に失敗しました。")
                 }

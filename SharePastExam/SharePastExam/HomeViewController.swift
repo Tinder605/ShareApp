@@ -33,6 +33,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print(RecentlySub)
         self.RecentlyTable.reloadData()
         self.histryCollectionView.reloadData()
+        
+        
     }
     
     
@@ -45,6 +47,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("viewdidload")
         histryCollectionView.backgroundColor = .red
         //self.navigationController!.navigationBar.titleTextAttributes = [
                     //.foregroundColor: UIColor.white
@@ -118,7 +122,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -126,15 +130,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         print("cellの更新は行われています。")
         let cell = histryCollectionView.dequeueReusableCell(withReuseIdentifier:SliderCellId, for: indexPath) as! SliderCell
         cell.number = indexPath.row
-        
-        let cell_view = histryCollectionView.dequeueReusableCell(withReuseIdentifier: SliderCellId, for: indexPath) as! SliderCollectionViewCell
-        
-        cell_view.awakeFromNib()
-        
-        cell.awakeFromNib()
+        cell.WakeupCell()
         return cell
         }
-    }
+}
 
 
 extension HomeViewController{
