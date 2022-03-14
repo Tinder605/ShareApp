@@ -14,9 +14,11 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     static let identifier = "cellid"
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
-    
+    //いいねをしたのか取り消したのか決めるパラメータ
     var Goodvalue = 0
-
+    
+    var subjection = ""
+    var subtimes = ""
     var number = 0
     
     
@@ -167,12 +169,13 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     }
     
     
+    //画面の初期状態に関する関数
+    //awakeします。
     override func awakeFromNib() {
         super.awakeFromNib()
         self.fittoView(size: (width-30)/3)
-//        let image = UIImage(systemName: "heart")
-//        ReviewButton.setImage(image, for: .normal)
-        
+        self.getShareRoomImage()
+        //ここで画像の挿入の処理をする
         
     }
     override func layoutSubviews() {
@@ -182,6 +185,30 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     }
     
     
+    private func getShareRoomImage(){
+        print("関数内での動き")
+        print(self.subjection)
+        print(self.subtimes)
+        if self.subjection != "" && self.subtimes != ""{
+            let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(self.subjection)").child("\(self.subtimes)").child("\(self.number).jpeg")
+            
+            FireStorage_Path.getData(maxSize: 1024*1024*100){ (data,err) in
+                if data != nil{
+                    print("入ってます")
+                    self.PostImages.image = UIImage(data: data!)!
+                }
+                else{
+                    self.PostImages.image = UIImage(named: "IMG_6906")!
+                }
+            }
+        }
+        else{
+            print("あれへんで")
+        }
+        
+    }
+    
+    //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
         PostImageHeight.constant = size/2
         PostImageWidth.constant = size

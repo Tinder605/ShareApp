@@ -196,71 +196,9 @@ class ProfileViewController: UIViewController {
             print(PostDocumentsPath.count)
             self.collectionView.reloadData()
             HUD.flash(.success, onView: self.view)
-            //投稿機能の資料の取得
-            //self.getPostDocuments(PostDataPath: PostDocumentsPath)
           }
         }
-        
     }
-        //渡されたpathを参照して、documentsを取得する
-    private func getPostDocuments(PostDataPath:[String]){
-        print(PostDataPath)
-        
-        var Goodcount :Int = 0
-        var roopCount:Int = 0
-        HUD.hide{ (_) in
-         for i in PostDataPath{
-            print(i)
-            let arr :[String] = i.components(separatedBy: "/")
-            self.IndexSub.append(arr[0])
-            self.IndexTimes.append(arr[1])
-            self.IndexCount.append(arr[2])
-             
-            let DocRef = Firestore.firestore().collection("images").document(arr[0]).collection("times").document(arr[1]).collection("count").document(arr[2])
-            print(DocRef)
-            DocRef.getDocument{(snapshot,err) in
-                if let err = err{
-                    print("ドキュメントの情報が間違っています")
-                    return
-                }
-                let data = snapshot?.data()
-                //危ない気もする
-                let part_data = PostData(document: snapshot!)
-                self.PostDataArray.append(part_data)
-                
-                print("辞書型の内容の提示")
-                
-                //必要なデータの取得
-                print("辞書型に変更")
-               
-                
-                print("ここからいいね数")
-                let count = data?["good"] as? Int ?? 0
-                print(data?["good"] as? Int ?? 0)
-                print(data?["imageurl"] as? String ?? "")
-                Goodcount = Goodcount + count
-                self.goodCount.text = "\(Goodcount)"
-                
-                ///画像の取得(おそらく間に合わない)
-                
-                
-                ///ここから再度画像の取得(if-forは遅い)
-                roopCount = roopCount + 1
-                if roopCount >= PostDataPath.count{
-                    HUD.flash(.success, onView: self.view)
-                    self.collectionView.reloadData()
-                    print(self.PostDataArray[0].url!)
-                    print("hideします")
-                    print(self.PostDataArray.count)
-                }
-            }
-         }
-       }
-        
-    }
-
-    
-    
 }
 
 

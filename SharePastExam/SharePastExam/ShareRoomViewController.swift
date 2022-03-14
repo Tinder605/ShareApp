@@ -49,7 +49,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         
         self.present(nextwindow, animated: true, completion: nil)
     }
-    
+    //前回押した第何講義か
     var timestile :String = ""
     var count:String!
     var itemcount = 0 //cellの初期状態の個数
@@ -77,17 +77,13 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        
         view.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         ShareRoomCollectionView.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
 
         PostButton.layer.cornerRadius = 40
         PostButton.setTitle("", for: .normal)
         navigationItem.title = timestile
-        //UserDefaults.standard.set(timestile, forKey: "RecentlyTimes")
-        
+        HUD.show(.progress, onView: self.view)
         self.getStartDocuments()
         
         let nib = UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
@@ -100,31 +96,27 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     }
     //imageの情報の取得
     private func getStartDocuments(){
-//        let subjection = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? " "
         let sub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
-//        let department = UserDefaults.standard.string(forKey: "dep") ?? "a"
         print(sub)
         let ref = Firestore.firestore().collection("images").document("\(sub[0])")
         let imginforef = ref.collection("times").document(times).collection("count")
-        HUD.show(.progress, onView: self.view)
-
-        imginforef.getDocuments(){(querySnapshots,err) in
-            if let err = err{
-                print("データ取得失敗")
-                return
-            }
-            else{
-                
-                self.testDataArray = querySnapshots!.documents.map{ document in
-                    let data = PastData(document: document)
-                    print(data)
-                    return data
+        HUD.hide{ (_) in
+            imginforef.getDocuments(){(querySnapshots,err) in
+                if let err = err{
+                    print("データ取得失敗")
+                    return
                 }
-            }
-            HUD.hide{ (_) in
-                HUD.flash(.success, onView: self.view)
-                self.ShareRoomCollectionView.reloadData()
+                else{
+                    
+                    self.testDataArray = querySnapshots!.documents.map{ document in
+                        let data = PastData(document: document)
+                        print(data)
+                        return data
+                    }
+                    HUD.flash(.success, onView: self.view)
+                    self.ShareRoomCollectionView.reloadData()
+                }
             }
         }
     }
@@ -194,7 +186,6 @@ extension ShareRoomViewController {
         }else{
             cell.PostTitle.text = "No Title"
         }
-        
         //いいね表示
         let docgood = testDataArray[indexPath.row].goodList ?? [""]
         
@@ -211,19 +202,14 @@ extension ShareRoomViewController {
             
         }
         //viewのimageの取得
-        if let urlstr = testDataArray[indexPath.row].url{
-            let url = URL(string: "\(urlstr)")
-//           url探索ではレート時間が大きい
-            print(url)
-            do{
-                let data = try Data(contentsOf: url!)
-                cell.PostImages.image = UIImage(data: data)
-            }catch{
-                print("Err: ")
-                cell.PostImages.image = UIImage()
-
-            }
-        }
+        let sub = UserDefaults.standard.array(forKey: "RecentlySub") as? [String] ?? [""]
+        let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? ""
+        
+        
+        cell.subjection = sub[0]
+        cell.subtimes = times
+        cell.PostImages.image = UIImage(named: "IMG_6906")!
+        cell.awakeFromNib()
         
         
         return cell
