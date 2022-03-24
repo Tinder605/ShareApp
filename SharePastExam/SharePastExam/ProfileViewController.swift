@@ -42,13 +42,8 @@ class ProfileViewController: UIViewController {
             print("user?.name: ",user!.name)
         }
     }
-    
-    var PostDataArray:[PostData] = []
+    var PostDataCount:[String] = []
     var PostDataPath :[String] = []
-    //インデックスごとの情報を補完する
-    var IndexSub:[String] = []
-    var IndexTimes:[String] = []
-    var IndexCount:[String] = []
     
     @IBOutlet weak var voteCount: UILabel!
     @IBOutlet weak var usernameTextField: UILabel!
@@ -119,9 +114,9 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-         HUD.show(.progress, onView: self.view)
+         
         //投稿数といいね数、そのデータを取得
-        self.getSelfDocuments()
+        //self.getSelfDocuments()
         
     }
     
@@ -137,6 +132,7 @@ class ProfileViewController: UIViewController {
         
         let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") ?? "noimage"
         
+        //プロフィール画像の挿入
         if profileImageUrl == "noimage"{
             profileImage.image = UIImage(named: "IMG_6906")!
         }
@@ -155,6 +151,8 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated:Bool ) {
+        HUD.show(.progress, onView: self.view)
+        self.getSelfDocuments()
     }
     
     private func confirmLoggedInUser() {
@@ -185,7 +183,6 @@ class ProfileViewController: UIViewController {
                 return
             }
             let userData = snapshot?.data() as? [String:Any] ?? [:]
-            
             self.goodCount.text = "\(userData["AllGoodCount"] ?? 0)"
             //投稿している資料の数を取得して挿入する
             let PostDocumentsPath = userData["PostData"] as? [String] ?? []
@@ -206,6 +203,20 @@ extension ProfileViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("you tapped me")
+        let window = UIStoryboard(name: "CreatePastDoc", bundle: nil)
+        let nextscreen = window.instantiateViewController(withIdentifier: "CreatePastDoc") as! CreatePastExamViewController
+        //紐付けされているcellから情報を取得
+        let name = UserDefaults.standard.string(forKey: "name") ?? "Unknown"
+        print("profileのname")
+        print(name)
+        let cell = collectionView.cellForItem(at: indexPath) as? MyCollectionViewCell
+        let cell_text = cell?.title
+        print(cell_text ?? "")
+        nextscreen.DocTitle = cell_text ?? "Notitle"
+        nextscreen.username = name
+        nextscreen.cellPath = self.PostDataPath[indexPath.row]
+        print(self.PostDataPath[indexPath.row])
+        self.present(nextscreen, animated: true, completion: nil)
         
     }
 }

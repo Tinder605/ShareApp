@@ -19,7 +19,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     var subjection = ""
     var subtimes = ""
-    var number = 0
+    var number = ""
     
     
     @IBOutlet weak var PostImages: UIImageView!
@@ -57,6 +57,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     var doc:Dictionary<String,Any>
                     doc = snapshot?.data() as! [String:Any]
                     //デバックのため一応です(Godのリストがなかったら)
+                    let postUser = doc["postuser"] as? String ?? ""
                     if doc["GoodList"] == nil{
                         GoodList = ["\(uid!)"]
                         GoodCount = GoodCount + 1
@@ -83,6 +84,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     }
                     self.updateGoodRef(goodlist: GoodList, goodcount: GoodCount)
                     self.updateUserGoodList()
+                    self.updatePostUserGoodCount(uid:postUser)
                     self.ReviewButton.setImage(image, for: .normal)
                 }
                 else{
@@ -141,22 +143,16 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                 GoodList = goodlist as! [String]
                 if self.Goodvalue == 0{
                     GoodList.removeAll(where: {$0 == String(newelement)})
-                    AllGoodCount = AllGoodCount - 1
                 }
                 else{
                     GoodList.append(newelement)
-                    AllGoodCount = AllGoodCount + 1
                 }
             }
             else{
                 GoodList = [newelement]
-                AllGoodCount = AllGoodCount + 1
-            }
-            if AllGoodCount < 0{
-                AllGoodCount = 0
             }
             print(GoodList)
-            ref.updateData(["GoodList":GoodList,"AllGoodCount":AllGoodCount]){(err) in
+            ref.updateData(["GoodList":GoodList]){(err) in
                 if let err = err{
                     print("GoodListの更新に失敗しました。")
                 }
@@ -168,6 +164,36 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         
     }
     
+    private func updatePostUserGoodCount(uid:String){
+        if uid != "" {
+            let postUserRef = Firestore.firestore().collection("users").document(uid)
+            postUserRef.getDocument(){ (snapshot,err) in
+                if err != nil{
+                    print(err.debugDescription)
+                    print("取得の失敗")
+                }
+                else{
+                    let data = snapshot?.data() as? [String:Any] ?? [:]
+                    var postUserAllgoodcount = data["AllGoodCount"] as? Int ?? 0
+                    if self.Goodvalue == 0{
+                        postUserAllgoodcount = postUserAllgoodcount - 1
+                        if postUserAllgoodcount < 0{
+                            postUserAllgoodcount = 0
+                        }
+                    }
+                    else{
+                        postUserAllgoodcount = postUserAllgoodcount + 1
+                    }
+                    postUserRef.updateData(["AllGoodCount":postUserAllgoodcount]){ (err) in
+                        if err != nil{
+                            print(err.debugDescription)
+                            print("AllGoodCountの更新失敗")
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     //画面の初期状態に関する関数
     //awakeします。
@@ -175,21 +201,17 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         super.awakeFromNib()
         self.fittoView(size: (width-30)/3)
         self.getShareRoomImage()
-        //ここで画像の挿入の処理をする
-        
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         self.fittoView(size: (width-30)/3)
 
     }
-    
-    
     private func getShareRoomImage(){
         print("関数内での動き")
         print(self.subjection)
         print(self.subtimes)
-        if self.subjection != "" && self.subtimes != ""{
+        if self.subjection != "" && self.subtimes != "" && self.number != ""{
             let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(self.subjection)").child("\(self.subtimes)").child("\(self.number).jpeg")
             
             FireStorage_Path.getData(maxSize: 1024*1024*100){ (data,err) in
@@ -227,24 +249,4 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         
         
     }
- 
-//    static func nib() -> UINib {
-//        return UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
-//    }
-//    static func makelabel(text:String) {
-//        let view = UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ShareRoomCollectionCellView
-//
-//        view.TextTitleLabel.text = "aks"
-//
-//    }
-    
-//    public func configure(title :String){
-//        TextTitleLabel.text = title
-//    }
-    
-    
-//
-//    static func nib() -> UINib {
-//        return UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
-//    }
 }

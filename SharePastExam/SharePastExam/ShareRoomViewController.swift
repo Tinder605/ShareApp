@@ -142,7 +142,7 @@ extension ShareRoomViewController {
             nextscreen.doctitle = testDataArray[indexPath.row].Title!
             let sub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
             let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? ""
-            let path = "\(sub[0])" + "/" + "\(times)" + "/" + "\(indexPath.row)"
+            let path = "\(sub[0])" + "/" + "\(times)" + "/" + "\(self.testDataArray[indexPath.row].count ?? "")"
             var getPath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
             if getPath.count != 0{
                 getPath.insert(path, at: 0)
@@ -160,7 +160,6 @@ extension ShareRoomViewController {
                 getPath = [path]
             }
             UserDefaults.standard.set(getPath, forKey: "RecentlyPath")
-            print(nexttitle)
         }
         if let nextimage = testDataArray[indexPath.row].url{
             nextscreen.imageurl = URL(string: nextimage)
@@ -172,7 +171,7 @@ extension ShareRoomViewController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! ShareRoomCollectionCellView
         //cell.fittoview(width: (width-30)/3, height: (width-30)/3)
-        cell.number = indexPath.row
+        cell.number = testDataArray[indexPath.row].count ?? ""
         //viewcountの取得
         if let viewcount = testDataArray[indexPath.row].ViewCount{
             cell.ViewCount.text = "\(viewcount)"
@@ -205,7 +204,7 @@ extension ShareRoomViewController {
         let sub = UserDefaults.standard.array(forKey: "RecentlySub") as? [String] ?? [""]
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? ""
         
-        
+        //セルの変数に代入
         cell.subjection = sub[0]
         cell.subtimes = times
         cell.PostImages.image = UIImage(named: "IMG_6906")!

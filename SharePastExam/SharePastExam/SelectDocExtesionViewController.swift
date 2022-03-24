@@ -21,16 +21,19 @@ class SelectDocExtesionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.DocExtensionTitle.text = doctitle
-        do{
-            let data = try Data(contentsOf: imageurl!)
-            self.DocExtensionImage.image = UIImage(data: data)
-        }catch{
-            self.DocExtensionImage.image = UIImage()
-            self.DocExtensionImage.backgroundColor = .systemGreen
-            
-        }
+        self.DocExtensionImage.backgroundColor = .red
+        self.CreateUserImage.backgroundColor = .red
+//        do{
+//            let data = try Data(contentsOf: imageurl!)
+//            self.DocExtensionImage.image = UIImage(data: data)
+//        }catch{
+//            self.DocExtensionImage.image = UIImage()
+//            self.DocExtensionImage.backgroundColor = .systemGreen
+//
+//        }
         
     }
+    
     
     
 }
