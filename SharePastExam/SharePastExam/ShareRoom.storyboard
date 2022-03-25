@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="If9-kL-lDq">
                                 <rect key="frame" x="82" y="54" width="250" height="400"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.72760838269999994" green="0.97748249769999995" blue="0.57247161869999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Q1U-if-PiX"/>
                                     <constraint firstAttribute="height" constant="400" id="gSu-gm-nE7"/>
@@ -62,7 +61,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72760838269999994" green="0.97748249769999995" blue="0.57247161869999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TlZ-Ls-euC" secondAttribute="bottom" constant="40" id="1ZN-A7-WGA"/>
                             <constraint firstItem="If9-kL-lDq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="Ehe-S9-gnT"/>
@@ -84,8 +83,5 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

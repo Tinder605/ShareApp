@@ -24,17 +24,20 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     @IBOutlet weak var PostImages: UIImageView!
     @IBOutlet weak var PostImageHeight: NSLayoutConstraint!
-    @IBOutlet weak var PostImageWidth: NSLayoutConstraint!
+    //@IBOutlet weak var PostImageWidth: NSLayoutConstraint!
     //投稿内容のタイトル
-    @IBOutlet weak var PostTitle: UILabel!
-    @IBOutlet weak var PostTitleHeight: NSLayoutConstraint!
-    @IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
-    @IBOutlet weak var PostTitleTop: NSLayoutConstraint!
+    //@IBOutlet weak var PostTitle: UILabel!
+    //@IBOutlet weak var PostTitleHeight: NSLayoutConstraint!
+    //@IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
+    //@IBOutlet weak var PostTitleTop: NSLayoutConstraint!
+    @IBOutlet weak var sub_name: UILabel!
+    @IBOutlet weak var sub_count: UILabel!
+    @IBOutlet weak var poster_name: UILabel!
     
     @IBOutlet weak var ReviewStackView: UIStackView!
     @IBOutlet weak var ReviewStackHeihgt: NSLayoutConstraint!
     @IBOutlet weak var ReviewStackWidth: NSLayoutConstraint!
-    @IBOutlet weak var ReviewStackTop: NSLayoutConstraint!
+    //@IBOutlet weak var ReviewStackTop: NSLayoutConstraint!
     @IBOutlet weak var ViewCount: UILabel!
     @IBOutlet weak var ReviewButton: UIButton!
     
@@ -175,6 +178,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         super.awakeFromNib()
         self.fittoView(size: (width-30)/3)
         self.getShareRoomImage()
+        layer.cornerRadius = 10
         //ここで画像の挿入の処理をする
         
     }
@@ -196,6 +200,13 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                 if data != nil{
                     print("入ってます")
                     self.PostImages.image = UIImage(data: data!)!
+                    let SubName = self.sub as! String
+                    let SubCount = self.times as! String
+                    let PosterName = self.number as! String
+                    //self.sliderText.text = titletext
+                    self.sub_name.text = "【" + SubName + "/" + SubCount + "】"
+                    //self.sub_count.text = "授業回数:" + SubCount
+                    self.poster_name.text = "投稿者:" + PosterName
                 }
                 else{
                     self.PostImages.image = UIImage(named: "IMG_6906")!
@@ -211,17 +222,17 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
         PostImageHeight.constant = size/2
-        PostImageWidth.constant = size
-        PostTitleHeight.constant = size/4
+        //PostImageWidth.constant = size
+        //PostTitleHeight.constant = size/4
         
         //PostTitle.backgroundColor = .orange
-        PostTitleTop.constant = 0
-        PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
-        PostTitleWidth.constant = size
+        //PostTitleTop.constant = 0
+        //PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
+        //PostTitleWidth.constant = size
         
         ReviewStackWidth.constant = size
         ReviewStackHeihgt.constant = size/4
-        ReviewStackTop.constant = 0
+        //ReviewStackTop.constant = 0
         
         ReviewButton.titleLabel?.text = ""
         

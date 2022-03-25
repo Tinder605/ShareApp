@@ -38,10 +38,14 @@ class SubTimesViewController: UIViewController, UITableViewDataSource, UITableVi
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         }
         SubTimesTableWidth.constant = width
-        let substract = tabBarController.tabBar.frame.height as! CGFloat
-        SubTimesTableHeight.constant = height - substract - 5
+        //let substract = tabBarController.tabBar.frame.height as! CGFloat
+        //SubTimesTableHeight.constant = height - substract - 5
         
-        
+        //タブバー縦の幅
+        let tabstract = tabBarController.tabBar.frame.height as! CGFloat
+        //ナビバー縦の幅
+        let nabstract = navigationController?.navigationBar.frame.height as! CGFloat
+        SubTimesTableHeight.constant = height - tabstract - nabstract - 50
     }
     
     override func viewDidLoad() {
@@ -87,6 +91,9 @@ extension SubTimesViewController{
         //let reference = Firestore.firestore().
         let selectsubtimes = subtimes[indexPath.row] as! String
         print(selectsubtimes)
+        
+        //セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
         
         let storyboard = UIStoryboard(name: "ShareRoom", bundle: nil)
         let nextview = storyboard.instantiateViewController(withIdentifier: "ShareRoom") as! ShareRoomViewController

@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,7 +42,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="更新"/>
+                                <state key="normal" title="更新">
+                                    <color key="titleColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="tappedRenewButton:" destination="rQG-gl-3DV" eventType="touchUpInside" id="Cdo-7K-1wE"/>
                                 </connections>
@@ -96,7 +97,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A4o-lT-Z5n"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="50a-jc-HC2" firstAttribute="leading" secondItem="A4o-lT-Z5n" secondAttribute="leading" constant="40" id="1Iy-XD-s1W"/>
                             <constraint firstItem="JVA-Y4-Wz7" firstAttribute="centerX" secondItem="HWA-AB-y9p" secondAttribute="centerX" id="7pD-9o-Ub1"/>
@@ -122,9 +123,4 @@
             <point key="canvasLocation" x="2024.6376811594205" y="1650.6696428571429"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

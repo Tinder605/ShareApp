@@ -34,6 +34,7 @@ class goodViewController: UIViewController {
         goodCollectionView.register(goodCollectionViewCell.nib(), forCellWithReuseIdentifier: goodCollectionViewCell.identifier)
         goodCollectionView.delegate = self
         goodCollectionView.dataSource = self
+        goodCollectionView.backgroundColor = UIColor.rgb(red: 200, green: 247, blue: 157)
         
         //self.GetGoodDocuments()
     }

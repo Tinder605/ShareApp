@@ -25,34 +25,49 @@
                             <constraint firstAttribute="width" constant="457" id="Z1t-GY-9PO"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRw-nc-Rjl">
+                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-SP-Lzq">
                         <rect key="frame" x="0.0" y="130" width="457" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授業名/回数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-ho-JLx">
+                                <rect key="frame" x="0.0" y="0.0" width="457" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2Tm-LP-GRk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投稿者名" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fY-YZ-FBQ">
+                                <rect key="frame" x="0.0" y="54" width="457" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="70" id="BNt-2z-8q0"/>
-                            <constraint firstAttribute="width" constant="457" id="qy2-CJ-7nF"/>
+                            <constraint firstItem="E4s-ho-JLx" firstAttribute="top" secondItem="XKc-SP-Lzq" secondAttribute="top" id="h6y-4W-qrX"/>
+                            <constraint firstAttribute="bottom" secondItem="8fY-YZ-FBQ" secondAttribute="bottom" id="o03-jy-7kW"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </stackView>
                 </subviews>
+                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="xRw-nc-Rjl" secondAttribute="bottom" id="4C9-S3-tjB"/>
-                    <constraint firstAttribute="bottom" secondItem="xRw-nc-Rjl" secondAttribute="bottom" id="5SO-cw-cXG"/>
                     <constraint firstItem="Wxc-Sj-OrD" firstAttribute="leading" secondItem="KMf-8A-IQb" secondAttribute="leading" id="7CS-P9-jAa"/>
-                    <constraint firstItem="xRw-nc-Rjl" firstAttribute="leading" secondItem="KMf-8A-IQb" secondAttribute="leading" id="Meh-Rj-9vc"/>
-                    <constraint firstItem="xRw-nc-Rjl" firstAttribute="top" secondItem="Wxc-Sj-OrD" secondAttribute="bottom" id="Og6-XS-gTh"/>
-                    <constraint firstItem="xRw-nc-Rjl" firstAttribute="leading" secondItem="KMf-8A-IQb" secondAttribute="leading" id="XdX-oB-e05"/>
+                    <constraint firstAttribute="trailing" secondItem="XKc-SP-Lzq" secondAttribute="trailing" id="Es9-1u-4Pi"/>
+                    <constraint firstAttribute="bottom" secondItem="XKc-SP-Lzq" secondAttribute="bottom" id="Ggd-vX-aIq"/>
+                    <constraint firstItem="XKc-SP-Lzq" firstAttribute="leading" secondItem="KMf-8A-IQb" secondAttribute="leading" id="dND-JR-MvE"/>
                     <constraint firstItem="Wxc-Sj-OrD" firstAttribute="top" secondItem="KMf-8A-IQb" secondAttribute="top" id="rPf-MR-zQJ"/>
+                    <constraint firstItem="XKc-SP-Lzq" firstAttribute="top" secondItem="Wxc-Sj-OrD" secondAttribute="bottom" id="v7u-eg-45L"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="457" height="200"/>
             <connections>
                 <outlet property="sliderImage" destination="Wxc-Sj-OrD" id="7qO-03-bA4"/>
-                <outlet property="sliderText" destination="xRw-nc-Rjl" id="jfD-cR-vax"/>
+                <outlet property="slider_poster_name" destination="8fY-YZ-FBQ" id="lA4-Rn-JQo"/>
+                <outlet property="slider_sub_name" destination="E4s-ho-JLx" id="YH5-wx-nEM"/>
             </connections>
-            <point key="canvasLocation" x="450" y="97"/>
+            <point key="canvasLocation" x="450.00000000000006" y="96.428571428571431"/>
         </collectionViewCell>
     </objects>
 </document>

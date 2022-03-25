@@ -26,7 +26,8 @@ class SelectDocExtesionViewController: UIViewController {
             self.DocExtensionImage.image = UIImage(data: data)
         }catch{
             self.DocExtensionImage.image = UIImage()
-            self.DocExtensionImage.backgroundColor = .systemGreen
+            //self.DocExtensionImage.backgroundColor = .systemGreen
+            DocExtensionImage.layer.cornerRadius = 10
             
         }
         

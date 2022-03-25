@@ -78,7 +78,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
-        ShareRoomCollectionView.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        ShareRoomCollectionView.backgroundColor = UIColor.rgb(red: 186, green: 249, blue: 146)
 
         PostButton.layer.cornerRadius = 40
         PostButton.setTitle("", for: .normal)
@@ -181,11 +181,11 @@ extension ShareRoomViewController {
         }
         
         //タイトルの取得
-        if let doctitle = testDataArray[indexPath.row].Title{
-            cell.PostTitle.text  = "\(doctitle)"
-        }else{
-            cell.PostTitle.text = "No Title"
-        }
+        //if let doctitle = testDataArray[indexPath.row].Title{
+            //cell.PostTitle.text  = "\(doctitle)"
+        //}else{
+            //cell.PostTitle.text = "No Title"
+        //}
         //いいね表示
         let docgood = testDataArray[indexPath.row].goodList ?? [""]
         
