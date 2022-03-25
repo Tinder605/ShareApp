@@ -71,6 +71,7 @@ class ProfileViewController: UIViewController {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         tabBarController.tabBar.standardAppearance = tabBarAppearance
+        
 
             //ここのif文いるのか
         if #available(iOS 15.0, *) { // 新たに追加
@@ -113,6 +114,10 @@ class ProfileViewController: UIViewController {
         collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.rgb(red: 244, green: 255, blue: 234)
+        
+        // labelはUILabelのインスタンスとする
+        profileMessage.numberOfLines = 0;
         
          
         //投稿数といいね数、そのデータを取得
@@ -228,6 +233,9 @@ extension ProfileViewController:UICollectionViewDataSource{
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
+        
+        cell.layer.cornerRadius = 10
+        
         if self.PostDataPath.count == 0{
             cell.configure(with: UIImage(named: "IMG_6906")!)
         }

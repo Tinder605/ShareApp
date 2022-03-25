@@ -27,6 +27,12 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     override func viewWillLayoutSubviews() {
         
         SubjectionTableWidth.constant = width
+        //タブバー縦の幅
+        let tabstract = tabBarController?.tabBar.frame.height as! CGFloat
+        //ナビバー縦の幅
+        let nabstract = navigationController?.navigationBar.frame.height as! CGFloat
+        SubjectionTableHeight.constant = height - tabstract - nabstract - 50
+        
         let substract = tabBarController?.tabBar.frame.height as! CGFloat
         SubjectionTableHeight.constant = height - substract - 5
         SelectSubjectionTableTop.constant = 0
@@ -45,6 +51,10 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
                     .foregroundColor: UIColor.brown
                 ]
         UITabBar.appearance().backgroundImage = UIImage()
+        
+        if #available(iOS 15, *) {
+            UITableView.appearance().sectionHeaderTopPadding = 0
+        }
         
         
         //SelectSubjectionTable.backgroundColor = .red
@@ -110,7 +120,8 @@ extension SelectionTableViewController{
        
         //sectionごとのfooter
         func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-            return .leastNonzeroMagnitude
+            //return .leastNonzeroMagnitude
+            return CGFloat.leastNormalMagnitude
         }
        
     
@@ -173,6 +184,9 @@ extension SelectionTableViewController{
         print(allsub.count)
         print(indexPath.section)
         
+        //セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         var usersub :String = ""
         switch indexPath.section {
         case 0:
@@ -193,7 +207,6 @@ extension SelectionTableViewController{
         nextview.subTitle = usersub
         
         var defaults :[String] = UserDefaults.standard.array(forKey: "RecentlySub") as? [String] ?? []
-            print("デフォルト型確認")
             
         defaults.insert(usersub, at: 0)
         

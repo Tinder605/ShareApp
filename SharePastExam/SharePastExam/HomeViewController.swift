@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var images = UIImage(named: "IMG_6906")
     
     let cellID = "cellID"
+    let height = UIScreen.main.bounds.height
     let width = UIScreen.main.bounds.width
     var RecentlySub = UserDefaults.standard.array(forKey: "RecentlySub") ?? ["現在閲覧履歴はありません"]
     let SliderCellId = "SliderCellId"
@@ -41,7 +42,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         RecentlyTableWidth.constant = width
-        RecentlyTableHeight.constant = 15*30
+        //RecentlyTableHeight.constant = 15*30
+        //タブバー縦の幅
+        let tabstract = tabBarController?.tabBar.frame.height as! CGFloat
+        //ナビバー縦の幅
+        let nabstract = navigationController?.navigationBar.frame.height as! CGFloat
+        RecentlyTableHeight.constant = height - tabstract - nabstract - 286
+        
+
         
     }
  
@@ -157,7 +165,7 @@ extension HomeViewController{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return 50
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Subtimes", bundle: nil)

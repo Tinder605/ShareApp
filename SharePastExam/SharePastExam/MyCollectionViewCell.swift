@@ -70,6 +70,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     public func configure(with image: UIImage) {
         imageView.image = image
+        imageView.layer.cornerRadius = 10
 
     }
     static func nib() -> UINib {

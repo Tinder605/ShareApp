@@ -14,6 +14,9 @@ class goodCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var goodCollectionViewCell: UIImageView!
     
+    @IBOutlet weak var sub_name: UILabel!
+    @IBOutlet weak var poster_name: UILabel!
+    @IBOutlet weak var good_count: UILabel!
     
     var subjection:String = ""
     var times:String = ""
@@ -22,10 +25,24 @@ class goodCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        layer.cornerRadius = 10
+        
         if self.subjection != "" && self.times != "" && self.count != ""{
             
             print(self.subjection)
             self.getGoodDocuments()
+            
+            let SubName = subjection
+            let SubCount = times
+            let PosterName = count
+            
+            //授業名＋回数
+            self.sub_name.text = "【" + SubName + "/" + SubCount + "】"
+            // labelはUILabelのインスタンスとする
+            self.sub_name.numberOfLines = 0;
+            //投稿者名
+            self.poster_name.text = "投稿者:" + PosterName
         }
         else{
             goodCollectionViewCell.image = UIImage()
@@ -109,6 +126,7 @@ class goodCollectionViewCell: UICollectionViewCell {
 
     public func configure(with image: UIImage) {
         goodCollectionViewCell.image = image
+        //goodCollectionViewCell.layer.cornerRadius = 10
     }
     static func nib() -> UINib {
         return UINib(nibName: "goodCollectionViewCell", bundle: nil)

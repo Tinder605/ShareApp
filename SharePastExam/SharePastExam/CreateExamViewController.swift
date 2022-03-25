@@ -36,7 +36,7 @@ class CreateExamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-            PostPastExamButton.backgroundColor = .red
+            //PostPastExamButton.backgroundColor = .red
             PostPastExamButton.isEnabled = false
         
         PostTitleTextField.delegate = self
@@ -238,12 +238,12 @@ extension CreateExamViewController:UITextFieldDelegate{
         
         if TitleText == true{
             PostPastExamButton.isEnabled = false
-            PostPastExamButton.backgroundColor = .red
+            //PostPastExamButton.backgroundColor = .red
         }
         else{
             if let images = SelectPickerImage.image{
             PostPastExamButton.isEnabled = true
-            PostPastExamButton.backgroundColor = .systemGreen
+            //PostPastExamButton.backgroundColor = .systemGreen
            }
         }
     }
@@ -275,11 +275,11 @@ extension CreateExamViewController :UIImagePickerControllerDelegate{
         if let vaildImage = SelectPickerImage.image{
             if let posttitle = PostTitleTextField.text?.isEmpty{
                 PostPastExamButton.isEnabled = false
-                PostPastExamButton.backgroundColor = .red
+                //PostPastExamButton.backgroundColor = .red
             }
             else {
                 PostPastExamButton.isEnabled = true
-                PostPastExamButton.backgroundColor = .systemGreen
+                //PostPastExamButton.backgroundColor = .systemGreen
             }
         }
         dismiss(animated: true)
