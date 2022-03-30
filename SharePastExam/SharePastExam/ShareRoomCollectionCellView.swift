@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 import PKHUD
+import Nuke
 
 class ShareRoomCollectionCellView : UICollectionViewCell {
     static let identifier = "cellid"
@@ -201,6 +202,8 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         super.awakeFromNib()
         self.fittoView(size: (width-30)/3)
         self.getShareRoomImage()
+        self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        self.layer.cornerRadius = 10
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -211,6 +214,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         print("関数内での動き")
         print(self.subjection)
         print(self.subtimes)
+        
         if self.subjection != "" && self.subtimes != "" && self.number != ""{
             let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(self.subjection)").child("\(self.subtimes)").child("\(self.number).jpeg")
             

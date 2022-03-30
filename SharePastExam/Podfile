@@ -16,6 +16,5 @@ target 'SharePastExam' do
   pod 'RxCocoa'
   pod 'Nuke'
   pod 'SDWebImageSwiftUI'
-
-
+  pod 'Kingfisher'
 end
