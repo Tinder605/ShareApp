@@ -95,6 +95,8 @@ func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection s
     var count = 3
     if self.getpath.count<3{
         count = self.getpath.count
+        print("個数が異なります。\(self.getpath.count)")
+        print(self.getpath)
     }
     else{
         count = 3

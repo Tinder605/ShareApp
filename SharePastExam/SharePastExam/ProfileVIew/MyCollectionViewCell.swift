@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseFirestore
+import Kingfisher
 
 class MyCollectionViewCell: UICollectionViewCell {
     
@@ -39,20 +40,34 @@ class MyCollectionViewCell: UICollectionViewCell {
         
     }
     private func getPostPicture(sep_cellpath:[String]){
-        
-        let cell_storage = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(sep_cellpath[0])").child("\(sep_cellpath[1])").child("\(sep_cellpath[2]).jpeg")
-        cell_storage.getData(maxSize: 1024*1024*100){ (imgdata,err) in
-            if imgdata != nil{
-                print("きてはいます")
-                self.imageView.image = UIImage(data: imgdata!)!
-            }
-            else{
-                print("バッグている")
-                print(err)
-                self.imageView.image = UIImage(named: "noimage.jpeg")!
+        let cache = ImageCache.default
+        if cache.isCached(forKey: cellpath){
+            cache.retrieveImage(forKey: cellpath){ result in
+                switch result{
+                case .success(let value):
+                    print("キャッシュの利用")
+                    self.imageView.image = value.image
+                case .failure(let err):
+                    print("キャッシュにはありません")
+                    self.imageView.image = UIImage(named: "noimage.jpeg")
+                }
             }
         }
-        
+        else{
+            let cell_storage = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(sep_cellpath[0])").child("\(sep_cellpath[1])").child("\(sep_cellpath[2]).jpeg")
+            cell_storage.getData(maxSize: 1024*1024*100){ (imgdata,err) in
+                if imgdata != nil{
+                    print("きてはいます")
+                    self.imageView.image = UIImage(data: imgdata!)!
+                    cache.store(UIImage(data: imgdata!)!, forKey: self.cellpath)
+                }
+                else{
+                    print("バッグている")
+                    print(err)
+                    self.imageView.image = UIImage(named: "noimage.jpeg")!
+                }
+            }
+        }
     }
     //各セルのドキュメント情報の所得(必要ないのかもしれない）
     private func getPostDocData(sep_cellpath:[String]){

@@ -88,6 +88,15 @@ class CreatePastExamViewController: UIViewController {
                     if err != nil{
                         print("該当するデータが存在しません")
                     }
+                    else{
+                        //消した後にuserdefaults内の情報も更新、削除する
+                        var cacheDoc = UserDefaults.standard.array(forKey: "RecentlyPath") as? [String] ?? []
+                        let path = patharray[0] + "/" + patharray[1] + "/" + patharray[2]
+                        if cacheDoc.contains(path){
+                            cacheDoc.removeAll(where: {$0 == path})
+                            UserDefaults.standard.set(cacheDoc, forKey: "RecentlyPath")
+                        }
+                    }
                 }
             }
         }

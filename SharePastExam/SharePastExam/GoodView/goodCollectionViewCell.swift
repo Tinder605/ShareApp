@@ -98,7 +98,6 @@ class goodCollectionViewCell: UICollectionViewCell {
                             print("更新完了")
                         }
                     }
-                    
                 }
             }
             if err != nil{

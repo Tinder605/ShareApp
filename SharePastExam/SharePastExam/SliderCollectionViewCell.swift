@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseFirestore
+import Kingfisher
 
 class SliderCollectionViewCell: UICollectionViewCell {
     
@@ -29,7 +30,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
         if self.path != ""{
             //アクセス方法が多いのですが、
             let path_dep = self.path.components(separatedBy: "/")
-            
+            //ドキュメントの取得
             let firestore = Firestore.firestore().collection("images").document(path_dep[0]).collection("times").document(path_dep[1]).collection("count").document(path_dep[2])
             firestore.getDocument(){ (snapshot,err) in
                 if let err = err{
@@ -45,20 +46,43 @@ class SliderCollectionViewCell: UICollectionViewCell {
                 }
                 
             }
-            
-            let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(path_dep[0])").child("\(path_dep[1])").child("\(path_dep[2]).jpeg")
-            print(FireStorage_Path)
-            FireStorage_Path.getData(maxSize: 1024*1024*1000){ (data,err) in
-                if data != nil{
-                    self.sliderImage.image = UIImage(data: data!)!
-                }
-                else{
-                    print(err)
-                    print("失敗しています。")
+            let cache = ImageCache.default
+            if cache.isCached(forKey: self.path){
+                cache.retrieveImage(forKey: self.path){ result in
+                    switch result{
+                    case .success(let value):
+                        print("キャッシュを利用しています")
+                        self.sliderImage.image = value.image
+                    case .failure(let err):
+                        print(err)
+                        self.sliderImage.image = UIImage(named: "noimage.jpeg")!
+                    }
                 }
             }
-            
-            
+            else{
+                
+                let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(path_dep[0])").child("\(path_dep[1])").child("\(path_dep[2]).jpeg")
+                print(FireStorage_Path)
+                FireStorage_Path.getData(maxSize: 1024*1024*1000){ (data,err) in
+                    if data != nil{
+                        self.sliderImage.image = UIImage(data: data!)!
+                        cache.store(UIImage(data: data!)!, forKey: self.path)
+                    }
+                    else{
+                        print(err)
+                        print("失敗しています。")
+                        //userDefaults内の削除
+                        var cacheDoc = UserDefaults.standard.array(forKey: "RecentlyPath") as? [String] ?? []
+                        print("気になる\(self.path)")
+                        print("気になる\(cacheDoc)")
+                        if cacheDoc.contains(self.path){
+                            print(cacheDoc)
+                            cacheDoc.removeAll(where: {$0 == self.path})
+                            UserDefaults.standard.set(cacheDoc, forKey: "RecentlyPath")
+                        }
+                    }
+                }
+            }
         }
     }
     public func configure(with image: UIImage) {

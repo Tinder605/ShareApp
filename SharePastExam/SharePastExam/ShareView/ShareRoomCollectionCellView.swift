@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import PKHUD
 import Nuke
+import Kingfisher
 
 class ShareRoomCollectionCellView : UICollectionViewCell {
     static let identifier = "cellid"
@@ -216,20 +217,40 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         print(self.subtimes)
         
         if self.subjection != "" && self.subtimes != "" && self.number != ""{
-            let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(self.subjection)").child("\(self.subtimes)").child("\(self.number).jpeg")
-            
-            FireStorage_Path.getData(maxSize: 1024*1024*100){ (data,err) in
-                if data != nil{
-                    print("入ってます")
-                    self.PostImages.image = UIImage(data: data!)!
+            let cache = ImageCache.default
+            let path = self.subjection + "/" + self.subtimes + "/" + self.number
+            if cache.isCached(forKey: path){
+                cache.retrieveImage(forKey: path){ result in
+                    switch result{
+                    case .success(let value):
+                        DispatchQueue.main.async {
+                            self.PostImages.image = value.image
+                        }
+                    case .failure(let err):
+                        print(err)
+                        self.PostImages.image = UIImage(named: "noimage")!
+                    }
+                    
                 }
-                else{
-                    self.PostImages.image = UIImage(named: "IMG_6906")!
+            }
+            else{
+                let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(self.subjection)").child("\(self.subtimes)").child("\(self.number).jpeg")
+                
+                FireStorage_Path.getData(maxSize: 1024*1024*100){ (data,err) in
+                    if data != nil{
+                        print("入ってます")
+                        self.PostImages.image = UIImage(data: data!)!
+                        cache.store(UIImage(data: data!)!, forKey: path)
+                    }
+                    else{
+                        self.PostImages.image = UIImage(named: "noimage.jpeg")
+                    }
                 }
             }
         }
         else{
             print("あれへんで")
+            self.PostImages.image = UIImage(named: "noimage.jpeg")
         }
         
     }
