@@ -269,7 +269,7 @@ extension CreateExamViewController :UIImagePickerControllerDelegate{
             
             SelectPickerImage.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
             //圧縮したが実際にはしていない
-            postImageData = (SelectPickerImage.image?.resizeImage(withPercentage: 0.1) as! UIImage).pngData() as! NSData
+            postImageData = (SelectPickerImage.image?.resizeImage(withPercentage: 0.01) as! UIImage).pngData() as! NSData
             
         }
         if let vaildImage = SelectPickerImage.image{
