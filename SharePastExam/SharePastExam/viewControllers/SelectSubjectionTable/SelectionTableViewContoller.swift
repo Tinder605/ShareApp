@@ -37,6 +37,14 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         SubjectionTableHeight.constant = height - substract - 5
         SelectSubjectionTableTop.constant = 0
         
+        //tableviewのsetctiontitleのカラー
+        self.SelectSubjectionTable.sectionIndexColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        self.SelectSubjectionTable.sectionIndexBackgroundColor = UIColor(red: 243, green: 251, blue: 233, alpha: 0)
+ 
+//        if #available(iOS 15.0, *) {
+//            UITableView.appearance().sectionHeaderTopPadding = 0
+//        }
+        
     }
     
     override func viewDidLoad() {
@@ -63,6 +71,9 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         print(subjection.keys)
         print(department)
         
+        if #available(iOS 15.0, *) {
+            UITableView.appearance().sectionHeaderTopPadding = 0
+        }
         SelectSubjectionTable.isScrollEnabled = true
         SelectSubjectionTable.register(SelectTableViewCell.self, forCellReuseIdentifier: cellID)
         
@@ -85,6 +96,7 @@ extension SelectionTableViewController{
             var eachsub:[String] = []
             //var subcount :Int = 0
             tableView.separatorColor = UIColor.rgb(red: 140, green: 97, blue: 32) //線を茶色にする
+            tableView.backgroundColor = UIColor.rgb(red: 243, green: 251, blue: 233)
             tableView.separatorInset.left = 0
             tableView.separatorInset.right = 0
             switch section {
@@ -123,6 +135,13 @@ extension SelectionTableViewController{
             //return .leastNonzeroMagnitude
             return CGFloat.leastNormalMagnitude
         }
+    
+
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        let sectionsubtitle = ["学1年","学2年","学3年"]
+        
+        return sectionsubtitle
+    }
        
     
         

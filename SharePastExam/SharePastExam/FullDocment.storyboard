@@ -24,15 +24,30 @@
                                     <constraint firstAttribute="width" constant="300" id="oFt-80-i6b"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7j-eI-hqY">
+                                <rect key="frame" x="287" y="74" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nFk-Ko-HsZ"/>
+                                    <constraint firstAttribute="width" constant="50" id="zhT-vm-iVD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="CloseScreen:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="H71-K1-DHk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="K7j-eI-hqY" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="9gc-al-kk7"/>
                             <constraint firstItem="8Ac-Ew-mr1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="P9P-qo-Yot"/>
                             <constraint firstItem="8Ac-Ew-mr1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gzF-GI-LiD"/>
+                            <constraint firstItem="8Ac-Ew-mr1" firstAttribute="trailing" secondItem="K7j-eI-hqY" secondAttribute="trailing" constant="20" id="s3l-zq-Gac"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CloseButton" destination="K7j-eI-hqY" id="5O7-tp-MZ1"/>
                         <outlet property="FullImage" destination="8Ac-Ew-mr1" id="p5U-VF-ugC"/>
                         <outlet property="imageheight" destination="9rs-hc-pof" id="6Xj-fA-x8t"/>
                         <outlet property="imagewidth" destination="oFt-80-i6b" id="0cM-wy-Pit"/>
@@ -44,6 +59,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
