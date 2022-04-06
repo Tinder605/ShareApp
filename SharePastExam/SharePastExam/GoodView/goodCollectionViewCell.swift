@@ -14,7 +14,12 @@ import Kingfisher
 class goodCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var goodCollectionViewCell: UIImageView!
-    
+    @IBOutlet weak var subName: UILabel!
+    @IBOutlet weak var posterName: UILabel!
+    @IBOutlet weak var goodCount: UILabel!
+    @IBAction func ActionGoodButton(_ sender: Any) {
+        
+    }
     
     var subjection:String = ""
     var times:String = ""
