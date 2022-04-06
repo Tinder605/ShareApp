@@ -21,9 +21,8 @@ class FullDocumentViewController: UIViewController {
     @IBOutlet weak var CloseButton: UIButton!
     
     @IBAction func CloseScreen(_ sender: Any) {
-        print("tapされています")
-        self.dismiss(animated: true)
-        
+        print("ここを押しています")
+        dismiss(animated: true)
     }
     
     
@@ -32,6 +31,7 @@ class FullDocumentViewController: UIViewController {
         imageheight.constant = height
         imagewidth.constant = width
         self.CloseButton.setTitle("", for: .normal)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
