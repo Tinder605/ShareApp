@@ -30,7 +30,8 @@ class SliderCell: UICollectionViewCell {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        //slidercollectionviewの背景色の変更
+        collectionView.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
         
         return collectionView
     }()
@@ -94,6 +95,8 @@ func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection s
     var count = 3
     if self.getpath.count<3{
         count = self.getpath.count
+        print("個数が異なります。\(self.getpath.count)")
+        print(self.getpath)
     }
     else{
         count = 3

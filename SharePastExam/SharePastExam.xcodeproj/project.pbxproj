@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333C9E270A966500A889B3 /* ProfileViewController.swift */; };
-		18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */; };
-		18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */; };
 		189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E465F26F3B500008DF27B /* UIColorExtension.swift */; };
 		189E466426F53776008DF27B /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189E466326F53776008DF27B /* SignUp.storyboard */; };
 		189E466A26F53A73008DF27B /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E466926F53A73008DF27B /* SignUp.swift */; };
@@ -20,21 +17,27 @@
 		860F4C5F1D333D138C367DDD /* Pods_SharePastExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3F988A4792BF2A9DF35E70 /* Pods_SharePastExam.framework */; };
 		C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */; };
 		C30093FA274DEDFE003B3556 /* SelectDocExtesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */; };
-		C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E6082701C4C4009D732A /* HomeViewController.swift */; };
 		C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */; };
-		C31A4599271818A70059B289 /* CreatePastExam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C31A4598271818A70059B289 /* CreatePastExam.storyboard */; };
-		C31A459B27181CEE0059B289 /* CreateExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31A459A27181CEE0059B289 /* CreateExamViewController.swift */; };
-		C3265E90272281B400C8E9C5 /* HomeViewRecentlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E8F272281B400C8E9C5 /* HomeViewRecentlyCell.swift */; };
-		C3265E96272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3265E94272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib */; };
-		C3265E982722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E972722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift */; };
-		C3265E9C2729005200C8E9C5 /* goodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3265E992729005200C8E9C5 /* goodCollectionViewCell.xib */; };
-		C3265E9D2729005200C8E9C5 /* goodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E9A2729005200C8E9C5 /* goodCollectionViewCell.swift */; };
-		C3265E9E2729005200C8E9C5 /* goodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3265E9B2729005200C8E9C5 /* goodViewController.swift */; };
-		C38D1E5F2713D52300E677E0 /* ShareRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */; };
-		C38D1E612713D53A00E677E0 /* ShareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */; };
 		C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3985FF427034E9D005CFAEC /* Login.storyboard */; };
-		C3A0F74B27E72DD90091C3D0 /* CreatePastDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A0F74A27E72DD80091C3D0 /* CreatePastDoc.storyboard */; };
-		C3A0F74D27E731A80091C3D0 /* CreatePastExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A0F74C27E731A80091C3D0 /* CreatePastExamViewController.swift */; };
+		C39F635D27F4074A00CE4CAA /* CreatePastDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39F635C27F4074900CE4CAA /* CreatePastDoc.storyboard */; };
+		C39F636027F4076000CE4CAA /* CreatePastExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F635E27F4076000CE4CAA /* CreatePastExamViewController.swift */; };
+		C39F636127F4076000CE4CAA /* CreatePastExam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39F635F27F4076000CE4CAA /* CreatePastExam.storyboard */; };
+		C39F636327F4078E00CE4CAA /* CreateExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F636227F4078E00CE4CAA /* CreateExamViewController.swift */; };
+		C39F636827F407AF00CE4CAA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F636427F407AF00CE4CAA /* ProfileViewController.swift */; };
+		C39F636927F407AF00CE4CAA /* RenewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39F636527F407AF00CE4CAA /* RenewProfile.storyboard */; };
+		C39F636A27F407AF00CE4CAA /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F636627F407AF00CE4CAA /* MyCollectionViewCell.swift */; };
+		C39F636B27F407AF00CE4CAA /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39F636727F407AF00CE4CAA /* MyCollectionViewCell.xib */; };
+		C39F637027F407DD00CE4CAA /* ShareRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F636C27F407DC00CE4CAA /* ShareRoomViewController.swift */; };
+		C39F637127F407DD00CE4CAA /* ShareRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39F636D27F407DC00CE4CAA /* ShareRoomCollectionViewCell.xib */; };
+		C39F637227F407DD00CE4CAA /* ShareRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39F636E27F407DC00CE4CAA /* ShareRoom.storyboard */; };
+		C39F637327F407DD00CE4CAA /* ShareRoomCollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F636F27F407DD00CE4CAA /* ShareRoomCollectionCellView.swift */; };
+		C39F637727F407F400CE4CAA /* goodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F637427F407F400CE4CAA /* goodCollectionViewCell.swift */; };
+		C39F637827F407F400CE4CAA /* goodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39F637527F407F400CE4CAA /* goodCollectionViewCell.xib */; };
+		C39F637927F407F400CE4CAA /* goodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F637627F407F400CE4CAA /* goodViewController.swift */; };
+		C39F637C27F4080500CE4CAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F637A27F4080500CE4CAA /* HomeViewController.swift */; };
+		C39F637D27F4080500CE4CAA /* HomeViewRecentlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F637B27F4080500CE4CAA /* HomeViewRecentlyCell.swift */; };
+		C3BFBA5927FAFAE7007BBFC9 /* FullDocment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BFBA5827FAFAE7007BBFC9 /* FullDocment.storyboard */; };
+		C3BFBA5B27FAFB02007BBFC9 /* FullDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BFBA5A27FAFB02007BBFC9 /* FullDocumentViewController.swift */; };
 		C3E27D2C27674C8400D48205 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E27D2927674C8400D48205 /* SliderCell.swift */; };
 		C3E27D2D27674C8400D48205 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E27D2A27674C8400D48205 /* SliderCollectionViewCell.swift */; };
 		C3E27D2E27674C8400D48205 /* SliderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3E27D2B27674C8400D48205 /* SliderCollectionViewCell.xib */; };
@@ -46,7 +49,6 @@
 		C3E5293926F1DFE300C4EB9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E5293726F1DFE300C4EB9F /* LaunchScreen.storyboard */; };
 		C3F23BF92705ABA300899173 /* SelectSubjectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23BF82705ABA300899173 /* SelectSubjectionTableViewCell.swift */; };
 		C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C46270FF5F600899173 /* changeProfileViewController.swift */; };
-		C3F23C49270FF61A00899173 /* RenewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F23C48270FF61A00899173 /* RenewProfile.storyboard */; };
 		C3F23C4B271002F700899173 /* Navigations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C4A271002F700899173 /* Navigations.swift */; };
 		C3F23C5327102A3A00899173 /* Subtimes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F23C5227102A3A00899173 /* Subtimes.storyboard */; };
 		C3F23C5527102A8200899173 /* SubTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F23C5427102A8200899173 /* SubTimesViewController.swift */; };
@@ -54,9 +56,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18333C9E270A966500A889B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
-		18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharePastExam.entitlements; sourceTree = "<group>"; };
 		189E465F26F3B500008DF27B /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		189E466326F53776008DF27B /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -69,21 +68,27 @@
 		876ADFC8E7EEB707FB6F8403 /* Pods-SharePastExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharePastExam.release.xcconfig"; path = "Target Support Files/Pods-SharePastExam/Pods-SharePastExam.release.xcconfig"; sourceTree = "<group>"; };
 		C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectDocExtesion.storyboard; sourceTree = "<group>"; };
 		C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDocExtesionViewController.swift; sourceTree = "<group>"; };
-		C303E6082701C4C4009D732A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewContoller.swift; sourceTree = "<group>"; };
-		C31A4598271818A70059B289 /* CreatePastExam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePastExam.storyboard; sourceTree = "<group>"; };
-		C31A459A27181CEE0059B289 /* CreateExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExamViewController.swift; sourceTree = "<group>"; };
-		C3265E8F272281B400C8E9C5 /* HomeViewRecentlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRecentlyCell.swift; sourceTree = "<group>"; };
-		C3265E94272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareRoomCollectionViewCell.xib; sourceTree = "<group>"; };
-		C3265E972722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRoomCollectionCellView.swift; sourceTree = "<group>"; };
-		C3265E992729005200C8E9C5 /* goodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = goodCollectionViewCell.xib; sourceTree = "<group>"; };
-		C3265E9A2729005200C8E9C5 /* goodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodCollectionViewCell.swift; sourceTree = "<group>"; };
-		C3265E9B2729005200C8E9C5 /* goodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodViewController.swift; sourceTree = "<group>"; };
-		C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareRoom.storyboard; sourceTree = "<group>"; };
-		C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRoomViewController.swift; sourceTree = "<group>"; };
 		C3985FF427034E9D005CFAEC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		C3A0F74A27E72DD80091C3D0 /* CreatePastDoc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePastDoc.storyboard; sourceTree = "<group>"; };
-		C3A0F74C27E731A80091C3D0 /* CreatePastExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePastExamViewController.swift; sourceTree = "<group>"; };
+		C39F635C27F4074900CE4CAA /* CreatePastDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePastDoc.storyboard; sourceTree = "<group>"; };
+		C39F635E27F4076000CE4CAA /* CreatePastExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePastExamViewController.swift; sourceTree = "<group>"; };
+		C39F635F27F4076000CE4CAA /* CreatePastExam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePastExam.storyboard; sourceTree = "<group>"; };
+		C39F636227F4078E00CE4CAA /* CreateExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExamViewController.swift; sourceTree = "<group>"; };
+		C39F636427F407AF00CE4CAA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C39F636527F407AF00CE4CAA /* RenewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RenewProfile.storyboard; sourceTree = "<group>"; };
+		C39F636627F407AF00CE4CAA /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		C39F636727F407AF00CE4CAA /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		C39F636C27F407DC00CE4CAA /* ShareRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRoomViewController.swift; sourceTree = "<group>"; };
+		C39F636D27F407DC00CE4CAA /* ShareRoomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareRoomCollectionViewCell.xib; sourceTree = "<group>"; };
+		C39F636E27F407DC00CE4CAA /* ShareRoom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShareRoom.storyboard; sourceTree = "<group>"; };
+		C39F636F27F407DD00CE4CAA /* ShareRoomCollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRoomCollectionCellView.swift; sourceTree = "<group>"; };
+		C39F637427F407F400CE4CAA /* goodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodCollectionViewCell.swift; sourceTree = "<group>"; };
+		C39F637527F407F400CE4CAA /* goodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = goodCollectionViewCell.xib; sourceTree = "<group>"; };
+		C39F637627F407F400CE4CAA /* goodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodViewController.swift; sourceTree = "<group>"; };
+		C39F637A27F4080500CE4CAA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C39F637B27F4080500CE4CAA /* HomeViewRecentlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewRecentlyCell.swift; sourceTree = "<group>"; };
+		C3BFBA5827FAFAE7007BBFC9 /* FullDocment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDocment.storyboard; sourceTree = "<group>"; };
+		C3BFBA5A27FAFB02007BBFC9 /* FullDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDocumentViewController.swift; sourceTree = "<group>"; };
 		C3E27D2927674C8400D48205 /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		C3E27D2A27674C8400D48205 /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3E27D2B27674C8400D48205 /* SliderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -97,7 +102,6 @@
 		C3E5293A26F1DFE300C4EB9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3F23BF82705ABA300899173 /* SelectSubjectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubjectionTableViewCell.swift; sourceTree = "<group>"; };
 		C3F23C46270FF5F600899173 /* changeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeProfileViewController.swift; sourceTree = "<group>"; };
-		C3F23C48270FF61A00899173 /* RenewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RenewProfile.storyboard; sourceTree = "<group>"; };
 		C3F23C4A271002F700899173 /* Navigations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigations.swift; sourceTree = "<group>"; };
 		C3F23C5227102A3A00899173 /* Subtimes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Subtimes.storyboard; sourceTree = "<group>"; };
 		C3F23C5427102A8200899173 /* SubTimesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTimesViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +176,58 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		C39F635427F4058500CE4CAA /* GoodView */ = {
+			isa = PBXGroup;
+			children = (
+				C39F637427F407F400CE4CAA /* goodCollectionViewCell.swift */,
+				C39F637527F407F400CE4CAA /* goodCollectionViewCell.xib */,
+				C39F637627F407F400CE4CAA /* goodViewController.swift */,
+			);
+			path = GoodView;
+			sourceTree = "<group>";
+		};
+		C39F635627F405AA00CE4CAA /* ProfileVIew */ = {
+			isa = PBXGroup;
+			children = (
+				C39F636627F407AF00CE4CAA /* MyCollectionViewCell.swift */,
+				C39F636727F407AF00CE4CAA /* MyCollectionViewCell.xib */,
+				C39F636427F407AF00CE4CAA /* ProfileViewController.swift */,
+				C39F636527F407AF00CE4CAA /* RenewProfile.storyboard */,
+			);
+			path = ProfileVIew;
+			sourceTree = "<group>";
+		};
+		C39F635727F405C100CE4CAA /* CreateView */ = {
+			isa = PBXGroup;
+			children = (
+				C39F635F27F4076000CE4CAA /* CreatePastExam.storyboard */,
+				C39F636227F4078E00CE4CAA /* CreateExamViewController.swift */,
+				C39F635E27F4076000CE4CAA /* CreatePastExamViewController.swift */,
+				C39F635C27F4074900CE4CAA /* CreatePastDoc.storyboard */,
+			);
+			path = CreateView;
+			sourceTree = "<group>";
+		};
+		C39F635827F405CE00CE4CAA /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				C39F636E27F407DC00CE4CAA /* ShareRoom.storyboard */,
+				C39F636F27F407DD00CE4CAA /* ShareRoomCollectionCellView.swift */,
+				C39F636D27F407DC00CE4CAA /* ShareRoomCollectionViewCell.xib */,
+				C39F636C27F407DC00CE4CAA /* ShareRoomViewController.swift */,
+			);
+			path = ShareView;
+			sourceTree = "<group>";
+		};
+		C39F635927F405E200CE4CAA /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				C39F637A27F4080500CE4CAA /* HomeViewController.swift */,
+				C39F637B27F4080500CE4CAA /* HomeViewRecentlyCell.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		C3E5292026F1DFE200C4EB9F = {
 			isa = PBXGroup;
 			children = (
@@ -193,44 +249,34 @@
 		C3E5292B26F1DFE200C4EB9F /* SharePastExam */ = {
 			isa = PBXGroup;
 			children = (
+				C39F635927F405E200CE4CAA /* HomeView */,
+				C39F635827F405CE00CE4CAA /* ShareView */,
+				C39F635727F405C100CE4CAA /* CreateView */,
+				C39F635627F405AA00CE4CAA /* ProfileVIew */,
+				C39F635427F4058500CE4CAA /* GoodView */,
 				C31A459327153AD20059B289 /* SubTimesTable */,
 				C313F9FC26FB1A260012B08E /* viewControllers */,
 				18740A9C26F1E3D8004A5658 /* SharePastExam.entitlements */,
 				C3E5292C26F1DFE200C4EB9F /* AppDelegate.swift */,
 				C3F23C4A271002F700899173 /* Navigations.swift */,
 				C3E5292E26F1DFE200C4EB9F /* SceneDelegate.swift */,
-				C3F23C48270FF61A00899173 /* RenewProfile.storyboard */,
 				C3F23C46270FF5F600899173 /* changeProfileViewController.swift */,
 				C3E5293726F1DFE300C4EB9F /* LaunchScreen.storyboard */,
 				189E465F26F3B500008DF27B /* UIColorExtension.swift */,
-				C3265E9A2729005200C8E9C5 /* goodCollectionViewCell.swift */,
-				C3265E992729005200C8E9C5 /* goodCollectionViewCell.xib */,
-				C3265E9B2729005200C8E9C5 /* goodViewController.swift */,
 				C3E5293026F1DFE200C4EB9F /* ViewController.swift */,
 				C3E5293226F1DFE200C4EB9F /* Main.storyboard */,
-				18333C9E270A966500A889B3 /* ProfileViewController.swift */,
 				C3E5293526F1DFE300C4EB9F /* Assets.xcassets */,
 				C3E5293A26F1DFE300C4EB9F /* Info.plist */,
 				189E469E27040535008DF27B /* GoogleService-Info.plist */,
-				C303E6082701C4C4009D732A /* HomeViewController.swift */,
 				189E46A22704368C008DF27B /* TabController.swift */,
 				189E46A62706CC86008DF27B /* SubList.swift */,
-				18333CA0270C42F400A889B3 /* MyCollectionViewCell.swift */,
-				18333CA1270C42F400A889B3 /* MyCollectionViewCell.xib */,
-				C3265E8F272281B400C8E9C5 /* HomeViewRecentlyCell.swift */,
-				C31A4598271818A70059B289 /* CreatePastExam.storyboard */,
-				C31A459A27181CEE0059B289 /* CreateExamViewController.swift */,
-				C38D1E5E2713D52300E677E0 /* ShareRoom.storyboard */,
-				C38D1E602713D53A00E677E0 /* ShareRoomViewController.swift */,
-				C3265E94272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib */,
-				C3265E972722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift */,
 				C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */,
 				C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */,
 				C3E27D2927674C8400D48205 /* SliderCell.swift */,
 				C3E27D2A27674C8400D48205 /* SliderCollectionViewCell.swift */,
 				C3E27D2B27674C8400D48205 /* SliderCollectionViewCell.xib */,
-				C3A0F74A27E72DD80091C3D0 /* CreatePastDoc.storyboard */,
-				C3A0F74C27E731A80091C3D0 /* CreatePastExamViewController.swift */,
+				C3BFBA5827FAFAE7007BBFC9 /* FullDocment.storyboard */,
+				C3BFBA5A27FAFB02007BBFC9 /* FullDocumentViewController.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -255,7 +301,7 @@
 				C3E5292526F1DFE200C4EB9F /* Sources */,
 				C3E5292626F1DFE200C4EB9F /* Frameworks */,
 				C3E5292726F1DFE200C4EB9F /* Resources */,
-				6DB3DC0851F728E8CC156420 /* [CP] Embed Pods Frameworks */,
+				11DFF7D6E290BA8670F175A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -304,19 +350,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3E5293926F1DFE300C4EB9F /* LaunchScreen.storyboard in Resources */,
-				C3A0F74B27E72DD90091C3D0 /* CreatePastDoc.storyboard in Resources */,
-				C3265E96272293C600C8E9C5 /* ShareRoomCollectionViewCell.xib in Resources */,
-				C38D1E5F2713D52300E677E0 /* ShareRoom.storyboard in Resources */,
+				C39F637227F407DD00CE4CAA /* ShareRoom.storyboard in Resources */,
 				C3E5293626F1DFE300C4EB9F /* Assets.xcassets in Resources */,
-				C3F23C49270FF61A00899173 /* RenewProfile.storyboard in Resources */,
 				C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */,
+				C39F637127F407DD00CE4CAA /* ShareRoomCollectionViewCell.xib in Resources */,
 				C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */,
 				C3E5293426F1DFE200C4EB9F /* Main.storyboard in Resources */,
-				C31A4599271818A70059B289 /* CreatePastExam.storyboard in Resources */,
-				C3265E9C2729005200C8E9C5 /* goodCollectionViewCell.xib in Resources */,
+				C39F635D27F4074A00CE4CAA /* CreatePastDoc.storyboard in Resources */,
+				C39F636B27F407AF00CE4CAA /* MyCollectionViewCell.xib in Resources */,
+				C39F636127F4076000CE4CAA /* CreatePastExam.storyboard in Resources */,
 				189E466426F53776008DF27B /* SignUp.storyboard in Resources */,
+				C39F637827F407F400CE4CAA /* goodCollectionViewCell.xib in Resources */,
+				C39F636927F407AF00CE4CAA /* RenewProfile.storyboard in Resources */,
+				C3BFBA5927FAFAE7007BBFC9 /* FullDocment.storyboard in Resources */,
 				C3E27D2E27674C8400D48205 /* SliderCollectionViewCell.xib in Resources */,
-				18333CA3270C42F400A889B3 /* MyCollectionViewCell.xib in Resources */,
 				C3F23C5327102A3A00899173 /* Subtimes.storyboard in Resources */,
 				189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */,
 			);
@@ -325,7 +372,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6DB3DC0851F728E8CC156420 /* [CP] Embed Pods Frameworks */ = {
+		11DFF7D6E290BA8670F175A3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,33 +418,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C39F637D27F4080500CE4CAA /* HomeViewRecentlyCell.swift in Sources */,
 				189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */,
-				C3265E9D2729005200C8E9C5 /* goodCollectionViewCell.swift in Sources */,
 				C3F23C5827103EC600899173 /* SubTimesTableViewCell.swift in Sources */,
+				C39F636827F407AF00CE4CAA /* ProfileViewController.swift in Sources */,
+				C3BFBA5B27FAFB02007BBFC9 /* FullDocumentViewController.swift in Sources */,
+				C39F637027F407DD00CE4CAA /* ShareRoomViewController.swift in Sources */,
 				C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */,
-				C31A459B27181CEE0059B289 /* CreateExamViewController.swift in Sources */,
 				C3F23C5527102A8200899173 /* SubTimesViewController.swift in Sources */,
 				189E46A72706CC86008DF27B /* SubList.swift in Sources */,
 				189E466A26F53A73008DF27B /* SignUp.swift in Sources */,
-				C3265E9E2729005200C8E9C5 /* goodViewController.swift in Sources */,
-				C3265E90272281B400C8E9C5 /* HomeViewRecentlyCell.swift in Sources */,
 				C3F23BF92705ABA300899173 /* SelectSubjectionTableViewCell.swift in Sources */,
-				C3265E982722A6E700C8E9C5 /* ShareRoomCollectionCellView.swift in Sources */,
-				C303E6092701C4C4009D732A /* HomeViewController.swift in Sources */,
-				18333C9F270A966500A889B3 /* ProfileViewController.swift in Sources */,
+				C39F636A27F407AF00CE4CAA /* MyCollectionViewCell.swift in Sources */,
 				189E46A32704368C008DF27B /* TabController.swift in Sources */,
+				C39F637C27F4080500CE4CAA /* HomeViewController.swift in Sources */,
 				C3E5292D26F1DFE200C4EB9F /* AppDelegate.swift in Sources */,
 				C3E27D2C27674C8400D48205 /* SliderCell.swift in Sources */,
+				C39F637927F407F400CE4CAA /* goodViewController.swift in Sources */,
 				C3E27D2D27674C8400D48205 /* SliderCollectionViewCell.swift in Sources */,
 				C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */,
 				C3F23C47270FF5F600899173 /* changeProfileViewController.swift in Sources */,
 				C3E5292F26F1DFE200C4EB9F /* SceneDelegate.swift in Sources */,
-				18333CA2270C42F400A889B3 /* MyCollectionViewCell.swift in Sources */,
 				C30093FA274DEDFE003B3556 /* SelectDocExtesionViewController.swift in Sources */,
+				C39F636027F4076000CE4CAA /* CreatePastExamViewController.swift in Sources */,
 				189E466026F3B500008DF27B /* UIColorExtension.swift in Sources */,
 				C3F23C4B271002F700899173 /* Navigations.swift in Sources */,
-				C3A0F74D27E731A80091C3D0 /* CreatePastExamViewController.swift in Sources */,
-				C38D1E612713D53A00E677E0 /* ShareRoomViewController.swift in Sources */,
+				C39F637327F407DD00CE4CAA /* ShareRoomCollectionCellView.swift in Sources */,
+				C39F636327F4078E00CE4CAA /* CreateExamViewController.swift in Sources */,
+				C39F637727F407F400CE4CAA /* goodCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

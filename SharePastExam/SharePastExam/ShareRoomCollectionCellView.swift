@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 import PKHUD
+import Nuke
 
 class ShareRoomCollectionCellView : UICollectionViewCell {
     static let identifier = "cellid"
@@ -19,25 +20,22 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     var subjection = ""
     var subtimes = ""
-    var number = 0
+    var number = ""
     
     
     @IBOutlet weak var PostImages: UIImageView!
     @IBOutlet weak var PostImageHeight: NSLayoutConstraint!
-    //@IBOutlet weak var PostImageWidth: NSLayoutConstraint!
+    @IBOutlet weak var PostImageWidth: NSLayoutConstraint!
     //投稿内容のタイトル
-    //@IBOutlet weak var PostTitle: UILabel!
-    //@IBOutlet weak var PostTitleHeight: NSLayoutConstraint!
-    //@IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
-    //@IBOutlet weak var PostTitleTop: NSLayoutConstraint!
-    @IBOutlet weak var sub_name: UILabel!
-    @IBOutlet weak var sub_count: UILabel!
-    @IBOutlet weak var poster_name: UILabel!
+    @IBOutlet weak var PostTitle: UILabel!
+    @IBOutlet weak var PostTitleHeight: NSLayoutConstraint!
+    @IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
+    @IBOutlet weak var PostTitleTop: NSLayoutConstraint!
     
     @IBOutlet weak var ReviewStackView: UIStackView!
     @IBOutlet weak var ReviewStackHeihgt: NSLayoutConstraint!
     @IBOutlet weak var ReviewStackWidth: NSLayoutConstraint!
-    //@IBOutlet weak var ReviewStackTop: NSLayoutConstraint!
+    @IBOutlet weak var ReviewStackTop: NSLayoutConstraint!
     @IBOutlet weak var ViewCount: UILabel!
     @IBOutlet weak var ReviewButton: UIButton!
     
@@ -60,6 +58,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     var doc:Dictionary<String,Any>
                     doc = snapshot?.data() as! [String:Any]
                     //デバックのため一応です(Godのリストがなかったら)
+                    let postUser = doc["postuser"] as? String ?? ""
                     if doc["GoodList"] == nil{
                         GoodList = ["\(uid!)"]
                         GoodCount = GoodCount + 1
@@ -86,6 +85,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     }
                     self.updateGoodRef(goodlist: GoodList, goodcount: GoodCount)
                     self.updateUserGoodList()
+                    self.updatePostUserGoodCount(uid:postUser)
                     self.ReviewButton.setImage(image, for: .normal)
                 }
                 else{
@@ -144,22 +144,16 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                 GoodList = goodlist as! [String]
                 if self.Goodvalue == 0{
                     GoodList.removeAll(where: {$0 == String(newelement)})
-                    AllGoodCount = AllGoodCount - 1
                 }
                 else{
                     GoodList.append(newelement)
-                    AllGoodCount = AllGoodCount + 1
                 }
             }
             else{
                 GoodList = [newelement]
-                AllGoodCount = AllGoodCount + 1
-            }
-            if AllGoodCount < 0{
-                AllGoodCount = 0
             }
             print(GoodList)
-            ref.updateData(["GoodList":GoodList,"AllGoodCount":AllGoodCount]){(err) in
+            ref.updateData(["GoodList":GoodList]){(err) in
                 if let err = err{
                     print("GoodListの更新に失敗しました。")
                 }
@@ -171,6 +165,36 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         
     }
     
+    private func updatePostUserGoodCount(uid:String){
+        if uid != "" {
+            let postUserRef = Firestore.firestore().collection("users").document(uid)
+            postUserRef.getDocument(){ (snapshot,err) in
+                if err != nil{
+                    print(err.debugDescription)
+                    print("取得の失敗")
+                }
+                else{
+                    let data = snapshot?.data() as? [String:Any] ?? [:]
+                    var postUserAllgoodcount = data["AllGoodCount"] as? Int ?? 0
+                    if self.Goodvalue == 0{
+                        postUserAllgoodcount = postUserAllgoodcount - 1
+                        if postUserAllgoodcount < 0{
+                            postUserAllgoodcount = 0
+                        }
+                    }
+                    else{
+                        postUserAllgoodcount = postUserAllgoodcount + 1
+                    }
+                    postUserRef.updateData(["AllGoodCount":postUserAllgoodcount]){ (err) in
+                        if err != nil{
+                            print(err.debugDescription)
+                            print("AllGoodCountの更新失敗")
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     //画面の初期状態に関する関数
     //awakeします。
@@ -178,35 +202,26 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         super.awakeFromNib()
         self.fittoView(size: (width-30)/3)
         self.getShareRoomImage()
-        layer.cornerRadius = 10
-        //ここで画像の挿入の処理をする
-        
+        self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        self.layer.cornerRadius = 10
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         self.fittoView(size: (width-30)/3)
 
     }
-    
-    
     private func getShareRoomImage(){
         print("関数内での動き")
         print(self.subjection)
         print(self.subtimes)
-        if self.subjection != "" && self.subtimes != ""{
+        
+        if self.subjection != "" && self.subtimes != "" && self.number != ""{
             let FireStorage_Path = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child("images").child("\(self.subjection)").child("\(self.subtimes)").child("\(self.number).jpeg")
             
             FireStorage_Path.getData(maxSize: 1024*1024*100){ (data,err) in
                 if data != nil{
                     print("入ってます")
                     self.PostImages.image = UIImage(data: data!)!
-                    let SubName = self.sub as! String
-                    let SubCount = self.times as! String
-                    let PosterName = self.number as! String
-                    //self.sliderText.text = titletext
-                    self.sub_name.text = "【" + SubName + "/" + SubCount + "】"
-                    //self.sub_count.text = "授業回数:" + SubCount
-                    self.poster_name.text = "投稿者:" + PosterName
                 }
                 else{
                     self.PostImages.image = UIImage(named: "IMG_6906")!
@@ -222,40 +237,20 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
         PostImageHeight.constant = size/2
-        //PostImageWidth.constant = size
-        //PostTitleHeight.constant = size/4
+        PostImageWidth.constant = size
+        PostTitleHeight.constant = size/4
         
         //PostTitle.backgroundColor = .orange
-        //PostTitleTop.constant = 0
-        //PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
-        //PostTitleWidth.constant = size
+        PostTitleTop.constant = 0
+        PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
+        PostTitleWidth.constant = size
         
         ReviewStackWidth.constant = size
         ReviewStackHeihgt.constant = size/4
-        //ReviewStackTop.constant = 0
+        ReviewStackTop.constant = 0
         
         ReviewButton.titleLabel?.text = ""
         
         
     }
- 
-//    static func nib() -> UINib {
-//        return UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
-//    }
-//    static func makelabel(text:String) {
-//        let view = UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil).instantiate(withOwner: nil, options: nil).first as! ShareRoomCollectionCellView
-//
-//        view.TextTitleLabel.text = "aks"
-//
-//    }
-    
-//    public func configure(title :String){
-//        TextTitleLabel.text = title
-//    }
-    
-    
-//
-//    static func nib() -> UINib {
-//        return UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
-//    }
 }

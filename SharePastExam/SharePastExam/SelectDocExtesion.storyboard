@@ -4,7 +4,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,23 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u9z-YU-EZa">
-                                <rect key="frame" x="57" y="144" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Y3T-KV-d8R"/>
-                                    <constraint firstAttribute="height" constant="300" id="gAF-Fi-OOP"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVD-oI-uhw">
-                                <rect key="frame" x="57" y="484" width="300" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="43r-UZ-0zP"/>
-                                    <constraint firstAttribute="width" constant="300" id="EGg-y6-e9S"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpz-kT-Ar0">
                                 <rect key="frame" x="57" y="574" width="300" height="50"/>
                                 <subviews>
@@ -42,9 +27,9 @@
                                             <constraint firstAttribute="width" constant="50" id="kJC-u3-0Wf"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-3b-ZnE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unknown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-3b-ZnE">
                                         <rect key="frame" x="50" y="0.0" width="250" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -54,23 +39,73 @@
                                     <constraint firstAttribute="height" constant="50" id="QT6-3T-Lvp"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRh-ia-j4k">
+                                <rect key="frame" x="57" y="494" width="300" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TItle:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwX-aZ-Gp9">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="aHK-4m-dWj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phn-uU-KQs">
+                                        <rect key="frame" x="80" y="0.0" width="170" height="50"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hf-SK-Cm4">
+                                        <rect key="frame" x="250" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="4qI-HV-6la"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePadding="11">
+                                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                            <color key="baseForegroundColor" red="0.65098039220000004" green="0.98823529409999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="GoodAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0L2-vI-Ec7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GSm-zK-cTU"/>
+                                    <constraint firstAttribute="width" constant="300" id="Zeg-LU-tSJ"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99g-ko-jC0">
+                                <rect key="frame" x="57" y="144" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="9jM-Hl-sSb"/>
+                                    <constraint firstAttribute="height" constant="300" id="h7J-Pc-L0y"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="PresentedFullDoc:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MRt-z3-Kku"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gpz-kT-Ar0" firstAttribute="top" secondItem="kVD-oI-uhw" secondAttribute="bottom" constant="20" id="Bvz-U0-MBr"/>
+                            <constraint firstItem="99g-ko-jC0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="0qN-Be-ROy"/>
+                            <constraint firstItem="gpz-kT-Ar0" firstAttribute="top" secondItem="RRh-ia-j4k" secondAttribute="bottom" constant="30" id="8qs-xz-UIW"/>
+                            <constraint firstItem="RRh-ia-j4k" firstAttribute="top" secondItem="99g-ko-jC0" secondAttribute="bottom" constant="50" id="G5g-xJ-QhJ"/>
                             <constraint firstItem="gpz-kT-Ar0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="V67-mX-NQT"/>
-                            <constraint firstItem="u9z-YU-EZa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="XeB-0f-Mfs"/>
-                            <constraint firstItem="u9z-YU-EZa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gAg-Wo-r6U"/>
-                            <constraint firstItem="kVD-oI-uhw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="k9s-4x-mjl"/>
-                            <constraint firstItem="kVD-oI-uhw" firstAttribute="top" secondItem="u9z-YU-EZa" secondAttribute="bottom" constant="40" id="tis-5A-PVi"/>
+                            <constraint firstItem="99g-ko-jC0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="VQT-Oi-k54"/>
+                            <constraint firstItem="RRh-ia-j4k" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hX0-3b-N6v"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="CreateUserImage" destination="Sqz-aq-w6b" id="83h-fW-gxJ"/>
                         <outlet property="CreateUserName" destination="oYR-3b-ZnE" id="AiQ-rB-id9"/>
-                        <outlet property="DocExtensionImage" destination="u9z-YU-EZa" id="j2R-dy-eZi"/>
-                        <outlet property="DocExtensionTitle" destination="kVD-oI-uhw" id="toa-KH-QAZ"/>
+                        <outlet property="DocExtensionImage" destination="99g-ko-jC0" id="qXo-zX-hsT"/>
+                        <outlet property="DocExtensionTitle" destination="phn-uU-KQs" id="iww-5O-0lM"/>
+                        <outlet property="GoodButton" destination="5hf-SK-Cm4" id="cby-Eu-v75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,4 +113,10 @@
             <point key="canvasLocation" x="102.89855072463769" y="50.892857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

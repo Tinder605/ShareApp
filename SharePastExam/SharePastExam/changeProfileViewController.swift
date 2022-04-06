@@ -102,6 +102,7 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         guard let uploadImage = image.jpegData(compressionQuality: 0.1) else {return}
         
         let fileName = NSUUID().uuidString
+        print(fileName)
         let storageRef = Storage.storage().reference().child("Prefile_image").child(fileName)
         
         storageRef.putData(uploadImage,metadata: nil) {(matadata,err) in
