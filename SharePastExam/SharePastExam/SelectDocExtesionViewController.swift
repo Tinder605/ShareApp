@@ -43,7 +43,7 @@ class SelectDocExtesionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         HUD.show(.progress, onView: self.view)
-        self.view.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        self.view.backgroundColor = UIColor.rgb(red: 186, green: 249, blue: 146)
         self.DocExtensionTitle.text = doctitle
         let width = UIScreen.main.bounds.width
         self.DocExtensionImage.frame = CGRect(x: (width-300)/2, y: 100, width: 300, height: 300)

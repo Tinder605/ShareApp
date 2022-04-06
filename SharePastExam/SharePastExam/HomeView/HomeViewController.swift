@@ -152,7 +152,7 @@ extension HomeViewController{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50)
-        view.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        view.backgroundColor = UIColor.rgb(red: 200, green: 247, blue: 157)
         
         let label = UILabel()
         label.text = "最近見た教科"
