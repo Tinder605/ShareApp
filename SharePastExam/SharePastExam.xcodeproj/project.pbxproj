@@ -18,6 +18,8 @@
 		C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */; };
 		C30093FA274DEDFE003B3556 /* SelectDocExtesionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */; };
 		C303E60D2701CE16009D732A /* SelectionTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */; };
+		C37850B227FD860700393D1D /* ExFullDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C37850B127FD860700393D1D /* ExFullDoc.storyboard */; };
+		C37850B427FD865600393D1D /* ExFullDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37850B327FD865600393D1D /* ExFullDocViewController.swift */; };
 		C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3985FF427034E9D005CFAEC /* Login.storyboard */; };
 		C39F635D27F4074A00CE4CAA /* CreatePastDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39F635C27F4074900CE4CAA /* CreatePastDoc.storyboard */; };
 		C39F636027F4076000CE4CAA /* CreatePastExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F635E27F4076000CE4CAA /* CreatePastExamViewController.swift */; };
@@ -69,6 +71,8 @@
 		C30093F7274DEDDC003B3556 /* SelectDocExtesion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectDocExtesion.storyboard; sourceTree = "<group>"; };
 		C30093F9274DEDFE003B3556 /* SelectDocExtesionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDocExtesionViewController.swift; sourceTree = "<group>"; };
 		C303E60C2701CE16009D732A /* SelectionTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewContoller.swift; sourceTree = "<group>"; };
+		C37850B127FD860700393D1D /* ExFullDoc.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExFullDoc.storyboard; sourceTree = "<group>"; };
+		C37850B327FD865600393D1D /* ExFullDocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExFullDocViewController.swift; sourceTree = "<group>"; };
 		C3985FF427034E9D005CFAEC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C39F635C27F4074900CE4CAA /* CreatePastDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePastDoc.storyboard; sourceTree = "<group>"; };
 		C39F635E27F4076000CE4CAA /* CreatePastExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePastExamViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				C3E27D2B27674C8400D48205 /* SliderCollectionViewCell.xib */,
 				C3BFBA5827FAFAE7007BBFC9 /* FullDocment.storyboard */,
 				C3BFBA5A27FAFB02007BBFC9 /* FullDocumentViewController.swift */,
+				C37850B127FD860700393D1D /* ExFullDoc.storyboard */,
+				C37850B327FD865600393D1D /* ExFullDocViewController.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				C3E5293926F1DFE300C4EB9F /* LaunchScreen.storyboard in Resources */,
 				C39F637227F407DD00CE4CAA /* ShareRoom.storyboard in Resources */,
 				C3E5293626F1DFE300C4EB9F /* Assets.xcassets in Resources */,
+				C37850B227FD860700393D1D /* ExFullDoc.storyboard in Resources */,
 				C3985FF527034E9D005CFAEC /* Login.storyboard in Resources */,
 				C39F637127F407DD00CE4CAA /* ShareRoomCollectionViewCell.xib in Resources */,
 				C30093F8274DEDDC003B3556 /* SelectDocExtesion.storyboard in Resources */,
@@ -428,6 +435,7 @@
 				C3F23C5527102A8200899173 /* SubTimesViewController.swift in Sources */,
 				189E46A72706CC86008DF27B /* SubList.swift in Sources */,
 				189E466A26F53A73008DF27B /* SignUp.swift in Sources */,
+				C37850B427FD865600393D1D /* ExFullDocViewController.swift in Sources */,
 				C3F23BF92705ABA300899173 /* SelectSubjectionTableViewCell.swift in Sources */,
 				C39F636A27F407AF00CE4CAA /* MyCollectionViewCell.swift in Sources */,
 				189E46A32704368C008DF27B /* TabController.swift in Sources */,
