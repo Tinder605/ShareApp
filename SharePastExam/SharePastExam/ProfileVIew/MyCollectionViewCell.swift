@@ -14,6 +14,8 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var subCount: UILabel!
+    @IBOutlet weak var goodCount: UILabel!
     
     var url = ""
     var cellpath = ""{

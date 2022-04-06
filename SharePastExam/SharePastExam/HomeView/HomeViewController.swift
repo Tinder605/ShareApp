@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var RecentlyTableHeight: NSLayoutConstraint!
     @IBOutlet weak var RecentlyTableWidth: NSLayoutConstraint!
     
-    private var images = UIImage(named: "IMG_6906")
+    private var images = UIImage(named: "noimage.jpeg")
     
     let cellID = "cellID"
     let width = UIScreen.main.bounds.width
@@ -42,6 +42,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLayoutSubviews()
         RecentlyTableWidth.constant = width
         RecentlyTableHeight.constant = 15*30
+        
+        
         
     }
  
