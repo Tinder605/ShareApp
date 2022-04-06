@@ -36,6 +36,8 @@
 		C39F637927F407F400CE4CAA /* goodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F637627F407F400CE4CAA /* goodViewController.swift */; };
 		C39F637C27F4080500CE4CAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F637A27F4080500CE4CAA /* HomeViewController.swift */; };
 		C39F637D27F4080500CE4CAA /* HomeViewRecentlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F637B27F4080500CE4CAA /* HomeViewRecentlyCell.swift */; };
+		C3BFBA5927FAFAE7007BBFC9 /* FullDocment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BFBA5827FAFAE7007BBFC9 /* FullDocment.storyboard */; };
+		C3BFBA5B27FAFB02007BBFC9 /* FullDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BFBA5A27FAFB02007BBFC9 /* FullDocumentViewController.swift */; };
 		C3E27D2C27674C8400D48205 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E27D2927674C8400D48205 /* SliderCell.swift */; };
 		C3E27D2D27674C8400D48205 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E27D2A27674C8400D48205 /* SliderCollectionViewCell.swift */; };
 		C3E27D2E27674C8400D48205 /* SliderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3E27D2B27674C8400D48205 /* SliderCollectionViewCell.xib */; };
@@ -85,6 +87,8 @@
 		C39F637627F407F400CE4CAA /* goodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = goodViewController.swift; sourceTree = "<group>"; };
 		C39F637A27F4080500CE4CAA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C39F637B27F4080500CE4CAA /* HomeViewRecentlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewRecentlyCell.swift; sourceTree = "<group>"; };
+		C3BFBA5827FAFAE7007BBFC9 /* FullDocment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullDocment.storyboard; sourceTree = "<group>"; };
+		C3BFBA5A27FAFB02007BBFC9 /* FullDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDocumentViewController.swift; sourceTree = "<group>"; };
 		C3E27D2927674C8400D48205 /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		C3E27D2A27674C8400D48205 /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3E27D2B27674C8400D48205 /* SliderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				C3E27D2927674C8400D48205 /* SliderCell.swift */,
 				C3E27D2A27674C8400D48205 /* SliderCollectionViewCell.swift */,
 				C3E27D2B27674C8400D48205 /* SliderCollectionViewCell.xib */,
+				C3BFBA5827FAFAE7007BBFC9 /* FullDocment.storyboard */,
+				C3BFBA5A27FAFB02007BBFC9 /* FullDocumentViewController.swift */,
 			);
 			path = SharePastExam;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				189E466426F53776008DF27B /* SignUp.storyboard in Resources */,
 				C39F637827F407F400CE4CAA /* goodCollectionViewCell.xib in Resources */,
 				C39F636927F407AF00CE4CAA /* RenewProfile.storyboard in Resources */,
+				C3BFBA5927FAFAE7007BBFC9 /* FullDocment.storyboard in Resources */,
 				C3E27D2E27674C8400D48205 /* SliderCollectionViewCell.xib in Resources */,
 				C3F23C5327102A3A00899173 /* Subtimes.storyboard in Resources */,
 				189E469F27040535008DF27B /* GoogleService-Info.plist in Resources */,
@@ -415,6 +422,7 @@
 				189E468C2701ADA0008DF27B /* LoginViewController.swift in Sources */,
 				C3F23C5827103EC600899173 /* SubTimesTableViewCell.swift in Sources */,
 				C39F636827F407AF00CE4CAA /* ProfileViewController.swift in Sources */,
+				C3BFBA5B27FAFB02007BBFC9 /* FullDocumentViewController.swift in Sources */,
 				C39F637027F407DD00CE4CAA /* ShareRoomViewController.swift in Sources */,
 				C3E5293126F1DFE200C4EB9F /* ViewController.swift in Sources */,
 				C3F23C5527102A8200899173 /* SubTimesViewController.swift in Sources */,

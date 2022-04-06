@@ -134,36 +134,14 @@ class ProfileViewController: UIViewController {
         
         //プロフィール画像の挿入
         if profileImageUrl == "noimage"{
-            let uid = Auth.auth().currentUser?.uid
-            let ref = Firestore.firestore().collection("users").document(uid!)
-            ref.getDocument(){ (snapshot,err) in
-                if err != nil{
-                    self.profileImage.image = UIImage(named: "noimage.jpeg")!
-                }
-                else{
-                    let data = snapshot?.data() as? [String:Any] ?? [:]
-                    let profileurl = data["profileImageURL"] as? String ?? ""
-                    if profileurl != "noimage" && profileurl != ""{
-                        let url = URL(string: profileurl )
-                        do{
-                            let imgdata = try Data(contentsOf: url!)
-                            self.profileImage.image = UIImage(data: imgdata)!
-                        }catch{
-                            self.profileImage.image = UIImage(named: "noimage.jpeg")!
-                        }
-                    }
-                    else{
-                        self.profileImage.image = UIImage(named: "noimage.jpeg")!
-                    }
-                }
-            }
+            profileImage.image = UIImage(named: "IMG_6906")!
         }
         else{
             do{
                 let url = URL(string: profileImageUrl as! String)
                 let data = try Data(contentsOf: url!)
                 profileImage.image = UIImage(data: data)!
-            }catch{
+            }catch let error{
                 print("catchされています。")
                 print("errr")
             }

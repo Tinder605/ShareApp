@@ -9,7 +9,6 @@ import UIKit
 import FirebaseStorage
 import FirebaseFirestore
 import Firebase
-import Kingfisher
 
 class goodCollectionViewCell: UICollectionViewCell {
 
@@ -35,39 +34,44 @@ class goodCollectionViewCell: UICollectionViewCell {
     private func getGoodDocuments(){
         print("正しく作用はしています")
         let ref = Firestore.firestore().collection("images").document(self.subjection).collection("times").document(self.times).collection("count").document(self.count)
-        ref.getDocument(){ (snapshot, err) in
-            if err != nil{
-                print("err")
-                self.updateGoodDoc()
+        ref.getDocument(){ (snapshot,err) in
+            if let err = err{
+                print("エラーです")
             }
             else{
-                let cache = ImageCache.default
-                let path = self.subjection + "/" + self.times + "/" + self.count
-                if cache.isCached(forKey: path){
-                    cache.retrieveImage(forKey: path){ result in
-                        switch result{
-                        case .success(let value):
-                            self.goodCollectionViewCell.image = value.image
-                        case .failure(let err):
-                            print(err)
-                            self.goodCollectionViewCell.image = UIImage(named: "noimage.jpeg")
-                        }
-                        
+                if snapshot?.data() != nil{
+                    print("非同期処理は起きています")
+                    let gooddata = snapshot?.data() as? [String:Any] ?? [:]
+                    let Goodurl = gooddata["imageurl"] as? String ?? " "
+                    print(Goodurl)
+                    if Goodurl == " "{
+                        self.goodCollectionViewCell.backgroundColor = .red
                     }
-                }
-                else{
-                    let imgref = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child(self.subjection).child(self.times).child("\(self.count).jpeg")
-                    imgref.getData(maxSize: 1024*1024*100){ (imgdata,err) in
-                        if imgdata != nil{
-                            self.goodCollectionViewCell.image = UIImage(data: imgdata!)!
-                            cache.store(UIImage(data: imgdata!)!, forKey: path)
+                    else{
+                        print("urlの表示")
+                        let url = URL(string: Goodurl)
+                        print(url)
+                        if url != nil{
+                            print("こっちなのかい？")
+                            do{
+                                let data = try Data(contentsOf: url!)
+                                self.goodCollectionViewCell.image = UIImage(data: data)!
+                            }catch{
+                                self.goodCollectionViewCell.image = UIImage()
+                                self.goodCollectionViewCell.backgroundColor = .red
+                            }
                         }
                         else{
-                            self.goodCollectionViewCell.image = UIImage(named: "noimage.jpeg")
+                            self.goodCollectionViewCell.image = UIImage(named: "IMG_6906")!
                         }
                     }
+                 }
+                else{
+                    print("noimage側に来ています。")
+                    self.goodCollectionViewCell.image = UIImage(named: "noimage.jpeg")!
+                    self.updateGoodDoc()
                 }
-            }
+           }
         }
     }
    //エラーならそのリストについては削除する
@@ -94,6 +98,7 @@ class goodCollectionViewCell: UICollectionViewCell {
                             print("更新完了")
                         }
                     }
+                    
                 }
             }
             if err != nil{

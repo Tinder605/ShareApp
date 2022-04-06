@@ -53,21 +53,19 @@ class goodViewController: UIViewController {
             }
             let data = snapshot?.data() as? [String:Any] ?? [:]
             self.GoodDocumentsList = data["GoodList"] as? [String] ?? []
-            if self.GoodDocumentsList.count == 0{
-                let view = UIView()
-                
-                
-            }
             self.goodCollectionView.reloadData()
         }
         
     }
+    
+
 }
 
 extension goodViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("you tapped me")
+        
     }
 }
 extension goodViewController:UICollectionViewDataSource{
@@ -84,8 +82,9 @@ extension goodViewController:UICollectionViewDataSource{
         cell.times = goosep[1]
         cell.count = goosep[2]
         
-        cell.configure(with: UIImage(named: "noimage.jpeg")!)
         cell.awakeFromNib()
+        cell.configure(with: UIImage(named: "IMG_6906")!)
+        
         return cell
     }
 }

@@ -142,26 +142,6 @@ extension HomeViewController{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RecentlySub.count
     }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "最近見た教科"
-//    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50)
-        view.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
-        
-        let label = UILabel()
-        label.text = "最近見た教科"
-        //label.textColor = .white
-        label.frame = CGRect(x: 0, y: 20, width: self.view.frame.size.width, height: 20)
-        
-        view.addSubview(label)
-        return view
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)

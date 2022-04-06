@@ -20,7 +20,6 @@ class PastData:NSObject{
     var Title:String?
     var url :String?
     var goodList:[String]?
-    var postuserid:String?
     //辞書型の要素を確認
     init(document:QueryDocumentSnapshot) {
         let doc = document.data()
@@ -30,14 +29,13 @@ class PastData:NSObject{
         self.Title = doc["title"] as? String
         self.url = doc["imageurl"] as? String
         self.goodList = doc["GoodList"] as? [String]
-        self.postuserid = doc["postuser"] as? String ?? ""
     }
     
 }
 
 
 
-class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UIAdaptivePresentationControllerDelegate{
+class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
 
     @IBOutlet weak var PostButton: UIButton!
     @IBOutlet weak var ShareRoomCollectionView: UICollectionView!
@@ -70,12 +68,11 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         ShareRoomViewHeight.constant = height
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         if UserDefaults.standard.array(forKey: "RecentlySub") != nil{
             let subjection = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
             print("subjectionの表示\(subjection)")
         }
-
+        self.ShareRoomCollectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -86,6 +83,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         PostButton.layer.cornerRadius = 40
         PostButton.setTitle("", for: .normal)
         navigationItem.title = timestile
+        HUD.show(.progress, onView: self.view)
         self.getStartDocuments()
         
         let nib = UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
@@ -98,7 +96,6 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     }
     //imageの情報の取得
     private func getStartDocuments(){
-        HUD.show(.progress, onView: self.view)
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? " "
         let sub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
         print(sub)
@@ -141,7 +138,6 @@ extension ShareRoomViewController {
         
         let window = UIStoryboard(name: "SelectDocExtesion", bundle: nil)
         let nextscreen = window.instantiateViewController(withIdentifier: "SelectDocExtesion") as! SelectDocExtesionViewController
-        let cell = collectionView.cellForItem(at: indexPath) as? ShareRoomCollectionCellView
         if let nexttitle = testDataArray[indexPath.row].Title{
             nextscreen.doctitle = testDataArray[indexPath.row].Title!
             let sub = UserDefaults.standard.array(forKey: "RecentlySub") ?? [""]
@@ -168,15 +164,6 @@ extension ShareRoomViewController {
         if let nextimage = testDataArray[indexPath.row].url{
             nextscreen.imageurl = URL(string: nextimage)
         }
-        if testDataArray[indexPath.row].postuserid != ""{
-            nextscreen.PosrUserId = self.testDataArray[indexPath.row].postuserid ?? ""
-        }
-        if cell?.PostImages.image != nil{
-            nextscreen.mainImage = cell?.PostImages.image ?? UIImage()
-        }
-        //goodvalueの値渡し
-        nextscreen.Goodvalue = cell?.Goodvalue as? Int ?? 0
-        nextscreen.presentationController?.delegate = self
         self.present(nextscreen, animated: true, completion: nil)
         
     }
@@ -227,11 +214,5 @@ extension ShareRoomViewController {
         return cell
     }
 
-}
-extension ShareRoomViewController{
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print("dismissしました")
-        self.getStartDocuments()
-    }
 }
 
