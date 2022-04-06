@@ -21,10 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="370" height="322"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZEt-4w-agN">
-                                <rect key="frame" x="0.0" y="0.0" width="370" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="370" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授業名/回数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfw-b6-4gC">
-                                <rect key="frame" x="0.0" y="110" width="370" height="171"/>
+                                <rect key="frame" x="0.0" y="128" width="370" height="132.5"/>
+                                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XW-pe-ciq">
+                                <rect key="frame" x="0.0" y="260.5" width="370" height="20.5"/>
                                 <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -59,9 +66,6 @@
                                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
                                             <color key="baseForegroundColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="ActionGoodButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="BJs-dt-NOe"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -69,39 +73,23 @@
                         <constraints>
                             <constraint firstItem="ZEt-4w-agN" firstAttribute="leading" secondItem="gCO-XR-YDb" secondAttribute="leading" id="05l-i2-92f"/>
                             <constraint firstAttribute="trailing" secondItem="ZEt-4w-agN" secondAttribute="trailing" id="6Nd-Xc-0hl"/>
-                            <constraint firstItem="lfw-b6-4gC" firstAttribute="leading" secondItem="gCO-XR-YDb" secondAttribute="leading" id="97X-0i-Esc"/>
                             <constraint firstItem="ZEt-4w-agN" firstAttribute="top" secondItem="gCO-XR-YDb" secondAttribute="top" id="CbG-0s-EDk"/>
-                            <constraint firstItem="uhX-Zb-cmQ" firstAttribute="leading" secondItem="gCO-XR-YDb" secondAttribute="leading" id="KPn-Gp-4UQ"/>
                             <constraint firstItem="lfw-b6-4gC" firstAttribute="top" secondItem="ZEt-4w-agN" secondAttribute="bottom" id="Sq0-eY-0Vt"/>
                             <constraint firstAttribute="trailing" secondItem="lfw-b6-4gC" secondAttribute="trailing" id="YB7-uV-uOV"/>
-                            <constraint firstItem="ZEt-4w-agN" firstAttribute="top" secondItem="gCO-XR-YDb" secondAttribute="top" id="aH7-3U-XpV"/>
-                            <constraint firstItem="lfw-b6-4gC" firstAttribute="top" secondItem="ZEt-4w-agN" secondAttribute="bottom" id="aNN-T3-9Tp"/>
-                            <constraint firstAttribute="bottom" secondItem="uhX-Zb-cmQ" secondAttribute="bottom" id="bde-8n-oMc"/>
-                            <constraint firstAttribute="trailing" secondItem="ZEt-4w-agN" secondAttribute="trailing" id="cZf-x7-9ss"/>
-                            <constraint firstItem="lfw-b6-4gC" firstAttribute="top" secondItem="ZEt-4w-agN" secondAttribute="bottom" id="eek-h8-aQC"/>
-                            <constraint firstItem="uhX-Zb-cmQ" firstAttribute="top" secondItem="lfw-b6-4gC" secondAttribute="bottom" id="k7g-GU-7cJ"/>
-                            <constraint firstAttribute="trailing" secondItem="lfw-b6-4gC" secondAttribute="trailing" id="ntu-8L-Fjo"/>
-                            <constraint firstAttribute="trailing" secondItem="uhX-Zb-cmQ" secondAttribute="trailing" id="oHi-eq-SGn"/>
                             <constraint firstItem="lfw-b6-4gC" firstAttribute="leading" secondItem="gCO-XR-YDb" secondAttribute="leading" id="qG6-bj-CSm"/>
-                            <constraint firstItem="ZEt-4w-agN" firstAttribute="leading" secondItem="gCO-XR-YDb" secondAttribute="leading" id="vsy-pJ-LoO"/>
                         </constraints>
                     </stackView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="gCO-XR-YDb" secondAttribute="trailing" id="89P-JO-7d7"/>
-                <constraint firstAttribute="bottom" secondItem="gCO-XR-YDb" secondAttribute="bottom" id="9Ls-HP-Qos"/>
-                <constraint firstItem="gCO-XR-YDb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="I9o-PI-z0m"/>
-                <constraint firstItem="gCO-XR-YDb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="s6u-aY-9fE"/>
+                <constraint firstItem="gCO-XR-YDb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2lW-wY-aRE"/>
+                <constraint firstAttribute="trailing" secondItem="gCO-XR-YDb" secondAttribute="trailing" id="BWT-av-xbP"/>
+                <constraint firstItem="gCO-XR-YDb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kOW-09-zbH"/>
+                <constraint firstAttribute="bottom" secondItem="gCO-XR-YDb" secondAttribute="bottom" id="t6N-sO-6bj"/>
             </constraints>
             <size key="customSize" width="370" height="322"/>
-            <connections>
-                <outlet property="goodCount" destination="Xco-3Y-Mxc" id="FIm-to-u9w"/>
-                <outlet property="imageView" destination="ZEt-4w-agN" id="sgj-J7-GP2"/>
-                <outlet property="subCount" destination="lfw-b6-4gC" id="fuI-99-BTe"/>
-            </connections>
-            <point key="canvasLocation" x="92.753623188405811" y="26.785714285714285"/>
+            <point key="canvasLocation" x="84.057971014492765" y="28.125"/>
         </collectionViewCell>
     </objects>
     <resources>
