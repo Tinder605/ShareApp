@@ -21,57 +21,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="370" height="322"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZEt-4w-agN">
-                                <rect key="frame" x="0.0" y="0.0" width="370" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="370" height="169"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="5hZ-mb-q0X"/>
+                                    <constraint firstAttribute="width" constant="370" id="87h-oX-SVB"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授業名/回数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfw-b6-4gC">
-                                <rect key="frame" x="0.0" y="128" width="370" height="132.5"/>
+                                <rect key="frame" x="0.0" y="169" width="370" height="132.5"/>
                                 <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="370" id="DTM-HI-L0Q"/>
+                                    <constraint firstAttribute="height" constant="132.5" id="HzZ-En-MOp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XW-pe-ciq">
-                                <rect key="frame" x="0.0" y="260.5" width="370" height="20.5"/>
+                                <rect key="frame" x="0.0" y="301.5" width="370" height="20.5"/>
                                 <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="apb-Ac-5sS"/>
+                                    <constraint firstAttribute="width" constant="370" id="cbS-2Y-3oR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uhX-Zb-cmQ">
-                                <rect key="frame" x="0.0" y="281" width="370" height="41"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hnk-Cc-ow4">
-                                        <rect key="frame" x="0.0" y="0.0" width="185" height="41"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいね" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlK-uL-KnD">
-                                                <rect key="frame" x="0.0" y="0.0" width="185" height="20.5"/>
-                                                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xco-3Y-Mxc">
-                                                <rect key="frame" x="0.0" y="20.5" width="185" height="20.5"/>
-                                                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjF-9B-kvk">
-                                        <rect key="frame" x="185" y="0.0" width="185" height="41"/>
-                                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
-                                            <color key="baseForegroundColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="ActionGoodButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Xsi-Rv-kry"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ZEt-4w-agN" firstAttribute="leading" secondItem="gCO-XR-YDb" secondAttribute="leading" id="05l-i2-92f"/>
@@ -93,14 +70,17 @@
             </constraints>
             <size key="customSize" width="370" height="322"/>
             <connections>
-                <outlet property="goodCount" destination="Xco-3Y-Mxc" id="jia-Ph-n9H"/>
+                <outlet property="imageHeight" destination="5hZ-mb-q0X" id="Got-gZ-6V0"/>
                 <outlet property="imageView" destination="ZEt-4w-agN" id="UbM-eS-qsM"/>
+                <outlet property="imageWidth" destination="87h-oX-SVB" id="L8r-DF-5gM"/>
+                <outlet property="postTitle" destination="8XW-pe-ciq" id="Cjb-l5-N13"/>
+                <outlet property="subHeight" destination="HzZ-En-MOp" id="scC-Ul-hLk"/>
                 <outlet property="subName" destination="lfw-b6-4gC" id="mxn-ed-3UK"/>
+                <outlet property="subWidth" destination="DTM-HI-L0Q" id="y7l-an-VDX"/>
+                <outlet property="titleHeight" destination="apb-Ac-5sS" id="50f-O0-mn5"/>
+                <outlet property="titleWidth" destination="cbS-2Y-3oR" id="cnd-JK-pqk"/>
             </connections>
             <point key="canvasLocation" x="84.057971014492765" y="28.125"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
-    </resources>
 </document>

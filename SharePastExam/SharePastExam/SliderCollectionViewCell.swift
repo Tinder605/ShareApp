@@ -48,6 +48,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
                     let sliderSubName = path_dep[0]
                     let sliderSubCount = path_dep[1]
                     let sliderPosterName = path_dep[2]
+                    
                     self.sliderText.text = titletext
                     self.slider_sub_name.text = "【" + sliderSubName + "/" + sliderSubCount + "】"
                     
