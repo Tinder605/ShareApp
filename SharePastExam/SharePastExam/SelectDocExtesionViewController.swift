@@ -25,8 +25,8 @@ class SelectDocExtesionViewController: UIViewController {
         self.changeGoodValue()
     }
     @IBAction func PresentedFullDoc(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "FullDocment", bundle: nil)
-        let nextscreen = storyboard.instantiateViewController(identifier: "FullDocument") as! FullDocumentViewController
+        let storyboard = UIStoryboard(name: "ExFullDoc", bundle: nil)
+        let nextscreen = storyboard.instantiateViewController(identifier: "ExFullDoc") as! ExFullDocViewController
         nextscreen.mainimage = self.mainImage
         nextscreen.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         nextscreen.modalPresentationStyle = .fullScreen

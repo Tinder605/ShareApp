@@ -86,12 +86,11 @@ class MyCollectionViewCell: UICollectionViewCell {
                 print(data["title"] as? String ?? "")
                 self.title = data["title"] as? String ?? ""
                 self.goodcount = data["good"] as? Int ?? 0
-<<<<<<< HEAD
+
                 self.viewcount = data["viewcount"] as? Int ?? 0
-=======
+
                 //授業名/回数
                 //self.subName.text = "【" + self.sep_cellpath[0] + "/" + self.sep_cellpath[1] + "】"
->>>>>>> redesign2
             }
         }
     }
