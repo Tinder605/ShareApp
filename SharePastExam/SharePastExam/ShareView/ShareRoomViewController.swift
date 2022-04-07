@@ -94,7 +94,6 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         ShareRoomCollectionView.delegate = self
         ShareRoomCollectionView.isScrollEnabled = true
         
-        
     }
     //imageの情報の取得
     private func getStartDocuments(){

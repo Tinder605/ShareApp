@@ -61,6 +61,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         tabBarController.tabBar.standardAppearance = tabBarAppearance
+        
+        //最近見た教科の上のパディングを無くす
+        if #available(iOS 15, *) {
+            UITableView.appearance().sectionHeaderTopPadding = 0
+        }
 
         if #available(iOS 15.0, *) { // 新たに追加
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance

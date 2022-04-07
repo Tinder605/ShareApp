@@ -15,6 +15,7 @@ import Kingfisher
 
 class goodCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var allCell: UIStackView!
     //画像の縦、横
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var imageWidth: NSLayoutConstraint!
@@ -31,20 +32,13 @@ class goodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var posterHeight: NSLayoutConstraint!
     @IBOutlet weak var posterWidth: NSLayoutConstraint!
     
-    //いいね数、ボタンの縦、横
-    @IBOutlet weak var goodHeight: NSLayoutConstraint!
-    @IBOutlet weak var goodWidth: NSLayoutConstraint!
     
     @IBOutlet weak var goodCollectionViewCell: UIImageView!
+    
     @IBOutlet weak var subName: UILabel!
     @IBOutlet weak var posterTitle: UILabel!
     @IBOutlet weak var posterName: UILabel!
-    
-    @IBOutlet weak var goodCount: UILabel!
-    @IBOutlet weak var goodButton: UIButton!
-    @IBAction func ActionGoodButton(_ sender: Any) {
-        
-    }
+
     
     var subjection:String = ""
     var times:String = ""
@@ -54,6 +48,8 @@ class goodCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.cornerRadius = 10
+        
         if self.subjection != "" && self.times != "" && self.count != ""{
             
             print(self.subjection)
@@ -64,38 +60,32 @@ class goodCollectionViewCell: UICollectionViewCell {
             
             let width = UIScreen.main.bounds.width
             let height = UIScreen.main.bounds.height
-            
+            self.subName.adjustsFontSizeToFitWidth = true
+            self.posterTitle.adjustsFontSizeToFitWidth = true
+            posterName.adjustsFontSizeToFitWidth = true
             
             self.fittoView(size: (width-10)/2)
-            self.goodButton.titleLabel?.text = ""
-            self.goodButton.setTitle("", for: .normal)
-            self.goodButton.imageView?.contentMode = .scaleAspectFit
-            self.goodButton.contentVerticalAlignment = .fill
-            self.goodButton.contentHorizontalAlignment = .fill
+            
         }
     }
     
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
         
-        //imageHeight.constant = size/3
-        //imageWidth.constant = size
+        imageHeight.constant = 6*size/9
+        imageWidth.constant = size
         
-        subHeight.constant = 2*size/21
+        //subName.adjustsFontSizeToFitWidth = true
+        subHeight.constant = size/9
         subWidth.constant = size
         
-        titleHeight.constant = size/3
+        titleHeight.constant = size/9
         titleWidth.constant = size
+        //posterTitle.adjustsFontSizeToFitWidth = true
         
-        posterHeight.constant = size/3
+        //posterName.adjustsFontSizeToFitWidth = true
+        posterHeight.constant = size/9
         posterWidth.constant = size
-        
-        goodHeight.constant = 2*size/21
-        goodWidth.constant = size
-        
-        
-        
-        goodButton.titleLabel?.text = ""
         
         
     }
@@ -127,7 +117,7 @@ class goodCollectionViewCell: UICollectionViewCell {
                     //授業名/回数
                     self.subName.text = "【" + self.subjection + "/" + self.times + "】"
                     // subNameを複数行で表示
-                    self.subName.numberOfLines = 0;
+                    //self.subName.numberOfLines = 0;
                     
                     //投稿タイトル
                     //if let doctitle = testDataArray[indexPath.row].Title{
@@ -139,8 +129,6 @@ class goodCollectionViewCell: UICollectionViewCell {
                     //投稿者名
                     //self.posterName.text = "投稿者:" + PosterName + "--"
                     
-                    //いいね数表示
-                    self.goodCount.text = self.count
                     
                 }
                 else{
