@@ -23,6 +23,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
     var title = ""
     var goodcount = 0
+    var viewcount = 0
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     
@@ -79,6 +80,7 @@ class MyCollectionViewCell: UICollectionViewCell {
                 print(data["title"] as? String ?? "")
                 self.title = data["title"] as? String ?? ""
                 self.goodcount = data["good"] as? Int ?? 0
+                self.viewcount = data["viewcount"] as? Int ?? 0
             }
         }
     }

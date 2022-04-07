@@ -237,6 +237,9 @@ extension ProfileViewController:UICollectionViewDelegate{
         nextscreen.DocTitle = cell_text ?? "Notitle"
         nextscreen.username = name
         nextscreen.cellPath = self.PostDataPath[indexPath.row]
+        nextscreen.docimage = cell?.imageView.image ?? UIImage(named: "noimage.jpeg")!
+        nextscreen.goodcount = cell?.goodcount ?? 0
+        nextscreen.viewcount = cell?.viewcount ?? 0
         print(self.PostDataPath[indexPath.row])
         self.present(nextscreen, animated: true, completion: nil)
         

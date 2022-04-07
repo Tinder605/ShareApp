@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 
 class ExFullDocViewController: UIViewController {
@@ -36,7 +37,7 @@ class ExFullDocViewController: UIViewController {
         self.FullImage.contentMode = .scaleAspectFit
         self.FullImage.clipsToBounds = true
         self.FullImage.image = self.mainimage
-        
+        self.updateViewCount()
 //        let close = UIButton()
 //        close.setImage(UIImage(systemName: "xmark"), for: .normal)
 //        close.frame = CGRect(x: 50, y: 50, width: 30, height: 30)
@@ -45,6 +46,30 @@ class ExFullDocViewController: UIViewController {
 //        close.backgroundColor = .blue
 //        self.FullImage.addSubview(close)
         
+    }
+    
+    private func updateViewCount(){
+        let recentlypath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
+        if recentlypath.count != 0{
+            let sep_path = (recentlypath[0] as! String).components(separatedBy: "/")
+            let ref = Firestore.firestore().collection("images").document(sep_path[0]).collection("times").document(sep_path[1]).collection("count").document(sep_path[2])
+            ref.getDocument(){ (snapshot,err) in
+                if err != nil{
+                    print("viewcountの更新を中断します")
+                }
+                else{
+                    let data = snapshot?.data() as? [String:Any] ?? [:]
+                    var viewcount = data["viewcount"] as! Int
+                    viewcount = viewcount + 1
+                    ref.updateData(["viewcount":viewcount]){ err in
+                        if err == nil{
+                            print(viewcount)
+                            print("viewcount更新完了です。")
+                        }
+                    }
+                }
+            }
+        }
     }
 //    @objc func buttonEvent(_ sender: UIButton) {
 //        print("ボタンの情報: \(sender)")

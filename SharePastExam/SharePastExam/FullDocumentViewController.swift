@@ -53,4 +53,6 @@ class FullDocumentViewController: UIViewController {
     @objc func buttonEvent(_ sender: UIButton) {
         print("ボタンの情報: \(sender)")
     }
+    
+    
 }

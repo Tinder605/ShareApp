@@ -17,6 +17,11 @@ class CreatePastExamViewController: UIViewController {
     @IBOutlet weak var doctitle: UILabel!
     @IBOutlet weak var MainStackView: UIStackView!
     @IBOutlet weak var CountStackView: UIStackView!
+    @IBOutlet weak var DocImage: UIImageView!
+    @IBOutlet weak var GoodCount: UILabel!
+    @IBOutlet weak var ViewCount: UILabel!
+    
+    var docimage = UIImage()
     
     @IBAction func PostDocDelete(_ sender: Any) {
         let alert = UIAlertController(title: "投稿の削除", message:"投稿を削除してもよろしいですか？",preferredStyle: .alert)
@@ -38,19 +43,48 @@ class CreatePastExamViewController: UIViewController {
     var DocTitle = ""
     var username:String = ""
     var cellPath = ""
+    var goodcount = 0
+    var viewcount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.doctitle.adjustsFontSizeToFitWidth = true
         doctitle.text = DocTitle
         
         self.view.backgroundColor = UIColor.rgb(red: 241, green: 251, blue: 231)
-        DeletePostDocButton.layer.cornerRadius = 10
-        MainStackView.layer.borderWidth = 1.0
-        MainStackView.layer.borderColor = UIColor.systemBrown.cgColor
-        MainStackView.layer.cornerRadius = 10
-        CountStackView.layer.borderWidth = 1.0
-        CountStackView.layer.borderColor = UIColor.systemBrown.cgColor
-        CountStackView.layer.cornerRadius = 10
+        DeletePostDocButton.layer.cornerRadius = 5
+//        MainStackView.layer.borderWidth = 1.0
+//        MainStackView.layer.borderColor = UIColor.systemBrown.cgColor
+//        MainStackView.layer.cornerRadius = 10
+//        CountStackView.layer.borderWidth = 1.0
+//        CountStackView.layer.borderColor = UIColor.systemBrown.cgColor
+//        CountStackView.layer.cornerRadius = 10
+        self.DocImage.image = self.docimage
+        self.DocImage.contentMode = .scaleAspectFit
+        self.DocImage.clipsToBounds = true
+        self.DocImage.layer.cornerRadius = 15
+        
+        self.GoodCount.text = String(self.goodcount)
+        self.ViewCount.text = String(self.viewcount)
+        
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: 0, width: self.MainStackView.frame.width, height: 1.0)
+        border.backgroundColor = UIColor.gray.cgColor
+        self.MainStackView.layer.addSublayer(border)
+        
+        let underborder = CALayer()
+        underborder.frame = CGRect(x: 0, y: self.MainStackView.frame.height, width: self.MainStackView.frame.width, height: 1.0)
+        underborder.backgroundColor =  UIColor.gray.cgColor
+        self.MainStackView.layer.addSublayer(underborder)
+        
+        let countstatckborder = CALayer()
+        countstatckborder.frame = CGRect(x: 0, y: self.CountStackView.frame.height, width: self.CountStackView.frame.width, height: 1.0)
+        countstatckborder.backgroundColor = UIColor.gray.cgColor
+        self.CountStackView.layer.addSublayer(countstatckborder)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     //Storageの画像を取得し、削除する関数へパスしている。
     private func PostImgDelete(){
