@@ -133,7 +133,7 @@ extension ShareRoomViewController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
-        let wid = (width-30)/3
+        let wid = (width-20)/2
         return .init(width: wid, height: wid)
     }
     
@@ -186,11 +186,11 @@ extension ShareRoomViewController {
         //cell.fittoview(width: (width-30)/3, height: (width-30)/3)
         cell.number = testDataArray[indexPath.row].count ?? ""
         //viewcountの取得
-        if let viewcount = testDataArray[indexPath.row].ViewCount{
-            cell.ViewCount.text = "\(viewcount)"
-        }else{
-            cell.ViewCount.text = "unknown"
-        }
+        //if let viewcount = testDataArray[indexPath.row].ViewCount{
+            //cell.ViewCount.text = "\(viewcount)"
+        //}else{
+            //cell.ViewCount.text = "unknown"
+        //}
         
         //タイトルの取得
         if let doctitle = testDataArray[indexPath.row].Title{

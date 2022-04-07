@@ -254,7 +254,7 @@ extension ProfileViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
         if self.PostDataPath.count == 0{
-            cell.configure(with: UIImage(named: "IMG_6906")!)
+            cell.configure(with: UIImage(named: "noimage.jpeg")!)
         }
         else{
             cell.cellpath = self.PostDataPath[indexPath.row]

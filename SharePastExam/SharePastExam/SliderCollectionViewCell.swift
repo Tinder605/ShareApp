@@ -25,7 +25,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
 //        print(self.path)
         self.getPastDocuments()
         layer.cornerRadius = 15
-        backgroundColor = .purple
+        //backgroundColor = .purple
     }
     
     public func getPastDocuments(){

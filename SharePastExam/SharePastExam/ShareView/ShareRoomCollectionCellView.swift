@@ -31,14 +31,16 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     @IBOutlet weak var PostTitle: UILabel!
     @IBOutlet weak var PostTitleHeight: NSLayoutConstraint!
     @IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
-    @IBOutlet weak var PostTitleTop: NSLayoutConstraint!
+    //@IBOutlet weak var PostTitleTop: NSLayoutConstraint!
     
     @IBOutlet weak var ReviewStackView: UIStackView!
     @IBOutlet weak var ReviewStackHeihgt: NSLayoutConstraint!
     @IBOutlet weak var ReviewStackWidth: NSLayoutConstraint!
-    @IBOutlet weak var ReviewStackTop: NSLayoutConstraint!
-    @IBOutlet weak var ViewCount: UILabel!
+    //@IBOutlet weak var ReviewStackTop: NSLayoutConstraint!
     @IBOutlet weak var ReviewButton: UIButton!
+    
+    @IBOutlet weak var goodCount: UILabel!
+    @IBOutlet weak var posterName: UILabel!
     
     let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? "a"
     let sub = (UserDefaults.standard.array(forKey: "RecentlySub") ?? ["a"])
@@ -201,14 +203,14 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     //awakeします。
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.fittoView(size: (width-30)/3)
+        self.fittoView(size: (width-30)/2)
         self.getShareRoomImage()
         self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
         self.layer.cornerRadius = 10
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.fittoView(size: (width-30)/3)
+        self.fittoView(size: (width-20)/2)
 
     }
     private func getShareRoomImage(){
@@ -262,13 +264,13 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         PostTitleHeight.constant = size/4
         
         //PostTitle.backgroundColor = .orange
-        PostTitleTop.constant = 0
+        //PostTitleTop.constant = 0
         PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
         PostTitleWidth.constant = size
         
         ReviewStackWidth.constant = size
         ReviewStackHeihgt.constant = size/4
-        ReviewStackTop.constant = 0
+        //ReviewStackTop.constant = 0
         
         ReviewButton.titleLabel?.text = ""
         

@@ -31,7 +31,7 @@ class SliderCell: UICollectionViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         //slidercollectionviewの背景色の変更
-        collectionView.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        collectionView.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         
         return collectionView
     }()

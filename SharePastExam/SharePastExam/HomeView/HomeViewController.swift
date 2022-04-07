@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var RecentlyTableHeight: NSLayoutConstraint!
     @IBOutlet weak var RecentlyTableWidth: NSLayoutConstraint!
     
-    private var images = UIImage(named: "IMG_6906")
+    private var images = UIImage(named: "noimage.jpeg")
     
     let cellID = "cellID"
     let width = UIScreen.main.bounds.width
@@ -42,6 +42,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLayoutSubviews()
         RecentlyTableWidth.constant = width
         RecentlyTableHeight.constant = 15*30
+        
+        
         
     }
  
@@ -152,7 +154,7 @@ extension HomeViewController{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50)
-        view.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        view.backgroundColor = UIColor.rgb(red: 200, green: 247, blue: 157)
         
         let label = UILabel()
         label.text = "最近見た教科"

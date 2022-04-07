@@ -25,8 +25,8 @@ class SelectDocExtesionViewController: UIViewController {
         self.changeGoodValue()
     }
     @IBAction func PresentedFullDoc(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "ExFullDoc", bundle: nil)
-        let nextscreen = storyboard.instantiateViewController(identifier: "ExFullDoc") as! ExFullDocViewController
+        let storyboard = UIStoryboard(name: "FullDocment", bundle: nil)
+        let nextscreen = storyboard.instantiateViewController(identifier: "FullDocument") as! FullDocumentViewController
         nextscreen.mainimage = self.mainImage
         nextscreen.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         nextscreen.modalPresentationStyle = .fullScreen
@@ -43,10 +43,8 @@ class SelectDocExtesionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         HUD.show(.progress, onView: self.view)
-//        self.view.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
+        self.view.backgroundColor = UIColor.rgb(red: 186, green: 249, blue: 146)
         self.DocExtensionTitle.text = doctitle
-        self.DocExtensionTitle.adjustsFontSizeToFitWidth = true
-        
         let width = UIScreen.main.bounds.width
         self.DocExtensionImage.frame = CGRect(x: (width-300)/2, y: 100, width: 300, height: 300)
         self.DocExtensionImage.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
