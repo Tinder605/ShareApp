@@ -14,7 +14,8 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var subCount: UILabel!
+   
+    @IBOutlet weak var subName: UILabel!
     @IBOutlet weak var goodCount: UILabel!
     @IBAction func ActionGoodButton(_ sender: Any) {
         
@@ -84,6 +85,8 @@ class MyCollectionViewCell: UICollectionViewCell {
                 print(data["title"] as? String ?? "")
                 self.title = data["title"] as? String ?? ""
                 self.goodcount = data["good"] as? Int ?? 0
+                //授業名/回数
+                //self.subName.text = "【" + self.sep_cellpath[0] + "/" + self.sep_cellpath[1] + "】"
             }
         }
     }

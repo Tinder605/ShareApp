@@ -93,7 +93,8 @@ extension goodViewController:UICollectionViewDataSource{
 extension goodViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
-        let wid = (width-30)/3
-        return CGSize(width: wid, height: wid)
+        let wid = (width-20)/2
+        return CGSize(width: wid, height: wid*2)
     }
+    
 }

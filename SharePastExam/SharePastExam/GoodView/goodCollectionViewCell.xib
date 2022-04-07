@@ -20,12 +20,20 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-jL-uJu">
                         <rect key="frame" x="0.0" y="0.0" width="349" height="324"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YG-AR-thx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YG-AR-thx">
                                 <rect key="frame" x="0.0" y="0.0" width="349" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="349" id="0O4-7Y-rqs"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="128" id="bSA-Rq-MJg"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授業名/回数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqM-1e-QrV">
                                 <rect key="frame" x="0.0" y="128" width="349" height="114"/>
                                 <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="349" id="wmn-1r-BnG"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="114" id="zG0-eh-nvH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,6 +41,10 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfB-fv-Gfh">
                                 <rect key="frame" x="0.0" y="242" width="349" height="20.5"/>
                                 <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20.5" id="HSI-CX-ZCi"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="349" id="mSe-k4-1LG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,6 +52,10 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投稿者：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3Q-xi-eut">
                                 <rect key="frame" x="0.0" y="262.5" width="349" height="20.5"/>
                                 <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20.5" id="4A5-ls-djW"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="349" id="zcj-0N-ahJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,7 +82,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH8-ig-3Et">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hb-kE-2gN">
                                         <rect key="frame" x="174.5" y="0.0" width="174.5" height="41"/>
                                         <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
@@ -74,10 +90,14 @@
                                             <color key="baseForegroundColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="ActionGoodButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="j11-fJ-Yh4"/>
+                                            <action selector="ActionGoodButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="49h-oh-cNI"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="41" id="3XO-MO-LKG"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="349" id="sJp-jk-QtG"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                     </stackView>
@@ -93,10 +113,22 @@
             </constraints>
             <size key="customSize" width="349" height="324"/>
             <connections>
+                <outlet property="goodButton" destination="7hb-kE-2gN" id="7jq-BQ-Yeh"/>
                 <outlet property="goodCollectionViewCell" destination="3YG-AR-thx" id="fpr-O5-h4g"/>
                 <outlet property="goodCount" destination="Y5H-v3-QbN" id="sN3-FJ-gYJ"/>
+                <outlet property="goodHeight" destination="3XO-MO-LKG" id="CLN-Jz-3YF"/>
+                <outlet property="goodWidth" destination="sJp-jk-QtG" id="Ceh-xI-Cz1"/>
+                <outlet property="imageHeight" destination="bSA-Rq-MJg" id="TJc-Rd-Egd"/>
+                <outlet property="imageWidth" destination="0O4-7Y-rqs" id="vfz-2h-Hz0"/>
+                <outlet property="posterHeight" destination="4A5-ls-djW" id="Fib-qW-gz9"/>
                 <outlet property="posterName" destination="t3Q-xi-eut" id="K2v-kn-QVC"/>
+                <outlet property="posterTitle" destination="WfB-fv-Gfh" id="aek-K7-YbC"/>
+                <outlet property="posterWidth" destination="zcj-0N-ahJ" id="dqz-f2-20Y"/>
+                <outlet property="subHeight" destination="zG0-eh-nvH" id="jMj-zo-RBt"/>
                 <outlet property="subName" destination="AqM-1e-QrV" id="kCx-HR-fFa"/>
+                <outlet property="subWidth" destination="wmn-1r-BnG" id="pFJ-NG-z9p"/>
+                <outlet property="titleHeight" destination="HSI-CX-ZCi" id="Qc8-bs-wgy"/>
+                <outlet property="titleWidth" destination="mSe-k4-1LG" id="93w-Uf-VmX"/>
             </connections>
             <point key="canvasLocation" x="200.72463768115944" y="55.580357142857139"/>
         </collectionViewCell>
