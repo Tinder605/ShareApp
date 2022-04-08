@@ -14,6 +14,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sliderImage: UIImageView!
     @IBOutlet weak var slider_sub_name:UILabel!
+    @IBOutlet weak var sliderText: UILabel!
     @IBOutlet weak var slider_poster_name: UILabel!
     
     
@@ -39,15 +40,16 @@ class SliderCollectionViewCell: UICollectionViewCell {
                     print("失敗した")
                 }
                 else{
-                    //let data = snapshot?.data() as? [String:Any] ??
-                    //[:]
-                    //print("snapshot取得")
-                    //print(data["title"] as? String ?? "")
-                    //let titletext  = data["title"] as? String ?? ""
+                    let data = snapshot?.data() as? [String:Any] ??
+                    [:]
+                    print("snapshot取得")
+                    print(data["title"] as? String ?? "")
+                    let titletext  = data["title"] as? String ?? ""
                     let sliderSubName = path_dep[0]
                     let sliderSubCount = path_dep[1]
                     let sliderPosterName = path_dep[2]
-                    //self.sliderText.text = titletext
+                    
+                    self.sliderText.text = titletext
                     self.slider_sub_name.text = "【" + sliderSubName + "/" + sliderSubCount + "】"
                     
                     self.slider_poster_name.text = "投稿者:" + sliderPosterName + "--"
@@ -99,7 +101,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
         sliderImage.image = image
     }
     public func configure(with text: String) {
-        //sliderText.text = text
+        sliderText.text = text
         
     }
     

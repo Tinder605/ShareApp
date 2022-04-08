@@ -341,7 +341,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TZe-WQ-MXG">
                                 <rect key="frame" x="0.0" y="348.5" width="414" height="464.5"/>
-                                <color key="backgroundColor" red="0.96419733760000004" green="0.99720734359999996" blue="0.92548006770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.78237360720000004" green="0.96919614080000005" blue="0.61562174560000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="810-iK-ote">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -438,7 +438,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="763-N5-Fc1"/>
-                        <color key="backgroundColor" red="0.96419733760000004" green="0.99720734359999996" blue="0.92548006770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="PHb-vB-jZg" firstAttribute="leading" secondItem="763-N5-Fc1" secondAttribute="leading" constant="42" id="0PF-9W-ETb"/>
                             <constraint firstItem="KIL-BV-3G6" firstAttribute="centerX" secondItem="EnE-KB-lmS" secondAttribute="centerX" id="8zr-AZ-tBQ"/>

@@ -12,14 +12,24 @@ import Kingfisher
 
 class MyCollectionViewCell: UICollectionViewCell {
     
+    //画像の縦、横
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageWidth: NSLayoutConstraint!
+    
+    //教科名の縦、横
+    @IBOutlet weak var subHeight: NSLayoutConstraint!
+    @IBOutlet weak var subWidth: NSLayoutConstraint!
+    
+    //タイトルの縦、横
+    @IBOutlet weak var titleHeight: NSLayoutConstraint!
+    @IBOutlet weak var titleWidth: NSLayoutConstraint!
+    
     
     @IBOutlet weak var imageView: UIImageView!
-   
     @IBOutlet weak var subName: UILabel!
+    @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var goodCount: UILabel!
-    @IBAction func ActionGoodButton(_ sender: Any) {
-        
-    }
+    
     
     var url = ""
     var cellpath = ""{
@@ -34,6 +44,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     let height = UIScreen.main.bounds.height
     
     
+    
     static let identifier = "MyCollectionViewCell"
 
     override func awakeFromNib() {
@@ -42,6 +53,12 @@ class MyCollectionViewCell: UICollectionViewCell {
             let sep_cellpath = self.cellpath.components(separatedBy: "/")
             self.getPostPicture(sep_cellpath:sep_cellpath)
             self.getPostDocData(sep_cellpath: sep_cellpath)
+            
+            self.subName.adjustsFontSizeToFitWidth = true
+            self.postTitle.adjustsFontSizeToFitWidth = true
+            self.layer.cornerRadius = 10
+            
+            self.fittoView(size: (width-10)/2)
         }
         
         
@@ -93,6 +110,22 @@ class MyCollectionViewCell: UICollectionViewCell {
                 //self.subName.text = "【" + self.sep_cellpath[0] + "/" + self.sep_cellpath[1] + "】"
             }
         }
+    }
+    //画像タイトル等の配置を設定
+    private func fittoView(size:CGFloat){
+        
+        imageHeight.constant = 4*size/6
+        imageWidth.constant = size
+        
+        //subName.adjustsFontSizeToFitWidth = true
+        subHeight.constant = size/6
+        subWidth.constant = size
+        
+        titleHeight.constant = size/6
+        titleWidth.constant = size
+        //posterTitle.adjustsFontSizeToFitWidth = true
+        
+        
     }
     
     public func configure(with image: UIImage) {

@@ -114,11 +114,13 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        
          
         //投稿数といいね数、そのデータを取得
         //self.getSelfDocuments()
         
     }
+    
     
     
 
@@ -268,8 +270,8 @@ extension ProfileViewController:UICollectionViewDataSource{
 extension ProfileViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
-        let wid = (width-30)/3
-        return CGSize(width: wid, height: wid)
+        let wid = (width-10)/2
+        return CGSize(width: wid, height: 7*wid/5)
     }
 }
 
