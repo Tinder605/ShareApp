@@ -89,6 +89,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     self.updateGoodRef(goodlist: GoodList, goodcount: GoodCount)
                     self.updateUserGoodList()
                     self.updatePostUserGoodCount(uid:postUser)
+                    self.ReviewButton.setTitle("", for: .normal)
                     self.ReviewButton.setImage(image, for: .normal)
                 }
                 else{
@@ -207,6 +208,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         self.getShareRoomImage()
         self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
         self.layer.cornerRadius = 10
+        self.ReviewButton.setTitle("", for: .normal)
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -272,8 +274,9 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         ReviewStackHeihgt.constant = size/4
         //ReviewStackTop.constant = 0
         
-        ReviewButton.titleLabel?.text = ""
-        
+        self.ReviewButton.titleLabel?.text = ""
+//        self.ReviewButton.contentMode = .center
+        self.ReviewButton.contentHorizontalAlignment = .center
         
     }
 }

@@ -138,7 +138,7 @@ extension SelectionTableViewController{
     
 
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        let sectionsubtitle = ["学1年","学2年","学3年"]
+        let sectionsubtitle = ["学1","学2","学3"]
         
         return sectionsubtitle
     }
