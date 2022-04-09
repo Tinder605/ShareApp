@@ -132,8 +132,8 @@ extension ShareRoomViewController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
-        let wid = (width-20)/2
-        return .init(width: wid, height: wid)
+        let wid = (width-10)/2
+        return .init(width: wid, height: 7*wid/5)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -120,7 +120,9 @@
                 <outlet property="ReviewStackView" destination="qJ9-YS-WT3" id="iA7-un-4OH"/>
                 <outlet property="ReviewStackWidth" destination="8pz-ly-Gh4" id="l6D-n0-8Mx"/>
                 <outlet property="goodCount" destination="AUV-px-UG9" id="ZW5-6v-fYw"/>
+                <outlet property="posterHeight" destination="aQm-v9-nVE" id="RQz-2y-8Hf"/>
                 <outlet property="posterName" destination="eeF-4G-EIa" id="oU1-ek-hEo"/>
+                <outlet property="posterWidth" destination="dVU-8B-smt" id="bPE-s7-eCb"/>
             </connections>
             <point key="canvasLocation" x="206" y="156"/>
         </collectionViewCell>

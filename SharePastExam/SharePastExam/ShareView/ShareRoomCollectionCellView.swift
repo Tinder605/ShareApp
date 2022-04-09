@@ -33,6 +33,10 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     @IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
     //@IBOutlet weak var PostTitleTop: NSLayoutConstraint!
     
+    @IBOutlet weak var posterHeight: NSLayoutConstraint!
+    @IBOutlet weak var posterWidth: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var ReviewStackView: UIStackView!
     @IBOutlet weak var ReviewStackHeihgt: NSLayoutConstraint!
     @IBOutlet weak var ReviewStackWidth: NSLayoutConstraint!
@@ -204,15 +208,21 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     //awakeします。
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.fittoView(size: (width-30)/2)
+        self.fittoView(size: (width-10)/2)
         self.getShareRoomImage()
         self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
         self.layer.cornerRadius = 10
         self.ReviewButton.setTitle("", for: .normal)
+        
+        //フォントのサイズを横幅に合わせる
+        self.PostTitle.adjustsFontSizeToFitWidth = true
+        self.posterName.adjustsFontSizeToFitWidth = true
+        self.goodCount.adjustsFontSizeToFitWidth = true
+        
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.fittoView(size: (width-20)/2)
+        self.fittoView(size: (width-10)/2)
 
     }
     private func getShareRoomImage(){
@@ -261,21 +271,21 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
-        PostImageHeight.constant = size/2
+        PostImageHeight.constant = 5*size/9
         PostImageWidth.constant = size
-        PostTitleHeight.constant = size/4
         
-        //PostTitle.backgroundColor = .orange
-        //PostTitleTop.constant = 0
+        PostTitleHeight.constant = size/9
         PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
         PostTitleWidth.constant = size
         
+        posterHeight.constant = size/9
+        posterWidth.constant = size
+        
+        ReviewStackHeihgt.constant = 2*size/9
         ReviewStackWidth.constant = size
-        ReviewStackHeihgt.constant = size/4
-        //ReviewStackTop.constant = 0
+        
         
         self.ReviewButton.titleLabel?.text = ""
-//        self.ReviewButton.contentMode = .center
         self.ReviewButton.contentHorizontalAlignment = .center
         
     }
