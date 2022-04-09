@@ -27,6 +27,10 @@ class SliderCollectionViewCell: UICollectionViewCell {
         self.getPastDocuments()
         layer.cornerRadius = 15
         //backgroundColor = .purple
+        
+        self.slider_sub_name.adjustsFontSizeToFitWidth = true
+        self.sliderText.adjustsFontSizeToFitWidth = true
+        self.slider_poster_name.adjustsFontSizeToFitWidth = true
     }
     
     public func getPastDocuments(){

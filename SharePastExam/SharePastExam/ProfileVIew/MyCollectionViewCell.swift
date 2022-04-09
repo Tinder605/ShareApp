@@ -59,6 +59,10 @@ class MyCollectionViewCell: UICollectionViewCell {
             self.layer.cornerRadius = 10
             
             self.fittoView(size: (width-10)/2)
+            
+            //フォントを横幅に合わせる
+            self.subName.adjustsFontSizeToFitWidth = true
+            self.postTitle.adjustsFontSizeToFitWidth = true
         }
         
         

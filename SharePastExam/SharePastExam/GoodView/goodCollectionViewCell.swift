@@ -50,6 +50,11 @@ class goodCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.layer.cornerRadius = 10
         
+        //フォントを横幅に合わせる
+        self.subName.adjustsFontSizeToFitWidth = true
+        self.posterTitle.adjustsFontSizeToFitWidth = true
+        self.posterName.adjustsFontSizeToFitWidth = true
+        
         if self.subjection != "" && self.times != "" && self.count != ""{
             
             print(self.subjection)
@@ -60,9 +65,6 @@ class goodCollectionViewCell: UICollectionViewCell {
             
             let width = UIScreen.main.bounds.width
             let height = UIScreen.main.bounds.height
-            self.subName.adjustsFontSizeToFitWidth = true
-            self.posterTitle.adjustsFontSizeToFitWidth = true
-            posterName.adjustsFontSizeToFitWidth = true
             
             self.fittoView(size: (width-10)/2)
             
