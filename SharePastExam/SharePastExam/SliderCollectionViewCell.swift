@@ -51,8 +51,8 @@ class SliderCollectionViewCell: UICollectionViewCell {
                     
                     self.sliderText.text = titletext
                     self.slider_sub_name.text = "【" + sliderSubName + "/" + sliderSubCount + "】"
-                    
-                    self.slider_poster_name.text = "投稿者:" + sliderPosterName + "--"
+                    self.getuserName(uid: data["postuser"] as? String ?? "")
+                    self.getuserName(uid: data["postuser"] as? String ?? "")
                     // labelはUILabelのインスタンスとする
                     self.slider_sub_name.numberOfLines = 0;
                 }
@@ -93,6 +93,20 @@ class SliderCollectionViewCell: UICollectionViewCell {
                             UserDefaults.standard.set(cacheDoc, forKey: "RecentlyPath")
                         }
                     }
+                }
+            }
+        }
+    }
+    private func getuserName(uid:String){
+        if uid != ""{
+            let userref = Firestore.firestore().collection("users").document(uid)
+            userref.getDocument(){ (snapshot,err) in
+                if err != nil{
+                    self.slider_poster_name.text = "投稿者：" + "unknown"
+                }
+                else{
+                    let data = snapshot?.data() as? [String:Any] ?? [:]
+                    self.slider_poster_name.text = "投稿者：" + (data["name"] as? String ?? "unknown")
                 }
             }
         }
