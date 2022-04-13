@@ -72,7 +72,8 @@ extension goodViewController:UICollectionViewDelegate{
         
         let nextscrenn = storyboard.instantiateViewController(withIdentifier: "SelectDocExtesion") as! SelectDocExtesionViewController
         nextscrenn.mainImage = cell?.goodCollectionViewCell.image as? UIImage ?? UIImage()
-        nextscrenn.doctitle = cell?.posterTitle.text ?? "NoTitle"
+        nextscrenn.doctitle = cell?.titleLabel.text ?? "NoTitle"
+        //nextscrenn.doctitle = cell?.posterTitle.text ?? "NoTitle"
         nextscrenn.PosrUserId = cell?.postuserid ?? ""
         nextscrenn.Goodvalue = 1
         nextscrenn.presentationController?.delegate = self
@@ -134,3 +135,4 @@ extension goodViewController{
         self.GetGoodDocuments()
     }
 }
+

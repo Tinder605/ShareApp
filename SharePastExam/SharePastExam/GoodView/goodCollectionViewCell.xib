@@ -21,29 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="349" height="412"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YG-AR-thx">
-                                <rect key="frame" x="0.0" y="0.0" width="349" height="125"/>
+                                <rect key="frame" x="0.0" y="0.0" width="349" height="145.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="20X-AK-xD0"/>
                                     <constraint firstAttribute="width" constant="349" id="f4Q-Kc-3mo"/>
+                                    <constraint firstAttribute="height" constant="145.5" id="zC7-gv-3bZ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授業名/回数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqM-1e-QrV">
-                                <rect key="frame" x="0.0" y="125" width="349" height="252"/>
+                                <rect key="frame" x="0.0" y="145.5" width="349" height="252"/>
                                 <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="252" id="4Wn-Rc-LS7"/>
                                     <constraint firstAttribute="width" constant="349" id="wmn-1r-BnG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfB-fv-Gfh">
-                                <rect key="frame" x="0.0" y="377" width="349" height="20.5"/>
-                                <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20.5" id="RC7-KZ-gGS"/>
-                                    <constraint firstAttribute="width" constant="349" id="mSe-k4-1LG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -82,17 +71,14 @@
             <connections>
                 <outlet property="allCell" destination="Apr-jL-uJu" id="2Rp-6t-W68"/>
                 <outlet property="goodCollectionViewCell" destination="3YG-AR-thx" id="fmT-iX-aIc"/>
-                <outlet property="imageHeight" destination="20X-AK-xD0" id="WSH-hD-Cxl"/>
+                <outlet property="imageHeight" destination="zC7-gv-3bZ" id="3ZR-Nv-o3e"/>
                 <outlet property="imageWidth" destination="f4Q-Kc-3mo" id="nit-2D-z49"/>
                 <outlet property="posterHeight" destination="dsc-x9-hLy" id="igT-FS-tCB"/>
                 <outlet property="posterName" destination="t3Q-xi-eut" id="K2v-kn-QVC"/>
-                <outlet property="posterTitle" destination="WfB-fv-Gfh" id="aek-K7-YbC"/>
                 <outlet property="posterWidth" destination="7YJ-Nv-sEN" id="k9K-jj-Lre"/>
                 <outlet property="subHeight" destination="4Wn-Rc-LS7" id="H4W-Lv-3n5"/>
                 <outlet property="subName" destination="AqM-1e-QrV" id="kCx-HR-fFa"/>
                 <outlet property="subWidth" destination="wmn-1r-BnG" id="5fS-L1-GQH"/>
-                <outlet property="titleHeight" destination="RC7-KZ-gGS" id="cLf-hn-xwH"/>
-                <outlet property="titleWidth" destination="mSe-k4-1LG" id="eF0-mi-oKs"/>
             </connections>
             <point key="canvasLocation" x="200.72463768115944" y="126.5625"/>
         </collectionViewCell>

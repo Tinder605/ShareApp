@@ -25,8 +25,8 @@ class goodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subWidth: NSLayoutConstraint!
     
     //タイトルの縦、横
-    @IBOutlet weak var titleHeight: NSLayoutConstraint!
-    @IBOutlet weak var titleWidth: NSLayoutConstraint!
+    //@IBOutlet weak var titleHeight: NSLayoutConstraint!
+    //@IBOutlet weak var titleWidth: NSLayoutConstraint!
     
     //投稿者の縦、横
     @IBOutlet weak var posterHeight: NSLayoutConstraint!
@@ -36,7 +36,7 @@ class goodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var goodCollectionViewCell: UIImageView!
     
     @IBOutlet weak var subName: UILabel!
-    @IBOutlet weak var posterTitle: UILabel!
+    //@IBOutlet weak var posterTitle: UILabel!
     @IBOutlet weak var posterName: UILabel!
 
     
@@ -45,7 +45,7 @@ class goodCollectionViewCell: UICollectionViewCell {
     var count:String = ""
     var postuserid:String = ""
     static let identifier = "goodCollectionViewCell"
-    
+    let titleLabel = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,8 +53,21 @@ class goodCollectionViewCell: UICollectionViewCell {
         
         //フォントを横幅に合わせる
         self.subName.adjustsFontSizeToFitWidth = true
-        self.posterTitle.adjustsFontSizeToFitWidth = true
         self.posterName.adjustsFontSizeToFitWidth = true
+        
+
+        //画像の上にタイトルを表示
+        titleLabel.textAlignment = NSTextAlignment.left
+        //titleLabel.text = self.posterTitle.text as? String
+        titleLabel.textColor = .white
+        //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
+        titleLabel.frame = CGRect(x: 5, y:4*self.goodCollectionViewCell.frame.height/5, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
+        
+        titleLabel.font = titleLabel.font.withSize(25)
+        //self.titleLabel.adjustsFontSizeToFitWidth = true
+        self.goodCollectionViewCell.addSubview(titleLabel)
+        
+    
         
         if self.subjection != "" && self.times != "" && self.count != ""{
             
@@ -75,18 +88,13 @@ class goodCollectionViewCell: UICollectionViewCell {
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
         
-        imageHeight.constant = 6*size/9
+        imageHeight.constant = 7*size/9
         imageWidth.constant = size
         
         //subName.adjustsFontSizeToFitWidth = true
-        subHeight.constant = size/9
+        subHeight.constant = 2*size/9
         subWidth.constant = size
         
-        titleHeight.constant = size/9
-        titleWidth.constant = size
-        //posterTitle.adjustsFontSizeToFitWidth = true
-        
-        //posterName.adjustsFontSizeToFitWidth = true
         posterHeight.constant = size/9
         posterWidth.constant = size
         
@@ -104,8 +112,11 @@ class goodCollectionViewCell: UICollectionViewCell {
             }
             else{
                 let data = snapshot?.data() as? [String:Any] ?? [:]
-                self.posterTitle.text = data["title"] as? String ?? "NoTitle"
+                self.titleLabel.text = data["title"] as? String ?? "NoTitle"
+                //self.posterTitle.text = data["title"] as? String ?? "NoTitle"
                 self.postuserid = data["postuser"] as? String ?? ""
+                
+                //self.titleLabel.text = self.posterTitle.text as? String
                 //ユーザ名の取得のファンクション
                 self.getpostuserName(uid: self.postuserid)
                 
@@ -199,7 +210,7 @@ class goodCollectionViewCell: UICollectionViewCell {
                 }
                 else{
                     let data = snapshot?.data() as? [String:Any] ?? [:]
-                    self.posterName.text = "投稿者：" + (data["name"] as? String ?? "unknown")
+                    self.posterName.text = (data["name"] as? String ?? "unknown")
                 }
             }
         }
@@ -213,3 +224,7 @@ class goodCollectionViewCell: UICollectionViewCell {
     }
     
 }
+
+    
+    
+
