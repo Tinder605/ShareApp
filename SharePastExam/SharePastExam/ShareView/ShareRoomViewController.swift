@@ -92,7 +92,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         view.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         ShareRoomCollectionView.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
 
-        PostButton.layer.cornerRadius = 40
+        PostButton.layer.cornerRadius = 30
         PostButton.setTitle("", for: .normal)
         navigationItem.title = timestile
         self.getStartDocuments()
@@ -237,7 +237,7 @@ extension ShareRoomViewController {
         //セルの変数に代入
         cell.subjection = sub[0]
         cell.subtimes = times
-        cell.PostImages.image = UIImage(named: "IMG_6906")!
+        cell.PostImages.image = UIImage(named: "noimage.jpeg")!
         cell.ViewCount.text = String(self.testDataArray[indexPath.row].ViewCount ?? 0)
         cell.postuid = self.testDataArray[indexPath.row].postuserid ?? ""
         cell.awakeFromNib()

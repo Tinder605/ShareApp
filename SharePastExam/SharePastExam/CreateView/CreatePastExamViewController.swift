@@ -60,7 +60,7 @@ class CreatePastExamViewController: UIViewController {
 //        CountStackView.layer.borderColor = UIColor.systemBrown.cgColor
 //        CountStackView.layer.cornerRadius = 10
         self.DocImage.image = self.docimage
-        self.DocImage.contentMode = .scaleAspectFit
+        //self.DocImage.contentMode = .scaleAspectFit
         self.DocImage.clipsToBounds = true
         self.DocImage.layer.cornerRadius = 15
         

@@ -34,7 +34,7 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         SubjectionTableHeight.constant = height - tabstract - nabstract - 50
         
         let substract = tabBarController?.tabBar.frame.height as! CGFloat
-        SubjectionTableHeight.constant = height - substract - 5
+        SubjectionTableHeight.constant = height - substract - 90
         SelectSubjectionTableTop.constant = 0
         
         //tableviewのsetctiontitleのカラー
