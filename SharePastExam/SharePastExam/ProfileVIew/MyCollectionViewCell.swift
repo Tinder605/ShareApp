@@ -20,15 +20,22 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subHeight: NSLayoutConstraint!
     @IBOutlet weak var subWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var goodHeight: NSLayoutConstraint!
+    @IBOutlet weak var goodWidth: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewWidth: NSLayoutConstraint!
     //タイトルの縦、横
-    @IBOutlet weak var titleHeight: NSLayoutConstraint!
-    @IBOutlet weak var titleWidth: NSLayoutConstraint!
+    //@IBOutlet weak var titleHeight: NSLayoutConstraint!
+    //@IBOutlet weak var titleWidth: NSLayoutConstraint!
     
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var subName: UILabel!
-    @IBOutlet weak var postTitle: UILabel!
+    //@IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var goodCount: UILabel!
+    @IBOutlet weak var viewCount: UILabel!
     
     
     var url = ""
@@ -42,6 +49,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     var viewcount = 0
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
+    let titleLabel = UILabel()
     
     
     
@@ -56,14 +64,24 @@ class MyCollectionViewCell: UICollectionViewCell {
             //self.getPostDocData(sep_cellpath: sep_cellpath)
             
             self.subName.adjustsFontSizeToFitWidth = true
-            self.postTitle.adjustsFontSizeToFitWidth = true
+            //self.postTitle.adjustsFontSizeToFitWidth = true
             self.layer.cornerRadius = 10
             
             self.fittoView(size: (width-10)/2)
             
             //フォントを横幅に合わせる
             self.subName.adjustsFontSizeToFitWidth = true
-            self.postTitle.adjustsFontSizeToFitWidth = true
+            
+            //画像の上にタイトルを表示
+            titleLabel.textAlignment = NSTextAlignment.left
+            //titleLabel.text = self.posterTitle.text as? String
+            titleLabel.textColor = .white
+            //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
+            titleLabel.frame = CGRect(x: 5,y:self.imageView.frame.height/3+10 ,  width:self.imageView.frame.width - 5, height: self.imageView.frame.height-5)
+            
+            titleLabel.font = titleLabel.font.withSize(20)
+            //self.titleLabel.adjustsFontSizeToFitWidth = true
+            self.imageView.addSubview(titleLabel)
         }
         
         
@@ -109,9 +127,9 @@ class MyCollectionViewCell: UICollectionViewCell {
                 self.title = data["title"] as? String ?? ""
                 self.goodcount = data["good"] as? Int ?? 0
                 self.viewcount = data["viewcount"] as? Int ?? 0
-                self.postTitle.text = data["title"] as? String ?? "NoTitle"
+                //self.postTitle.text = data["title"] as? String ?? "NoTitle"
                 self.subName.text = "【" + sep_cellpath[0] + "/" + sep_cellpath[1] + "】"
-
+                self.titleLabel.text = data["title"] as? String ?? "NoTitle"
                 //授業名/回数
                 //self.subName.text = "【" + self.sep_cellpath[0] + "/" + self.sep_cellpath[1] + "】"
             }
@@ -120,15 +138,21 @@ class MyCollectionViewCell: UICollectionViewCell {
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
         
-        imageHeight.constant = 4*size/6
+        imageHeight.constant = 3*size/6
         imageWidth.constant = size
         
         //subName.adjustsFontSizeToFitWidth = true
         subHeight.constant = size/6
         subWidth.constant = size
         
-        titleHeight.constant = size/6
-        titleWidth.constant = size
+        goodHeight.constant = size/6
+        goodWidth.constant = size
+        
+        viewHeight.constant = size/6
+        viewWidth.constant = size
+        
+        //titleHeight.constant = size/6
+        //titleWidth.constant = size
         //posterTitle.adjustsFontSizeToFitWidth = true
         
         

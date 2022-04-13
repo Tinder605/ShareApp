@@ -63,7 +63,7 @@ class goodCollectionViewCell: UICollectionViewCell {
         //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
         titleLabel.frame = CGRect(x: 5, y:4*self.goodCollectionViewCell.frame.height/5, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
         
-        titleLabel.font = titleLabel.font.withSize(25)
+        titleLabel.font = titleLabel.font.withSize(20)
         //self.titleLabel.adjustsFontSizeToFitWidth = true
         self.goodCollectionViewCell.addSubview(titleLabel)
         
