@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="If9-kL-lDq">
-                                <rect key="frame" x="82" y="54" width="250" height="400"/>
+                                <rect key="frame" x="82" y="44" width="250" height="400"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Q1U-if-PiX"/>
@@ -65,7 +65,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TlZ-Ls-euC" secondAttribute="bottom" constant="40" id="1ZN-A7-WGA"/>
-                            <constraint firstItem="If9-kL-lDq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="Ehe-S9-gnT"/>
+                            <constraint firstItem="If9-kL-lDq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Ehe-S9-gnT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TlZ-Ls-euC" secondAttribute="trailing" constant="40" id="LFz-uD-DAm"/>
                             <constraint firstItem="If9-kL-lDq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="j7P-fz-40e"/>
                         </constraints>

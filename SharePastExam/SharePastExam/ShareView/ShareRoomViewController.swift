@@ -48,7 +48,6 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     @IBAction func PostButtonAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "CreatePastExam", bundle: nil)
         let nextwindow = storyboard.instantiateViewController(withIdentifier: "CreatePastExam") as! CreateExamViewController
-        
         self.present(nextwindow, animated: true, completion: nil)
     }
     //前回押した第何講義か

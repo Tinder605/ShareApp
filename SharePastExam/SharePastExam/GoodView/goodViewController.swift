@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class goodViewController: UIViewController {
+class goodViewController: UIViewController,UIAdaptivePresentationControllerDelegate {
     
     @IBOutlet weak var goodCollectionView: UICollectionView!
     
@@ -69,11 +69,31 @@ extension goodViewController:UICollectionViewDelegate{
         let cell = collectionView.cellForItem(at: indexPath) as? goodCollectionViewCell
         print("you tapped me")
         let storyboard = UIStoryboard(name: "SelectDocExtesion", bundle: nil)
+        
         let nextscrenn = storyboard.instantiateViewController(withIdentifier: "SelectDocExtesion") as! SelectDocExtesionViewController
         nextscrenn.mainImage = cell?.goodCollectionViewCell.image as? UIImage ?? UIImage()
         nextscrenn.doctitle = cell?.posterTitle.text ?? "NoTitle"
         nextscrenn.PosrUserId = cell?.postuserid ?? ""
         nextscrenn.Goodvalue = 1
+        nextscrenn.presentationController?.delegate = self
+        let path = self.GoodDocumentsList[indexPath.row]
+        var getPath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
+        if getPath.count != 0{
+            getPath.insert(path, at: 0)
+            if getPath.count>3{
+                while getPath.count>3{
+                    getPath.removeLast()
+                }
+                
+            }
+            let orderset = NSOrderedSet(array: getPath)
+            getPath = orderset.array as! [String]
+            print("getPath:" + "\(getPath)")
+        }
+        else{
+            getPath = [path]
+        }
+        UserDefaults.standard.set(getPath, forKey: "RecentlyPath")
         self.present(nextscrenn, animated: true)
     
     }
@@ -106,4 +126,11 @@ extension goodViewController:UICollectionViewDelegateFlowLayout{
         
     }
     
+}
+
+extension goodViewController{
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("dismissしました")
+        self.GetGoodDocuments()
+    }
 }
