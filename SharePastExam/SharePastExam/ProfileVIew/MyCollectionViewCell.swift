@@ -107,7 +107,7 @@ class MyCollectionViewCell: UICollectionViewCell {
                 print(data["title"] as? String ?? "")
                 self.title = data["title"] as? String ?? ""
                 self.postTitle.text = data["title"] as? String ?? "NoTitle"
-                self.subName.text = sep_cellpath[0] + "/" + sep_cellpath[1]
+                self.subName.text = "【" + sep_cellpath[0] + "/" + sep_cellpath[1] + "】"
 
                 //授業名/回数
                 //self.subName.text = "【" + self.sep_cellpath[0] + "/" + self.sep_cellpath[1] + "】"
