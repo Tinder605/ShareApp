@@ -18,7 +18,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     let height = UIScreen.main.bounds.height
     //いいねをしたのか取り消したのか決めるパラメータ
     var Goodvalue = 0
-    
+    var postuid = ""
     var subjection = ""
     var subtimes = ""
     var number = ""
@@ -43,7 +43,8 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     //@IBOutlet weak var ReviewStackTop: NSLayoutConstraint!
     @IBOutlet weak var ReviewButton: UIButton!
     
-    @IBOutlet weak var goodCount: UILabel!
+
+    @IBOutlet weak var ViewCount: UILabel!
     @IBOutlet weak var posterName: UILabel!
     
     let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? "a"
@@ -213,17 +214,33 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
         self.layer.cornerRadius = 10
         self.ReviewButton.setTitle("", for: .normal)
+        self.getpostuserName(uid: self.postuid)
         
         //フォントのサイズを横幅に合わせる
         self.PostTitle.adjustsFontSizeToFitWidth = true
         self.posterName.adjustsFontSizeToFitWidth = true
-        self.goodCount.adjustsFontSizeToFitWidth = true
+        self.ViewCount.adjustsFontSizeToFitWidth = true
         
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         self.fittoView(size: (width-10)/2)
 
+    }
+    
+    private func getpostuserName(uid:String){
+        if uid != ""{
+            let userref = Firestore.firestore().collection("users").document(uid)
+            userref.getDocument(){ (snapshot,err) in
+                if err != nil{
+                    self.posterName.text = "投稿者：" + "unknown"
+                }
+                else{
+                    let data = snapshot?.data() as? [String:Any] ?? [:]
+                    self.posterName.text = "投稿者：" + (data["name"] as? String ?? "unknown")
+                }
+            }
+        }
     }
     private func getShareRoomImage(){
         print("関数内での動き")

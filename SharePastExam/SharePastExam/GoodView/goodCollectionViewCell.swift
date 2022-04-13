@@ -102,12 +102,21 @@ class goodCollectionViewCell: UICollectionViewCell {
                 self.updateGoodDoc()
             }
             else{
+                let data = snapshot?.data() as? [String:Any] ?? [:]
+                self.posterTitle.text = data["title"] as? String ?? "NoTitle"
+                let postuserid = data["postuser"] as? String ?? ""
+                //ユーザ名の取得のファンクション
+                self.getpostuserName(uid: postuserid)
+                
+                //画像の取得に関する動作
                 let cache = ImageCache.default
                 let path = self.subjection + "/" + self.times + "/" + self.count
                 if cache.isCached(forKey: path){
                     cache.retrieveImage(forKey: path){ result in
                         switch result{
                         case .success(let value):
+                            print("キャッシュによる取得")
+                            print(path)
                             self.goodCollectionViewCell.image = value.image
                         case .failure(let err):
                             print(err)
@@ -176,6 +185,21 @@ class goodCollectionViewCell: UICollectionViewCell {
             }
             if err != nil{
                 print("予期せぬエラーが生じました。")
+            }
+        }
+    }
+    
+    private func getpostuserName(uid:String){
+        if uid != ""{
+            let userref = Firestore.firestore().collection("users").document(uid)
+            userref.getDocument(){ (snapshot,err) in
+                if err != nil{
+                    self.posterName.text = "投稿者：" + "unknown"
+                }
+                else{
+                    let data = snapshot?.data() as? [String:Any] ?? [:]
+                    self.posterName.text = "投稿者：" + (data["name"] as? String ?? "unknown")
+                }
             }
         }
     }

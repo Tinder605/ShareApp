@@ -61,13 +61,23 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     var imagearray :[UIImage] = []
     let width = UIScreen.main.bounds.width
     let height  = UIScreen.main.bounds.height
-    
+    let navheight = UIViewController().navigationController?.navigationBar.frame.size.height
     
     let uid = Auth.auth().currentUser?.uid//念の為再定義(userdefaultにあれば削除）
     
     override func viewDidLayoutSubviews() {
-        ShareRoomCollectionViewWidth.constant = width
-        ShareRoomViewHeight.constant = height
+       super.viewDidLayoutSubviews()
+        //タブバー縦の幅
+        let tabstract = tabBarController?.tabBar.frame.height
+        let navstract = navigationController?.navigationBar.frame.height
+        print(navstract ?? 1000)
+        print(tabstract ?? 1000)
+        let wid = (width-10)/2
+        self.ShareRoomCollectionViewWidth.constant = width
+        self.ShareRoomViewHeight.constant = height - (navstract ?? 0) - (tabstract ?? 0) - 50
+        self.ShareRoomCollectionView.clipsToBounds = true
+        print("フレームの表示")
+        print(self.ShareRoomCollectionView.frame)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -88,11 +98,19 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         navigationItem.title = timestile
         self.getStartDocuments()
         
+        
+//        guard let tabBarController = tabBarController else { return }
+//        let tabBarAppearance = UITabBarAppearance()
+//        tabBarController.tabBar.standardAppearance = tabBarAppearance
+//        if #available(iOS 15.0, *) { // 新たに追加
+//            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+//        }
         let nib = UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
         self.ShareRoomCollectionView.register(nib, forCellWithReuseIdentifier: "CellView")
         ShareRoomCollectionView.dataSource = self
         ShareRoomCollectionView.delegate = self
         ShareRoomCollectionView.isScrollEnabled = true
+        
         
     }
     //imageの情報の取得
@@ -212,6 +230,7 @@ extension ShareRoomViewController {
             cell.ReviewButton.setImage(image!, for: .normal)
             
         }
+        
         //viewのimageの取得
         let sub = UserDefaults.standard.array(forKey: "RecentlySub") as? [String] ?? [""]
         let times = UserDefaults.standard.string(forKey: "RecentlyTimes") ?? ""
@@ -220,6 +239,8 @@ extension ShareRoomViewController {
         cell.subjection = sub[0]
         cell.subtimes = times
         cell.PostImages.image = UIImage(named: "IMG_6906")!
+        cell.ViewCount.text = String(self.testDataArray[indexPath.row].ViewCount ?? 0)
+        cell.postuid = self.testDataArray[indexPath.row].postuserid ?? ""
         cell.awakeFromNib()
         
         
