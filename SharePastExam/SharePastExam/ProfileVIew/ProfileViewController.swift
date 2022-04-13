@@ -260,8 +260,17 @@ extension ProfileViewController:UICollectionViewDataSource{
         }
         else{
             cell.cellpath = self.PostDataPath[indexPath.row]
+            //ここはちょとと不安
+            if (self.PostDataPath[indexPath.row] as? String ?? "") != ""{
+                let sep_path = (self.PostDataPath[indexPath.row] ).components(separatedBy: "/") 
+                if sep_path.count != 0{
+                    cell.awakeFromNib()
+                    cell.getPostDocData(sep_cellpath: sep_path)
+                    cell.getPostPicture(sep_cellpath: sep_path)
+                }
+            }
             print(self.PostDataPath[indexPath.row])
-            cell.awakeFromNib()
+            
         }
         return cell
     }

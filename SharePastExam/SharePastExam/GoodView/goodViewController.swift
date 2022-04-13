@@ -66,8 +66,16 @@ class goodViewController: UIViewController {
 
 extension goodViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+        let cell = collectionView.cellForItem(at: indexPath) as? goodCollectionViewCell
         print("you tapped me")
+        let storyboard = UIStoryboard(name: "SelectDocExtesion", bundle: nil)
+        let nextscrenn = storyboard.instantiateViewController(withIdentifier: "SelectDocExtesion") as! SelectDocExtesionViewController
+        nextscrenn.mainImage = cell?.goodCollectionViewCell.image as? UIImage ?? UIImage()
+        nextscrenn.doctitle = cell?.posterTitle.text ?? "NoTitle"
+        nextscrenn.PosrUserId = cell?.postuserid ?? ""
+        nextscrenn.Goodvalue = 1
+        self.present(nextscrenn, animated: true)
+    
     }
 }
 extension goodViewController:UICollectionViewDataSource{

@@ -43,6 +43,7 @@ class goodCollectionViewCell: UICollectionViewCell {
     var subjection:String = ""
     var times:String = ""
     var count:String = ""
+    var postuserid:String = ""
     static let identifier = "goodCollectionViewCell"
     
     
@@ -104,9 +105,9 @@ class goodCollectionViewCell: UICollectionViewCell {
             else{
                 let data = snapshot?.data() as? [String:Any] ?? [:]
                 self.posterTitle.text = data["title"] as? String ?? "NoTitle"
-                let postuserid = data["postuser"] as? String ?? ""
+                self.postuserid = data["postuser"] as? String ?? ""
                 //ユーザ名の取得のファンクション
-                self.getpostuserName(uid: postuserid)
+                self.getpostuserName(uid: self.postuserid)
                 
                 //画像の取得に関する動作
                 let cache = ImageCache.default

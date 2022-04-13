@@ -46,13 +46,14 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     
     static let identifier = "MyCollectionViewCell"
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         if self.cellpath != ""{
             let sep_cellpath = self.cellpath.components(separatedBy: "/")
-            self.getPostPicture(sep_cellpath:sep_cellpath)
-            self.getPostDocData(sep_cellpath: sep_cellpath)
+            //self.getPostPicture(sep_cellpath:sep_cellpath)
+            //self.getPostDocData(sep_cellpath: sep_cellpath)
             
             self.subName.adjustsFontSizeToFitWidth = true
             self.postTitle.adjustsFontSizeToFitWidth = true
@@ -67,7 +68,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         
         
     }
-    private func getPostPicture(sep_cellpath:[String]){
+    public func getPostPicture(sep_cellpath:[String]){
         let cache = ImageCache.default
         if cache.isCached(forKey: cellpath){
             cache.retrieveImage(forKey: cellpath){ result in
@@ -98,7 +99,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         }
     }
     //各セルのドキュメント情報の所得(必要ないのかもしれない）
-    private func getPostDocData(sep_cellpath:[String]){
+    public func getPostDocData(sep_cellpath:[String]){
         let ref = Firestore.firestore().collection("images").document(sep_cellpath[0]).collection("times").document(sep_cellpath[1]).collection("count").document(sep_cellpath[2])
         ref.getDocument(){(snapshot,err) in
             if snapshot != nil{
@@ -106,6 +107,8 @@ class MyCollectionViewCell: UICollectionViewCell {
                 print("正しく所得したデータ")
                 print(data["title"] as? String ?? "")
                 self.title = data["title"] as? String ?? ""
+                self.goodcount = data["good"] as? Int ?? 0
+                self.viewcount = data["viewcount"] as? Int ?? 0
                 self.postTitle.text = data["title"] as? String ?? "NoTitle"
                 self.subName.text = sep_cellpath[0] + "/" + sep_cellpath[1]
 

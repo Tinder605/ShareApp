@@ -33,7 +33,7 @@ class SelectDocExtesionViewController: UIViewController {
         self.present(nextscreen, animated: true)
     }
     
-    
+    //必要な要素：mainimage,postuserのuid,docのタイトル,goodvalue
     var doctitle = ""
     var PosrUserId = ""
     var imageurl = URL(string: "")
