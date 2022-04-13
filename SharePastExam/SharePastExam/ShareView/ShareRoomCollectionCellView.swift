@@ -22,15 +22,15 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     var subjection = ""
     var subtimes = ""
     var number = ""
-    
+    let titleLabel = UILabel()
     
     @IBOutlet weak var PostImages: UIImageView!
     @IBOutlet weak var PostImageHeight: NSLayoutConstraint!
     @IBOutlet weak var PostImageWidth: NSLayoutConstraint!
     //投稿内容のタイトル
-    @IBOutlet weak var PostTitle: UILabel!
-    @IBOutlet weak var PostTitleHeight: NSLayoutConstraint!
-    @IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
+    //@IBOutlet weak var PostTitle: UILabel!
+    //@IBOutlet weak var PostTitleHeight: NSLayoutConstraint!
+    //@IBOutlet weak var PostTitleWidth: NSLayoutConstraint!
     //@IBOutlet weak var PostTitleTop: NSLayoutConstraint!
     
     @IBOutlet weak var posterHeight: NSLayoutConstraint!
@@ -217,9 +217,22 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         self.getpostuserName(uid: self.postuid)
         
         //フォントのサイズを横幅に合わせる
-        self.PostTitle.adjustsFontSizeToFitWidth = true
+        //self.PostTitle.adjustsFontSizeToFitWidth = true
         self.posterName.adjustsFontSizeToFitWidth = true
         self.ViewCount.adjustsFontSizeToFitWidth = true
+        
+        //画像の上にタイトルを表示
+        titleLabel.textAlignment = NSTextAlignment.left
+        //titleLabel.text = self.posterTitle.text as? String
+        titleLabel.textColor = .white
+        //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
+        titleLabel.frame = CGRect(x: 5, y:self.PostImages.frame.height-5, width: self.PostImages.frame.width - 5, height: self.PostImages.frame.height-5)
+        
+        titleLabel.font = titleLabel.font.withSize(20)
+        //self.titleLabel.adjustsFontSizeToFitWidth = true
+        self.PostImages.addSubview(titleLabel)
+        
+        
         
     }
     override func layoutSubviews() {
@@ -272,6 +285,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                         print("入ってます")
                         self.PostImages.image = UIImage(data: data!)!
                         cache.store(UIImage(data: data!)!, forKey: path)
+                        
                     }
                     else{
                         self.PostImages.image = UIImage(named: "noimage.jpeg")
@@ -288,12 +302,12 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
-        PostImageHeight.constant = 5*size/9
+        PostImageHeight.constant = 6*size/9
         PostImageWidth.constant = size
         
-        PostTitleHeight.constant = size/9
-        PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
-        PostTitleWidth.constant = size
+        //PostTitleHeight.constant = size/9
+        //PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
+        //PostTitleWidth.constant = size
         
         posterHeight.constant = size/9
         posterWidth.constant = size

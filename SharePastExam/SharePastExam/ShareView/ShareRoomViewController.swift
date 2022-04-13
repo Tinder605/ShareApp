@@ -210,9 +210,9 @@ extension ShareRoomViewController {
         
         //タイトルの取得
         if let doctitle = testDataArray[indexPath.row].Title{
-            cell.PostTitle.text  = "\(doctitle)"
+            cell.titleLabel.text  = "\(doctitle)"
         }else{
-            cell.PostTitle.text = "No Title"
+            cell.titleLabel.text = "No Title"
         }
         //いいね表示
         let docgood = testDataArray[indexPath.row].goodList ?? [""]

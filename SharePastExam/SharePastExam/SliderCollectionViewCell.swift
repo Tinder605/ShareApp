@@ -14,11 +14,12 @@ class SliderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sliderImage: UIImageView!
     @IBOutlet weak var slider_sub_name:UILabel!
-    @IBOutlet weak var sliderText: UILabel!
+    //@IBOutlet weak var sliderText: UILabel!
     @IBOutlet weak var slider_poster_name: UILabel!
     
     
     var path:String  = ""
+    let titleLabel = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,8 +30,19 @@ class SliderCollectionViewCell: UICollectionViewCell {
         //backgroundColor = .purple
         
         self.slider_sub_name.adjustsFontSizeToFitWidth = true
-        self.sliderText.adjustsFontSizeToFitWidth = true
+        //self.sliderText.adjustsFontSizeToFitWidth = true
         self.slider_poster_name.adjustsFontSizeToFitWidth = true
+        
+        //画像の上にタイトルを表示
+        titleLabel.textAlignment = NSTextAlignment.left
+        //titleLabel.text = self.posterTitle.text as? String
+        titleLabel.textColor = .white
+        //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
+        titleLabel.frame = CGRect(x: 5, y:self.sliderImage.frame.height/3, width: self.sliderImage.frame.width-5, height: self.sliderImage.frame.height-5)
+        
+        titleLabel.font = titleLabel.font.withSize(20)
+        //self.titleLabel.adjustsFontSizeToFitWidth = true
+        self.sliderImage.addSubview(titleLabel)
     }
     
     public func getPastDocuments(){
@@ -52,8 +64,8 @@ class SliderCollectionViewCell: UICollectionViewCell {
                     let sliderSubName = path_dep[0]
                     let sliderSubCount = path_dep[1]
                     let sliderPosterName = path_dep[2]
-                    
-                    self.sliderText.text = titletext
+                    self.titleLabel.text = titletext
+                    //self.sliderText.text = titletext
                     self.slider_sub_name.text = "【" + sliderSubName + "/" + sliderSubCount + "】"
                     self.getuserName(uid: data["postuser"] as? String ?? "")
                     self.getuserName(uid: data["postuser"] as? String ?? "")
@@ -119,8 +131,8 @@ class SliderCollectionViewCell: UICollectionViewCell {
         sliderImage.image = image
     }
     public func configure(with text: String) {
-        sliderText.text = text
-        
+        //sliderText.text = text
+        titleLabel.text = text
     }
     
 }
