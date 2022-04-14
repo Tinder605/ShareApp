@@ -10,7 +10,7 @@ import FirebaseStorage
 
 class SliderCell: UICollectionViewCell {
     
-    var images = UIImage(named: "IMG_6906")
+    var images = UIImage(named: "noimage.jpeg")
     var number = 0
 //    var path:String  = ""{
 //        didSet{
