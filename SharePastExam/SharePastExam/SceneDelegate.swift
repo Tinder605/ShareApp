@@ -6,16 +6,41 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    var authListener:AuthStateDidChangeListenerHandle?
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        
-        guard let _ = (scene as? UIWindowScene) else { return }
+        autoLogtin()
+        //guard let _ = (scene as? UIWindowScene) else { return }
+    }
+    
+    //MARK: - Autologin
+    func autoLogtin(){
+        //アタッチしたタイミングと、認証状態が変わる毎に呼ばれるListenerをセット
+        authListener = Auth.auth().addStateDidChangeListener({ auth, user in
+            //その後呼ばれないようにデタッチする
+            Auth.auth().removeStateDidChangeListener(self.authListener!)
+            if user != nil {
+                DispatchQueue.main.async {
+                    //ログインされているのでメインのViewへ
+                    self.gotoApp()
+                }
+            }else{
+                //認証されていなければ初期画面表示
+                guard let _ = (self.scene as? UIWindowScene) else { return }
+            }
+        })
+    }
+
+    func gotoApp(){
+        //認証されていればメインのViewに遷移
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
+        window?.rootViewController = vc
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
