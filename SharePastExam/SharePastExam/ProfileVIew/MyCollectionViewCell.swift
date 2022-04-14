@@ -68,22 +68,10 @@ class MyCollectionViewCell: UICollectionViewCell {
             self.layer.cornerRadius = 10
             
             self.fittoView(size: (width-10)/2)
-            
+            print("実行してんでー")
             //フォントを横幅に合わせる
             self.subName.adjustsFontSizeToFitWidth = true
             
-            //画像の上にタイトルを表示
-            titleLabel.textAlignment = NSTextAlignment.left
-            //titleLabel.text = self.posterTitle.text as? String
-            titleLabel.textColor = .white
-            //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
-            titleLabel.frame = CGRect(x: 5,y:self.imageView.frame.height/3+10 ,  width:self.imageView.frame.width - 5, height: self.imageView.frame.height-5)
-            
-            //titleLabel.font = titleLabel.font.withSize(20)
-            titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-            
-            //self.titleLabel.adjustsFontSizeToFitWidth = true
-            self.imageView.addSubview(titleLabel)
         }
         
         
@@ -129,6 +117,8 @@ class MyCollectionViewCell: UICollectionViewCell {
                 self.title = data["title"] as? String ?? ""
                 self.goodcount = data["good"] as? Int ?? 0
                 self.viewcount = data["viewcount"] as? Int ?? 0
+                self.goodCount.text = String(data["good"] as? Int ?? 0)
+                self.viewCount.text = String(data["viewcount"] as? Int ?? 0)
                 //self.postTitle.text = data["title"] as? String ?? "NoTitle"
                 self.subName.text = "【" + sep_cellpath[0] + "/" + sep_cellpath[1] + "】"
                 self.titleLabel.text = data["title"] as? String ?? "NoTitle"
@@ -138,7 +128,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         }
     }
     //画像タイトル等の配置を設定
-    private func fittoView(size:CGFloat){
+    public func fittoView(size:CGFloat){
         
         imageHeight.constant = 3*size/6
         imageWidth.constant = size
@@ -156,6 +146,26 @@ class MyCollectionViewCell: UICollectionViewCell {
         //titleHeight.constant = size/6
         //titleWidth.constant = size
         //posterTitle.adjustsFontSizeToFitWidth = true
+        
+        //画像の上にタイトルを表示
+        titleLabel.textAlignment = NSTextAlignment.left
+        //titleLabel.text = self.posterTitle.text as? String
+        titleLabel.textColor = .white
+        //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
+        titleLabel.frame = CGRect(x: 5,y:(self.frame.height)/2 ,  width:self.frame.width - 5, height: 20)
+        
+        print("frameを確認する")
+        print(self.imageView.frame)
+        print(self.frame)
+        print(width)
+        print(height)
+        print(3*size/6)
+        
+        //titleLabel.font = titleLabel.font.withSize(20)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        
+        //self.titleLabel.adjustsFontSizeToFitWidth = true
+        self.imageView.addSubview(titleLabel)
         
         
     }

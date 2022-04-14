@@ -45,7 +45,7 @@ class goodCollectionViewCell: UICollectionViewCell {
     var count:String = ""
     var postuserid:String = ""
     static let identifier = "goodCollectionViewCell"
-    let titleLabel = UILabel()
+    var titleLabel = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,6 +56,7 @@ class goodCollectionViewCell: UICollectionViewCell {
         self.posterName.adjustsFontSizeToFitWidth = true
         
 
+        self.titleLabel = UILabel()
         //画像の上にタイトルを表示
         titleLabel.textAlignment = NSTextAlignment.left
         //titleLabel.text = self.posterTitle.text as? String
@@ -139,20 +140,6 @@ class goodCollectionViewCell: UICollectionViewCell {
                     
                     //授業名/回数
                     self.subName.text = "【" + self.subjection + "/" + self.times + "】"
-                    // subNameを複数行で表示
-                    //self.subName.numberOfLines = 0;
-                    
-                    //投稿タイトル
-                    //if let doctitle = testDataArray[indexPath.row].Title{
-                        //self.posterTitle.text  = "\(doctitle)"
-                    //}else{
-                        //self.posterTitle.text = "No Title"
-                    //}
-                    
-                    //投稿者名
-                    //self.posterName.text = "投稿者:" + PosterName + "--"
-                    
-                    
                 }
                 else{
                     let imgref = Storage.storage().reference(forURL: "gs://sharepastexamapp.appspot.com").child(self.subjection).child(self.times).child("\(self.count).jpeg")
