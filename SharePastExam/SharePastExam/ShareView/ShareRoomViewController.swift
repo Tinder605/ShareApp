@@ -211,6 +211,7 @@ extension ShareRoomViewController {
         //タイトルの取得
         if let doctitle = testDataArray[indexPath.row].Title{
             cell.titleLabel.text  = "\(doctitle)"
+            cell.doctitle = "\(doctitle)"
         }else{
             cell.titleLabel.text = "No Title"
         }

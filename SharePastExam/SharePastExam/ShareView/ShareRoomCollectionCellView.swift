@@ -23,6 +23,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     var subtimes = ""
     var number = ""
     let titleLabel = UILabel()
+    var doctitle = ""
     
     @IBOutlet weak var PostImages: UIImageView!
     @IBOutlet weak var PostImageHeight: NSLayoutConstraint!
@@ -209,29 +210,23 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     //awakeします。
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.fittoView(size: (width-10)/2)
+        //self.fittoView(size: (width-10)/2)
         self.getShareRoomImage()
         self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
         self.layer.cornerRadius = 10
         self.ReviewButton.setTitle("", for: .normal)
         self.getpostuserName(uid: self.postuid)
+        print("awakeするたびに確認")
+        print(self.doctitle)
+        
+        
+        
         
         //フォントのサイズを横幅に合わせる
         //self.PostTitle.adjustsFontSizeToFitWidth = true
         self.posterName.adjustsFontSizeToFitWidth = true
         self.ViewCount.adjustsFontSizeToFitWidth = true
         
-        //画像の上にタイトルを表示
-        titleLabel.textAlignment = NSTextAlignment.left
-        //titleLabel.text = self.posterTitle.text as? String
-        titleLabel.textColor = .white
-        //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
-        titleLabel.frame = CGRect(x: 5, y:self.PostImages.frame.height-5, width: self.PostImages.frame.width - 5, height: self.PostImages.frame.height-5)
-        
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-        //titleLabel.font = titleLabel.font.withSize(20)
-        //self.titleLabel.adjustsFontSizeToFitWidth = true
-        self.PostImages.addSubview(titleLabel)
         
         
         
@@ -239,6 +234,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.fittoView(size: (width-10)/2)
+        print("layoutsubviewsの回数")
 
     }
     
@@ -303,8 +299,13 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     
     //画像タイトル等の配置を設定
     private func fittoView(size:CGFloat){
+        
         PostImageHeight.constant = 6*size/9
         PostImageWidth.constant = size
+        print(self.frame)
+        print("cellサイズを検証")
+        print(size)
+        print(self.titleLabel.frame)
         
         //PostTitleHeight.constant = size/9
         //PostTitle.topAnchor.constraint(equalTo: PostTitle.bottomAnchor)
@@ -316,8 +317,20 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         ReviewStackHeihgt.constant = 2*size/9
         ReviewStackWidth.constant = size
         
+        //画像の上にタイトルを表示
+        titleLabel.textAlignment = NSTextAlignment.left
+        //titleLabel.text = self.posterTitle.text as? String
+        titleLabel.textColor = .white
+        //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
+        titleLabel.frame = CGRect(x: 5, y:2*((self.frame.height)/3) , width:self.frame.width - 5, height: 20)
         
-        self.ReviewButton.titleLabel?.text = ""
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        titleLabel.text = self.doctitle
+        //titleLabel.backgroundColor = .white
+        //titleLabel.font = titleLabel.font.withSize(20)
+        //self.titleLabel.adjustsFontSizeToFitWidth = true
+        self.PostImages.addSubview(titleLabel)
+        //self.ReviewButton.titleLabel?.text = ""
         self.ReviewButton.contentHorizontalAlignment = .center
         
     }
