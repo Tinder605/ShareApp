@@ -56,8 +56,6 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         var GoodCount = 0
         var GoodList:[String] = []
         let uid = Auth.auth().currentUser?.uid
-        var dicData:Dictionary<String,Any>
-        print(uid)
 //        最近の講義の回数と講義がからでなければ(この処理は関数でまとめるべきかもしれない)
         if (times != "a") && (sub[0] as! String != "a" ){
             let ref = Firestore.firestore().collection("images").document("\(sub[0])").collection("times").document("\(times)").collection("count").document("\(self.number)")
@@ -65,7 +63,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                 if snapshot != nil{
                     var image = UIImage()
                     var doc:Dictionary<String,Any>
-                    doc = snapshot?.data() as! [String:Any]
+                    doc = snapshot?.data() as? [String:Any] ?? [:]
                     //デバックのため一応です(Godのリストがなかったら)
                     let postUser = doc["postuser"] as? String ?? ""
                     if doc["GoodList"] == nil{
@@ -107,16 +105,6 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         else{
             print("こっちに来ております")
         }
-//
-//        if ReviewButton.imageView?.image == UIImage(systemName: "heart"){
-//            let image = UIImage(systemName: "heart.fill")
-//            ReviewButton.setImage(image, for: .normal)
-//            ReviewButton.imageView?.tintColor = .systemGreen
-//        }
-//        else{
-//            let image = UIImage(systemName: "heart")
-//            ReviewButton.setImage(image, for: .normal)
-//        }
         print("ボタンが押されました")
     }
     //imagesのGOODの更新(誰がいいねしたかがわかる)
@@ -124,7 +112,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         let ref = Firestore.firestore().collection("images").document("\(sub[0])").collection("times").document("\(times)").collection("count").document("\(self.number)")
         print(goodlist)
         ref.updateData(["good":goodcount,"GoodList":goodlist]){ err in
-            if let err = err{
+            if err != nil{
                 print("いいねの更新に失敗しました。")
             }
             else{
@@ -139,7 +127,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         let ref = Firestore.firestore().collection("users").document(uid)
         
         ref.getDocument(){ (snapshot,err) in
-            if let err = err{
+            if err != nil{
                 print("エラーとなりました")
                 return
             }
@@ -147,7 +135,6 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
             print("newelemntの表示")
             let newelement = "\(self.sub[0])" + "/" + "\(self.times)" + "/" + "\(self.number)"
             var GoodList:[String] = []
-            var AllGoodCount = data["AllGoodCount"] as? Int ?? 0
             print("ここにGoodValueを表示")
             print(self.Goodvalue)
             if let goodlist = data["GoodList"]{
@@ -164,7 +151,7 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
             }
             print(GoodList)
             ref.updateData(["GoodList":GoodList]){(err) in
-                if let err = err{
+                if err != nil{
                     print("GoodListの更新に失敗しました。")
                 }
                 else{
@@ -219,16 +206,10 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         print("awakeするたびに確認")
         print(self.doctitle)
         
-        
-        
-        
         //フォントのサイズを横幅に合わせる
         //self.PostTitle.adjustsFontSizeToFitWidth = true
         self.posterName.adjustsFontSizeToFitWidth = true
         self.ViewCount.adjustsFontSizeToFitWidth = true
-        
-        
-        
         
     }
     override func layoutSubviews() {

@@ -135,9 +135,10 @@ class ProfileViewController: UIViewController {
         
         
         let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") ?? "noimage"
+        print("ここにurlを表示する\(profileImageUrl)")
         
         //プロフィール画像の挿入
-        if profileImageUrl == "noimage"{
+        if profileImageUrl == "noimage" || profileImageUrl == ""{
             let uid = Auth.auth().currentUser?.uid
             let ref = Firestore.firestore().collection("users").document(uid!)
             ref.getDocument(){ (snapshot,err) in
@@ -146,9 +147,10 @@ class ProfileViewController: UIViewController {
                 }
                 else{
                     let data = snapshot?.data() as? [String:Any] ?? [:]
-                    let profileurl = data["profileImageURL"] as? String ?? ""
-                    
-                    
+
+                    let profileurl = data["profileImageUrl"] as? String ?? ""
+                    UserDefaults.standard.set(profileurl,forKey: "profileImageUrl")
+
                     if profileurl != "noimage" && profileurl != ""{
                         
                         

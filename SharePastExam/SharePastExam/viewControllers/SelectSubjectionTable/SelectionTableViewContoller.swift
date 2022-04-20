@@ -228,13 +228,13 @@ extension SelectionTableViewController{
         var defaults :[String] = UserDefaults.standard.array(forKey: "RecentlySub") as? [String] ?? []
             
         defaults.insert(usersub, at: 0)
+        let orderset = NSOrderedSet(array: defaults)
+        defaults = orderset.array as! [String]
         
         if defaults.count > 15 {
             defaults.removeLast()
         }
-        let orderset = NSOrderedSet(array: defaults)
-        let uniqueValues = orderset.array as! [String]
-        UserDefaults.standard.set(uniqueValues, forKey: "RecentlySub")
+        UserDefaults.standard.set(defaults, forKey: "RecentlySub")
         
         
         self.navigationController?.pushViewController(nextview, animated: true)

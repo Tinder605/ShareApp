@@ -79,7 +79,7 @@ class goodCollectionViewCell: UICollectionViewCell {
             goodCollectionViewCell.image = UIImage()
             
             let width = UIScreen.main.bounds.width
-            let height = UIScreen.main.bounds.height
+//            let height = UIScreen.main.bounds.height
             
             self.fittoView(size: (width-10)/2)
             
