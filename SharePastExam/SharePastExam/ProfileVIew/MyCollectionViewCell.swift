@@ -12,29 +12,32 @@ import Kingfisher
 
 class MyCollectionViewCell: UICollectionViewCell {
     
-    //画像の縦、横
+    //画像の縦、横の大きさ
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var imageWidth: NSLayoutConstraint!
     
-    //教科名の縦、横
+    //教科名の縦、横の大きさ
     @IBOutlet weak var subHeight: NSLayoutConstraint!
     @IBOutlet weak var subWidth: NSLayoutConstraint!
     
+    //Goodの縦、横の大きさ
     @IBOutlet weak var goodHeight: NSLayoutConstraint!
     @IBOutlet weak var goodWidth: NSLayoutConstraint!
     
-    
+    //Viewの縦、横の大きさ
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var viewWidth: NSLayoutConstraint!
-    //タイトルの縦、横
-    //@IBOutlet weak var titleHeight: NSLayoutConstraint!
-    //@IBOutlet weak var titleWidth: NSLayoutConstraint!
     
-    
+    //画像
     @IBOutlet weak var imageView: UIImageView!
+    
+    //教科名のLabel
     @IBOutlet weak var subName: UILabel!
-    //@IBOutlet weak var postTitle: UILabel!
+    
+    //Good数のLabel
     @IBOutlet weak var goodCount: UILabel!
+    
+    //View数のLabel
     @IBOutlet weak var viewCount: UILabel!
     
     
@@ -52,7 +55,6 @@ class MyCollectionViewCell: UICollectionViewCell {
     let titleLabel = UILabel()
     
     
-    
     static let identifier = "MyCollectionViewCell"
     
 
@@ -60,15 +62,14 @@ class MyCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         if self.cellpath != ""{
             let sep_cellpath = self.cellpath.components(separatedBy: "/")
-            //self.getPostPicture(sep_cellpath:sep_cellpath)
-            //self.getPostDocData(sep_cellpath: sep_cellpath)
             
             self.subName.adjustsFontSizeToFitWidth = true
-            //self.postTitle.adjustsFontSizeToFitWidth = true
+            
             self.layer.cornerRadius = 10
             
             self.fittoView(size: (width-10)/2)
             print("実行してんでー")
+            
             //フォントを横幅に合わせる
             self.subName.adjustsFontSizeToFitWidth = true
             
@@ -119,39 +120,33 @@ class MyCollectionViewCell: UICollectionViewCell {
                 self.viewcount = data["viewcount"] as? Int ?? 0
                 self.goodCount.text = String(data["good"] as? Int ?? 0)
                 self.viewCount.text = String(data["viewcount"] as? Int ?? 0)
-                //self.postTitle.text = data["title"] as? String ?? "NoTitle"
                 self.subName.text = "【" + sep_cellpath[0] + "/" + sep_cellpath[1] + "】"
                 self.titleLabel.text = data["title"] as? String ?? "NoTitle"
-                //授業名/回数
-                //self.subName.text = "【" + self.sep_cellpath[0] + "/" + self.sep_cellpath[1] + "】"
+    
             }
         }
     }
     //画像タイトル等の配置を設定
     public func fittoView(size:CGFloat){
-        
+        //画像の縦、横のサイズ
         imageHeight.constant = 3*size/6
         imageWidth.constant = size
         
-        //subName.adjustsFontSizeToFitWidth = true
+        //教科名の縦、横のサイズ
         subHeight.constant = size/6
         subWidth.constant = size
         
+        //Goodの縦、横のサイズ
         goodHeight.constant = size/6
         goodWidth.constant = size
         
+        //Viewの縦、横のサイズ
         viewHeight.constant = size/6
         viewWidth.constant = size
         
-        //titleHeight.constant = size/6
-        //titleWidth.constant = size
-        //posterTitle.adjustsFontSizeToFitWidth = true
-        
         //画像の上にタイトルを表示
         titleLabel.textAlignment = NSTextAlignment.left
-        //titleLabel.text = self.posterTitle.text as? String
         titleLabel.textColor = .white
-        //titleLabel.frame = CGRect(x: 0, y:self.goodCollectionViewCell.frame.height, width: self.goodCollectionViewCell.frame.width - 5, height: self.goodCollectionViewCell.frame.height-5)
         titleLabel.frame = CGRect(x: 5,y:(self.frame.height)/2 ,  width:self.frame.width - 5, height: 20)
         
         print("frameを確認する")
@@ -161,10 +156,8 @@ class MyCollectionViewCell: UICollectionViewCell {
         print(height)
         print(3*size/6)
         
-        //titleLabel.font = titleLabel.font.withSize(20)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         
-        //self.titleLabel.adjustsFontSizeToFitWidth = true
         self.imageView.addSubview(titleLabel)
         
         

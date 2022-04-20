@@ -23,6 +23,8 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
     private var name = ""
     private var message = ""
     private var profileImageUrl = ""
+    
+    
     var user: User? {
         didSet {
             usernameTextField.text = user?.name
@@ -85,7 +87,7 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         
         let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") as! String
         do{
-            let url = URL(string: profileImageUrl)
+            let url = URL(string: profileImageUrl ?? "noimage")
             let data = try Data(contentsOf: url!)
             circularImageView?.image = UIImage(data: data)!
         }catch let error{
@@ -138,8 +140,9 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                             }
                         }
                 }
+                //self.profileImageUrl = urlString
                 print("urlString: ",urlString)
-                UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
+                UserDefaults.standard.set(urlString, forKey: "profileImageUrl")
             }
         }
         

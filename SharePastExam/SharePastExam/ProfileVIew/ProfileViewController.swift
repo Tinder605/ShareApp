@@ -31,7 +31,6 @@ class PostData:NSObject{
         self.url = doc!["imageurl"] as? String ?? "nourl"
         self.goodList = doc!["GoodList"] as? [String] ?? [" "]
     }
-    
 }
 
 
@@ -45,13 +44,28 @@ class ProfileViewController: UIViewController {
     var PostDataCount:[String] = []
     var PostDataPath :[String] = []
     
+    //投稿数のLabel
     @IBOutlet weak var voteCount: UILabel!
+    
+    //ユーザー名のLabel
     @IBOutlet weak var usernameTextField: UILabel!
+    
+    //ユーザーのプロフィールのイメージ
     @IBOutlet weak var profileImage:UIImageView!
+    
+    //投稿のコレクションビュー
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    //いいね数のLabel
     @IBOutlet weak var goodCount: UILabel!
+    
+    //ユーザーのメッセージのLabel
     @IBOutlet weak var profileMessage: UILabel!
+    
+    //プロフィール変更ボタン
     @IBOutlet weak var changeProfile: UIButton!
+    
+    //プロフィール変更ボタンを押した動作
     @IBAction func tappedChangeAcountButton(_ sender: Any) {
         
         let storyBoard = UIStoryboard(name: "RenewProfile", bundle: nil)
@@ -76,29 +90,23 @@ class ProfileViewController: UIViewController {
         if #available(iOS 15.0, *) { // 新たに追加
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         }
-
-        //self.navigationController!.navigationBar.titleTextAttributes = [
-                    //.foregroundColor: UIColor.white
-                //]
-        //UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         
         profileImage.image = UIImage(named: "noimage.jpeg")!
         profileImage.contentMode = .scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
         
-        changeProfile.layer.borderColor = UIColor.yellow.cgColor  // 枠線の色
         changeProfile.layer.borderWidth = 0.1
         
         
-        let useremail = UserDefaults.standard.string(forKey: "email") as! String
+        let useremail = UserDefaults.standard.string(forKey: "email")!
         navigationItem.title = useremail
         
         
-        let username = UserDefaults.standard.string(forKey: "name") as! String
+        let username = UserDefaults.standard.string(forKey: "name")!
         usernameTextField.text = username
         
-        let message = UserDefaults.standard.string(forKey: "message") as! String
+        let message = UserDefaults.standard.string(forKey: "message")!
         profileMessage.text = message
         
         //プロフィール編集ボタンのviewの設定
@@ -114,23 +122,17 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
-         
-        //投稿数といいね数、そのデータを取得
-        //self.getSelfDocuments()
-        
     }
-    
-    
-    
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let username = UserDefaults.standard.string(forKey: "name") as! String
+        let username = UserDefaults.standard.string(forKey: "name")!
         usernameTextField.text = username
         
-        let message = UserDefaults.standard.string(forKey: "message") as! String
+        let message = UserDefaults.standard.string(forKey: "message")!
         profileMessage.text = message
+        
+        
         
         let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") ?? "noimage"
         
@@ -145,7 +147,11 @@ class ProfileViewController: UIViewController {
                 else{
                     let data = snapshot?.data() as? [String:Any] ?? [:]
                     let profileurl = data["profileImageURL"] as? String ?? ""
+                    
+                    
                     if profileurl != "noimage" && profileurl != ""{
+                        
+                        
                         let url = URL(string: profileurl )
                         do{
                             let imgdata = try Data(contentsOf: url!)
