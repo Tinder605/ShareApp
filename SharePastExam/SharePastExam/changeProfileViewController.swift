@@ -45,7 +45,15 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                 }
     }
     
+    @IBAction func ClosePage(_ sender: Any) {
+        print("tapped tauch")
+        self.dismiss(animated: true)
+    }
     
+    
+    
+    
+    @IBOutlet weak var CloseButton: UIButton!
     
     @IBOutlet weak var circularImageView:UIImageView?
     @IBOutlet weak var usernameTextField: UITextField!
@@ -67,6 +75,11 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         //UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
         self.updateProfileImage()
         //self.dismiss(animated: true, completion: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.CloseButton.setTitle("", for: .normal)
+        
     }
     
     override func viewDidLoad() {
@@ -139,7 +152,7 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                         }
                 }
                 print("urlString: ",urlString)
-                UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
+                UserDefaults.standard.set(urlString, forKey: "profileImageUrl")
             }
         }
         

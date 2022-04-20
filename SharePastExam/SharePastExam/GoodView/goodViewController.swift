@@ -48,16 +48,12 @@ class goodViewController: UIViewController,UIAdaptivePresentationControllerDeleg
         let ref = Firestore.firestore().collection("users").document(uid!)
         
         ref.getDocument(){ (snapshot,err) in
-            if let err = err{
-                
+            if err != nil{
+                print(err.debugDescription)
+                self.GoodDocumentsList = []
             }
             let data = snapshot?.data() as? [String:Any] ?? [:]
             self.GoodDocumentsList = data["GoodList"] as? [String] ?? []
-            if self.GoodDocumentsList.count == 0{
-                let view = UIView()
-                
-                
-            }
             self.goodCollectionView.reloadData()
         }
         
@@ -81,14 +77,14 @@ extension goodViewController:UICollectionViewDelegate{
         var getPath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
         if getPath.count != 0{
             getPath.insert(path, at: 0)
+            let orderset = NSOrderedSet(array: getPath)
+            getPath = orderset.array as! [String]
             if getPath.count>3{
                 while getPath.count>3{
                     getPath.removeLast()
                 }
                 
             }
-            let orderset = NSOrderedSet(array: getPath)
-            getPath = orderset.array as! [String]
             print("getPath:" + "\(getPath)")
         }
         else{

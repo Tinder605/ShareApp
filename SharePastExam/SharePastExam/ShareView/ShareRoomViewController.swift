@@ -60,7 +60,6 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
     var imagearray :[UIImage] = []
     let width = UIScreen.main.bounds.width
     let height  = UIScreen.main.bounds.height
-    let navheight = UIViewController().navigationController?.navigationBar.frame.size.height
     
     let uid = Auth.auth().currentUser?.uid//念の為再定義(userdefaultにあれば削除）
     
@@ -69,22 +68,12 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         //タブバー縦の幅
         let tabstract = tabBarController?.tabBar.frame.height
         let navstract = navigationController?.navigationBar.frame.height
-        print(navstract ?? 1000)
-        print(tabstract ?? 1000)
-        let wid = (width-10)/2
         self.ShareRoomCollectionViewWidth.constant = width
         self.ShareRoomViewHeight.constant = height - (navstract ?? 0) - (tabstract ?? 0) - 50
         self.ShareRoomCollectionView.clipsToBounds = true
-        print("フレームの表示")
-        print(self.ShareRoomCollectionView.frame)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if UserDefaults.standard.array(forKey: "RecentlySub") != nil{
-            let subjection = UserDefaults.standard.array(forKey: "RecentlySub") as! [String]
-            print("subjectionの表示\(subjection)")
-        }
-
     }
     
     override func viewDidLoad() {
@@ -97,13 +86,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
         navigationItem.title = timestile
         self.getStartDocuments()
         
-        
-//        guard let tabBarController = tabBarController else { return }
-//        let tabBarAppearance = UITabBarAppearance()
-//        tabBarController.tabBar.standardAppearance = tabBarAppearance
-//        if #available(iOS 15.0, *) { // 新たに追加
-//            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
-//        }
+        //collectionviewのセルをnibで設定
         let nib = UINib(nibName: "ShareRoomCollectionViewCell", bundle: nil)
         self.ShareRoomCollectionView.register(nib, forCellWithReuseIdentifier: "CellView")
         ShareRoomCollectionView.dataSource = self
@@ -166,14 +149,13 @@ extension ShareRoomViewController {
             var getPath = UserDefaults.standard.array(forKey: "RecentlyPath") ?? []
             if getPath.count != 0{
                 getPath.insert(path, at: 0)
+                let orderset = NSOrderedSet(array: getPath)
+                getPath = orderset.array as! [String]
                 if getPath.count>3{
                     while getPath.count>3{
                         getPath.removeLast()
                     }
-                    
                 }
-                let orderset = NSOrderedSet(array: getPath)
-                getPath = orderset.array as! [String]
                 print("getPath:" + "\(getPath)")
             }
             else{
@@ -181,9 +163,10 @@ extension ShareRoomViewController {
             }
             UserDefaults.standard.set(getPath, forKey: "RecentlyPath")
         }
-        if let nextimage = testDataArray[indexPath.row].url{
-            nextscreen.imageurl = URL(string: nextimage)
-        }
+        //urlをselectdocに送っている(一応今後のことを考えて）
+//        if let nextimage = testDataArray[indexPath.row].url{
+//            nextscreen.imageurl = URL(string: nextimage)
+//        }
         if testDataArray[indexPath.row].postuserid != ""{
             nextscreen.PosrUserId = self.testDataArray[indexPath.row].postuserid ?? ""
         }
@@ -201,12 +184,6 @@ extension ShareRoomViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! ShareRoomCollectionCellView
         //cell.fittoview(width: (width-30)/3, height: (width-30)/3)
         cell.number = testDataArray[indexPath.row].count ?? ""
-        //viewcountの取得
-        //if let viewcount = testDataArray[indexPath.row].ViewCount{
-            //cell.ViewCount.text = "\(viewcount)"
-        //}else{
-            //cell.ViewCount.text = "unknown"
-        //}
         
         //タイトルの取得
         if let doctitle = testDataArray[indexPath.row].Title{
@@ -228,7 +205,6 @@ extension ShareRoomViewController {
         }else{
             cell.Goodvalue = 0
             cell.ReviewButton.setImage(image!, for: .normal)
-            
         }
         
         //viewのimageの取得
