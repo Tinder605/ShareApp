@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -94,11 +94,12 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuQ-Mk-zf6">
-                                <rect key="frame" x="354" y="54" width="30" height="30"/>
+                                <rect key="frame" x="349" y="59" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7Et-zV-uus"/>
-                                    <constraint firstAttribute="width" constant="30" id="JKK-M2-FY4"/>
+                                    <constraint firstAttribute="height" constant="35" id="7Et-zV-uus"/>
+                                    <constraint firstAttribute="width" constant="35" id="JKK-M2-FY4"/>
                                 </constraints>
+                                <color key="tintColor" red="0.64218597399999999" green="0.4444698735" blue="0.1190725395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
                                 <connections>
@@ -110,7 +111,7 @@
                         <color key="backgroundColor" red="0.95697256789999996" green="1" blue="0.91582913259999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="50a-jc-HC2" firstAttribute="leading" secondItem="A4o-lT-Z5n" secondAttribute="leading" constant="40" id="1Iy-XD-s1W"/>
-                            <constraint firstItem="zuQ-Mk-zf6" firstAttribute="top" secondItem="A4o-lT-Z5n" secondAttribute="top" constant="10" id="7ZQ-AZ-88h"/>
+                            <constraint firstItem="zuQ-Mk-zf6" firstAttribute="top" secondItem="A4o-lT-Z5n" secondAttribute="top" constant="15" id="7ZQ-AZ-88h"/>
                             <constraint firstItem="JVA-Y4-Wz7" firstAttribute="centerX" secondItem="HWA-AB-y9p" secondAttribute="centerX" id="7pD-9o-Ub1"/>
                             <constraint firstItem="xfn-gD-WjV" firstAttribute="centerX" secondItem="HWA-AB-y9p" secondAttribute="centerX" id="C6h-D1-q0S"/>
                             <constraint firstItem="xfn-gD-WjV" firstAttribute="top" secondItem="HWA-AB-y9p" secondAttribute="top" constant="134" id="Erg-A6-giC"/>

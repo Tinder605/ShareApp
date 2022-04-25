@@ -79,16 +79,26 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //下のバー
+        //タブバーの設定
         tabBarController?.tabBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         guard let tabBarController = tabBarController else { return }
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         tabBarController.tabBar.standardAppearance = tabBarAppearance
-
+        
+        //ナビゲーションバーの設定
+        navigationController?.navigationBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        guard let navBarController = navigationController else {return}
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        navBarController.navigationBar.standardAppearance = navBarAppearance
+        
             //ここのif文いるのか
         if #available(iOS 15.0, *) { // 新たに追加
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+        }
+        if #available(iOS 15.0, *) { // 新たに追加
+            navBarController.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
         
         profileImage.image = UIImage(named: "noimage.jpeg")!
@@ -108,6 +118,7 @@ class ProfileViewController: UIViewController {
         
         let message = UserDefaults.standard.string(forKey: "message")!
         profileMessage.text = message
+        profileMessage.numberOfLines = 0
         
         //プロフィール編集ボタンのviewの設定
         changeProfile.layer.cornerRadius = 5
@@ -170,7 +181,7 @@ class ProfileViewController: UIViewController {
         }
         else{
             do{
-                let url = URL(string: profileImageUrl as! String)
+                let url = URL(string: profileImageUrl)
                 let data = try Data(contentsOf: url!)
                 profileImage.image = UIImage(data: data)!
             }catch{
