@@ -57,13 +57,13 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         HUD.show(.progress, onView: self.view)
         
         guard let changename = usernameTextField.text else{return}
-        let username = changename as! String
-        //UserDefaults.standard.set(username, forKey: "name")
+        let username = changename
+        UserDefaults.standard.set(username, forKey: "name")
         print(username)
         
         guard let changemessage = profileTextField.text else{return}
-        let message = changemessage as! String
-        //UserDefaults.standard.set(message, forKey: "message")
+        let message = changemessage
+        UserDefaults.standard.set(message, forKey: "message")
         print(message)
         
         //UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
@@ -79,13 +79,13 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         
         renewButton.layer.cornerRadius = 10
     
-        let username = UserDefaults.standard.string(forKey: "name") as! String
+        let username = UserDefaults.standard.string(forKey: "name")!
         usernameTextField.text = username
         
-        let message = UserDefaults.standard.string(forKey: "message") as! String
+        let message = UserDefaults.standard.string(forKey: "message")!
         profileTextField.text = message
         
-        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl") as! String
+        let profileImageUrl = UserDefaults.standard.string(forKey: "profileImageUrl")!
         do{
             let url = URL(string: profileImageUrl ?? "noimage")
             let data = try Data(contentsOf: url!)
@@ -140,7 +140,7 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
                             }
                         }
                 }
-                //self.profileImageUrl = urlString
+                
                 print("urlString: ",urlString)
                 UserDefaults.standard.set(urlString, forKey: "profileImageUrl")
             }
@@ -177,48 +177,11 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
-    
-    
-//    private func updateProfileName() {
-//        guard let userId = Auth.auth().currentUser?.uid else{fatalError()}
-//        let ref = Firestore.firestore().collection("users").document(userId)
-//        guard let changename = usernameTextField.text else{return}
-//
-//        ref.updateData(["name":changename])
-//            { err in
-//            if let err = err {
-//                HUD.hide { (_) in
-//                    HUD.flash(.error,delay: 1)}
-//                print("Error updating document:\(err)")
-//            }else{
-//                print("Document successfully updated name")
-//
-//            }
-//        }
-//    }
-    
-//    private func updateProfileMessage() {
-//        guard let userId = Auth.auth().currentUser?.uid else{fatalError()}
-//        let ref = Firestore.firestore().collection("users").document(userId)
-//        guard let changemessage = profileTextField.text else{return}
-//        ref.updateData(["message":changemessage ])
-//            { err in
-//            if let err = err {
-//                print("Error updating document:\(err)")
-//            HUD.hide { (_) in
-//                    HUD.flash(.error,delay: 1)}
-//            }else{
-//                print("Document successfully updated message")
-//            }
-//        }
-//    }
-    
-    
     private func changingProfile() {
         usernameTextField.rx.text
             .asDriver()
             .drive{[weak self] text in
-            print("text:", text)
+                print("text:", text as Any)
             self?.name = text ?? ""
         }
         .disposed(by: disposeBag)
@@ -226,7 +189,7 @@ class changeProfileViewController: UIViewController, UIImagePickerControllerDele
         profileTextField.rx.text
             .asDriver()
             .drive{[weak self] text in
-            print("text:", text)
+                print("text:", text as Any)
             self?.message = text ?? ""
         }
         .disposed(by: disposeBag)
