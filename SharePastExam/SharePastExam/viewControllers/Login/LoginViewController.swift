@@ -11,19 +11,27 @@ import Firebase
 import PKHUD
 
 class LoginViewController: UIViewController {
-    
+    //メールのテキストフィールド
     @IBOutlet weak var emailTextField: UITextField!
+    
+    //パスワードのテキストフィールド
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    //ログインボタン
     @IBOutlet weak var loginButton: UIButton!
+    
+    //アカウントを持っていない人のボタン
     @IBOutlet weak var dontHaveAcountButton: UIButton!
     
+    //アカウントを持っていない人のボタンを押したときの動作
     @IBAction func tappedDontHaveAcountButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    //ログインボタンを押したときの動作
     @IBAction func tappedLoginButton(_ sender: Any) {
         HUD.show(.progress, onView: self.view)
         print("tapped Login Button")
-        
         guard let email = emailTextField.text else {return}
         print(email)
         guard  let password = passwordTextField.text else {return}
@@ -44,7 +52,6 @@ class LoginViewController: UIViewController {
             print(uid)
             
             let userRef = Firestore.firestore().collection("users").document(uid)
-            
             
             userRef.addSnapshotListener{(snapshot, err) in
                 if let err = err {
@@ -68,7 +75,6 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(message, forKey: "message")
                 let profileImageUrl = data["profileImageUrl"] as Optional<Any>
                 UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
-                print(profileImageUrl)
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.name)")
@@ -76,7 +82,7 @@ class LoginViewController: UIViewController {
                 HUD.hide{ (_) in
                     HUD.flash(.success , onView: self.view, delay: 1){(_) in
                     self.presentToHomeViewController(user: user)
-                    //self.presentToProfileViewController(user: user)
+                    
                     }
                 }
             }
@@ -115,16 +121,7 @@ class LoginViewController: UIViewController {
         self.present(loginViewController, animated: true, completion: nil)
         
     }
-    
-        //private func presentToProfileViewController(user: User){
-        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
-        
-        //profileViewController.user = user
-        
-        //self.present(profileViewController, animated: true, completion: nil)
-    //}
+
     
     override func viewDidLoad() {
         
@@ -154,8 +151,7 @@ extension LoginViewController: UITextFieldDelegate {
             loginButton.isEnabled = true
             loginButton.backgroundColor = UIColor.rgb(red: 0, green: 255, blue: 0)
         }
-        
-        print("textField.text:",textField.text)
+    
     }
     
 }

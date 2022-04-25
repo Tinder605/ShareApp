@@ -29,30 +29,45 @@ struct User {
 
 
 class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    //メッセージのテキストフィールド
     @IBOutlet weak var messageTextField: UITextField!
+    
+    //メールのテキストフィールド
     @IBOutlet weak var emailTextField: UITextField!
+    
+    //パスワードのテキストフィールド
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    //名前のテキストフィールド
     @IBOutlet weak var usernameTextField: UITextField!
+    
+    //学科のテキストフィールド
     @IBOutlet weak var departmentTextField: UITextField!
+    
+    //登録ボタン
     @IBOutlet weak var registerButton: UIButton!
+    
+    //アカウントを持っている人のボタン
     @IBOutlet weak var HaveAcountButton: UIButton!
+    
+    //登録ボタンを押したときの動作
     @IBAction func tappedRegisterButton(_ sender: Any) {
         handleAuthToFirebase()
         print("tappedRegisterButton")
     }
+    
+    //アカウントを持っている人のボタンを押したときの動作
     @IBAction func tappedHaveAcountButton(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Login", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         homeViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(homeViewController, animated: true)
         print("tappedHaveAcountButton")
-       //self.present(homeViewController, animated: true, completion: nil)
     }
     
     private func next(_ sender: Any) {
         
-        var tabbarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! UITabBarController
+        let tabbarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! UITabBarController
         self.navigationController?.pushViewController(tabbarController, animated: true)
     }
     
@@ -115,13 +130,12 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
                 UserDefaults.standard.set(username, forKey: "name")
                 let useremail = data["email"] as! String
                 UserDefaults.standard.set(useremail, forKey: "email")
-                var array:[String] = []
+                let array:[String] = []
                 UserDefaults.standard.set(array, forKey: "RecentlySub")
                 let message = data["message"] as! String
                 UserDefaults.standard.set(message, forKey: "message")
                 let profileImageUrl = data["profileImageUrl"] as Optional<Any>
                 UserDefaults.standard.set(profileImageUrl, forKey: "profileImageUrl")
-                print(profileImageUrl)
                 
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました。\(user.department)")
@@ -160,19 +174,9 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         let homeViewController = storyBoard.instantiateViewController(identifier: "TabViewController") as! TabViewController
         homeViewController.modalPresentationStyle = .fullScreen
     
-        //let nextViewController = storyboard?.instantiateViewController(identifier: "TabViewController") as! TabViewController
-        
         self.present(homeViewController, animated: true, completion: nil)
     }
     
-    //private func presentToProfileViewController(user: User){
-        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //let profileViewController = storyBoard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
-        //profileViewController.user = user
-        
-        //self.present(profileViewController, animated: true, completion: nil)
-    //}
     
     var pickerView: UIPickerView = UIPickerView()
         let list = ["エネルギー循環化学科", "機械システム工学科", "情報システム工学科", "建築デザイン学科", "環境生命工学科", "英米学科", "中国学科", "国際関係学科", "経済学科", "経営情報学科", "比較文化学科","人間関係学科","法律学科","政策科学科","地域創生学群地域創生学類"]
@@ -198,7 +202,6 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector (showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         
         
         pickerView.delegate = self
@@ -242,9 +245,6 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
            override func didReceiveMemoryWarning() {
                super.didReceiveMemoryWarning()
-               // Dispose of any resources that can be recreated.
-            
-            
            }
     
     @objc func showKeyboard(notification: Notification) {
@@ -260,7 +260,6 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
             self.view.transform = transform
         })
         
-        //print("keyboardFrame : ", keyboardFrame)
     }
     
     @objc func hideKeyboard() {
@@ -278,7 +277,6 @@ class SignUp: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 extension SignUp: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        print("textField.text", textField.text)
         let emailIsEmpty = emailTextField.text?.isEmpty ?? true
         let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
         let usernameIsEmpty = usernameTextField.text?.isEmpty ?? true
@@ -292,6 +290,5 @@ extension SignUp: UITextFieldDelegate {
             registerButton.backgroundColor = UIColor.rgb(red: 0, green: 255, blue: 0)
         }
     }
-    
 }
 
