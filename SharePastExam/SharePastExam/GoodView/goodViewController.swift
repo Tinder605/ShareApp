@@ -21,11 +21,18 @@ class goodViewController: UIViewController,UIAdaptivePresentationControllerDeleg
         tabBarController?.tabBar.barTintColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         guard let tabBarController = tabBarController else { return }
         let tabBarAppearance = UITabBarAppearance()
+        let navigationBarAppearance = UINavigationBarAppearance()
+        
+        //タブバーのカラー
         tabBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
         tabBarController.tabBar.standardAppearance = tabBarAppearance
-
+        
+        navigationBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+        
         if #available(iOS 15.0, *) { // 新たに追加
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         }
         
         let layout = UICollectionViewFlowLayout()
