@@ -61,7 +61,6 @@ class MyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         if self.cellpath != ""{
-            let sep_cellpath = self.cellpath.components(separatedBy: "/")
             
             self.subName.adjustsFontSizeToFitWidth = true
             
@@ -74,8 +73,6 @@ class MyCollectionViewCell: UICollectionViewCell {
             self.subName.adjustsFontSizeToFitWidth = true
             
         }
-        
-        
     }
     public func getPostPicture(sep_cellpath:[String]){
         let cache = ImageCache.default
@@ -87,6 +84,7 @@ class MyCollectionViewCell: UICollectionViewCell {
                     self.imageView.image = value.image
                 case .failure(let err):
                     print("キャッシュにはありません")
+                    print(err.localizedDescription)
                     self.imageView.image = UIImage(named: "noimage.jpeg")
                 }
             }
@@ -101,7 +99,7 @@ class MyCollectionViewCell: UICollectionViewCell {
                 }
                 else{
                     print("バッグている")
-                    print(err)
+                    print(err.debugDescription)
                     self.imageView.image = UIImage(named: "noimage.jpeg")!
                 }
             }

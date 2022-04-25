@@ -21,20 +21,20 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     let subjection = UserDefaults.standard.dictionary(forKey: "sub") as! [String:[String]]///強化を入れるための変数
-    let department = UserDefaults.standard.string(forKey: "dep") as! String
+    let department = UserDefaults.standard.string(forKey: "dep") ?? ""
     var allsub :[String] = []
     
     override func viewWillLayoutSubviews() {
         
         SubjectionTableWidth.constant = width
-        //タブバー縦の幅
-        let tabstract = tabBarController?.tabBar.frame.height as! CGFloat
-        //ナビバー縦の幅
-        let nabstract = navigationController?.navigationBar.frame.height as! CGFloat
-        SubjectionTableHeight.constant = height - tabstract - nabstract - 50
+//        //タブバー縦の幅
+//        let tabstract = tabBarController?.tabBar.frame.height as! CGFloat
+//        //ナビバー縦の幅
+//        let nabstract = navigationController?.navigationBar.frame.height as! CGFloat
+//        SubjectionTableHeight.constant = height - tabstract - nabstract - 50
         
-        let substract = tabBarController?.tabBar.frame.height as! CGFloat
-        SubjectionTableHeight.constant = height - substract - 90
+        let substract = tabBarController?.tabBar.frame.height
+        SubjectionTableHeight.constant = height - (substract ?? 0) - 90
         SelectSubjectionTableTop.constant = 0
         
         //tableviewのsetctiontitleのカラー
@@ -66,8 +66,6 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         
         
         //SelectSubjectionTable.backgroundColor = .red
-        print(subjection["一年生"] as! [String])
-        let eachsub = subjection["一年生"] as! [String]
         print(subjection.keys)
         print(department)
         
@@ -81,7 +79,6 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
         SelectSubjectionTable.delegate = self
         SelectSubjectionTable.dataSource = self
         
-        print(SelectSubjectionTable.tableHeaderView?.heightAnchor)
     }
     
 
