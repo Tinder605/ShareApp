@@ -126,7 +126,7 @@ class CreateExamViewController: UIViewController {
     private func PostToFireStore(count:String,department:String,subjection:String,subtimes:String){
         let StorageRef = Storage.storage().reference()
         
-        if let data = (SelectPickerImage.image?.resizeImage(withPercentage: 0.1) as! UIImage).pngData() {
+        if let data = (SelectPickerImage.image?.resizeImage(withPercentage: 0.3) as! UIImage).pngData() {
                 let reference = StorageRef.child("images/" + subjection + "/" + "\(subtimes)" + "/" + "\(count)" + ".jpeg")
                 let meta = StorageMetadata()
                 meta.contentType = "image/jpeg"

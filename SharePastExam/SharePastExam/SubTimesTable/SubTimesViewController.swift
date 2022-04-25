@@ -42,10 +42,10 @@ class SubTimesViewController: UIViewController, UITableViewDataSource, UITableVi
         //SubTimesTableHeight.constant = height - substract - 5
         
         //タブバー縦の幅
-        let tabstract = tabBarController.tabBar.frame.height as! CGFloat
+        let tabstract = tabBarController.tabBar.frame.height
         //ナビバー縦の幅
-        let nabstract = navigationController?.navigationBar.frame.height as! CGFloat
-        SubTimesTableHeight.constant = height - tabstract - nabstract - 50
+        let nabstract = navigationController?.navigationBar.frame.height
+        SubTimesTableHeight.constant = height - (tabstract ) - (nabstract ?? 0) - 50
     }
     
     override func viewDidLoad() {
@@ -57,6 +57,7 @@ class SubTimesViewController: UIViewController, UITableViewDataSource, UITableVi
         SubTimesTableView.isScrollEnabled = true
         SubTimesTableView.dataSource = self
         SubTimesTableView.delegate = self
+        
         
     }
     
@@ -89,7 +90,7 @@ extension SubTimesViewController{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let reference = Firestore.firestore().
-        let selectsubtimes = subtimes[indexPath.row] as! String
+        let selectsubtimes = subtimes[indexPath.row]
         print(selectsubtimes)
         
         //セルの選択を解除
@@ -97,7 +98,7 @@ extension SubTimesViewController{
         
         let storyboard = UIStoryboard(name: "ShareRoom", bundle: nil)
         let nextview = storyboard.instantiateViewController(withIdentifier: "ShareRoom") as! ShareRoomViewController
-        nextview.timestile = subtimes[indexPath.row] as! String
+        nextview.timestile = subtimes[indexPath.row]
         
         tableView.separatorColor = UIColor.rgb(red: 140, green: 97, blue: 32) //線を茶色にする
         tableView.separatorInset.left = 0
@@ -105,7 +106,7 @@ extension SubTimesViewController{
         tableView.tableFooterView = UIView()//空のセルの区切りをなくす
             //cell.contentView.backgroundColor = UIColor.rgb(red: 241, green: 251, blue: 231)//セルのバックグラウンド変更
         
-        UserDefaults.standard.set(subtimes[indexPath.row] as! String, forKey: "RecentlyTimes")
+        UserDefaults.standard.set(subtimes[indexPath.row] , forKey: "RecentlyTimes")
         navigationController?.pushViewController(nextview, animated: true)
     }
 

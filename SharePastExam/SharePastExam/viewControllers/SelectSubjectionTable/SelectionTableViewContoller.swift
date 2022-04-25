@@ -27,12 +27,6 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
     override func viewWillLayoutSubviews() {
         
         SubjectionTableWidth.constant = width
-//        //タブバー縦の幅
-//        let tabstract = tabBarController?.tabBar.frame.height as! CGFloat
-//        //ナビバー縦の幅
-//        let nabstract = navigationController?.navigationBar.frame.height as! CGFloat
-//        SubjectionTableHeight.constant = height - tabstract - nabstract - 50
-        
         let substract = tabBarController?.tabBar.frame.height
         SubjectionTableHeight.constant = height - (substract ?? 0) - 90
         SelectSubjectionTableTop.constant = 0
@@ -59,9 +53,14 @@ class SelectionTableViewController: UIViewController,UITableViewDelegate,UITable
                     .foregroundColor: UIColor.brown
                 ]
         UITabBar.appearance().backgroundImage = UIImage()
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+        
         
         if #available(iOS 15, *) {
             UITableView.appearance().sectionHeaderTopPadding = 0
+            navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         }
         
         
@@ -98,11 +97,11 @@ extension SelectionTableViewController{
             tableView.separatorInset.right = 0
             switch section {
             case 0:
-                eachsub = subjection["一年生"] as! [String]
+                eachsub = subjection["一年生"] ?? []
             case 1:
-                eachsub = subjection["二年生"] as! [String]
+                eachsub = subjection["二年生"] ?? []
             case 2:
-                eachsub = subjection["三年生"] as! [String]
+                eachsub = subjection["三年生"] ?? []
             default:
                 eachsub = []
             }
@@ -176,14 +175,14 @@ extension SelectionTableViewController{
             switch indexPath.section {
                 
             case 0:
-                allsub = subjection["一年生"] as! [String]
+                allsub = subjection["一年生"] ?? []
                 //print(indexPath.row)
                 cell.textLabel?.text = allsub[indexPath.row]
             case 1:
-                allsub = subjection["二年生"] as! [String]
+                allsub = subjection["二年生"] ?? []
                 cell.textLabel?.text = allsub[indexPath.row]
             case 2:
-                allsub = subjection["三年生"] as! [String]
+                allsub = subjection["三年生"] ?? []
                 cell.textLabel?.text = allsub[indexPath.row]
                 
             default:
@@ -206,13 +205,13 @@ extension SelectionTableViewController{
         var usersub :String = ""
         switch indexPath.section {
         case 0:
-            allsub =  subjection["一年生"] as! [String]
+            allsub =  subjection["一年生"] ?? []
             usersub = allsub[indexPath.row]
         case 1:
-            allsub = subjection["二年生"] as! [String]
+            allsub = subjection["二年生"] ?? []
             usersub = allsub[indexPath.row]
         case 2:
-            allsub = subjection["三年生"] as! [String]
+            allsub = subjection["三年生"] ?? []
             usersub = allsub[indexPath.row]
         default:
             allsub = []
