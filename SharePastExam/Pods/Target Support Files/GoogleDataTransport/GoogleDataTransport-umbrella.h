@@ -12,12 +12,17 @@
 
 #import "GDTCORClock.h"
 #import "GDTCORConsoleLogger.h"
+#import "GDTCOREndpoints 2.h"
 #import "GDTCOREndpoints.h"
 #import "GDTCOREvent.h"
+#import "GDTCOREventDataObject 2.h"
 #import "GDTCOREventDataObject.h"
+#import "GDTCOREventTransformer 2.h"
 #import "GDTCOREventTransformer.h"
+#import "GDTCORTargets 2.h"
 #import "GDTCORTargets.h"
 #import "GDTCORTransport.h"
+#import "GoogleDataTransport 2.h"
 #import "GoogleDataTransport.h"
 
 FOUNDATION_EXPORT double GoogleDataTransportVersionNumber;

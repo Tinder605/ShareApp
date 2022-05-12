@@ -507,6 +507,7 @@ PODS:
   - SDWebImage/Core (5.12.5)
   - SDWebImageSwiftUI (2.0.2):
     - SDWebImage (~> 5.10)
+  - SkeletonView (1.29.2)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -520,6 +521,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - SDWebImageSwiftUI
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
@@ -552,6 +554,7 @@ SPEC REPOS:
     - RxSwift
     - SDWebImage
     - SDWebImageSwiftUI
+    - SkeletonView
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -583,7 +586,8 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
+  SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
 
-PODFILE CHECKSUM: 1bf58bd347a16e84e9a074193a2882d9fe79d09b
+PODFILE CHECKSUM: fb1afa2b7d80c54a9c7ab8e36ca9e33071893936
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.3

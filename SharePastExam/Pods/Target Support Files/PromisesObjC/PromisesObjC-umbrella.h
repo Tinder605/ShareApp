@@ -14,6 +14,7 @@
 #import "FBLPromise+Always.h"
 #import "FBLPromise+Any.h"
 #import "FBLPromise+Async.h"
+#import "FBLPromise+Await 2.h"
 #import "FBLPromise+Await.h"
 #import "FBLPromise+Catch.h"
 #import "FBLPromise+Delay.h"
@@ -28,7 +29,9 @@
 #import "FBLPromise+Validate.h"
 #import "FBLPromise+Wrap.h"
 #import "FBLPromise.h"
+#import "FBLPromiseError 2.h"
 #import "FBLPromiseError.h"
+#import "FBLPromises 2.h"
 #import "FBLPromises.h"
 
 FOUNDATION_EXPORT double FBLPromisesVersionNumber;

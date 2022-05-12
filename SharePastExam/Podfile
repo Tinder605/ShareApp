@@ -17,4 +17,5 @@ target 'SharePastExam' do
   pod 'Nuke'
   pod 'SDWebImageSwiftUI'
   pod 'Kingfisher'
+  pod 'SkeletonView'
 end

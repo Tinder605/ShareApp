@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "RxCocoaRuntime 2.h"
 #import "RxCocoaRuntime.h"
 #import "_RX.h"
 #import "_RXDelegateProxy.h"
