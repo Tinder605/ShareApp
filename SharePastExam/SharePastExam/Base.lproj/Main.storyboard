@@ -369,6 +369,9 @@
                                     <constraint firstAttribute="height" constant="90" id="1ad-e8-2xM"/>
                                     <constraint firstAttribute="width" constant="90" id="flx-jC-JAI"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIL-BV-3G6">
                                 <rect key="frame" x="57" y="303.5" width="300" height="30"/>

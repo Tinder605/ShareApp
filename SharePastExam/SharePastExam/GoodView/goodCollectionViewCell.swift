@@ -10,7 +10,7 @@ import FirebaseStorage
 import FirebaseFirestore
 import Firebase
 import Kingfisher
-
+import SkeletonView
 
 
 class goodCollectionViewCell: UICollectionViewCell {
@@ -68,7 +68,8 @@ class goodCollectionViewCell: UICollectionViewCell {
         //self.titleLabel.adjustsFontSizeToFitWidth = true
         self.goodCollectionViewCell.addSubview(titleLabel)
         
-    
+        //スケルトン開始
+        self.goodCollectionViewCell.showAnimatedGradientSkeleton()
         
         if self.subjection != "" && self.times != "" && self.count != ""{
             
@@ -131,6 +132,7 @@ class goodCollectionViewCell: UICollectionViewCell {
                             print("キャッシュによる取得")
                             print(path)
                             self.goodCollectionViewCell.image = value.image
+                            self.goodCollectionViewCell.hideSkeleton()
                         case .failure(let err):
                             print(err)
                             self.goodCollectionViewCell.image = UIImage(named: "noimage.jpeg")
@@ -147,6 +149,7 @@ class goodCollectionViewCell: UICollectionViewCell {
                         if imgdata != nil{
                             self.goodCollectionViewCell.image = UIImage(data: imgdata!)!
                             cache.store(UIImage(data: imgdata!)!, forKey: path)
+                            self.goodCollectionViewCell.hideSkeleton()
                         }
                         else{
                             self.goodCollectionViewCell.image = UIImage(named: "noimage.jpeg")
@@ -205,6 +208,7 @@ class goodCollectionViewCell: UICollectionViewCell {
 
     public func configure(with image: UIImage) {
         goodCollectionViewCell.image = image
+        self.goodCollectionViewCell.hideSkeleton()
     }
     static func nib() -> UINib {
         return UINib(nibName: "goodCollectionViewCell", bundle: nil)

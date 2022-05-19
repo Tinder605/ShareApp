@@ -116,7 +116,7 @@ class ShareRoomViewController: UIViewController, UICollectionViewDataSource ,UIC
                         print(data)
                         return data
                     }
-                    HUD.flash(.success, onView: self.view)
+                    //HUD.flash(.success, onView: self.view)
                     self.ShareRoomCollectionView.reloadData()
                 }
             }

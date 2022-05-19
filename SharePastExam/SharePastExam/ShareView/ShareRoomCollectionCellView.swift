@@ -11,6 +11,7 @@ import Firebase
 import PKHUD
 import Nuke
 import Kingfisher
+import SkeletonView
 
 class ShareRoomCollectionCellView : UICollectionViewCell {
     static let identifier = "cellid"
@@ -197,6 +198,9 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
     //awakeします。
     override func awakeFromNib() {
         super.awakeFromNib()
+        //スケルトン開始
+        self.PostImages.showAnimatedGradientSkeleton()
+        
         //self.fittoView(size: (width-10)/2)
         self.getShareRoomImage()
         self.backgroundColor = UIColor.rgb(red: 214, green: 183, blue: 123)
@@ -247,10 +251,14 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     case .success(let value):
                         DispatchQueue.main.async {
                             self.PostImages.image = value.image
+                            //スケルトン終了(画像)
+                            self.PostImages.hideSkeleton()
                         }
                     case .failure(let err):
                         print(err)
                         self.PostImages.image = UIImage(named: "noimage")!
+                        //スケルトン終了(画像)
+                        self.PostImages.hideSkeleton()
                     }
                     
                 }
@@ -262,11 +270,17 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
                     if data != nil{
                         print("入ってます")
                         self.PostImages.image = UIImage(data: data!)!
+                        //スケルトン終了(画像)
+                        self.PostImages.hideSkeleton()
                         cache.store(UIImage(data: data!)!, forKey: path)
+                        //スケルトン終了(画像)
+                        self.PostImages.hideSkeleton()
                         
                     }
                     else{
                         self.PostImages.image = UIImage(named: "noimage.jpeg")
+                        //スケルトン終了(画像)
+                        self.PostImages.hideSkeleton()
                     }
                 }
             }
@@ -274,6 +288,8 @@ class ShareRoomCollectionCellView : UICollectionViewCell {
         else{
             print("あれへんで")
             self.PostImages.image = UIImage(named: "noimage.jpeg")
+            //スケルトン終了(画像)
+            self.PostImages.hideSkeleton()
         }
         
     }

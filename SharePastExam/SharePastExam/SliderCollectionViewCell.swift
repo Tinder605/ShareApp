@@ -9,6 +9,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseFirestore
 import Kingfisher
+import SkeletonView
 
 class SliderCollectionViewCell: UICollectionViewCell {
     
@@ -22,6 +23,8 @@ class SliderCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //スケルトン開始
+        self.sliderImage.showAnimatedGradientSkeleton()
 //        print("awakeしています")
 //        print(self.path)
         self.getPastDocuments()
@@ -37,6 +40,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
         
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         self.sliderImage.addSubview(titleLabel)
+        
     }
     
     public func getPastDocuments(){
@@ -75,9 +79,11 @@ class SliderCollectionViewCell: UICollectionViewCell {
                     case .success(let value):
                         print("キャッシュを利用しています")
                         self.sliderImage.image = value.image
+                        self.sliderImage.hideSkeleton()
                     case .failure(let err):
                         print(err)
                         self.sliderImage.image = UIImage(named: "noimage.jpeg")!
+                        self.sliderImage.hideSkeleton()
                     }
                 }
             }
@@ -88,7 +94,9 @@ class SliderCollectionViewCell: UICollectionViewCell {
                 FireStorage_Path.getData(maxSize: 1024*1024*1000){ (data,err) in
                     if data != nil{
                         self.sliderImage.image = UIImage(data: data!)!
+                        self.sliderImage.hideSkeleton()
                         cache.store(UIImage(data: data!)!, forKey: self.path)
+                        self.sliderImage.hideSkeleton()
                     }
                     else{
                         print(err)
@@ -101,6 +109,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
                             print(cacheDoc)
                             cacheDoc.removeAll(where: {$0 == self.path})
                             UserDefaults.standard.set(cacheDoc, forKey: "RecentlyPath")
+                            self.sliderImage.hideSkeleton()
                         }
                     }
                 }
@@ -123,6 +132,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
     }
     public func configure(with image: UIImage) {
         sliderImage.image = image
+        self.sliderImage.hideSkeleton()
     }
     public func configure(with text: String) {
         titleLabel.text = text

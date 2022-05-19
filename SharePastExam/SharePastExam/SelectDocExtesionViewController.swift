@@ -42,6 +42,11 @@ class SelectDocExtesionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.CreateUserImage.layer.cornerRadius = self.CreateUserImage.frame.width/2
+        //スケルトン開始
+        self.CreateUserImage.showAnimatedGradientSkeleton()
+        //スケルトン開始
+        self.CreateUserName.showAnimatedGradientSkeleton()
         HUD.show(.progress, onView: self.view)
         //self.view.backgroundColor = UIColor.rgb(red: 186, green: 249, blue: 146)
         self.DocExtensionTitle.text = doctitle
@@ -112,11 +117,15 @@ class SelectDocExtesionViewController: UIViewController {
                             do{
                                 let url = URL(string: userurl)
                                 let imgdata = try Data(contentsOf: url!)
+                                self.CreateUserName.hideSkeleton()
                                 self.CreateUserImage.image = UIImage(data: imgdata)
-                                HUD.flash(.success,onView: self.view)
+                                self.CreateUserImage.hideSkeleton()
+                                //HUD.flash(.success,onView: self.view)
                             }catch{
                                 self.CreateUserImage.image = UIImage(named: "noimage.jpeg")!
-                                HUD.flash(.error,onView: self.view)
+                                self.CreateUserImage.hideSkeleton()
+                                
+                                //HUD.flash(.error,onView: self.view)
                             }
                         }
                     }
@@ -124,7 +133,8 @@ class SelectDocExtesionViewController: UIViewController {
             }
             else{
                 self.CreateUserImage.image = UIImage(named: "noimage.jpeg")!
-                HUD.flash(.error,onView: self.view)
+                self.CreateUserImage.hideSkeleton()
+                //HUD.flash(.error,onView: self.view)
             }
         }
     }

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseStorage
+import SkeletonView
 
 class SliderCell: UICollectionViewCell {
     
@@ -33,6 +34,7 @@ class SliderCell: UICollectionViewCell {
         //slidercollectionviewの背景色の変更
         collectionView.backgroundColor = UIColor.rgb(red: 210, green: 246, blue: 167)
         
+        
         return collectionView
     }()
     //collectionviewの中のcollectionviewをリロードする関数
@@ -55,6 +57,7 @@ class SliderCell: UICollectionViewCell {
         
         SliderCollectionView.contentInset = .init(top: 0, left: 15, bottom: 0, right: 15)
         SliderCollectionView.register(UINib(nibName: "SliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: sliderId)
+        
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

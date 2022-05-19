@@ -9,6 +9,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseFirestore
 import Kingfisher
+import SkeletonView
 
 class MyCollectionViewCell: UICollectionViewCell {
     
@@ -72,6 +73,8 @@ class MyCollectionViewCell: UICollectionViewCell {
             //フォントを横幅に合わせる
             self.subName.adjustsFontSizeToFitWidth = true
             
+            //スケルトン開始
+            self.imageView.showAnimatedGradientSkeleton()
         }
     }
     public func getPostPicture(sep_cellpath:[String]){
@@ -82,6 +85,8 @@ class MyCollectionViewCell: UICollectionViewCell {
                 case .success(let value):
                     print("キャッシュの利用")
                     self.imageView.image = value.image
+                    //スケルトン終了(画像)
+                    self.imageView.hideSkeleton()
                 case .failure(let err):
                     print("キャッシュにはありません")
                     print(err.localizedDescription)
@@ -95,6 +100,9 @@ class MyCollectionViewCell: UICollectionViewCell {
                 if imgdata != nil{
                     print("きてはいます")
                     self.imageView.image = UIImage(data: imgdata!)!
+                    //スケルトン終了(画像)
+                    self.imageView.hideSkeleton()
+                    
                     cache.store(UIImage(data: imgdata!)!, forKey: self.cellpath)
                 }
                 else{
@@ -108,6 +116,8 @@ class MyCollectionViewCell: UICollectionViewCell {
     //各セルのドキュメント情報の所得(必要ないのかもしれない）
     public func getPostDocData(sep_cellpath:[String]){
         let ref = Firestore.firestore().collection("images").document(sep_cellpath[0]).collection("times").document(sep_cellpath[1]).collection("count").document(sep_cellpath[2])
+        
+        //defer {
         ref.getDocument(){(snapshot,err) in
             if snapshot != nil{
                 let data = snapshot?.data() ?? [:]
@@ -120,7 +130,6 @@ class MyCollectionViewCell: UICollectionViewCell {
                 self.viewCount.text = String(data["viewcount"] as? Int ?? 0)
                 self.subName.text = "【" + sep_cellpath[0] + "/" + sep_cellpath[1] + "】"
                 self.titleLabel.text = data["title"] as? String ?? "NoTitle"
-    
             }
         }
     }
@@ -163,10 +172,10 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     public func configure(with image: UIImage) {
         imageView.image = image
-
     }
     static func nib() -> UINib {
         return UINib(nibName: "MyCollectionViewCell", bundle: nil)
     }
-    
 }
+
+

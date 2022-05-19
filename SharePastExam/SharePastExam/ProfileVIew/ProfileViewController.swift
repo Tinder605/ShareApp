@@ -12,6 +12,7 @@ import FirebaseFirestore
 import Nuke
 import FirebaseStorage
 import SDWebImage
+import SkeletonView
 
 class PostData:NSObject{
     
@@ -101,7 +102,8 @@ class ProfileViewController: UIViewController {
             navBarController.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
         
-        profileImage.image = UIImage(named: "noimage.jpeg")!
+        //profileImage.image = UIImage(named: "noimage.jpeg")!
+        self.profileImage.showAnimatedGradientSkeleton()
         profileImage.contentMode = .scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
@@ -137,6 +139,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         let username = UserDefaults.standard.string(forKey: "name")!
         usernameTextField.text = username
         
@@ -152,6 +155,7 @@ class ProfileViewController: UIViewController {
         if profileImageUrl == "noimage" || profileImageUrl == ""{
             let uid = Auth.auth().currentUser?.uid
             let ref = Firestore.firestore().collection("users").document(uid!)
+            
             ref.getDocument(){ (snapshot,err) in
                 if err != nil{
                     self.profileImage.image = UIImage(named: "noimage.jpeg")!
@@ -165,7 +169,7 @@ class ProfileViewController: UIViewController {
                     if profileurl != "noimage" && profileurl != ""{
                         
                         
-                        let url = URL(string: profileurl )
+                        let url = URL(string: profileurl)
                         do{
                             let imgdata = try Data(contentsOf: url!)
                             self.profileImage.image = UIImage(data: imgdata)!
@@ -184,6 +188,8 @@ class ProfileViewController: UIViewController {
                 let url = URL(string: profileImageUrl)
                 let data = try Data(contentsOf: url!)
                 profileImage.image = UIImage(data: data)!
+                self.profileImage.hideSkeleton()
+                profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
             }catch{
                 print("catchされています。")
                 print("errr")
@@ -218,6 +224,7 @@ class ProfileViewController: UIViewController {
     private func getSelfDocuments(){
         let uid = Auth.auth().currentUser?.uid
         let selfRef = Firestore.firestore().collection("users").document(uid!)
+        
         HUD.hide{ (_) in
         selfRef.getDocument(){(snapshot,err) in
             if let err = err{
@@ -235,7 +242,7 @@ class ProfileViewController: UIViewController {
             print("ここに投稿数を表示します")
             print(PostDocumentsPath.count)
             self.collectionView.reloadData()
-            HUD.flash(.success, onView: self.view)
+            //HUD.flash(.success, onView: self.view)
           }
         }
     }
