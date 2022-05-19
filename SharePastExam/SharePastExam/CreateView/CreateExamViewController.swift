@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import SwiftUI
+import DKImagePickerController
 
 
 class CreateExamViewController: UIViewController {
@@ -253,13 +254,19 @@ extension CreateExamViewController:UITextFieldDelegate{
 
 extension CreateExamViewController:UINavigationControllerDelegate{
     func pickImageFromLibbrary(){
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
-            let controller = UIImagePickerController()
-            controller.delegate = self
-            controller.sourceType =  UIImagePickerController.SourceType.photoLibrary
-
-            present(controller, animated: true, completion: nil)
-        }
+        let picker = DKImagePickerController()
+        //選択できる写真の最大数を指定
+        picker.maxSelectableCount = 4
+        //カメラモード、写真モードの選択
+        picker.sourceType = .photo
+        picker.assetType = .allPhotos
+        //キャンセルボタンの有効化
+        picker.showsCancelButton = true
+        picker.modalPresentationStyle = .fullScreen
+        picker.view.backgroundColor = UIColor.rgb(red: 166, green: 252, blue: 132)
+        
+        //
+        self.present(picker, animated: true, completion: nil)
     }
 }
 

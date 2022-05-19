@@ -1,5 +1,9 @@
 ${PODS_ROOT}/Target Support Files/Pods-SharePastExam/Pods-SharePastExam-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
+${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework
+${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework
+${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework
+${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAppCheckInterop/FirebaseAppCheckInterop.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAuthInterop/FirebaseAuthInterop.framework
@@ -26,6 +30,7 @@ ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImageSwiftUI/SDWebImageSwiftUI.framework
 ${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework
+${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework
 ${BUILT_PRODUCTS_DIR}/abseil/absl.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework
