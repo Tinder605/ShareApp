@@ -163,8 +163,6 @@ class ProfileViewController: UIViewController {
                     UserDefaults.standard.set(profileurl,forKey: "profileImageUrl")
 
                     if profileurl != "noimage" && profileurl != ""{
-                        
-                        
                         let url = URL(string: profileurl )
                         do{
                             let imgdata = try Data(contentsOf: url!)

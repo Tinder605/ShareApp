@@ -18,4 +18,6 @@ target 'SharePastExam' do
   pod 'SDWebImageSwiftUI'
   pod 'Kingfisher'
   pod 'SkeletonView'
+  pod 'DKImagePickerController'
+  
 end
